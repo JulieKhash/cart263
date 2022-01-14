@@ -20,6 +20,7 @@ class SausageDog extends Animal {
         mouseY > this.y - this.image.height/2 &&
         mouseY < this.y + this.image.height/2) {
           this.found = true;
+          barkSFX.play();
         }
   }
 }

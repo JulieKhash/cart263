@@ -9,12 +9,17 @@ let animals = []; //stores animal objects
 let sausageDogImg;
 let sausageDog;
 
+let errorSFX;
+let barkSFX;
+
 function preload() {
   for (let i = 0; i < ANIMAL_IMG; i++) {
     let animalImage = loadImage(`assets/images/animal${i}.png`);
     animalImages.push(animalImage);
   }
    sausageDogImg = loadImage(`assets/images/sausage-dog.png`);
+
+   barkSFX = loadSound(`assets/sounds/barkSound.mp3`);
 }
 
 function setup() {
