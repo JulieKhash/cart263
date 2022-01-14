@@ -1,26 +1,24 @@
 class SausageDog extends Animal {
-  constructor(x, y, image){
+  constructor(x, y, image) {
     super(x, y, image);
 
     this.found = false;
     this.rotatationSpeed = 0.25;
   }
 
-  update(){
+  update() {
     super.update();
 
-    if (this.found){
+    if (this.found) {
       this.angle += this.rotatationSpeed;
     }
   }
 
-  mousePressed(){
-    if (mouseX > this.x - this.image.width/2 &&
-        mouseX < this.x + this.image.width/2 &&
-        mouseY > this.y - this.image.height/2 &&
-        mouseY < this.y + this.image.height/2) {
-          this.found = true;
-          barkSFX.play();
-        }
+  mousePressed() {
+
+    if (this.overlap(mouseX, mouseY)) {
+      this.found = true;
+      barkSFX.play();
+    }
   }
 }

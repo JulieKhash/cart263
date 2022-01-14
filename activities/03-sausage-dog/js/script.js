@@ -19,6 +19,7 @@ function preload() {
   }
    sausageDogImg = loadImage(`assets/images/sausage-dog.png`);
 
+   errorSFX = loadSound(`assets/sounds/errorSound.mp3`);
    barkSFX = loadSound(`assets/sounds/barkSound.mp3`);
 }
 
@@ -52,4 +53,8 @@ function draw() {
 
 function mousePressed(){
   sausageDog.mousePressed();
+
+  for (let i = 0; i < animals.length; i++) {
+  animals[i].mousePressed();
+  }
 }
