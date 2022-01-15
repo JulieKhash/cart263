@@ -14,6 +14,8 @@ const NUM_BUTTERFLY = 100;
 let butterflyImages = [];
 let butterflies = []; // an empty array to store butterfly instances
 
+let spiderIm
+
 /**
 Description of preload
 */
