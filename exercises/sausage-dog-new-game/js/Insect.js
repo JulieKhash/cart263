@@ -9,12 +9,23 @@ class Insect {
     this.image = image;
 
     this.angle = 0;
+    this.errorSound = true;
   }
 
   update() {
+    this.mouseHover();
     this.move();
     this.display();
   }
+
+  // jitter fast if the spider is found
+    mouseHover(){
+      if(this.overlap(mouseX, mouseY))
+        this.speed = 5;
+       else {
+        this.speed = 0.3
+      }
+    }
 
   move() {
     // check if we need to change direction
@@ -53,7 +64,7 @@ class Insect {
   }
 
   mousePressed(){
-    if(this.overlap(mouseX, mouseY)) {
+    if(this.overlap(mouseX, mouseY) && this.errorSound) {
       errorSFX.play();
     }
   }
