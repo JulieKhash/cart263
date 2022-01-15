@@ -14,7 +14,8 @@ const NUM_BUTTERFLY = 100;
 let butterflyImages = [];
 let butterflies = []; // an empty array to store butterfly instances
 
-let spiderIm
+let spiderImg;
+let spider;
 
 /**
 Description of preload
@@ -24,6 +25,7 @@ function preload() {
     let butterflyImg = loadImage(`assets/images/butterfly${i}.png`);
     butterflyImages.push(butterflyImg);
   }
+    spiderImg = loadImage(`assets/images/spider0.png`);
 }
 
 /**
@@ -39,6 +41,9 @@ function setup() {
     let butterfly = new Insect(x, y, butterflyImg);
     butterflies.push(butterfly);
   }
+  let x = random(0, width);
+  let y = random(0, height);
+  let spider = new Spider(x, y, spiderImg);
 }
 
 /**
@@ -50,4 +55,6 @@ function draw() {
   for(let i = 0; i < butterflies.length; i++){
     butterflies[i].update();
   }
+  //
+  // spider.update();
 }
