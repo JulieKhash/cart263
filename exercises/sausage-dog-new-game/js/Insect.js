@@ -26,6 +26,10 @@ class Insect {
     // move position with velocity
     this.x += this.vx;
     this.y += this.vy;
+
+    // constrain to the canvas
+    this.x = constrain(this.x, 0, width);
+    this.y = constrain(this.y, 0, height);
   }
 
   display() {
