@@ -13,11 +13,13 @@ class Insect {
     this.image = image;
 
     this.angle = 0;
-    this.errorSound = true;
+    this.active = true;
+    this.wiggling = false;
   }
 
   update() {
     this.mouseHover();
+    this.wiggle();
     this.move();
     this.display();
   }
@@ -31,12 +33,20 @@ class Insect {
 
   // move butterflies away if mouse is over touch them
     mouseHover(){
-      if(this.overlap(mouseX, mouseY))
-        this.speed = 5
-      //  else {
-      //   this.speed = 0.3
-      // }
+      if(this.wiggling)
+        this.speed = 5;
+       else {
+        this.wiggling = false;
+      }
+}
+
+  wiggle(){
+    if(this.overlap(mouseX, mouseY))
+      this.wiggling = true;
+     else {
+      this.wiggling = false;
     }
+  }
 
   move() {
     // check if we need to change direction
@@ -75,7 +85,7 @@ class Insect {
   }
 
   mousePressed(){
-    if(this.overlap(mouseX, mouseY) && this.errorSound) {
+    if(this.overlap(mouseX, mouseY)) {
       errorSFX.play();
     }
   }
