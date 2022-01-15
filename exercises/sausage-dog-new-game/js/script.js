@@ -9,7 +9,7 @@ author, and this description to match your project!
 "use strict";
 
 const BUTTERFLY_IMG = 13;
-const NUM_BUTTERFLY = 100;
+const NUM_BUTTERFLY = 40;
 
 let butterflyImages = [];
 let butterflies = []; // an empty array to store butterfly instances
@@ -60,9 +60,13 @@ function draw() {
 
   for (let i = 0; i < butterflies.length; i++) {
     butterflies[i].update();
+    if (spider.detected){
+      butterflies[i].moveRapid();
+    }
   }
-
   spider.update();
+
+
 }
 
 function mousePressed(){

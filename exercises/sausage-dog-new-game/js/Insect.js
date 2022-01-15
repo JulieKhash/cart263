@@ -5,7 +5,11 @@ class Insect {
     this.vx = 0;
     this.vy = 0;
     this.speed = 0.3;
+    this.speedMin = 8;
+    this.speedMax = 15;
+    this.speedIncrease = 2;
     this.jitterness = 0.1;
+    this.jitternessIncrease = 0.2;
     this.image = image;
 
     this.angle = 0;
@@ -18,13 +22,20 @@ class Insect {
     this.display();
   }
 
-  // jitter fast if the spider is found
+  moveRapid(){
+   this.speed += this.speedIncrease;
+   this.speed = constrain(this.speed, this.speedMin, this.speedMax);
+   this.jitterness += this.jitternessIncrease;
+   this.jitterness = constrain(this.jitterness, this.jitterness, this.jitternessIncrease);
+  }
+
+  // move butterflies away if mouse is over touch them
     mouseHover(){
       if(this.overlap(mouseX, mouseY))
-        this.speed = 5;
-       else {
-        this.speed = 0.3
-      }
+        this.speed = 5
+      //  else {
+      //   this.speed = 0.3
+      // }
     }
 
   move() {

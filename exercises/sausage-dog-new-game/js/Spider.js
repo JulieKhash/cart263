@@ -20,5 +20,4 @@ class Spider extends Insect {
       insectSFX.play();
     }
   }
-
 }
