@@ -9,13 +9,16 @@ author, and this description to match your project!
 "use strict";
 
 const BUTTERFLY_IMG = 13;
-const NUM_BUTTERFLY = 50;
+const NUM_BUTTERFLY = 100;
 
 let butterflyImages = [];
 let butterflies = []; // an empty array to store butterfly instances
 
 let spiderImg;
 let spider;
+
+let errorSFX;
+let insectSFX;
 
 /**
 Description of preload
@@ -26,6 +29,9 @@ function preload() {
     butterflyImages.push(butterflyImg);
   }
   spiderImg = loadImage(`assets/images/spider0.png`);
+
+  errorSFX = loadSound(`assets/sounds/invalid-sound.mp3`);
+  insectSFX = loadSound(`assets/sounds/insect-walk-sound.mp3`);
 }
 
 /**
@@ -60,5 +66,9 @@ function draw() {
 }
 
 function mousePressed(){
+  for (let i = 0; i < butterflies.length; i++) {
+    butterflies[i].mousePressed();
+  }
+
   spider.mousePressed();
 }
