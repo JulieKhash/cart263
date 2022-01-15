@@ -23,13 +23,18 @@ function preload() {
   }
 }
 
-
 /**
 Description of setup
 */
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
+  for(let i = 0; i < NUM_BUTTERFLY; i++){
+    x = random(0, width);
+    y = random(0, height);
+    let butterflyImg = random(butterflyImages);
+    let butterfly = new Insect(x, y, butterflyImg)
+  }
 }
 
 
