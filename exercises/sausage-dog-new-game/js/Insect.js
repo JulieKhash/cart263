@@ -2,13 +2,29 @@ class Insect {
   constructor(x, y, image) {
     this.x = x;
     this.y = y;
+    this.vx = 0;
+    this.vy = 0;
+    this.speed = 0.3;
+    this.jitterness = 0.1
     this.image = image;
 
     this.angle = 0;
   }
 
   update() {
+    this.move();
     this.display();
+  }
+
+  move(){
+    let r = random(0,1);
+    if (r < this.jitterness){
+      this.vx = random(-this.speed, this.speed);
+      this.vy = random(-this.speed, this.speed);
+    }
+
+    this.x += this.vx;
+    this.y += this.vy;
   }
 
   display() {
