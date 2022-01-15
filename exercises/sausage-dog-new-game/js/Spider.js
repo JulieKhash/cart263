@@ -3,7 +3,7 @@ class Spider extends Insect {
     super(x, y, image);
 
     this.detected = false;
-    this.rotationSpeed = 0.2;
+    this.rotationSpeed = 0.20;
   }
 
   update() {
@@ -11,6 +11,12 @@ class Spider extends Insect {
 
     if (this.detected) {
       this.angle += this.rotationSpeed;
+    }
+  }
+
+  mousePressed(){
+    if(this.overlap(mouseX, mouseY)){
+      this.detected = true;
     }
   }
 
