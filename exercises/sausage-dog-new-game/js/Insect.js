@@ -1,4 +1,4 @@
-class Insects {
+class Insect {
   constructor(x, y, image){
     this.x = x;
     this.y = y;
@@ -10,7 +10,6 @@ class Insects {
   update(){
     this.display();
   }
-}
 
 display(){
   push();
@@ -19,4 +18,5 @@ display(){
   rotate(this.angle);
   image(this.image, 0, 0);
   pop();
+}
 }

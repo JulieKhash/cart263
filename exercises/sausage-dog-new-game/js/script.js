@@ -8,10 +8,11 @@ author, and this description to match your project!
 
 "use strict";
 
-const BUTTERFLY_IMG = 14;
-const NUM_BUTTERFLY = 50;
+const BUTTERFLY_IMG = 13;
+const NUM_BUTTERFLY = 100;
 
 let butterflyImages = [];
+let butterflies = []; // an empty array to store butterfly instances
 
 /**
 Description of preload
@@ -30,17 +31,21 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   for(let i = 0; i < NUM_BUTTERFLY; i++){
-    x = random(0, width);
-    y = random(0, height);
+    let x = random(0, width);
+    let y = random(0, height);
     let butterflyImg = random(butterflyImages);
-    let butterfly = new Insect(x, y, butterflyImg)
+    let butterfly = new Insect(x, y, butterflyImg);
+    butterflies.push(butterfly);
   }
 }
-
 
 /**
 Description of draw()
 */
 function draw() {
+  background(255,250,200);
 
+  for(let i = 0; i < butterflies.length; i++){
+    butterflies[i].update();
+  }
 }
