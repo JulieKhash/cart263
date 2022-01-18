@@ -17,7 +17,7 @@ class Spider extends Insect {
   mousePressed(){
     if(this.overlap(mouseX, mouseY)){
       this.detected = true;
-      insectSFX.play();
+    //  insectSFX.play();
     }
   }
 }

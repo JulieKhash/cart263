@@ -14,12 +14,14 @@ class Insect {
 
     this.angle = 0;
     this.active = true;
+    this.mouseOver = false;
     this.wiggling = false;
   }
 
   update() {
-    this.mouseHover();
+
     this.wiggle();
+    this.isMouseOver();
     this.move();
     this.display();
   }
@@ -31,20 +33,33 @@ class Insect {
    this.jitterness = constrain(this.jitterness, this.jitterness, this.jitternessIncrease);
   }
 
-  // move butterflies away if mouse is over touch them
-    mouseHover(){
-      if(this.wiggling)
-        this.speed = 5;
-       else {
-        this.wiggling = false;
-      }
-}
+  // move butterflies away if the mouse touch them
+//     mouseHover(){
+//       if(this.mouseOver)
+//         this.wiggling = true;
+//         this.speed = 5;
+//        else {
+//         this.wiggling = false;
+//       }
+// }
 
-  wiggle(){
+
+// wiggle a butterfly if the mouse is over it
+ wiggle(){
+   if(this.mouseOver && !this.wiggling){
+     this.wiggling = true;
+     this.speed = 5
+   } else {
+     this.wiggling = false;
+   }
+ }
+
+// check if the mouse over a butterfly
+  isMouseOver(){
     if(this.overlap(mouseX, mouseY))
-      this.wiggling = true;
+      this.mouseOver = true;
      else {
-      this.wiggling = false;
+      this.mouseOver = false;
     }
   }
 
@@ -86,7 +101,7 @@ class Insect {
 
   mousePressed(){
     if(this.overlap(mouseX, mouseY)) {
-      errorSFX.play();
+      //errorSFX.play();
     }
   }
 }
