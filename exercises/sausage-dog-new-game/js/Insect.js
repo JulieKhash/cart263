@@ -13,52 +13,50 @@ class Insect {
     this.image = image;
 
     this.angle = 0;
-    this.active = true;
-    this.mouseOver = false;
     this.wiggling = false;
+
+    // this.spiderDetected = false;
   }
 
   update() {
-
-    this.wiggle();
+    if (!spiderDetected) {
+      this.wiggle();
+    } else {
+      this.speed = 5;
+      this.moveRapid();
+    }
     this.isMouseOver();
     this.move();
     this.display();
   }
 
-  moveRapid(){
-   this.speed += this.speedIncrease;
-   this.speed = constrain(this.speed, this.speedMin, this.speedMax);
-   this.jitterness += this.jitternessIncrease;
-   this.jitterness = constrain(this.jitterness, this.jitterness, this.jitternessIncrease);
+  // makes a butterfy more jiterry
+  moveRapid() {
+    this.speed += this.speedIncrease;
+    this.speed = constrain(this.speed, this.speedMin, this.speedMax);
+    this.jitterness += this.jitternessIncrease;
+    this.jitterness = constrain(
+      this.jitterness,
+      this.jitterness,
+      this.jitternessIncrease
+    );
   }
 
-  // move butterflies away if the mouse touch them
-//     mouseHover(){
-//       if(this.mouseOver)
-//         this.wiggling = true;
-//         this.speed = 5;
-//        else {
-//         this.wiggling = false;
-//       }
-// }
+  // wiggle a butterfly if the mouse is over it
+  wiggle() {
+    if (this.mouseOver && !this.wiggling) {
+      this.wiggling = true;
+      this.speed = 5;
+    } else {
+      this.wiggling = false;
+      this.speed = 0.3;
+    }
+  }
 
-
-// wiggle a butterfly if the mouse is over it
- wiggle(){
-   if(this.mouseOver && !this.wiggling){
-     this.wiggling = true;
-     this.speed = 5
-   } else {
-     this.wiggling = false;
-   }
- }
-
-// check if the mouse over a butterfly
-  isMouseOver(){
-    if(this.overlap(mouseX, mouseY))
-      this.mouseOver = true;
-     else {
+  // check if the mouse over a butterfly
+  isMouseOver() {
+    if (this.overlap(mouseX, mouseY)) this.mouseOver = true;
+    else {
       this.mouseOver = false;
     }
   }
@@ -89,18 +87,20 @@ class Insect {
   }
 
   overlap(x, y) {
-    if (x > this.x - this.image.width / 2 &&
-        x < this.x + this.image.width / 2 &&
-        y > this.y - this.image.height / 2 &&
-        y < this.y + this.image.height / 2) {
+    if (
+      x > this.x - this.image.width / 2 &&
+      x < this.x + this.image.width / 2 &&
+      y > this.y - this.image.height / 2 &&
+      y < this.y + this.image.height / 2
+    ) {
       return true;
     } else {
       return false;
     }
   }
 
-  mousePressed(){
-    if(this.overlap(mouseX, mouseY)) {
+  mousePressed() {
+    if (this.overlap(mouseX, mouseY)) {
       //errorSFX.play();
     }
   }

@@ -20,7 +20,9 @@ let spider;
 let errorSFX;
 let insectSFX;
 
-let state = 'simulation';
+let spiderDetected = false;
+
+let state = "simulation";
 /**
 Description of preload
 */
@@ -59,60 +61,56 @@ Description of draw()
 function draw() {
   background(255, 250, 200);
 
-
- if(state === 'instruction'){
-   startScreen();
- } else if (state === 'simulation'){
-   simulation();
-   endText()
- // } else if (state === 'restart'){
- //   restartScreen();
- // }
-}
+  if (state === "instruction") {
+    startScreen();
+  } else if (state === "simulation") {
+    simulation();
+    //endText()
+  }
 }
 
-function simulation(){
+function simulation() {
   makeButterflies();
   spider.update();
 }
 
-function makeButterflies(){
+function makeButterflies() {
   for (let i = 0; i < butterflies.length; i++) {
     butterflies[i].update();
-    if (spider.detected){
-      butterflies[i].moveRapid();
-    }
+    // if (spiderDetected) {
+    //   butterflies[i].moveRapid();
+    // }
   }
 }
 
-function startScreen(){
+function startScreen() {
   push();
   rectMode(CENTER);
   fill(200, 210, 0, 150);
-  rect(width/2, height/2, 200, 80)
+  rect(width / 2, height / 2, 200, 80);
   textAlign(CENTER, CENTER);
   textSize(20);
   fill(0);
-  text('Find a Spider', width/2, height/2);
+  text("Find a Spider", width / 2, height / 2);
   pop();
 }
 
-//end screen
-function endText(){
-  if(spider.detected){
+//show the text if the the spider is found
+function endText() {
+  if (spiderDetected) {
     push();
     rectMode(CENTER);
     fill(200, 200, 0, 100);
-    rect(width/2, height/2, 200, 80)
+    rect(width / 2, height / 2, 200, 80);
     textAlign(CENTER, CENTER);
     textSize(30);
-    fill(255)
-    text('Chaos!',width/2, height/2);
-    pop()
+    fill(0, 200);
+    text("Chaos!", width / 2, height / 2);
+    pop();
   }
 }
 
-function mousePressed(){
+function mousePressed() {
   for (let i = 0; i < butterflies.length; i++) {
     butterflies[i].mousePressed();
   }
