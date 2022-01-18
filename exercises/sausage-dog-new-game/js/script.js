@@ -26,11 +26,10 @@ let message = {
   startText: "Find a Spider",
   endText: "Chaos!",
   visible: true,
+  delay: 3000,
 };
 
 let startTextVisible = true;
-
-let delayTime = 3000;
 
 let state = "simulation";
 
@@ -72,7 +71,8 @@ function draw() {
 
   if (state === "simulation") {
     simulation();
-    makeDisapper();
+    displayHideText();
+    startText();
     endText();
   }
 }
@@ -91,8 +91,12 @@ function makeButterflies() {
   }
 }
 
-function makeDisapper() {
-  setTimeout(startText, 3000);
+function displayHideText() {
+  setTimeout(hideText, message.delay);
+}
+
+function hideText() {
+  message.visible = false;
 }
 
 function startText() {
