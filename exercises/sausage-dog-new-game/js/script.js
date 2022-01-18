@@ -34,7 +34,7 @@ let state = "simulation"; // starts with the simulation page
 
 // import all the media into the program
 function preload() {
-  // for loop to add images into the array
+  // for loop to add images into the images array
   for (let i = 0; i < BUTTERFLY_IMG; i++) {
     let butterflyImg = loadImage(`assets/images/butterfly${i}.png`);
     butterflyImages.push(butterflyImg);
@@ -112,7 +112,7 @@ function startText() {
   }
 }
 
-//show the text if the the spider is found
+// show the text if the the spider is found
 function endText() {
   if (spiderDetected) {
     push();
