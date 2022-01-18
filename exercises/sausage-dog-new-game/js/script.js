@@ -22,10 +22,19 @@ let insectSFX;
 
 let spiderDetected = false;
 
+let message = {
+  startText: "Find a Spider",
+  endText: "Chaos!",
+  visible: true,
+};
+
+let startTextVisible = true;
+
+let delayTime = 3000;
+
 let state = "simulation";
-/**
-Description of preload
-*/
+
+// import all the media into the program
 function preload() {
   for (let i = 0; i < BUTTERFLY_IMG; i++) {
     let butterflyImg = loadImage(`assets/images/butterfly${i}.png`);
@@ -61,11 +70,10 @@ Description of draw()
 function draw() {
   background(255, 250, 200);
 
-  if (state === "instruction") {
-    startScreen();
-  } else if (state === "simulation") {
+  if (state === "simulation") {
     simulation();
-    //endText()
+    makeDisapper();
+    endText();
   }
 }
 
@@ -83,16 +91,22 @@ function makeButterflies() {
   }
 }
 
-function startScreen() {
-  push();
-  rectMode(CENTER);
-  fill(200, 210, 0, 150);
-  rect(width / 2, height / 2, 200, 80);
-  textAlign(CENTER, CENTER);
-  textSize(20);
-  fill(0);
-  text("Find a Spider", width / 2, height / 2);
-  pop();
+function makeDisapper() {
+  setTimeout(startText, 3000);
+}
+
+function startText() {
+  if (message.visible) {
+    push();
+    rectMode(CENTER);
+    fill(200, 200, 0, 100);
+    rect(width / 2, height / 2, 200, 80);
+    textAlign(CENTER, CENTER);
+    textSize(20);
+    fill(0);
+    text(message.startText, width / 2, height / 2);
+    pop();
+  }
 }
 
 //show the text if the the spider is found
@@ -105,7 +119,7 @@ function endText() {
     textAlign(CENTER, CENTER);
     textSize(30);
     fill(0, 200);
-    text("Chaos!", width / 2, height / 2);
+    text(message.endText, width / 2, height / 2);
     pop();
   }
 }

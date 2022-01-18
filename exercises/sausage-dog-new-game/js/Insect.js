@@ -22,7 +22,7 @@ class Insect {
     if (!spiderDetected) {
       this.wiggle();
     } else {
-      this.speed = 5;
+      this.speed = 3;
       this.moveRapid();
     }
     this.isMouseOver();
@@ -30,7 +30,7 @@ class Insect {
     this.display();
   }
 
-  // makes a butterfy more jiterry
+  // makes a butterfy more jiterry (makes chaotic)
   moveRapid() {
     this.speed += this.speedIncrease;
     this.speed = constrain(this.speed, this.speedMin, this.speedMax);
@@ -46,7 +46,7 @@ class Insect {
   wiggle() {
     if (this.mouseOver && !this.wiggling) {
       this.wiggling = true;
-      this.speed = 5;
+      this.speed = 3;
     } else {
       this.wiggling = false;
       this.speed = 0.3;
@@ -101,7 +101,7 @@ class Insect {
 
   mousePressed() {
     if (this.overlap(mouseX, mouseY)) {
-      //errorSFX.play();
+      errorSFX.play();
     }
   }
 }

@@ -3,7 +3,7 @@ class Spider extends Insect {
     super(x, y, image);
 
     this.speed = 5;
-    this.rotationSpeed = 0.20;
+    this.rotationSpeed = 0.2;
   }
 
   update() {
@@ -14,11 +14,11 @@ class Spider extends Insect {
     }
   }
 
-  mousePressed(){
-    if(this.overlap(mouseX, mouseY)){
+  mousePressed() {
+    if (this.overlap(mouseX, mouseY)) {
       spiderDetected = true;
 
-    //  insectSFX.play();
+      insectSFX.play();
     }
   }
 }
