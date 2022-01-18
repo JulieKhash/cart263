@@ -1,53 +1,51 @@
 /**
-Sausage-Dog + new game
+Sausage-Dog + Spider and The Butterflies
 Julie Khashimova
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+A simple interactive simulation game that has a spider conceiled amongst the butterflies.
+A user must find and click on a spider to create a chaos!
 */
 
 "use strict";
 
 const BUTTERFLY_IMG = 13;
-const NUM_BUTTERFLY = 40;
+const NUM_BUTTERFLY = 100;
 
-let butterflyImages = [];
+let butterflyImages = []; // an array to store the butterfy images
 let butterflies = []; // an empty array to store butterfly instances
 
 let spiderImg;
 let spider;
 
-let errorSFX;
-let insectSFX;
+let errorSFX; // a sound for the wrong click
+let insectSFX; // a sound when the spider is found
 
-let spiderDetected = false;
+let spiderDetected = false; // a defautl false because it's not yet found
 
+// includes all the texts in our program
 let message = {
   startText: "Find a Spider",
   endText: "Chaos!",
   visible: true,
-  delay: 3000,
+  delay: 2500, // time when the text disappears
 };
 
-let startTextVisible = true;
-
-let state = "simulation";
+let state = "simulation"; // starts with the simulation page
 
 // import all the media into the program
 function preload() {
+  // for loop to add images into the array
   for (let i = 0; i < BUTTERFLY_IMG; i++) {
     let butterflyImg = loadImage(`assets/images/butterfly${i}.png`);
     butterflyImages.push(butterflyImg);
   }
   spiderImg = loadImage(`assets/images/spider0.png`);
-
+  // sound effects
   errorSFX = loadSound(`assets/sounds/invalid-sound.mp3`);
   insectSFX = loadSound(`assets/sounds/insect-walk-sound.mp3`);
 }
 
-/**
-Description of setup
-*/
+// initial setup, creates object instances: butterflies and a spider
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -63,12 +61,11 @@ function setup() {
   spider = new Spider(x, y, spiderImg);
 }
 
-/**
-Description of draw()
-*/
+// sets up the background colour and the game state
 function draw() {
   background(255, 250, 200);
 
+  // game state starts off with the only simulation page
   if (state === "simulation") {
     simulation();
     displayHideText();
@@ -77,36 +74,38 @@ function draw() {
   }
 }
 
+// includes butterfly and spider behavours
 function simulation() {
   makeButterflies();
   spider.update();
 }
 
+// makes butterflies and updates their behaviour
 function makeButterflies() {
   for (let i = 0; i < butterflies.length; i++) {
     butterflies[i].update();
-    // if (spiderDetected) {
-    //   butterflies[i].moveRapid();
-    // }
   }
 }
 
+// makes the text in the beggining to disappear
 function displayHideText() {
   setTimeout(hideText, message.delay);
 }
 
+// inverts the visibiity value of the text
 function hideText() {
   message.visible = false;
 }
 
+// make the text appear in the beggining
 function startText() {
   if (message.visible) {
     push();
     rectMode(CENTER);
-    fill(200, 200, 0, 100);
+    fill(200, 200, 0, 130);
     rect(width / 2, height / 2, 200, 80);
     textAlign(CENTER, CENTER);
-    textSize(20);
+    textSize(26);
     fill(0);
     text(message.startText, width / 2, height / 2);
     pop();
@@ -118,7 +117,7 @@ function endText() {
   if (spiderDetected) {
     push();
     rectMode(CENTER);
-    fill(200, 200, 0, 100);
+    fill(200, 200, 0, 130);
     rect(width / 2, height / 2, 200, 80);
     textAlign(CENTER, CENTER);
     textSize(30);
@@ -128,10 +127,10 @@ function endText() {
   }
 }
 
+// mouse pressed makes a sound, sets up spiderDetected to true if clicked on a spider
 function mousePressed() {
   for (let i = 0; i < butterflies.length; i++) {
     butterflies[i].mousePressed();
   }
-
   spider.mousePressed();
 }
