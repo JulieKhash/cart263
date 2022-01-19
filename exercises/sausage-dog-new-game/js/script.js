@@ -16,6 +16,7 @@ let butterflies = []; // an empty array to store butterfly instances
 
 let spiderImg;
 let spider;
+let branchImg;
 
 let errorSFX; // a sound for the wrong click
 let insectSFX; // a sound for the spider
@@ -40,6 +41,7 @@ function preload() {
     butterflyImages.push(butterflyImg);
   }
   spiderImg = loadImage(`assets/images/spider0.png`);
+  branchImg = loadImage(`assets/images/branch.png`)
   // sound effects
   errorSFX = loadSound(`assets/sounds/invalid-sound.mp3`);
   insectSFX = loadSound(`assets/sounds/insect-walk-sound.mp3`);
@@ -72,6 +74,7 @@ function draw() {
     startText();
     endText();
   }
+  image(branchImg, width/2, height/2);
 }
 
 // includes butterfly and spider behavours
