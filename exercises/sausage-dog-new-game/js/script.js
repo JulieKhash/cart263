@@ -2,7 +2,7 @@
 Sausage-Dog + Spider and The Butterflies
 Julie Khashimova
 
-A simple interactive simulation game that has a spider conceiled amongst the butterflies.
+A simple interactive simulation that has a spider conceiled amongst the butterflies.
 A user must find and click on a spider to create a chaos!
 */
 
