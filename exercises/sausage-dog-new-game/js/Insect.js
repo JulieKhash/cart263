@@ -11,6 +11,7 @@ class Insect {
     this.speedMin = 8;
     this.speedMax = 15;
     this.speedIncrease = 2;
+    this.speedMouseReaction = 5;
     this.jitterness = 0.1;
     this.jitternessIncrease = 0.2;
     this.image = image;
@@ -44,7 +45,7 @@ class Insect {
   wiggle() {
     if (this.mouseOver && !this.wiggling) {
       this.wiggling = true; // true if the mouse is over it
-      this.speed = 5; // change the speed of wiggling
+      this.speed = this.speedMouseReaction; // change the speed of wiggling
     } else {
       this.wiggling = false;
       this.speed = 0.3;  // change the speed back to default when mouse is removed

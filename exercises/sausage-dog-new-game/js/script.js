@@ -8,8 +8,8 @@ A user must find and click on a spider to create a chaos!
 
 "use strict";
 
-const BUTTERFLY_IMG = 13;
-const NUM_BUTTERFLY = 100;
+const BUTTERFLY_IMG = 13;   // the number of butterfy images
+const NUM_BUTTERFLY = 100;  // overall number of butterflies
 
 let butterflyImages = []; // an array to store the butterfy images
 let butterflies = []; // an empty array to store butterfly instances
@@ -18,7 +18,7 @@ let spiderImg;
 let spider;
 
 let errorSFX; // a sound for the wrong click
-let insectSFX; // a sound when the spider is found
+let insectSFX; // a sound for the spider
 
 let spiderDetected = false; // a defautl false because it's not yet found
 
@@ -87,7 +87,7 @@ function makeButterflies() {
   }
 }
 
-// makes the text in the beggining to disappear
+// makes the text in the beggining disappear
 function displayHideText() {
   setTimeout(hideText, message.delay);
 }
