@@ -9,7 +9,7 @@ A user must find and click on a spider to create a chaos!
 "use strict";
 
 const BUTTERFLY_IMG = 13;   // the number of butterfy images
-const NUM_BUTTERFLY = 100;  // overall number of butterflies
+const NUM_BUTTERFLY = 120;  // overall number of butterflies
 
 let butterflyImages = []; // an array to store the butterfy images
 let butterflies = []; // an empty array to store butterfly instances
