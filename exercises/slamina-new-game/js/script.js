@@ -136,10 +136,11 @@ function showAnswer() {
   if (isCorrect()) {
     fill(0, 255, 0);
     text(currentFruit, width / 2, height / 2);
-    responsiveVoice.speak(currentFruit);
+    responsiveVoice.speak("Great!");
   } else {
     fill(255, 0, 0);
     text(currentAnswer, width / 2, height / 2);
+    responsiveVoice.speak("Nope!");
   }
 }
 
