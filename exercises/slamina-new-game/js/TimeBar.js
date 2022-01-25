@@ -2,7 +2,9 @@ class TimeBar {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.radius = 600;
+    this.radius = 500;
+    this.radiusMin = 0;
+    this.radiusMax = 600;
     this.color = 200;
     this.alpha = 220;
 
@@ -10,6 +12,7 @@ class TimeBar {
     this.timeLeft = 5000;
 
     this.active = true;
+    this.timeOver = false;
   }
 
   update() {
@@ -18,10 +21,17 @@ class TimeBar {
     //    this.fillBar();
   }
 
+  // timeOut(){
+  //   if ()
+  // }
+
   reduce() {
     this.radius--;
-    this.radius = constrain(this.radius, 600, 0);
-    this.radius = map(millis(), this.startAt, this.timeLeft, 600, 0);
+    this.radius = map(millis(), this.startAt, this.timeLeft, this.radiusMax, this.radiusMin);
+
+    if (this.radius <= 0){
+      this.active = false;
+    }
   }
 
   display() {

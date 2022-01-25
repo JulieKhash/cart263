@@ -118,6 +118,8 @@ function draw() {
   background(0, 10, 100);
 
   timeBar.update();
+  gameOver();
+
 
 
 
@@ -166,9 +168,10 @@ function guessFruit(fruit) {
 //   pop();
 // }
 function gameOver(){
-  if timeBar.timeLeft === 5000{
-    fill(255, 0, 0)
-    text("gameover!", width/2, height/2)
+  if (!timeBar.active){
+    showPhrase = false;
+    fill(255, 0, 0);
+    text("gameover!", width/2, height/2);
   }
 }
 
