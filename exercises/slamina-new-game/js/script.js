@@ -88,13 +88,9 @@ let currentAnswer = "";
 let phrase = "Maybe it is..."
 let showPhrase = true;
 
-let bgColor = {
-  r: 150,
-  g: 130,
-  b: 160,
-};
+let state = "intro"
 
-let x = 0;
+// let x = 0;
 let timeBar;
 
 
@@ -102,7 +98,7 @@ let timeBar;
 function setup() {
   createCanvas(700, 700);
 
-  timeBar = new TimeBar(width, width, 0, height);
+  timeBar = new TimeBar(width/2, height/2);
 
 
   if (annyang) {
@@ -134,7 +130,7 @@ function draw() {
   text(currentAnswer, width / 2, height / 2);
 
 
-  animation();
+  // animation();
   showMainPhrase();
 }
 
@@ -157,35 +153,29 @@ function guessFruit(fruit) {
   console.log(currentAnswer);
 }
 
-function showAnswerFX(){
 
+// function animation() {
+//   push();
+//   x += 0.01;
+//   stroke(255);
+//   translate(width / 2, height / 2);
+//   rotate(x);
+//   noFill();
+//   rectMode(CENTER);
+//   rect(0, 0, 300, 300);
+//   pop();
+// }
+function gameOver(){
+  if timeBar.timeLeft === 5000{
+    fill(255, 0, 0)
+    text("gameover!", width/2, height/2)
+  }
 }
 
-
-
-function animation() {
-  push();
-  x += 0.01;
-  stroke(255);
-  translate(width / 2, height / 2);
-  rotate(x);
-  noFill();
-  rectMode(CENTER);
-  rect(0, 0, 300, 300);
-  pop();
-}
 
 function showMainPhrase(){
   if (showPhrase){
     fill(255);
     text(phrase, width/2, height/2);
   }
-}
-
-// timer
-function timeRemaining(){
-  textSize(20);
-  fill(255);
-  text("Time Remaining", 150, 100);
-  text(totalTime, 400, 100);
 }
