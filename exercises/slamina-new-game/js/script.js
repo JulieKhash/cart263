@@ -89,18 +89,21 @@ let currentAnswer = "";
 let displayUserAnswer = false;
 let displayGuessWord = true;
 
+let annyangActive = true;
+
 let reverseFruit;
 
-let state = "game";
-// let gameActive = false;
+let state = "intro";
+let gameActive = false;
 
 let timeBar;
 
 function setup() {
   createCanvas(700, 700);
 
-  timeBar = new TimeBar(width / 2, height / 2);
+  timeBar = new TimeBar(width / 2, height / 2); // creates a circlelike timer
 
+  // creates a voice recognition, checks if available on a given browser
   if (annyang) {
     let commands = {
       "*fruit": guessFruit,
@@ -118,9 +121,8 @@ function draw() {
   background(0, 10, 100);
 
   gameStates();
-
   timeBar.update();
-  gameOver();
+  //gameOver();
 }
 
 // takes in a string (reversed) and displays it
@@ -140,7 +142,7 @@ function showAnswer() {
   } else {
     background(255, 0, 0);
     text(currentAnswer, width / 2, height / 2);
-    //  responsiveVoice.speak("Nope!");
+    // responsiveVoice.speak("Nope!");
   }
 }
 
@@ -163,6 +165,9 @@ function reverseString(string) {
 
 // gets a fruit from an array, reverse it and speaks
 function mousePressed() {
+  if ((state = "intro")) {
+    state = "game";
+  }
   displayUserAnswer = false;
   currentFruit = random(FRUITS);
   reverseFruit = reverseString(currentFruit);
@@ -184,17 +189,24 @@ function gameStates() {
     intro();
   } else if (state === "game") {
     game();
+    gameOver();
+    // } else if (state === "gameOver") {
+    //   gameOver();
   }
 }
 
 function intro() {
-  background(255, 0, 0);
-  responsiveVoice.speak("Read the Fruit name in Reverse. Click to Start", {
-    pitch: 1.3,
-  });
+  background(20, 0, 0);
+  timeBar.active = false;
+  fill(255);
+  text("hello, click to start", width / 2, height / 2);
+  // responsiveVoice.speak("Read the Fruit name in Reverse. Click to Start", {
+  //   pitch: 1.3,
+  // });
 }
 
 function game() {
+  timeBar.active = true;
   if (!displayUserAnswer) {
     showCurrentFruit(reverseFruit);
   } else {
@@ -213,7 +225,8 @@ function game() {
 function gameOver() {
   if (!timeBar.active) {
     displayGuessWord = false;
-    fill(255, 0, 0);
-    text("gameover!", width / 2, height / 2);
+    fill(random(0, 255));
+    text("game over!", width / 2, height / 2);
+    // responsiveVoice.speak("Game Over, Press R to restart");
   }
 }
