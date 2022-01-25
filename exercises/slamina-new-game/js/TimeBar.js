@@ -6,10 +6,10 @@ class TimeBar {
     this.radiusMin = 0;
     this.radiusMax = 600;
     this.color = 200;
-    this.alpha = 220;
+    this.alpha = 150;
 
     this.startAt = millis();
-    this.timeLeft = 5000;
+    this.timeLeft = 5000; // the game lasts 10 secs
 
     this.active = true;
     this.timeOver = false;

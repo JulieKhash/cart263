@@ -85,25 +85,24 @@ const FRUITS = [
 
 let currentFruit = "";
 let currentAnswer = "";
-let phrase = "Maybe it is..."
-let showPhrase = true;
 
-let state = "intro"
 
-// let x = 0;
+let state = "game"
+// let gameActive = false;
+
+
 let timeBar;
-
 
 
 function setup() {
   createCanvas(700, 700);
 
-  timeBar = new TimeBar(width/2, height/2);
+//  timeBar = new TimeBar(width/2, height/2);
 
 
   if (annyang) {
     let commands = {
-      "I think it is *fruit": guessFruit,
+      "*fruit": guessFruit,
     };
     annyang.addCommands(commands);
     annyang.start();
@@ -117,24 +116,21 @@ function setup() {
 function draw() {
   background(0, 10, 100);
 
-  timeBar.update();
+//  timeBar.update();
   gameOver();
 
 
-
-
-  if (currentAnswer === currentFruit) {
-
-    fill(0, 255, 0);
-  } else {
-    fill(255, 0, 0);
-  }
-  text(currentAnswer, width / 2, height / 2);
-
-
-  // animation();
-  showMainPhrase();
 }
+
+// function answerEffect(){
+//   if (currentAnswer === currentFruit) {
+//     fill(0, 255, 0);
+//   } else {
+//     fill(255, 0, 0);
+//   }
+//   text(currentAnswer, width / 2, height / 2);
+// }
+
 
 function reverseString(string) {
   let characters = string.split("");
@@ -148,6 +144,7 @@ function mousePressed() {
   let reverseFruit = reverseString(currentFruit);
 
   responsiveVoice.speak(reverseFruit);
+  showCurrentFruit(reverseFruit);
 }
 
 function guessFruit(fruit) {
@@ -155,18 +152,12 @@ function guessFruit(fruit) {
   console.log(currentAnswer);
 }
 
+function showCurrentFruit(string){
+  fill(255, 255, 0);
+  text(string, width / 2, height / 2);
+}
 
-// function animation() {
-//   push();
-//   x += 0.01;
-//   stroke(255);
-//   translate(width / 2, height / 2);
-//   rotate(x);
-//   noFill();
-//   rectMode(CENTER);
-//   rect(0, 0, 300, 300);
-//   pop();
-// }
+
 function gameOver(){
   if (!timeBar.active){
     showPhrase = false;
@@ -174,7 +165,6 @@ function gameOver(){
     text("gameover!", width/2, height/2);
   }
 }
-
 
 function showMainPhrase(){
   if (showPhrase){
