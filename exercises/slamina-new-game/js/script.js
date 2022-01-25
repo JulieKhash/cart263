@@ -134,11 +134,11 @@ function showCurrentFruit(string) {
 // shows the actual name of the fruit: green: correct, red: incorrect:
 function showAnswer() {
   if (isCorrect()) {
-    fill(0, 255, 0);
+    background(0, 255, 0);
     text(currentFruit, width / 2, height / 2);
     //    responsiveVoice.speak("Great!");
   } else {
-    fill(255, 0, 0);
+    background(255, 0, 0);
     text(currentAnswer, width / 2, height / 2);
     //  responsiveVoice.speak("Nope!");
   }
