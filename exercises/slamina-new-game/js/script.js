@@ -87,6 +87,7 @@ let currentFruit = "";
 let currentAnswer = "";
 
 let displayUserAnswer = false;
+let displayGuessWord = true;
 
 let reverseFruit;
 
@@ -98,7 +99,7 @@ let timeBar;
 function setup() {
   createCanvas(700, 700);
 
-  //  timeBar = new TimeBar(width/2, height/2);
+  timeBar = new TimeBar(width / 2, height / 2);
 
   if (annyang) {
     let commands = {
@@ -115,20 +116,19 @@ function setup() {
 
 function draw() {
   background(0, 10, 100);
-  if (!displayUserAnswer) {
-    showCurrentFruit(reverseFruit);
-  } else {
-    showAnswer();
-  }
 
-  // timeBar.update();
-  // gameOver();
+  gameStates();
+
+  timeBar.update();
+  gameOver();
 }
 
 // takes in a string (reversed) and displays it
 function showCurrentFruit(string) {
-  fill(255, 255, 0);
-  text(string, width / 2, height / 2);
+  if (displayGuessWord) {
+    fill(255, 255, 0);
+    text(string, width / 2, height / 2);
+  }
 }
 
 // shows the actual name of the fruit: green: correct, red: incorrect:
@@ -136,11 +136,11 @@ function showAnswer() {
   if (isCorrect()) {
     fill(0, 255, 0);
     text(currentFruit, width / 2, height / 2);
-    responsiveVoice.speak("Great!");
+    //    responsiveVoice.speak("Great!");
   } else {
     fill(255, 0, 0);
     text(currentAnswer, width / 2, height / 2);
-    responsiveVoice.speak("Nope!");
+    //  responsiveVoice.speak("Nope!");
   }
 }
 
@@ -167,6 +167,7 @@ function mousePressed() {
   currentFruit = random(FRUITS);
   reverseFruit = reverseString(currentFruit);
 
+  // responsiveVoice.speak("Read the Fruit name in Reverse. Click to Start");
   // responsiveVoice.speak(currentFruit);
 }
 
@@ -178,9 +179,41 @@ function guessFruit(fruit) {
   // }
 }
 
-// function gameOver(){
-//   if (!timeBar.active){
-//     fill(255, 0, 0);
-//     text("gameover!", width/2, height/2);
-//   }
+function gameStates() {
+  if (state === "intro") {
+    intro();
+  } else if (state === "game") {
+    game();
+  }
+}
+
+function intro() {
+  background(255, 0, 0);
+  responsiveVoice.speak("Read the Fruit name in Reverse. Click to Start", {
+    pitch: 1.3,
+  });
+}
+
+function game() {
+  if (!displayUserAnswer) {
+    showCurrentFruit(reverseFruit);
+  } else {
+    showAnswer();
+  }
+}
+
+// function startSpeaking() {
+//   currentAnswer;
 // }
+//
+// function endSpeaking() {
+//   currentFruit = "";
+// }
+
+function gameOver() {
+  if (!timeBar.active) {
+    displayGuessWord = false;
+    fill(255, 0, 0);
+    text("gameover!", width / 2, height / 2);
+  }
+}
