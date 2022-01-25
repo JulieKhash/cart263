@@ -2,96 +2,108 @@
 
 const FRUITS = [
   "apple",
-       "apricot",
-       "avocado",
-       "banana",
-       "bell pepper",
-       "bilberry",
-       "blackberry",
-       "blackcurrant",
-       "blood orange",
-       "blueberry",
-       "boysenberry",
-       "breadfruit",
-       "canary melon",
-       "cantaloupe",
-       "cherimoya",
-       "cherry",
-       "chili pepper",
-       "clementine",
-       "cloudberry",
-       "coconut",
-       "cranberry",
-       "cucumber",
-       "currant",
-       "damson",
-       "date",
-       "dragonfruit",
-       "durian",
-       "eggplant",
-       "elderberry",
-       "feijoa",
-       "fig",
-       "goji berry",
-       "gooseberry",
-       "grape",
-       "grapefruit",
-       "guava",
-       "honeydew",
-       "huckleberry",
-       "jackfruit",
-       "jambul",
-       "jujube",
-       "kiwi fruit",
-       "kumquat",
-       "lemon",
-       "lime",
-       "loquat",
-       "lychee",
-       "mandarine",
-       "mango",
-       "mulberry",
-       "nectarine",
-       "nut",
-       "olive",
-       "orange",
-       "papaya",
-       "passionfruit",
-       "peach",
-       "pear",
-       "persimmon",
-       "physalis",
-       "pineapple",
-       "plum",
-       "pomegranate",
-       "pomelo",
-       "purple mangosteen",
-       "quince",
-       "raisin",
-       "rambutan",
-       "raspberry",
-       "redcurrant",
-       "rock melon",
-       "salal berry",
-       "satsuma",
-       "star fruit",
-       "strawberry",
-       "tamarillo",
-       "tangerine",
-       "tomato",
-       "ugli fruit",
-       "watermelon"
+  "apricot",
+  "avocado",
+  "banana",
+  "bell pepper",
+  "bilberry",
+  "blackberry",
+  "blackcurrant",
+  "blood orange",
+  "blueberry",
+  "boysenberry",
+  "breadfruit",
+  "canary melon",
+  "cantaloupe",
+  "cherimoya",
+  "cherry",
+  "chili pepper",
+  "clementine",
+  "cloudberry",
+  "coconut",
+  "cranberry",
+  "cucumber",
+  "currant",
+  "damson",
+  "date",
+  "dragonfruit",
+  "durian",
+  "eggplant",
+  "elderberry",
+  "feijoa",
+  "fig",
+  "goji berry",
+  "gooseberry",
+  "grape",
+  "grapefruit",
+  "guava",
+  "honeydew",
+  "huckleberry",
+  "jackfruit",
+  "jambul",
+  "jujube",
+  "kiwi fruit",
+  "kumquat",
+  "lemon",
+  "lime",
+  "loquat",
+  "lychee",
+  "mandarine",
+  "mango",
+  "mulberry",
+  "nectarine",
+  "nut",
+  "olive",
+  "orange",
+  "papaya",
+  "passionfruit",
+  "peach",
+  "pear",
+  "persimmon",
+  "physalis",
+  "pineapple",
+  "plum",
+  "pomegranate",
+  "pomelo",
+  "purple mangosteen",
+  "quince",
+  "raisin",
+  "rambutan",
+  "raspberry",
+  "redcurrant",
+  "rock melon",
+  "salal berry",
+  "satsuma",
+  "star fruit",
+  "strawberry",
+  "tamarillo",
+  "tangerine",
+  "tomato",
+  "ugli fruit",
+  "watermelon",
 ];
 
-let currentAnimal = "";
+let currentFruit = "";
 let currentAnswer = "";
+let phrase = "Maybe it is..."
+let showPhrase = true;
+
+let bgColor = {
+  r: 150,
+  g: 130,
+  b: 160,
+};
+
+let x = 0;
+
+
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(700, 700);
 
   if (annyang) {
     let commands = {
-      "I think it is *ANIMAL": guessAnimal,
+      "I think it is *fruit": guessFruit,
     };
     annyang.addCommands(commands);
     annyang.start();
@@ -103,14 +115,21 @@ function setup() {
 }
 
 function draw() {
-  background(255, 100, 0);
+  background(0, 10, 100);
 
-  if (currentAnswer === currentAnimal) {
+
+
+  if (currentAnswer === currentFruit) {
+
     fill(0, 255, 0);
   } else {
     fill(255, 0, 0);
   }
   text(currentAnswer, width / 2, height / 2);
+
+
+  animation();
+  showMainPhrase()
 }
 
 function reverseString(string) {
@@ -121,13 +140,46 @@ function reverseString(string) {
 }
 
 function mousePressed() {
-  currentAnimal = random(ANIMALS);
-  let reverseAnimal = reverseString(currentAnimal);
+  currentFruit = random(FRUITS);
+  let reverseFruit = reverseString(currentFruit);
 
-  responsiveVoice.speak(reverseAnimal);
+  responsiveVoice.speak(reverseFruit);
 }
 
-function guessAnimal(animal) {
-  currentAnswer = animal.toLowerCase();
+function guessFruit(fruit) {
+  currentAnswer = fruit.toLowerCase();
   console.log(currentAnswer);
+}
+
+function showAnswerFX(){
+
+}
+
+
+
+function animation() {
+  push();
+  x += 0.01;
+  stroke(255);
+  translate(width / 2, height / 2);
+  rotate(x);
+  noFill();
+  rectMode(CENTER);
+  rect(0, 0, 300, 300);
+  pop();
+}
+
+function showMainPhrase(){
+  if (showPhrase){
+    fill(255);
+    text(phrase, width/2, height/2);
+  }
+}
+
+// timer
+function timeRemaining(){
+  textSize(20);
+  fill(255);
+  text("Time Remaining", 150, 100);
+  text(totalTime, 400, 100);
 }
