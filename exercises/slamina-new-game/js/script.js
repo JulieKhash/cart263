@@ -86,6 +86,9 @@ const FRUITS = [
 let currentFruit = "";
 let currentAnswer = "";
 
+let reverseFruit;
+
+
 
 let state = "game"
 // let gameActive = false;
@@ -115,9 +118,10 @@ function setup() {
 
 function draw() {
   background(0, 10, 100);
+  showCurrentFruit(reverseFruit);
 
 //  timeBar.update();
-  gameOver();
+  //gameOver();
 
 
 }
@@ -141,10 +145,9 @@ function reverseString(string) {
 
 function mousePressed() {
   currentFruit = random(FRUITS);
-  let reverseFruit = reverseString(currentFruit);
+  reverseFruit = reverseString(currentFruit);
 
   responsiveVoice.speak(reverseFruit);
-  showCurrentFruit(reverseFruit);
 }
 
 function guessFruit(fruit) {
@@ -160,15 +163,7 @@ function showCurrentFruit(string){
 
 function gameOver(){
   if (!timeBar.active){
-    showPhrase = false;
     fill(255, 0, 0);
     text("gameover!", width/2, height/2);
-  }
-}
-
-function showMainPhrase(){
-  if (showPhrase){
-    fill(255);
-    text(phrase, width/2, height/2);
   }
 }
