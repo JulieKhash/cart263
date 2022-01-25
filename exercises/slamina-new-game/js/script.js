@@ -95,11 +95,15 @@ let bgColor = {
 };
 
 let x = 0;
+let timeBar;
 
 
 
 function setup() {
   createCanvas(700, 700);
+
+  timeBar = new TimeBar(width, width, 0, height);
+
 
   if (annyang) {
     let commands = {
@@ -117,6 +121,8 @@ function setup() {
 function draw() {
   background(0, 10, 100);
 
+  timeBar.update();
+
 
 
   if (currentAnswer === currentFruit) {
@@ -129,7 +135,7 @@ function draw() {
 
 
   animation();
-  showMainPhrase()
+  showMainPhrase();
 }
 
 function reverseString(string) {
