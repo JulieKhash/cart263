@@ -86,22 +86,19 @@ const FRUITS = [
 let currentFruit = "";
 let currentAnswer = "";
 
+let displayUserAnswer = false;
+
 let reverseFruit;
 
-
-
-let state = "game"
+let state = "game";
 // let gameActive = false;
 
-
 let timeBar;
-
 
 function setup() {
   createCanvas(700, 700);
 
-//  timeBar = new TimeBar(width/2, height/2);
-
+  //  timeBar = new TimeBar(width/2, height/2);
 
   if (annyang) {
     let commands = {
@@ -118,24 +115,44 @@ function setup() {
 
 function draw() {
   background(0, 10, 100);
-  showCurrentFruit(reverseFruit);
+  if (!displayUserAnswer) {
+    showCurrentFruit(reverseFruit);
+  } else {
+    showAnswer();
+  }
 
-//  timeBar.update();
-  //gameOver();
-
-
+  // timeBar.update();
+  // gameOver();
 }
 
-// function answerEffect(){
-//   if (currentAnswer === currentFruit) {
-//     fill(0, 255, 0);
-//   } else {
-//     fill(255, 0, 0);
-//   }
-//   text(currentAnswer, width / 2, height / 2);
-// }
+// takes in a string (reversed) and displays it
+function showCurrentFruit(string) {
+  fill(255, 255, 0);
+  text(string, width / 2, height / 2);
+}
 
+// shows the actual name of the fruit: green: correct, red: incorrect:
+function showAnswer() {
+  if (isCorrect()) {
+    fill(0, 255, 0);
+    text(currentFruit, width / 2, height / 2);
+    responsiveVoice.speak(currentFruit);
+  } else {
+    fill(255, 0, 0);
+    text(currentAnswer, width / 2, height / 2);
+  }
+}
 
+// checks if the current answer matches the name of the current fruit
+function isCorrect() {
+  if (currentAnswer === currentFruit) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// breaks down the word the makes it reveresed
 function reverseString(string) {
   let characters = string.split("");
   let reverseCharacter = characters.reverse();
@@ -143,27 +160,26 @@ function reverseString(string) {
   return result;
 }
 
+// gets a fruit from an array, reverse it and speaks
 function mousePressed() {
+  displayUserAnswer = false;
   currentFruit = random(FRUITS);
   reverseFruit = reverseString(currentFruit);
 
-  responsiveVoice.speak(reverseFruit);
+  // responsiveVoice.speak(currentFruit);
 }
 
 function guessFruit(fruit) {
   currentAnswer = fruit.toLowerCase();
+  // if (isCorrect()) {
+  displayUserAnswer = true;
   console.log(currentAnswer);
+  // }
 }
 
-function showCurrentFruit(string){
-  fill(255, 255, 0);
-  text(string, width / 2, height / 2);
-}
-
-
-function gameOver(){
-  if (!timeBar.active){
-    fill(255, 0, 0);
-    text("gameover!", width/2, height/2);
-  }
-}
+// function gameOver(){
+//   if (!timeBar.active){
+//     fill(255, 0, 0);
+//     text("gameover!", width/2, height/2);
+//   }
+// }
