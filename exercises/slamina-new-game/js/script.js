@@ -98,6 +98,9 @@ let gameActive = true;
 
 let timeBar;
 
+let positiveSFX;
+let negativeSFX;
+
 function setup() {
   createCanvas(700, 700);
 
@@ -135,11 +138,11 @@ function showCurrentFruit(string) {
 // shows the actual name of the fruit: green: correct, red: incorrect:
 function showAnswer() {
   if (isCorrect()) {
-    background(0, 255, 0);
+    background(0, 200, 0);
     text(currentFruit, width / 2, height / 2);
-    //    responsiveVoice.speak("Great!");
+    // responsiveVoice.speak("Great!");
   } else {
-    background(255, 0, 0);
+    background(200, 0, 0);
     text(currentAnswer, width / 2, height / 2);
     // responsiveVoice.speak("Nope!");
   }
@@ -154,7 +157,7 @@ function isCorrect() {
   }
 }
 
-// breaks down the word the makes it reversed
+// breaks down the word and makes it reversed
 function reverseString(string) {
   let characters = string.split("");
   let reverseCharacter = characters.reverse();
@@ -162,7 +165,6 @@ function reverseString(string) {
   return result;
 }
 
-// gets a fruit from an array, reverse it and speaks
 function mousePressed() {
   if ((state = "intro" && !timeBar.active)) {
     state = "game";
@@ -171,9 +173,6 @@ function mousePressed() {
   displayUserAnswer = false;
   currentFruit = random(FRUITS);
   reverseFruit = reverseString(currentFruit);
-
-  // responsiveVoice.speak("Read the Fruit name in Reverse. Click to Start");
-  // responsiveVoice.speak(currentFruit);
 }
 
 function guessFruit(fruit) {
@@ -193,16 +192,13 @@ function gameStates() {
     intro();
   } else if (state === "game") {
     game();
-  } else if (state === "gameOver") {
-    gameOver();
   }
 }
 
 function intro() {
   background(20, 0, 0);
-  //timeBar.active = false;
   timeBar.active = true;
-  fill(255);
+  fill(random(1, 255));
   text("Allow speech", width / 2, height / 2);
   speakingVoice();
   // responsiveVoice.speak("Read the Fruit name in Reverse. Click to Start");
@@ -214,23 +210,5 @@ function game() {
     showCurrentFruit(reverseFruit);
   } else {
     showAnswer();
-  }
-}
-
-// function startSpeaking() {
-//   currentAnswer;
-// }
-//
-// function endSpeaking() {
-//   currentFruit = "";
-// }
-
-function gameOver() {
-  if (!timeBar.active) {
-    displayGuessWord = false;
-    displayUserAnswer = false;
-    fill(random(0, 255));
-    text("game over!", width / 2, height / 2);
-    // responsiveVoice.speak("Game Over, Press R to restart");
   }
 }
