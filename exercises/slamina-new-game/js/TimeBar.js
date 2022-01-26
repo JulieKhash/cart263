@@ -9,27 +9,27 @@ class TimeBar {
     this.alpha = 150;
 
     this.startAt = millis();
-    this.timeLeft = 5000; // the game lasts 10 secs
+    this.timeLeft = 7000; // the game lasts 8 secs
 
-    this.active = true;
-    this.timeOver = false;
+    this.active = false;
   }
 
   update() {
     this.reduce();
     this.display();
-    //    this.fillBar();
   }
-
-  // timeOut(){
-  //   if ()
-  // }
 
   reduce() {
     this.radius--;
-    this.radius = map(millis(), this.startAt, this.timeLeft, this.radiusMax, this.radiusMin);
+    this.radius = map(
+      millis(),
+      this.startAt,
+      this.timeLeft,
+      this.radiusMax,
+      this.radiusMin
+    );
 
-    if (this.radius <= 0){
+    if (this.radius <= 0) {
       this.active = false;
     }
   }
