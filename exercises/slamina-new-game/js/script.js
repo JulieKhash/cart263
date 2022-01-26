@@ -173,7 +173,7 @@ function mousePressed() {
   reverseFruit = reverseString(currentFruit);
 }
 
-//
+// takes in the answer given by the user and assigns to currentAnswer
 function guessFruit(fruit) {
   currentAnswer = fruit.toLowerCase();
   displayUserAnswer = true;
@@ -197,7 +197,7 @@ function intro() {
   responsiveVoice.speak(instruction);
 }
 
-// the game scene
+// the game scene, shows reversed word and user's answer
 function game() {
   if (!displayUserAnswer) {
     showCurrentFruit(reverseFruit);

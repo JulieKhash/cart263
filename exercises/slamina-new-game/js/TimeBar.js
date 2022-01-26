@@ -33,10 +33,10 @@ class TimeBar {
       this.timeLeft,
       this.radiusMax,
       this.radiusMin
-    );
+    ); // maps the millis() amount of time to the circle's radius
 
     if (this.radius <= 0) {
-      this.active = false;
+      this.active = false; // timer is off when the circle reaches 0 or less
     }
   }
 
