@@ -132,7 +132,7 @@ function showCurrentFruit(string) {
   }
 }
 
-// shows the actual name of the fruit: green: correct, red: incorrect:
+// shows the actual name of the fruit: green: correct, red: incorrect
 function showAnswer() {
   if (isCorrect()) {
     background(0, 200, 0);
@@ -162,7 +162,7 @@ function reverseString(string) {
   return result;
 }
 
-// starts a game after timer is out and mouse is clicked, displays a guessing word
+// starts a game after time is out and mouse is clicked, displays a guessing word
 function mousePressed() {
   if ((state = "intro" && !timeBar.active)) {
     state = "game";
@@ -189,7 +189,7 @@ function gameStates() {
   }
 }
 
-// starting screen, shows a text and adds a speaking voice
+// start screen, shows a text and adds a speaking voice
 function intro() {
   background(20, 0, 0);
   fill(random(1, 255));
@@ -197,7 +197,7 @@ function intro() {
   responsiveVoice.speak(instruction);
 }
 
-// the game scene, shows reversed word and user's answer
+// the game scene, shows reversed word and the user's answer
 function game() {
   if (!displayUserAnswer) {
     showCurrentFruit(reverseFruit);

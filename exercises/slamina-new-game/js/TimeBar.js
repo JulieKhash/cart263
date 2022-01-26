@@ -12,7 +12,7 @@ class TimeBar {
     this.color = 200;
     this.alpha = 150; // opacity
 
-    this.startAt = millis(); // milliseconds from strarting the program
+    this.startAt = millis(); // milliseconds from starting the program
     this.timeLeft = 7000; // timer lasting time
 
     this.active = true; // starts active
