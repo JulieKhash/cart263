@@ -1,3 +1,7 @@
+// a class for the Timer
+// prepares a user to begin the game
+// could be used for each guessing word, but needed time to figure that out
+
 class TimeBar {
   constructor(x, y) {
     this.x = x;
@@ -6,19 +10,21 @@ class TimeBar {
     this.radiusMin = 0;
     this.radiusMax = 600;
     this.color = 200;
-    this.alpha = 150;
+    this.alpha = 150; // opacity
 
-    this.startAt = millis();
-    this.timeLeft = 7000; // the game lasts 8 secs
+    this.startAt = millis(); // milliseconds from strarting the program
+    this.timeLeft = 7000; // timer lasting time
 
-    this.active = false;
+    this.active = true; // starts active
   }
 
+  // updates the program
   update() {
     this.reduce();
     this.display();
   }
 
+  // decreases the circle size according to millis()
   reduce() {
     this.radius--;
     this.radius = map(
@@ -34,6 +40,7 @@ class TimeBar {
     }
   }
 
+  // displays the circle
   display() {
     if (this.active) {
       push();

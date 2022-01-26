@@ -1,5 +1,6 @@
 "use strict";
 
+// an array of fruit names
 const FRUITS = [
   "apple",
   "apricot",
@@ -83,30 +84,26 @@ const FRUITS = [
   "watermelon",
 ];
 
-let currentFruit = "";
-let currentAnswer = "";
+let currentFruit = ""; // an empty string for the fruit name in array
+let currentAnswer = ""; // an empty string for the answer given by the user
 
-let displayUserAnswer = false;
-let displayGuessWord = true;
+let displayUserAnswer = false; // user answer is non-active
+let displayGuessWord = true; //  guess (reversed) word is active
 
-let responsiveVoiceActive = true;
+let instruction = "Read the Fruit name in Reverse. Click to Start";
 
 let reverseFruit;
 
 let state = "intro";
-let gameActive = true;
 
 let timeBar;
-
-let positiveSFX;
-let negativeSFX;
 
 function setup() {
   createCanvas(700, 700);
 
   timeBar = new TimeBar(width / 2, height / 2); // creates a circlelike timer
 
-  // creates a voice recognition, checks if available on a given browser
+  // creates a voice recognition, checks if it's available on a given browser
   if (annyang) {
     let commands = {
       "*fruit": guessFruit,
@@ -140,7 +137,7 @@ function showAnswer() {
   if (isCorrect()) {
     background(0, 200, 0);
     text(currentFruit, width / 2, height / 2);
-    // responsiveVoice.speak("Great!");
+    // responsiveVoice.speak("Great!"); //!!spoken sound reflects back to text
   } else {
     background(200, 0, 0);
     text(currentAnswer, width / 2, height / 2);
@@ -165,6 +162,7 @@ function reverseString(string) {
   return result;
 }
 
+// starts a game after timer is out and mouse is clicked, displays a guessing word
 function mousePressed() {
   if ((state = "intro" && !timeBar.active)) {
     state = "game";
@@ -175,18 +173,14 @@ function mousePressed() {
   reverseFruit = reverseString(currentFruit);
 }
 
+//
 function guessFruit(fruit) {
   currentAnswer = fruit.toLowerCase();
   displayUserAnswer = true;
   console.log(currentAnswer);
 }
 
-function speakingVoice() {
-  if (responsiveVoiceActive) {
-    responsiveVoice.speak("Read the Fruit name in Reverse. Click to Start");
-  }
-}
-
+// game states
 function gameStates() {
   if (state === "intro") {
     intro();
@@ -195,17 +189,16 @@ function gameStates() {
   }
 }
 
+// starting screen, shows a text and adds a speaking voice
 function intro() {
   background(20, 0, 0);
-  timeBar.active = true;
   fill(random(1, 255));
   text("Allow speech", width / 2, height / 2);
-  speakingVoice();
-  // responsiveVoice.speak("Read the Fruit name in Reverse. Click to Start");
+  responsiveVoice.speak(instruction);
 }
 
+// the game scene
 function game() {
-  // timeBar.active = true;
   if (!displayUserAnswer) {
     showCurrentFruit(reverseFruit);
   } else {
