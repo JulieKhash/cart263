@@ -2,6 +2,14 @@
 
 let titleFont;
 
+let instructions = {
+  phrase: `I was waiting for you in that alley. Watching you watching me`,
+  x: undefined,
+  y: undefined,
+  size: 30,
+  active: false,
+};
+
 let mirrorFrameImg;
 let mirrorFrame = {
   x: undefined,
@@ -53,6 +61,7 @@ function draw() {
   // pop();
 
   titleText();
+  instructionText();
 
   if (mirrorFrame.active || flowerDrops.active) {
     speakingMirror();
@@ -60,12 +69,23 @@ function draw() {
 }
 
 function instructionText() {
+  instructions.x = width / 2;
+  instructions.y = 1000;
+
+  //rect background
+  push();
+  fill(0, 200);
+  rectMode(CENTER);
+  rect(instructions.x, instructions.y, 800, 300);
+
+  pop();
+
   push();
   textAlign(CENTER, CENTER);
-  textSize(30);
-  textFont(titleFont);
+  textSize(25);
+  textFont(`Georgia`);
   fill(random(170, 210), 0, 10);
-  text("Instructions, enjoy your exprience", width / 2, height / 2);
+  text(instructions.phrase, instructions.x, instructions.y);
   pop();
 }
 
@@ -102,7 +122,6 @@ function speakingMirror() {
 }
 
 function mouseWheel(event) {
-  instructionText();
   //   push();
   //   if (event.delta > 0) {
   //     libraryColor.opacity += 100;
