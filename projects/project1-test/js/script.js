@@ -50,9 +50,22 @@ function draw() {
   image(libraryColorImg, width / 2, height / 2, 2600, 1500);
   pop();
 
+  titleText();
+
   if (mirrorFrame.active || flowerDrops.active) {
     speakingMirror();
   }
+}
+
+function titleText() {
+  push();
+  textAlign(CENTER, CENTER);
+  textSize(50);
+  textFont(titleFont);
+  fill(random(170, 210), 0, 10);
+  text("The Lestat Vampire", width / 2, height / 2);
+
+  pop();
 }
 
 function speakingMirror() {
@@ -61,7 +74,6 @@ function speakingMirror() {
 
   push();
   flowerDrops.x = x;
-  // flowerDrops.y = y + 50;
   image(
     flowerDropsImg,
     flowerDrops.x,
@@ -73,7 +85,6 @@ function speakingMirror() {
 
   push();
   mirrorFrame.x = x;
-  // mirrorFrame.y = y;
   tint(255, mirrorFrame.opacity);
   image(mirrorFrameImg, mirrorFrame.x, mirrorFrame.y);
   pop();
