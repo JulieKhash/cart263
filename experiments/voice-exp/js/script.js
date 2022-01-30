@@ -10,6 +10,7 @@ let userSpeechArray = [
 
 // current speech they are supposed to say
 let currentSpeech = ``;
+let currentSpeechLine = 1;
 
 // text they are supposed to read
 let displayText = ``;
@@ -40,9 +41,14 @@ function draw() {
   text(displayText, width / 2, height / 2);
 }
 
+// function showNextString() {
+//   currentSpeechLine++;
+// }
+
 function handleUserSpeech(userSpeech) {
   if (userSpeech.toLowerCase() === currentSpeech.toLowerCase()) {
-    displayText = `Yes ${currentSpeech}`; // doesn't respond to the array of strings with punctuation
+    // displayText = `Yes ${currentSpeech}`; // doesn't respond to the array of strings with punctuation
+    displayText = currentSpeechLine++; // shows number
   } else {
     displayText = `again`;
   }
@@ -50,7 +56,7 @@ function handleUserSpeech(userSpeech) {
 }
 
 function userPhrase() {
-  currentSpeech = random(userSpeechArray);
+  currentSpeech = userSpeechArray[currentSpeechLine];
   displayText = `${currentSpeech}?`;
 
   console.log(currentSpeech);
