@@ -14,7 +14,7 @@ let instructions = {
   What're you doing in my house?
   What if I could give it back to you?
   Pluck out the pain...and give you another life?
- ...One you could never imagine.
+ ...One you could never imagine...
 
             Enter`,
   x: undefined,
@@ -164,12 +164,13 @@ function mouseWheel(event) {
   // scrolls upwards after library has the color
   // push();
   // // if (libraryColor.opacity >= 255) {
-  // mirrorFrame.active = true;
-  // flowerDrops.active = true;
-  // mirrorFrame.y -= event.delta;
-  // flowerDrops.y -= event.delta;
-  // // }
-  // pop();
+  mirrorFrame.active = true;
+  flowerDrops.active = true;
+  mirrorFrame.y -= event.delta;
+  flowerDrops.y -= event.delta;
+  // }
+  pop();
+  //*********************Press Enter --> state colored library
 
   console.log(event.delta);
 }
