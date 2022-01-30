@@ -3,16 +3,18 @@
 let mirrorFrameImg;
 let mirrorFrame = {
   x: undefined,
-  y: undefined,
+  y: 1500,
   opacity: 200,
+  active: false,
 };
 
 let flowerDropsImg;
 let flowerDrops = {
   x: undefined,
-  y: undefined,
+  y: 1550,
   w: 400,
   h: 500,
+  active: false,
 };
 
 let libraryBWImg;
@@ -44,7 +46,9 @@ function draw() {
   image(libraryColorImg, width / 2, height / 2, 2600, 1500);
   pop();
 
-  speakingMirror();
+  if (mirrorFrame.active || flowerDrops.active) {
+    speakingMirror();
+  }
 }
 
 function speakingMirror() {
@@ -53,7 +57,7 @@ function speakingMirror() {
 
   push();
   flowerDrops.x = x;
-  flowerDrops.y = y + 50;
+  // flowerDrops.y = y + 50;
   image(
     flowerDropsImg,
     flowerDrops.x,
@@ -65,7 +69,7 @@ function speakingMirror() {
 
   push();
   mirrorFrame.x = x;
-  mirrorFrame.y = y;
+  // mirrorFrame.y = y;
   tint(255, mirrorFrame.opacity);
   image(mirrorFrameImg, mirrorFrame.x, mirrorFrame.y);
   pop();
@@ -79,5 +83,17 @@ function mouseWheel(event) {
     libraryColor.opacity -= 100;
     libraryColor.opacity = constrain(libraryColor.opacity, 1, 0);
   }
+
+  // scrolls upwards after library has the color
+  if (libraryColor.opacity >= 255) {
+    mirrorFrame.active = true;
+    flowerDrops.active = true;
+    mirrorFrame.y -= event.delta;
+    flowerDrops.y -= event.delta;
+  }
+  // mirror scroll up
+  // if (libraryColor.opacity === 255) {
+
+  // }
   console.log(event.delta);
 }
