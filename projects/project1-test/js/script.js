@@ -22,7 +22,7 @@ let flowerDrops = {
 let libraryBWImg;
 let libraryColorImg;
 let libraryColor = {
-  opacity: 1,
+  opacity: 0,
 };
 
 function preload() {
@@ -43,18 +43,30 @@ function setup() {
 function draw() {
   background(0);
 
-  image(libraryBWImg, width / 2, height / 2, 2600, 1500);
-
   push();
-  tint(255, libraryColor.opacity);
-  image(libraryColorImg, width / 2, height / 2, 2600, 1500);
+  image(libraryBWImg, width / 2, height / 2, 2600, 1500);
   pop();
+
+  // push();
+  // tint(255, libraryColor.opacity);
+  // image(libraryColorImg, width / 2, height / 2, 2600, 1500);
+  // pop();
 
   titleText();
 
   if (mirrorFrame.active || flowerDrops.active) {
     speakingMirror();
   }
+}
+
+function instructionText() {
+  push();
+  textAlign(CENTER, CENTER);
+  textSize(30);
+  textFont(titleFont);
+  fill(random(170, 210), 0, 10);
+  text("Instructions, enjoy your exprience", width / 2, height / 2);
+  pop();
 }
 
 function titleText() {
@@ -64,7 +76,6 @@ function titleText() {
   textFont(titleFont);
   fill(random(170, 210), 0, 10);
   text("The Lestat Vampire", width / 2, height / 2);
-
   pop();
 }
 
@@ -91,24 +102,26 @@ function speakingMirror() {
 }
 
 function mouseWheel(event) {
-  if (event.delta > 0) {
-    libraryColor.opacity += 100;
-    libraryColor.opacity = constrain(libraryColor.opacity, 1, 255);
-  } else {
-    libraryColor.opacity -= 100;
-    libraryColor.opacity = constrain(libraryColor.opacity, 1, 0);
-  }
+  instructionText();
+  //   push();
+  //   if (event.delta > 0) {
+  //     libraryColor.opacity += 100;
+  //     libraryColor.opacity = constrain(libraryColor.opacity, 1, 255);
+  //   } else {
+  //     libraryColor.opacity -= 100;
+  //     libraryColor.opacity = constrain(libraryColor.opacity, 1, 0);
+  //   }
+  //   pop();
 
   // scrolls upwards after library has the color
-  if (libraryColor.opacity >= 255) {
-    mirrorFrame.active = true;
-    flowerDrops.active = true;
-    mirrorFrame.y -= event.delta;
-    flowerDrops.y -= event.delta;
-  }
-  // mirror scroll up
-  // if (libraryColor.opacity === 255) {
-
+  push();
+  // if (libraryColor.opacity >= 255) {
+  mirrorFrame.active = true;
+  flowerDrops.active = true;
+  mirrorFrame.y -= event.delta;
+  flowerDrops.y -= event.delta;
   // }
+  pop();
+
   console.log(event.delta);
 }
