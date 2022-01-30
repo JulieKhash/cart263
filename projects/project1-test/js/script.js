@@ -1,12 +1,13 @@
 "use strict";
 
 let titleFont;
+let scriptFont;
 
 let instructions = {
   phrase: `I was waiting for you in that alley. Watching you watching me
   What're you doing in my house?
   What if I could give it back to you?
- Pluck out the pain...and give you another life?
+  Pluck out the pain...and give you another life?
  ...One you could never imagine.`,
   x: undefined,
   y: 800,
@@ -46,6 +47,7 @@ function preload() {
   mirrorFrameImg = loadImage(`assets/images/mirrorframe.png`);
 
   titleFont = loadFont("assets/fonts/BOERT.ttf");
+  scriptFont = loadFont("assets/fonts/BaroqueScript.ttf");
 }
 
 function setup() {
@@ -82,13 +84,13 @@ function instructionText() {
   fill(0, instructions.opacity);
   rectMode(CENTER);
   rect(instructions.x, instructions.y, 800, 300);
-
   pop();
 
   push();
   textAlign(CENTER, CENTER);
   textSize(25);
-  textFont(`Georgia`);
+  textFont(scriptFont);
+  textLeading(50); //line spacing
   fill(random(170, 210), 0, 0, instructions.opacity);
   text(instructions.phrase, instructions.x, instructions.y);
   pop();
@@ -127,7 +129,8 @@ function speakingMirror() {
 }
 
 function mouseWheel(event) {
-  instructions.opacity += 50;
+  instructions.opacity += event.delta / 10;
+  instructions.opacity = constrain(instructions.opacity, 0, 200);
 
   //   push();
   //   if (event.delta > 0) {
