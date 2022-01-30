@@ -1,5 +1,7 @@
 "use strict";
 
+let titleFont;
+
 let mirrorFrameImg;
 let mirrorFrame = {
   x: undefined,
@@ -29,6 +31,8 @@ function preload() {
 
   flowerDropsImg = loadImage(`assets/images/flowerdrops.gif`);
   mirrorFrameImg = loadImage(`assets/images/mirrorframe.png`);
+
+  titleFont = loadFont("assets/fonts/BOERT.ttf");
 }
 
 function setup() {
