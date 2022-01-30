@@ -2,6 +2,7 @@
 
 let titleFont;
 let scriptFont;
+let titleMain;
 
 let title = {
   phrase: `The Lestat Vampire`,
@@ -61,6 +62,8 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
+
+  titleMain = new Title();
 }
 
 function draw() {
@@ -70,13 +73,10 @@ function draw() {
   image(libraryBWImg, width / 2, height / 2, 2600, 1500);
   pop();
 
-  // push();
-  // tint(255, libraryColor.opacity);
-  // image(libraryColorImg, width / 2, height / 2, 2600, 1500);
-  // pop();
+  titleMain.display();
 
-  titleText();
-  instructionText();
+  // titleText();
+  // instructionText();
 
   if (mirrorFrame.active || flowerDrops.active) {
     speakingMirror();
@@ -105,23 +105,23 @@ function instructionText() {
   pop();
 }
 
-function titleText() {
-  push();
-  textAlign(CENTER, CENTER);
-  textSize(15);
-  textFont(`Georgia`);
-  fill(random(170, 210), 0, 10, title.opacity);
-  text(title.phrase2, width / 2, height / 2 + 100);
-  pop();
-
-  push();
-  textAlign(CENTER, CENTER);
-  textSize(50);
-  textFont(titleFont);
-  fill(random(170, 210), 0, 10, title.opacity);
-  text(title.phrase, width / 2, height / 2);
-  pop();
-}
+// function titleText() {
+//   push();
+//   textAlign(CENTER, CENTER);
+//   textSize(15);
+//   textFont(`Georgia`);
+//   fill(random(170, 210), 0, 10, title.opacity);
+//   text(title.phrase2, width / 2, height / 2 + 100);
+//   pop();
+//
+//   push();
+//   textAlign(CENTER, CENTER);
+//   textSize(50);
+//   textFont(titleFont);
+//   fill(random(170, 210), 0, 10, title.opacity);
+//   text(title.phrase, width / 2, height / 2);
+//   pop();
+// }
 
 function speakingMirror() {
   let x = width / 2;
@@ -146,10 +146,11 @@ function speakingMirror() {
 }
 
 function mouseWheel(event) {
-  instructions.opacity += event.delta / 10;
-  instructions.opacity = constrain(instructions.opacity, 0, 200);
-
-  title.opacity -= event.delta / 5;
+  titleMain.mouseWheel(event);
+  //   instructions.opacity += event.delta / 10;
+  //   instructions.opacity = constrain(instructions.opacity, 0, 200);
+  //
+  //   title.opacity -= event.delta / 5;
 
   //   push();
   //   if (event.delta > 0) {
@@ -169,7 +170,7 @@ function mouseWheel(event) {
   mirrorFrame.y -= event.delta;
   flowerDrops.y -= event.delta;
   // }
-  pop();
+  // pop();
   //*********************Press Enter --> state colored library
 
   console.log(event.delta);
