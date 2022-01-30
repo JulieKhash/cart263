@@ -3,10 +3,15 @@
 let titleFont;
 
 let instructions = {
-  phrase: `I was waiting for you in that alley. Watching you watching me`,
+  phrase: `I was waiting for you in that alley. Watching you watching me
+  What're you doing in my house?
+  What if I could give it back to you?
+ Pluck out the pain...and give you another life?
+ ...One you could never imagine.`,
   x: undefined,
-  y: undefined,
+  y: 800,
   size: 30,
+  opacity: 0,
   active: false,
 };
 
@@ -70,11 +75,11 @@ function draw() {
 
 function instructionText() {
   instructions.x = width / 2;
-  instructions.y = 1000;
+  // instructions.y = 1000;
 
   //rect background
   push();
-  fill(0, 200);
+  fill(0, instructions.opacity);
   rectMode(CENTER);
   rect(instructions.x, instructions.y, 800, 300);
 
@@ -84,7 +89,7 @@ function instructionText() {
   textAlign(CENTER, CENTER);
   textSize(25);
   textFont(`Georgia`);
-  fill(random(170, 210), 0, 10);
+  fill(random(170, 210), 0, 0, instructions.opacity);
   text(instructions.phrase, instructions.x, instructions.y);
   pop();
 }
@@ -122,6 +127,8 @@ function speakingMirror() {
 }
 
 function mouseWheel(event) {
+  instructions.opacity += 50;
+
   //   push();
   //   if (event.delta > 0) {
   //     libraryColor.opacity += 100;
@@ -133,14 +140,14 @@ function mouseWheel(event) {
   //   pop();
 
   // scrolls upwards after library has the color
-  push();
-  // if (libraryColor.opacity >= 255) {
-  mirrorFrame.active = true;
-  flowerDrops.active = true;
-  mirrorFrame.y -= event.delta;
-  flowerDrops.y -= event.delta;
-  // }
-  pop();
+  // push();
+  // // if (libraryColor.opacity >= 255) {
+  // mirrorFrame.active = true;
+  // flowerDrops.active = true;
+  // mirrorFrame.y -= event.delta;
+  // flowerDrops.y -= event.delta;
+  // // }
+  // pop();
 
   console.log(event.delta);
 }
