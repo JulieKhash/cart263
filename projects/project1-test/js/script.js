@@ -3,14 +3,22 @@
 let titleFont;
 let scriptFont;
 
+let title = {
+  phrase: `The Lestat Vampire`,
+  phrase2: `scroll down`,
+  opacity: 255,
+};
+
 let instructions = {
   phrase: `I was waiting for you in that alley. Watching you watching me
   What're you doing in my house?
   What if I could give it back to you?
   Pluck out the pain...and give you another life?
- ...One you could never imagine.`,
+ ...One you could never imagine.
+
+            Enter`,
   x: undefined,
-  y: 800,
+  y: undefined,
   size: 30,
   opacity: 0,
   active: false,
@@ -77,13 +85,14 @@ function draw() {
 
 function instructionText() {
   instructions.x = width / 2;
-  // instructions.y = 1000;
+  instructions.y = height / 2;
 
   //rect background
   push();
+  noStroke();
   fill(0, instructions.opacity);
   rectMode(CENTER);
-  rect(instructions.x, instructions.y, 800, 300);
+  rect(instructions.x, instructions.y, 1000, 500);
   pop();
 
   push();
@@ -99,10 +108,18 @@ function instructionText() {
 function titleText() {
   push();
   textAlign(CENTER, CENTER);
+  textSize(15);
+  textFont(`Georgia`);
+  fill(random(170, 210), 0, 10, title.opacity);
+  text(title.phrase2, width / 2, height / 2 + 100);
+  pop();
+
+  push();
+  textAlign(CENTER, CENTER);
   textSize(50);
   textFont(titleFont);
-  fill(random(170, 210), 0, 10);
-  text("The Lestat Vampire", width / 2, height / 2);
+  fill(random(170, 210), 0, 10, title.opacity);
+  text(title.phrase, width / 2, height / 2);
   pop();
 }
 
@@ -131,6 +148,8 @@ function speakingMirror() {
 function mouseWheel(event) {
   instructions.opacity += event.delta / 10;
   instructions.opacity = constrain(instructions.opacity, 0, 200);
+
+  title.opacity -= event.delta / 5;
 
   //   push();
   //   if (event.delta > 0) {
