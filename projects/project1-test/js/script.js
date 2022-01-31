@@ -2,7 +2,9 @@
 
 let titleFont;
 let scriptFont;
+
 let titleMain;
+let prologue;
 
 let title = {
   phrase: `The Lestat Vampire`,
@@ -64,6 +66,7 @@ function setup() {
   imageMode(CENTER);
 
   titleMain = new Title();
+  prologue = new Prologue();
 }
 
 function draw() {
@@ -74,9 +77,10 @@ function draw() {
   pop();
 
   titleMain.display();
+  prologue.update();
 
   // titleText();
-  instructionText();
+  // instructionText();
 
   if (mirrorFrame.active || flowerDrops.active) {
     speakingMirror();
@@ -154,6 +158,7 @@ function mousePressed() {
 
 function mouseWheel(event) {
   titleMain.mouseWheel(event);
+  prologue.mouseWheel(event);
 
   instructions.opacity += event.delta / 10;
   instructions.opacity = constrain(instructions.opacity, 0, 200);
