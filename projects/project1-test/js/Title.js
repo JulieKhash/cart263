@@ -4,12 +4,13 @@ class Title {
     this.y = height / 2;
     this.sizeSmall = 15; // scroll down text
     this.sizeBig = 50; // main title
-    this.opacity = 255; // for lestat/scroll down
     this.title = `The Lestat Vampire`;
     this.scrollText = `scroll down`;
     // this.colorR = random(170, 210);
     this.colorG = 0;
     this.colorB = 10;
+    this.opacity = 255; // for lestat/scroll down
+    this.fadeRate = 5;
   }
 
   display() {
@@ -31,6 +32,6 @@ class Title {
   }
 
   mouseWheel(event) {
-    title.opacity -= event.delta / 5;
+    title.opacity -= event.delta / this.fadeRate;
   }
 }

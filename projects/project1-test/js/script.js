@@ -76,7 +76,7 @@ function draw() {
   titleMain.display();
 
   // titleText();
-  // instructionText();
+  instructionText();
 
   if (mirrorFrame.active || flowerDrops.active) {
     speakingMirror();
@@ -145,11 +145,19 @@ function speakingMirror() {
   pop();
 }
 
+function mousePressed() {
+  responsiveVoice.speak(instructions.phrase, "UK English Male", {
+    pitch: 0.03,
+    rate: 0.9,
+  });
+}
+
 function mouseWheel(event) {
   titleMain.mouseWheel(event);
-  //   instructions.opacity += event.delta / 10;
-  //   instructions.opacity = constrain(instructions.opacity, 0, 200);
-  //
+
+  instructions.opacity += event.delta / 10;
+  instructions.opacity = constrain(instructions.opacity, 0, 200);
+
   //   title.opacity -= event.delta / 5;
 
   //   push();
