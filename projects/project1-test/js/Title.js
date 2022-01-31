@@ -4,7 +4,7 @@ class Title {
     this.y = height / 2;
     this.sizeSmall = 15; // scroll down text
     this.sizeBig = 50; // main title
-    this.title = `The Lestat Vampire`;
+    this.titleText = `The Lestat Vampire`;
     this.scrollText = `scroll down`;
     // this.colorR = random(170, 210);
     this.colorG = 0;
@@ -13,25 +13,29 @@ class Title {
     this.fadeRate = 5;
   }
 
+  update() {
+    this.display();
+  }
+
   display() {
     push();
     textAlign(CENTER, CENTER);
     textSize(this.sizeSmall);
     textFont(`Georgia`);
-    fill(random(170, 210), this.colorG, this.colorB, title.opacity);
-    text(title.phrase2, this.x, this.y + 100);
+    fill(random(170, 210), this.colorG, this.colorB, this.opacity);
+    text(this.scrollText, this.x, this.y + 100);
     pop();
 
     push();
     textAlign(CENTER, CENTER);
     textSize(this.sizeBig);
     textFont(titleFont);
-    fill(random(170, 210), this.colorG, this.colorB, title.opacity);
-    text(title.phrase, this.x, this.y);
+    fill(random(170, 210), this.colorG, this.colorB, this.opacity);
+    text(this.titleText, this.x, this.y);
     pop();
   }
 
   mouseWheel(event) {
-    title.opacity -= event.delta / this.fadeRate;
+    this.opacity -= event.delta / this.fadeRate;
   }
 }

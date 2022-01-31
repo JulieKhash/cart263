@@ -6,11 +6,11 @@ let scriptFont;
 let titleMain;
 let prologue;
 
-let title = {
-  phrase: `The Lestat Vampire`,
-  phrase2: `scroll down`,
-  opacity: 255,
-};
+// let title = {
+//   phrase: `The Lestat Vampire`,
+//   phrase2: `scroll down`,
+//   opacity: 255,
+// };
 
 let instructions = {
   phrase: `I was waiting for you in that alley. Watching you watching me
@@ -76,7 +76,7 @@ function draw() {
   image(libraryBWImg, width / 2, height / 2, 2600, 1500);
   pop();
 
-  titleMain.display();
+  titleMain.update();
   prologue.update();
 
   // titleText();
@@ -87,27 +87,27 @@ function draw() {
   }
 }
 
-function instructionText() {
-  instructions.x = width / 2;
-  instructions.y = height / 2;
-
-  //rect background
-  push();
-  noStroke();
-  fill(0, instructions.opacity);
-  rectMode(CENTER);
-  rect(instructions.x, instructions.y, 1000, 500);
-  pop();
-
-  push();
-  textAlign(CENTER, CENTER);
-  textSize(25);
-  textFont(scriptFont);
-  textLeading(50); //line spacing
-  fill(random(170, 210), 0, 0, instructions.opacity);
-  text(instructions.phrase, instructions.x, instructions.y);
-  pop();
-}
+// function instructionText() {
+//   instructions.x = width / 2;
+//   instructions.y = height / 2;
+//
+//   //rect background
+//   push();
+//   noStroke();
+//   fill(0, instructions.opacity);
+//   rectMode(CENTER);
+//   rect(instructions.x, instructions.y, 1000, 500);
+//   pop();
+//
+//   push();
+//   textAlign(CENTER, CENTER);
+//   textSize(25);
+//   textFont(scriptFont);
+//   textLeading(50); //line spacing
+//   fill(random(170, 210), 0, 0, instructions.opacity);
+//   text(instructions.phrase, instructions.x, instructions.y);
+//   pop();
+// }
 
 // function titleText() {
 //   push();
@@ -160,8 +160,8 @@ function mouseWheel(event) {
   titleMain.mouseWheel(event);
   prologue.mouseWheel(event);
 
-  instructions.opacity += event.delta / 10;
-  instructions.opacity = constrain(instructions.opacity, 0, 200);
+  // instructions.opacity += event.delta / 10;
+  // instructions.opacity = constrain(instructions.opacity, 0, 200);
 
   //   title.opacity -= event.delta / 5;
 

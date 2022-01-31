@@ -9,7 +9,7 @@ class Prologue {
     What're you doing in my house?
     What if I could give it back to you?
     Pluck out the pain...and give you another life?
-   ...One you could never imagine...
+   . . . One you could never imagine . . .
 
                                    Enter`;
 
