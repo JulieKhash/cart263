@@ -1,5 +1,9 @@
 "use strict";
 
+let someText = `What beauty by my side? A rose in bloom, a shrinking violet? Perhaps she has a mind to be my bride.
+Perhaps my lesson has not ended yet! I don't want to die! But Death we are and have always been.
+But I'm young!`;
+
 // Fonts
 let titleFont;
 let scriptFont;
@@ -114,16 +118,15 @@ function speakingMirror() {
   pop();
 }
 
-// function mousePressed() {
-//   responsiveVoice.speak(instructions.phrase, "UK English Male", {
-//     pitch: 0.03,
-//     rate: 0.9,
-//   });
-// }
+function mousePressed() {
+  responsiveVoice.speak(someText, "UK English Male", {
+    pitch: 0.2,
+    rate: 0.9,
+  });
+}
 
 function keyPressed() {
   if (keyCode === 13 && state === `main`) {
-    // Enter
     state = `libraryRoomColor`;
   }
 }
