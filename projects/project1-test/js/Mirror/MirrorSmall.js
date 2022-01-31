@@ -12,21 +12,23 @@ class MirrorSmall {
   }
 
   update() {
+    // super.update();
+
     this.display();
   }
 
-  checkOverlap(x, y) {
-    if (
-      this.x > this.x - this.image.width / 2 &&
-      this.x < this.x + this.image.width / 2 &&
-      this.y > this.y - this.image.height / 2 &&
-      this.y < this.y + this.image.height / 2
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // checkOverlap(x, y) {
+  //   if (
+  //     this.x > this.x - this.image.width / 2 &&
+  //     this.x < this.x + this.image.width / 2 &&
+  //     this.y > this.y - this.image.height / 2 &&
+  //     this.y < this.y + this.image.height / 2
+  //   ) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   display() {
     if (this.visible) {
