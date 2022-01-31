@@ -29,11 +29,17 @@ let flowerDrops = {
   active: false,
 };
 
+// libraries
 let libraryBWImg;
 let libraryColorImg;
 let libraryColor = {
   opacity: 0,
 };
+
+// mirror
+let mirrorSmallImg;
+let mirrorSmall;
+let mirrorBig;
 
 // game states
 let state = `main`;
@@ -42,6 +48,7 @@ function preload() {
   libraryBWImg = loadImage(`assets/images/libraryBW.png`);
   libraryColorImg = loadImage(`assets/images/libraryColored.png`);
 
+  mirrorSmallImg = loadImage(`assets/images/smallmirror200.png`);
   flowerDropsImg = loadImage(`assets/images/flowerdrops.gif`);
   mirrorFrameImg = loadImage(`assets/images/mirrorframe.png`);
 
@@ -53,6 +60,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
 
+  mirrorSmall = new Mirror(mirrorSmallImg);
   libraryRoomBW = new LibraryRoom(libraryBWImg); // Black and White image
   libraryRoomCol = new LibraryRoom(libraryColorImg); // With color
   titleMain = new Title();
@@ -66,11 +74,8 @@ function draw() {
     libraryRoomBnW();
   } else if (state === `libraryRoomColor`) {
     libraryRoomColor();
+    mirrorSmall.update();
   }
-
-  // libraryRoomBW.update();
-  // titleMain.update();
-  // prologue.update();
 
   if (mirrorFrame.active || flowerDrops.active) {
     speakingMirror();
@@ -85,6 +90,7 @@ function libraryRoomBnW() {
 
 function libraryRoomColor() {
   libraryRoomCol.update();
+  // mirrorSmall.update();
 }
 
 function speakingMirror() {
@@ -126,11 +132,6 @@ function keyPressed() {
 function mouseWheel(event) {
   titleMain.mouseWheel(event);
   prologue.mouseWheel(event);
-
-  // instructions.opacity += event.delta / 10;
-  // instructions.opacity = constrain(instructions.opacity, 0, 200);
-
-  //   title.opacity -= event.delta / 5;
 
   //   push();
   //   if (event.delta > 0) {
