@@ -8,6 +8,10 @@ let scriptFont;
 let titleMain;
 let prologue;
 
+// Library room
+let libraryRoomBW;
+let libraryRoomCol;
+
 let mirrorFrameImg;
 let mirrorFrame = {
   x: undefined,
@@ -46,6 +50,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
 
+  libraryRoomBW = new LibraryRoom(libraryBWImg); // Black and White
+  libraryRoomCol = new LibraryRoom(libraryColorImg); // With color
   titleMain = new Title();
   prologue = new Prologue();
 }
@@ -53,10 +59,11 @@ function setup() {
 function draw() {
   background(0);
 
-  push();
-  image(libraryBWImg, width / 2, height / 2, 2600, 1500);
-  pop();
+  // push();
+  // image(libraryBWImg, width / 2, height / 2, 2600, 1500);
+  // pop();
 
+  libraryRoomBW.update();
   titleMain.update();
   prologue.update();
 
@@ -87,12 +94,12 @@ function speakingMirror() {
   pop();
 }
 
-function mousePressed() {
-  responsiveVoice.speak(instructions.phrase, "UK English Male", {
-    pitch: 0.03,
-    rate: 0.9,
-  });
-}
+// function mousePressed() {
+//   responsiveVoice.speak(instructions.phrase, "UK English Male", {
+//     pitch: 0.03,
+//     rate: 0.9,
+//   });
+// }
 
 function mouseWheel(event) {
   titleMain.mouseWheel(event);
