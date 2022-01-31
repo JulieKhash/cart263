@@ -35,6 +35,9 @@ let libraryColor = {
   opacity: 0,
 };
 
+// game states
+let state = `main`;
+
 function preload() {
   libraryBWImg = loadImage(`assets/images/libraryBW.png`);
   libraryColorImg = loadImage(`assets/images/libraryColored.png`);
@@ -50,7 +53,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
 
-  libraryRoomBW = new LibraryRoom(libraryBWImg); // Black and White
+  libraryRoomBW = new LibraryRoom(libraryBWImg); // Black and White image
   libraryRoomCol = new LibraryRoom(libraryColorImg); // With color
   titleMain = new Title();
   prologue = new Prologue();
@@ -59,17 +62,29 @@ function setup() {
 function draw() {
   background(0);
 
-  // push();
-  // image(libraryBWImg, width / 2, height / 2, 2600, 1500);
-  // pop();
+  if (state === `main`) {
+    libraryRoomBnW();
+  } else if (state === `libraryRoomColor`) {
+    libraryRoomColor();
+  }
 
-  libraryRoomBW.update();
-  titleMain.update();
-  prologue.update();
+  // libraryRoomBW.update();
+  // titleMain.update();
+  // prologue.update();
 
   if (mirrorFrame.active || flowerDrops.active) {
     speakingMirror();
   }
+}
+
+function libraryRoomBnW() {
+  libraryRoomBW.update();
+  titleMain.update();
+  prologue.update();
+}
+
+function libraryRoomColor() {
+  libraryRoomCol.update();
 }
 
 function speakingMirror() {
@@ -100,6 +115,13 @@ function speakingMirror() {
 //     rate: 0.9,
 //   });
 // }
+
+function keyPressed() {
+  if (keyCode === 13 && state === `main`) {
+    // Enter
+    state = `libraryRoomColor`;
+  }
+}
 
 function mouseWheel(event) {
   titleMain.mouseWheel(event);
