@@ -1,31 +1,12 @@
 "use strict";
 
+// Fonts
 let titleFont;
 let scriptFont;
 
+// Titles/ texts
 let titleMain;
 let prologue;
-
-// let title = {
-//   phrase: `The Lestat Vampire`,
-//   phrase2: `scroll down`,
-//   opacity: 255,
-// };
-
-let instructions = {
-  phrase: `I was waiting for you in that alley. Watching you watching me
-  What're you doing in my house?
-  What if I could give it back to you?
-  Pluck out the pain...and give you another life?
- ...One you could never imagine...
-
-            Enter`,
-  x: undefined,
-  y: undefined,
-  size: 30,
-  opacity: 0,
-  active: false,
-};
 
 let mirrorFrameImg;
 let mirrorFrame = {
@@ -79,53 +60,10 @@ function draw() {
   titleMain.update();
   prologue.update();
 
-  // titleText();
-  // instructionText();
-
   if (mirrorFrame.active || flowerDrops.active) {
     speakingMirror();
   }
 }
-
-// function instructionText() {
-//   instructions.x = width / 2;
-//   instructions.y = height / 2;
-//
-//   //rect background
-//   push();
-//   noStroke();
-//   fill(0, instructions.opacity);
-//   rectMode(CENTER);
-//   rect(instructions.x, instructions.y, 1000, 500);
-//   pop();
-//
-//   push();
-//   textAlign(CENTER, CENTER);
-//   textSize(25);
-//   textFont(scriptFont);
-//   textLeading(50); //line spacing
-//   fill(random(170, 210), 0, 0, instructions.opacity);
-//   text(instructions.phrase, instructions.x, instructions.y);
-//   pop();
-// }
-
-// function titleText() {
-//   push();
-//   textAlign(CENTER, CENTER);
-//   textSize(15);
-//   textFont(`Georgia`);
-//   fill(random(170, 210), 0, 10, title.opacity);
-//   text(title.phrase2, width / 2, height / 2 + 100);
-//   pop();
-//
-//   push();
-//   textAlign(CENTER, CENTER);
-//   textSize(50);
-//   textFont(titleFont);
-//   fill(random(170, 210), 0, 10, title.opacity);
-//   text(title.phrase, width / 2, height / 2);
-//   pop();
-// }
 
 function speakingMirror() {
   let x = width / 2;
