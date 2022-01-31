@@ -60,7 +60,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
 
-  mirrorSmall = new Mirror(mirrorSmallImg);
+  mirrorSmall = new MirrorSmall(mirrorSmallImg);
   libraryRoomBW = new LibraryRoom(libraryBWImg); // Black and White image
   libraryRoomCol = new LibraryRoom(libraryColorImg); // With color
   titleMain = new Title();
@@ -74,7 +74,6 @@ function draw() {
     libraryRoomBnW();
   } else if (state === `libraryRoomColor`) {
     libraryRoomColor();
-    mirrorSmall.update();
   }
 
   if (mirrorFrame.active || flowerDrops.active) {
@@ -90,7 +89,7 @@ function libraryRoomBnW() {
 
 function libraryRoomColor() {
   libraryRoomCol.update();
-  // mirrorSmall.update();
+  mirrorSmall.update();
 }
 
 function speakingMirror() {
