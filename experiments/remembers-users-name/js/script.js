@@ -1,16 +1,18 @@
 "use strict";
 
+// WEB storage API saves and loads the data
 let userData = {
-  name: `stranger`,
+  name: `stranger`, // default data
 };
 
 function setup() {
   createCanvas(600, 600);
 
+  // load the data at the start of your program
   let data = JSON.parse(
     localStorage.getItem(`web-storage-example-personalization`)
   );
-  // if there's data (we might have saved data)
+  // if there's data (we might have saved data) use this data
   if (data !== null) {
     userData.name = data.name;
   }
@@ -27,6 +29,7 @@ function setup() {
 function draw() {
   background(0);
 
+  // display the data
   push();
   textSize(60);
   fill(255);
