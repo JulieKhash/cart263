@@ -57,9 +57,9 @@ class SpeakingMirror {
 
   mousePressed() {
     if (this.checkOverlapReflection(mouseX, mouseY)) {
-      this.smallVisible = false;
+      smallMirrorVisible = false;
     } else {
-      this.smallVisible = true;
+      smallMirrorVisible = true;
     }
   }
 }

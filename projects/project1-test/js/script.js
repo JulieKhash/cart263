@@ -44,6 +44,7 @@ let libraryColor = {
 let mirrorSmallImg;
 let mirrorSmall;
 let speakingMirror;
+let smallMirrorVisible = true;
 
 let butterFlyImg;
 

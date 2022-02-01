@@ -8,7 +8,7 @@ class MirrorSmall extends SpeakingMirror {
     this.glitter = 180;
 
     this.image = image;
-    this.smallVisible = true;
+    //  this.smallVisible = false;
   }
 
   update() {
@@ -32,7 +32,7 @@ class MirrorSmall extends SpeakingMirror {
   // }
 
   display() {
-    if (this.smallVisible) {
+    if (smallMirrorVisible) {
       push();
       tint(255, random(160, 250));
       image(this.image, this.x, this.y, this.w, this.h);
