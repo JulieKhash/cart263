@@ -13,6 +13,7 @@ class SpeakingMirror {
 
   update() {
     this.display();
+    //  this.checkOverlapReflection(mouseX, mouseY);
   }
 
   checkOverlapReflection(x, y) {
@@ -28,18 +29,18 @@ class SpeakingMirror {
     }
   }
 
-  checkOverlapMirrorFrame(x, y) {
-    if (
-      this.x > this.x - this.image.width / 2 &&
-      this.x < this.x + this.image.width / 2 &&
-      this.y > this.y - this.image.height / 2 &&
-      this.y < this.y + this.image.height / 2
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // checkOverlapMirrorFrame(x, y) {
+  //   if (
+  //     this.x > this.x - this.image.width / 2 &&
+  //     this.x < this.x + this.image.width / 2 &&
+  //     this.y > this.y - this.image.height / 2 &&
+  //     this.y < this.y + this.image.height / 2
+  //   ) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   display() {
     if (!this.visible) {
@@ -51,6 +52,14 @@ class SpeakingMirror {
       tint(255, this.frameOpacity);
       image(this.image, this.x, this.y);
       pop();
+    }
+  }
+
+  mousePressed() {
+    if (this.checkOverlapReflection(mouseX, mouseY)) {
+      this.smallVisible = false;
+    } else {
+      this.smallVisible = true;
     }
   }
 }

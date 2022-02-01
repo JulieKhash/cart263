@@ -1,5 +1,6 @@
-class MirrorSmall {
+class MirrorSmall extends SpeakingMirror {
   constructor(image) {
+    super();
     this.x = width / 2 - 600; // position x
     this.y = height / 2 + 100; // position y
     this.w = 90; // image width
@@ -7,13 +8,14 @@ class MirrorSmall {
     this.glitter = 180;
 
     this.image = image;
-    this.visible = true;
+    this.smallVisible = true;
   }
 
   update() {
-    // super.update();
+    super.update();
 
     this.display();
+    // this.checkOverlapMirrorFrame(x, y);
   }
 
   // checkOverlap(x, y) {
@@ -30,11 +32,17 @@ class MirrorSmall {
   // }
 
   display() {
-    if (this.visible) {
+    if (this.smallVisible) {
       push();
       tint(255, random(160, 250));
       image(this.image, this.x, this.y, this.w, this.h);
       pop();
     }
   }
+
+  // mousePressed() {
+  //   if (this.checkOverlapReflection(mouseX, mouseY)) {
+  //     this.smallVisible = false;
+  //   }
+  // }
 }

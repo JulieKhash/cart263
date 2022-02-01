@@ -48,7 +48,7 @@ let speakingMirror;
 let butterFlyImg;
 
 // game states
-let state = `main`;
+let state = `libraryRoomColor`;
 
 function preload() {
   libraryBWImg = loadImage(`assets/images/libraryBW.png`);
@@ -130,6 +130,9 @@ function libraryRoomColor() {
 //     rate: 1,
 //   });
 // }
+function mousePressed() {
+  speakingMirror.mousePressed();
+}
 
 function keyPressed() {
   if (keyCode === 13 && state === `main`) {
