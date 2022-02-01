@@ -44,7 +44,8 @@ let libraryColor = {
 let mirrorSmallImg;
 let mirrorSmall;
 let speakingMirror;
-let smallMirrorVisible = true;
+let smallMirrorVisible = true; // visible
+let speakingMirrorVisible = false; // not visible
 
 let butterFlyImg;
 
@@ -132,7 +133,8 @@ function libraryRoomColor() {
 //   });
 // }
 function mousePressed() {
-  speakingMirror.mousePressed();
+  // speakingMirror.mousePressed();
+  mirrorSmall.mousePressed();
 }
 
 function keyPressed() {

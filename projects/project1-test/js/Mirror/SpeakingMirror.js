@@ -2,8 +2,8 @@ class SpeakingMirror {
   constructor(imageFrame, imageReflection) {
     this.x = width / 2; // position x
     this.y = height / 2; // position y
-    this.w = 400; // width of the refelection
-    this.h = 500; // height of the refelection
+    this.w = 390; // width of the refelection
+    this.h = 470; // height of the refelection
 
     this.frameOpacity = 200; // opacity of the mirror frame
     this.image = imageFrame;
@@ -16,6 +16,7 @@ class SpeakingMirror {
     //  this.checkOverlapReflection(mouseX, mouseY);
   }
 
+  // check if the mouse is over the inner reflection of the frame
   checkOverlapReflection(x, y) {
     if (
       this.x > this.x - this.imageReflection.width / 2 &&
@@ -42,6 +43,7 @@ class SpeakingMirror {
   //   }
   // }
 
+  // displays a mirror frame and its reflection (flower, ripple)
   display() {
     if (!this.visible) {
       push();
