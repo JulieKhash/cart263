@@ -15,9 +15,9 @@ class MirrorSmall extends SpeakingMirror {
     super.update();
 
     this.display();
-    // this.checkOverlapMirrorFrame(x, y);
   }
 
+  // check if the mouse touches the small mirror
   checkOverlapSmallMirror(x, y) {
     if (
       this.x > this.x - this.imageSmallMirror.width / 2 &&
@@ -40,9 +40,11 @@ class MirrorSmall extends SpeakingMirror {
     }
   }
 
+  // make the small mirror disapper when mouse clicked
   mousePressed() {
     if (this.checkOverlapSmallMirror(mouseX, mouseY)) {
       smallMirrorVisible = false;
+      speakingMirrorVisible = true;
     }
   }
 }

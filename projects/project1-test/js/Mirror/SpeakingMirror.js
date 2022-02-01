@@ -45,7 +45,7 @@ class SpeakingMirror {
 
   // displays a mirror frame and its reflection (flower, ripple)
   display() {
-    if (!this.visible) {
+    if (speakingMirrorVisible) {
       push();
       image(this.imageReflection, this.x, this.y + 50, this.w, this.h);
       pop();
