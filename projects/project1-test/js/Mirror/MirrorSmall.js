@@ -1,6 +1,6 @@
-class MirrorSmall extends SpeakingMirror {
+class MirrorSmall {
   constructor(imageSmallMirror) {
-    super();
+    //  super();
     this.x = width / 2 - 600; // position x
     this.y = height / 2 + 100; // position y
     this.w = 90; // image width
@@ -12,7 +12,7 @@ class MirrorSmall extends SpeakingMirror {
   }
 
   update() {
-    super.update();
+    //  super.update();
 
     this.display();
   }
@@ -20,10 +20,10 @@ class MirrorSmall extends SpeakingMirror {
   // check if the mouse touches the small mirror
   checkOverlapSmallMirror(x, y) {
     if (
-      this.x > this.x - this.imageSmallMirror.width / 2 &&
-      this.x < this.x + this.imageSmallMirror.width / 2 &&
-      this.y > this.y - this.imageSmallMirror.height / 2 &&
-      this.y < this.y + this.imageSmallMirror.height / 2
+      x > this.x - this.imageSmallMirror.width / 2 &&
+      x < this.x + this.imageSmallMirror.width / 2 &&
+      x > this.y - this.imageSmallMirror.height / 2 &&
+      x < this.y + this.imageSmallMirror.height / 2
     ) {
       return true;
     } else {

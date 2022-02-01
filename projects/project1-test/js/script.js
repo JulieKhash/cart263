@@ -86,10 +86,6 @@ function draw() {
   } else if (state === `libraryRoomColor`) {
     libraryRoomColor();
   }
-
-  // if (mirrorFrame.active || flowerDrops.active) {
-  //   speakingMirror();
-  // }
 }
 
 function libraryRoomBnW() {
@@ -103,28 +99,6 @@ function libraryRoomColor() {
   mirrorSmall.update();
   speakingMirror.update();
 }
-
-// function speakingMirror() {
-//   let x = width / 2;
-//   let y = height;
-//
-//   push();
-//   flowerDrops.x = x;
-//   image(
-//     flowerDropsImg,
-//     flowerDrops.x,
-//     flowerDrops.y,
-//     flowerDrops.w,
-//     flowerDrops.h
-//   );
-//   pop();
-//
-//   push();
-//   mirrorFrame.x = x;
-//   tint(255, mirrorFrame.opacity);
-//   image(mirrorFrameImg, mirrorFrame.x, mirrorFrame.y);
-//   pop();
-// }
 
 // function mousePressed() {
 //   responsiveVoice.speak(someText, "UK English Male", {

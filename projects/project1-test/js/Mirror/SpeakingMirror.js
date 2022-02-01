@@ -30,19 +30,6 @@ class SpeakingMirror {
     }
   }
 
-  // checkOverlapMirrorFrame(x, y) {
-  //   if (
-  //     this.x > this.x - this.image.width / 2 &&
-  //     this.x < this.x + this.image.width / 2 &&
-  //     this.y > this.y - this.image.height / 2 &&
-  //     this.y < this.y + this.image.height / 2
-  //   ) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-
   // displays a mirror frame and its reflection (flower, ripple)
   display() {
     if (speakingMirrorVisible) {
@@ -57,11 +44,11 @@ class SpeakingMirror {
     }
   }
 
-  mousePressed() {
-    if (this.checkOverlapReflection(mouseX, mouseY)) {
-      smallMirrorVisible = false;
-    } else {
-      smallMirrorVisible = true;
-    }
-  }
+  // mousePressed() {
+  //   if (this.checkOverlapReflection(mouseX, mouseY)) {
+  //     smallMirrorVisible = false;
+  //   } else {
+  //     smallMirrorVisible = true;
+  //   }
+  // }
 }
