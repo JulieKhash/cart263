@@ -1,18 +1,34 @@
 class SpeakingMirror {
-  constructor(image) {
-    this.X = width / 2; // position x
-    this.Y = height / 2; // position y
+  constructor(imageFrame, imageReflection) {
+    this.x = width / 2; // position x
+    this.y = height / 2; // position y
+    this.w = 400; // width of the refelection
+    this.h = 500; // height of the refelection
 
-    this.frameOpacity = 200;
-    this.image = image;
-    this.visible = false;
+    this.frameOpacity = 200; // opacity of the mirror frame
+    this.image = imageFrame;
+    this.imageReflection = imageReflection;
+    this.visible = false; // default false
   }
 
   update() {
     this.display();
   }
 
-  checkOverlap(x, y) {
+  checkOverlapReflection(x, y) {
+    if (
+      this.x > this.x - this.imageReflection.width / 2 &&
+      this.x < this.x + this.imageReflection.width / 2 &&
+      this.y > this.y - this.imageReflection.height / 2 &&
+      this.y < this.y + this.imageReflection.height / 2
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  checkOverlapMirrorFrame(x, y) {
     if (
       this.x > this.x - this.image.width / 2 &&
       this.x < this.x + this.image.width / 2 &&
@@ -28,8 +44,12 @@ class SpeakingMirror {
   display() {
     if (!this.visible) {
       push();
+      image(this.imageReflection, this.x, this.y + 50, this.w, this.h);
+      pop();
+
+      push();
       tint(255, this.frameOpacity);
-      image(this.image, this.smX, this.smY, this.smW, this.smH);
+      image(this.image, this.x, this.y);
       pop();
     }
   }

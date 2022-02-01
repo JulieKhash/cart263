@@ -1,10 +1,9 @@
 class MirrorSmall {
   constructor(image) {
-    // small mirror
-    this.smX = width / 2 - 600; // position x
-    this.smY = height / 2 + 100; // position y
-    this.smW = 90; // image width
-    this.smH = 131; // image height
+    this.x = width / 2 - 600; // position x
+    this.y = height / 2 + 100; // position y
+    this.w = 90; // image width
+    this.h = 131; // image height
     this.glitter = 180;
 
     this.image = image;
@@ -34,7 +33,7 @@ class MirrorSmall {
     if (this.visible) {
       push();
       tint(255, random(160, 250));
-      image(this.image, this.smX, this.smY, this.smW, this.smH);
+      image(this.image, this.x, this.y, this.w, this.h);
       pop();
     }
   }
