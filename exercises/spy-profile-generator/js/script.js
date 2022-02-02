@@ -96,10 +96,22 @@ You were obsessed with ${userProfile.object} and loved ${userProfile.food}. You 
 ${userProfile.mood1} dealing with ${userProfile.mood2} people.`;
 
   push();
-  textAlign(LEFT, TOP);
+  textAlign(CENTER, CENTER);
+  textStyle(BOLD);
   textFont(`Courier`);
   textSize(30);
-  fill(0, 100, 255);
-  text(profile, 100, 100);
+  fill(180, 180, 0);
+  text(profile, width / 2, height / 3);
+  pop();
+
+  // title
+  push();
+  textAlign(CENTER, CENTER);
+  textStyle(BOLD);
+  textStyle(ITALIC);
+  textFont(`Georgia`);
+  textSize(60);
+  fill(255);
+  text("Past Life Generator", width / 2, 100);
   pop();
 }
