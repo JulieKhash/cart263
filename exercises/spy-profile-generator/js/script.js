@@ -6,8 +6,8 @@ Uses:
 Darius Kazemi's corpora project:
 https://github.com/dariusk/corpora/
 
-In this simple randomizion program, the user can play around the idea of their past lives.
-and have some fun. They may change the description if they don't like it lol
+In this simple randomizion program, the user can play around the idea of their past lives
+and have some fun. They may change the description if they don't like it
 */
 
 "use strict";
@@ -126,7 +126,7 @@ ${userProfile.mood1} dealing with ${userProfile.mood2} people.`;
   textAlign(CENTER, CENTER);
   textStyle(BOLD);
   textFont(`Courier`);
-  textSize(30);
+  textSize(28);
   fill(180, 180, 0);
   text(profile, width / 2, height / 2);
   pop();
@@ -141,7 +141,7 @@ function titleText() {
   textFont(`Georgia`);
   textSize(60);
   fill(255);
-  text(gameName, width / 2, 200);
+  text(gameName, width / 2, 300);
   pop();
 }
 
