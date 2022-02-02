@@ -44,6 +44,12 @@ class SpeakingMirror {
     }
   }
 
+  mousePressed() {
+    if (speakingMirrorVisible && this.checkOverlapReflection(mouseX, mouseY)) {
+      waterDropSFX.play();
+    }
+  }
+
   // mousePressed() {
   //   if (this.checkOverlapReflection(mouseX, mouseY)) {
   //     smallMirrorVisible = false;

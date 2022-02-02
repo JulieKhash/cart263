@@ -23,6 +23,8 @@ let fireplaceFireImg;
 let wineGlassImg;
 let wineGlass;
 
+let waterDropSFX;
+
 let mirrorFrameImg;
 let mirrorFrame = {
   x: undefined,
@@ -73,6 +75,8 @@ function preload() {
 
   titleFont = loadFont("assets/fonts/BOERT.ttf");
   scriptFont = loadFont("assets/fonts/BaroqueScript.ttf");
+
+  waterDropSFX = loadSound(`assets/sounds/waterdrop2.mp3`);
 }
 
 function setup() {
@@ -125,10 +129,10 @@ function libraryRoomColor() {
 //   });
 // }
 function mousePressed() {
-  // speakingMirror.mousePressed();
-  libraryRoomCol.mousePressed();
+  //  libraryRoomCol.mousePressed();
+  speakingMirror.mousePressed();
   mirrorSmall.mousePressed();
-  wineGlass.mousePressed();
+  // wineGlass.mousePressed();
 }
 
 function keyPressed() {
