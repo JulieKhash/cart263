@@ -2,15 +2,17 @@
 Past Life Generator
 Julie Khashimova
 
-The data is from Corpora https://github.com/dariusk/corpora
+Uses:
+Darius Kazemi's corpora project:
+https://github.com/dariusk/corpora/
 
 In this simple randomizion program, the user can play around the idea of their past lives.
-and have some fun. They may change the description if they don't like it 
-
+and have some fun. They may change the description if they don't like it lol
 */
 
 "use strict";
 
+// the user profile data
 let userProfile = {
   name: "HIDDEN",
   homeLand: "HIDDEN",
@@ -24,10 +26,12 @@ let userProfile = {
   mood2: "HIDDEN",
 };
 
+// texts
 let promptText = `Enter your name here`;
 let gameName = `Past Life Generator`;
 let removeText = `Press "c" to change your past`;
 
+// variables for JSON data
 let countryData;
 let bodyPartData;
 let descriptionData;
@@ -35,7 +39,7 @@ let objectData;
 let foodData;
 let moodData;
 
-// load json data from the internet
+// load the json data from the internet to generate the profile
 function preload() {
   countryData = loadJSON(
     "https://raw.githubusercontent.com/dariusk/corpora/master/data/geography/countries.json"
@@ -57,7 +61,7 @@ function preload() {
   );
 }
 
-// set up canvas, obtain data from local storage
+// sets up canvas, obtains data from local storage
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -84,14 +88,12 @@ function generateUserProfile() {
   userProfile.homeLand = country;
   let bodyPart = random(bodyPartData.bodyParts);
   userProfile.bodyPart = bodyPart;
-
   let description1 = random(descriptionData.descriptions);
   userProfile.description1 = description1;
   let description2 = random(descriptionData.descriptions);
   userProfile.description2 = description2;
   let description3 = random(descriptionData.descriptions);
   userProfile.description3 = description3;
-
   let object = random(objectData.objects);
   userProfile.object = object;
   let food = random(foodData.pizzaToppings);
@@ -104,7 +106,7 @@ function generateUserProfile() {
   localStorage.setItem(`past-life-profile-data`, JSON.stringify(userProfile));
 }
 
-// calls text based functions
+// displays texts
 function draw() {
   background(0);
 
@@ -154,7 +156,7 @@ function restartText() {
   pop();
 }
 
-// by pressing a "c" key the user removes the existing data and assigns a new one
+// press "c"  to remove the existing data and assign a new one
 function keyPressed() {
   if (key === `c`) {
     localStorage.removeItem(`past-life-profile-data`);
