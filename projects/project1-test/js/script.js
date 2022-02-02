@@ -20,6 +20,8 @@ let libraryRoomCol;
 let fireplaceImg;
 let fireplace;
 let fireplaceFireImg;
+let wineGlassImg;
+let wineGlass;
 
 let mirrorFrameImg;
 let mirrorFrame = {
@@ -62,11 +64,11 @@ function preload() {
   libraryColorImg = loadImage(`assets/images/libraryColored.png`);
   fireplaceImg = loadImage(`assets/images/fireplace3.jpg`);
   fireplaceFireImg = loadImage(`assets/images/fire.gif`);
+  wineGlassImg = loadImage(`assets/images/wineglass6.png`);
 
   mirrorSmallImg = loadImage(`assets/images/smallmirror200.png`);
   flowerDropsImg = loadImage(`assets/images/flowerdrops.gif`);
   mirrorFrameImg = loadImage(`assets/images/mirrorframe.png`);
-
   // butterFlyImg = loadImage(`assets/images/butter.png`);
 
   titleFont = loadFont("assets/fonts/BOERT.ttf");
@@ -77,6 +79,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
 
+  wineGlass = new WineGlass(wineGlassImg);
   fireplace = new Fireplace(fireplaceImg, fireplaceFireImg);
   speakingMirror = new SpeakingMirror(mirrorFrameImg, flowerDropsImg);
   mirrorSmall = new MirrorSmall(mirrorSmallImg);
@@ -100,6 +103,7 @@ function draw() {
 
 function fireplaceScene() {
   fireplace.update();
+  wineGlass.update();
 }
 
 function libraryRoomBnW() {

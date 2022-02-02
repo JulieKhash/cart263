@@ -1,9 +1,13 @@
 class WineGlass {
   constructor(imageWineGlass) {
-    this.x = width / 3;
-    this.y = height / 3;
+    this.x = width / 3 - 100;
+    this.y = height / 3 - 20;
 
     this.imageWineGlass = imageWineGlass;
+  }
+
+  update() {
+    this.display();
   }
 
   display() {
