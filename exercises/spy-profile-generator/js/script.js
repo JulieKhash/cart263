@@ -61,7 +61,24 @@ Description of setup
 */
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  generateUserProfile();
+  // generateUserProfile();
+
+  let data = JSON.parse(localStorage.getItem(`past-life-profile-data`));
+  if (data !== null) {
+    userProfile.name = data.name;
+    userProfile.homeLand = data.homeLand;
+    userProfile.bodyPart = data.bodyPart;
+    userProfile.description1 = data.description1;
+    userProfile.description2 = data.description2;
+    userProfile.description3 = data.description3;
+    userProfile.object = data.object;
+    userProfile.food = data.food;
+    userProfile.mood1 = data.mood1;
+    userProfile.mood2 = data.mood2;
+    // } else {
+    //   generateUserProfile();
+    // }
+  }
 }
 
 function generateUserProfile() {
@@ -112,7 +129,7 @@ ${userProfile.mood1} dealing with ${userProfile.mood2} people.`;
   textFont(`Courier`);
   textSize(30);
   fill(180, 180, 0);
-  text(profile, width / 2, height / 3);
+  text(profile, width / 2, height / 2);
   pop();
 }
 
@@ -124,7 +141,7 @@ function titleText() {
   textFont(`Georgia`);
   textSize(60);
   fill(255);
-  text("Past Life Generator", width / 2, 100);
+  text("Past Life Generator", width / 2, 200);
   pop();
 }
 function restartText() {
@@ -137,4 +154,11 @@ function restartText() {
   fill(180);
   text(`Press "c" to change your past`, width / 2, height - 300);
   pop();
+}
+
+function keyPressed() {
+  if (key === `c`) {
+    localStorage.removeItem(`past-life-profile-data`);
+    generateUserProfile();
+  }
 }
