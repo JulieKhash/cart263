@@ -31,16 +31,26 @@ function setup() {
 
   forestBW = new ForestBackground(forestBgBWImg);
   forestColor = new ForestBackground(forestBgColImg);
+  titleMain = new Title();
+  prologue = new Prologue();
 }
 
 function draw() {
   background(0);
 
-  if ((state = `main`)) {
+  if (state = `main`) {
     forestBWscene();
+    titleMain.update();
+    prologue.update();
   }
 }
 
 function forestBWscene() {
   forestBW.update();
+}
+
+function mouseWheel(){
+  titleMain.mouseWheel(event);
+  prologue.mouseWheel(event);
+
 }
