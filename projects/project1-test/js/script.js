@@ -109,6 +109,7 @@ function libraryRoomColor() {
 function mousePressed() {
   // speakingMirror.mousePressed();
   mirrorSmall.mousePressed();
+  libraryRoomCol.mousePressed();
 }
 
 function keyPressed() {
