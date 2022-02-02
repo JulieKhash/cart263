@@ -1,33 +1,46 @@
-/**
-Title of Project
-Author Name
-
-This is a template. You must fill in the title,
-author, and this description to match your project!
-*/
-
 "use strict";
 
+// Fonts
+let titleFont;
+let scriptFont;
 
-/**
-Description of preload
-*/
+// Titles/ texts
+let titleMain;
+let prologue;
+
+// forest background
+let forestBgBWImg;
+let forestBgColImg;
+let forestBW;
+let forestColor;
+
+let state = `main`;
+let mainScene = true;
+
 function preload() {
+  forestBgBWImg = loadImage("assets/images/forestbw.png");
+  forestBgColImg = loadImage("assets/images/forestcol.png");
 
+  titleFont = loadFont("assets/fonts/BOERT.ttf");
+  scriptFont = loadFont("assets/fonts/BaroqueScript.ttf");
 }
 
-
-/**
-Description of setup
-*/
 function setup() {
+  createCanvas(windowWidth, windowHeight);
+  imageMode(CENTER);
 
+  forestBW = new ForestBackground(forestBgBWImg);
+  forestColor = new ForestBackground(forestBgColImg);
 }
 
-
-/**
-Description of draw()
-*/
 function draw() {
+  background(0);
 
+  if ((state = `main`)) {
+    forestBWscene();
+  }
+}
+
+function forestBWscene() {
+  forestBW.update();
 }
