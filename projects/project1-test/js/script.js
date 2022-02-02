@@ -17,8 +17,9 @@ let libraryRoomBW;
 let libraryRoomCol;
 
 // Fireplace
-let firepaceImg;
+let fireplaceImg;
 let fireplace;
+let fireplaceFireImg;
 
 let mirrorFrameImg;
 let mirrorFrame = {
@@ -59,7 +60,8 @@ let state = `fireplaceScene`;
 function preload() {
   libraryBWImg = loadImage(`assets/images/libraryBW.png`);
   libraryColorImg = loadImage(`assets/images/libraryColored.png`);
-  firepaceImg = loadImage(`assets/images/fireplace2.jpg`);
+  fireplaceImg = loadImage(`assets/images/fireplace3.jpg`);
+  fireplaceFireImg = loadImage(`assets/images/fire.gif`);
 
   mirrorSmallImg = loadImage(`assets/images/smallmirror200.png`);
   flowerDropsImg = loadImage(`assets/images/flowerdrops.gif`);
@@ -75,7 +77,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
 
-  fireplace = new Fireplace(firepaceImg);
+  fireplace = new Fireplace(fireplaceImg, fireplaceFireImg);
   speakingMirror = new SpeakingMirror(mirrorFrameImg, flowerDropsImg);
   mirrorSmall = new MirrorSmall(mirrorSmallImg);
   libraryRoomBW = new LibraryRoom(libraryBWImg); // Black and White image
