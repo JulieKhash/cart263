@@ -93,5 +93,6 @@ function keyPressed() {
     mainScene = false;
     bottleScene = true;
     state = `wineBottle`;
+    bloodBottle.repeatVoice();
   }
 }

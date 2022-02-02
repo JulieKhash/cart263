@@ -8,9 +8,13 @@ class BloodBottle {
 
   update() {
     this.display();
-    this.voiceInstruction();
+    // this.voiceInstruction();
   }
 
+  // repeats the voice every 2 seconds
+  repeatVoice() {
+    setInterval(this.voiceInstruction, 2000);
+  }
   voiceInstruction() {
     responsiveVoice.speak(`You must drink it`, VOICE_NAME, VOICE_PARAMS);
   }
