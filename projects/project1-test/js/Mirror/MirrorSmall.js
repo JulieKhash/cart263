@@ -8,12 +8,10 @@ class MirrorSmall {
     this.glitter = 180;
 
     this.imageSmallMirror = imageSmallMirror;
-    //  this.smallVisible = false;
   }
 
   update() {
     //  super.update();
-
     this.display();
   }
 

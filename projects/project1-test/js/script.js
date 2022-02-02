@@ -61,6 +61,7 @@ let butterFlyImg;
 
 // game states
 let state = `main`;
+let mainScene = true;
 let libraryColorScene = false;
 
 function preload() {
@@ -113,9 +114,11 @@ function fireplaceScene() {
 }
 
 function libraryRoomBnW() {
-  libraryRoomBW.update();
-  titleMain.update();
-  prologue.update();
+  if (mainScene) {
+    libraryRoomBW.update();
+    titleMain.update();
+    prologue.update();
+  }
 }
 
 // display library when its true
@@ -137,11 +140,12 @@ function mousePressed() {
   //  libraryRoomCol.mousePressed();
   speakingMirror.mousePressed();
   mirrorSmall.mousePressed();
-  wineGlass.mousePressed();
+  // wineGlass.mousePressed();
 }
 
 function keyPressed() {
   if (keyCode === 13 && state === `main`) {
+    mainScene = false;
     libraryColorScene = true;
     state = `libraryRoomColor`;
   } else if (keyCode === 13 && state === `libraryRoomColor`) {
@@ -153,28 +157,6 @@ function keyPressed() {
 function mouseWheel(event) {
   titleMain.mouseWheel(event);
   prologue.mouseWheel(event);
-
-  //   push();
-  //   if (event.delta > 0) {
-  //     libraryColor.opacity += 100;
-  //     libraryColor.opacity = constrain(libraryColor.opacity, 1, 255);
-  //   } else {
-  //     libraryColor.opacity -= 100;
-  //     libraryColor.opacity = constrain(libraryColor.opacity, 1, 0);
-  //   }
-  //   pop();
-
-  // scrolls upwards after library has the color
-  // push();
-  // // if (libraryColor.opacity >= 255) {
-  // mirrorFrame.active = true;
-  // flowerDrops.active = true;
-  // mirrorFrame.y -= event.delta;
-  // flowerDrops.y -= event.delta;
-
-  // }
-  // pop();
-  //*********************Press Enter --> state colored library
 
   console.log(event.delta);
 }

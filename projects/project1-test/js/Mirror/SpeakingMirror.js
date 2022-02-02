@@ -12,7 +12,6 @@ class SpeakingMirror {
 
   update() {
     this.display();
-    //  this.checkOverlapReflection(mouseX, mouseY);
   }
 
   // check if the mouse is over the inner reflection of the frame
@@ -43,6 +42,14 @@ class SpeakingMirror {
     }
   }
 
+  delayedSound() {
+    setTimeout(this.playSound, 3000);
+  }
+
+  playSound() {
+    waterDropSFX.loop();
+  }
+
   // play sounds only if the big mirror is visible, the state is library and if mouse is on a mirror
   mousePressed() {
     if (
@@ -50,15 +57,11 @@ class SpeakingMirror {
       libraryColorScene &&
       this.checkOverlapReflection(mouseX, mouseY)
     ) {
-      waterDropSFX.play();
+      smallMirrorVisible = false;
+      waterdropSound = true;
+      this.delayedSound();
+    } else {
+      smallMirrorVisible = true;
     }
   }
-
-  // mousePressed() {
-  //   if (this.checkOverlapReflection(mouseX, mouseY)) {
-  //     smallMirrorVisible = false;
-  //   } else {
-  //     smallMirrorVisible = true;
-  //   }
-  // }
 }
