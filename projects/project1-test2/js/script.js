@@ -26,6 +26,7 @@ let forestColor;
 
 let bloodBottleImg;
 let bloodBottle;
+let bottleDrunken = false;
 
 let eyeImg;
 let eye;
@@ -51,6 +52,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
 
+  eye = new Eye(eyeImg);
   bloodBottle = new BloodBottle(bloodBottleImg);
   forestBW = new ForestBackground(forestBgBWImg);
   forestColor = new ForestBackground(forestBgColImg);
@@ -80,6 +82,7 @@ function bloodBottleScene() {
   if (bottleScene) {
     forestBW.update();
     bloodBottle.update();
+    eye.update();
   }
 }
 

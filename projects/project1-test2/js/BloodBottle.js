@@ -48,9 +48,7 @@ class BloodBottle {
 
   mousePressed() {
     if (this.checkOverlapBottle(mouseX, mouseY)) {
-      breathingSFX.loop();
-      // image(eyeImg, this.x, this.y);
-      // state = `main`;
+      bottleDrunken = true;
     }
     //breathingSFX.loop();
   }
