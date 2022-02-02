@@ -16,6 +16,10 @@ let prologue;
 let libraryRoomBW;
 let libraryRoomCol;
 
+// Fireplace
+let firepaceImg;
+let fireplace;
+
 let mirrorFrameImg;
 let mirrorFrame = {
   x: undefined,
@@ -50,11 +54,12 @@ let speakingMirrorVisible = false; // not visible
 let butterFlyImg;
 
 // game states
-let state = `libraryRoomColor`;
+let state = `fireplaceScene`;
 
 function preload() {
   libraryBWImg = loadImage(`assets/images/libraryBW.png`);
   libraryColorImg = loadImage(`assets/images/libraryColored.png`);
+  firepaceImg = loadImage(`assets/images/fireplace.jpg`);
 
   mirrorSmallImg = loadImage(`assets/images/smallmirror200.png`);
   flowerDropsImg = loadImage(`assets/images/flowerdrops.gif`);
@@ -70,6 +75,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
 
+  fireplace = new Fireplace(firepaceImg);
   speakingMirror = new SpeakingMirror(mirrorFrameImg, flowerDropsImg);
   mirrorSmall = new MirrorSmall(mirrorSmallImg);
   libraryRoomBW = new LibraryRoom(libraryBWImg); // Black and White image
@@ -85,7 +91,13 @@ function draw() {
     libraryRoomBnW();
   } else if (state === `libraryRoomColor`) {
     libraryRoomColor();
+  } else if (state === `fireplaceScene`) {
+    fireplaceScene();
   }
+}
+
+function fireplaceScene() {
+  fireplace.update();
 }
 
 function libraryRoomBnW() {

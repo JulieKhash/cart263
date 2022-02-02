@@ -6,6 +6,10 @@ class Fireplace {
     this.imageFireplace = imageFireplace;
   }
 
+  update() {
+    this.display();
+  }
+
   display() {
     push();
     image(this.imageFireplace, this.x, this.y);
