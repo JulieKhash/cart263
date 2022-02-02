@@ -14,12 +14,16 @@ let forestBgColImg;
 let forestBW;
 let forestColor;
 
+let bloodBottleImg;
+let bloodBottle;
+
 let state = `main`;
 let mainScene = true;
 
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
   forestBgColImg = loadImage("assets/images/forestcol.png");
+  bloodBottleImg = loadImage("assets/images/bloodbottlesm.png");
 
   titleFont = loadFont("assets/fonts/BOERT.ttf");
   scriptFont = loadFont("assets/fonts/BaroqueScript.ttf");
@@ -29,6 +33,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
 
+  bloodBottleImg = new BloodBottle(bloodBottleImg);
   forestBW = new ForestBackground(forestBgBWImg);
   forestColor = new ForestBackground(forestBgColImg);
   titleMain = new Title();
@@ -38,19 +43,22 @@ function setup() {
 function draw() {
   background(0);
 
-  if (state = `main`) {
-    forestBWscene();
+  if ((state = `main`)) {
+    forestBWScene();
     titleMain.update();
     prologue.update();
   }
 }
 
-function forestBWscene() {
-  forestBW.update();
+function forestBWScene() {
+  if (mainScene) {
+    forestBW.update();
+  }
 }
 
-function mouseWheel(){
+function bloodBottleScene() {}
+
+function mouseWheel() {
   titleMain.mouseWheel(event);
   prologue.mouseWheel(event);
-
 }
