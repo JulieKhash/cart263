@@ -18,6 +18,13 @@ let userProfile = {
   mood: "HIDDEN",
 };
 
+let countryData;
+let bodyPartData;
+let descriptionData;
+let objectData;
+let foodData;
+let moodData;
+
 /**
 Description of preload
 */
@@ -28,6 +35,7 @@ Description of setup
 */
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  userProfile.name = prompt(`Enter your name here`);
 }
 
 /**
@@ -36,10 +44,12 @@ Description of draw()
 function draw() {
   background(0);
 
+  let profile = `In your past life you were...`;
+
   push();
   textAlign(LEFT, TOP);
   textFont(`Courier`);
-  textSize(40);
+  textSize(30);
   fill(0, 100, 255);
   text(profile, 100, 100);
   pop();
