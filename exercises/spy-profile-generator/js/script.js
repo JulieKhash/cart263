@@ -90,6 +90,22 @@ Description of draw()
 */
 function draw() {
   background(0);
+
+  // title
+  // push();
+  // textAlign(CENTER, CENTER);
+  // textStyle(BOLD);
+  // textStyle(ITALIC);
+  // textFont(`Georgia`);
+  // textSize(60);
+  // fill(255);
+  // text("Past Life Generator", width / 2, 100);
+  // pop();
+  textGenerator();
+  titleText();
+}
+
+function textGenerator() {
   let profile = `${userProfile.name}, in your past life you were born in ${userProfile.homeLand}.
 You had a charming ${userProfile.bodyPart}. You were very ${userProfile.description1}, ${userProfile.description2} and ${userProfile.description3}.
 You were obsessed with ${userProfile.object} and loved ${userProfile.food}. You were, however,
@@ -103,8 +119,9 @@ ${userProfile.mood1} dealing with ${userProfile.mood2} people.`;
   fill(180, 180, 0);
   text(profile, width / 2, height / 3);
   pop();
+}
 
-  // title
+function titleText() {
   push();
   textAlign(CENTER, CENTER);
   textStyle(BOLD);
