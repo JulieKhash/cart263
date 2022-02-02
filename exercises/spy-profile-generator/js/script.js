@@ -14,7 +14,9 @@ let userProfile = {
   name: "HIDDEN",
   homeLand: "HIDDEN",
   bodyPart: "HIDDEN",
-  description: "HIDDEN",
+  description1: "HIDDEN",
+  description2: "HIDDEN",
+  description3: "HIDDEN",
   object: "HIDDEN",
   food: "HIDDEN",
   mood: "HIDDEN",
@@ -65,8 +67,14 @@ function generateUserProfile() {
   userProfile.homeLand = country;
   let bodyPart = random(bodyPartData.bodyParts);
   userProfile.bodyPart = bodyPart;
-  let description = random(descriptionData.descriptions);
-  userProfile.description = description;
+
+  let description1 = random(descriptionData.descriptions);
+  userProfile.description1 = description1;
+  let description2 = random(descriptionData.descriptions);
+  userProfile.description2 = description2;
+  let description3 = random(descriptionData.descriptions);
+  userProfile.description3 = description3;
+
   let object = random(objectData.objects);
   userProfile.object = object;
   let food = random(foodData.pizzaToppings);
@@ -79,8 +87,8 @@ Description of draw()
 */
 function draw() {
   background(0);
-
-  let profile = `In your past life you were...`;
+  let profile = `${userProfile.name}, in your past life you were born in ${userProfile.homeLand}
+You had a charming ${userProfile.bodyPart}. You were very ${userProfile.description1}, ${userProfile.description2}, ${userProfile.description3}.`;
 
   push();
   textAlign(LEFT, TOP);
@@ -88,7 +96,5 @@ function draw() {
   textSize(30);
   fill(0, 100, 255);
   text(profile, 100, 100);
-  text(userProfile.homeLand, 200, 200);
-  text(userProfile.bodyPart, 300, 300);
   pop();
 }
