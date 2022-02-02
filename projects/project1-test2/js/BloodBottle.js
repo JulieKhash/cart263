@@ -3,11 +3,14 @@ class BloodBottle {
     this.x = width / 2;
     this.y = height / 2;
 
+    this.opacity = 170;
+
     this.imageBottle = imageBottle;
   }
 
   update() {
     this.display();
+    this.bottleIsDrunken();
     // this.voiceInstruction();
   }
 
@@ -23,6 +26,13 @@ class BloodBottle {
       VOICE_NAME,
       VOICE_PARAMS
     );
+  }
+
+  // make the bottle slowly disappear if it's drunken
+  bottleIsDrunken() {
+    if (bottleDrunken) {
+      this.opacity -= 1 / 5;
+    }
   }
 
   // check if the mouse touches the bottle
@@ -41,7 +51,7 @@ class BloodBottle {
 
   display() {
     push();
-    tint(random(200, 255), 170);
+    tint(random(200, 255), this.opacity);
     image(this.imageBottle, this.x, this.y);
     pop();
   }

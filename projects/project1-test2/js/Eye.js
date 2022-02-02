@@ -11,12 +11,13 @@ class Eye {
 
   update() {
     this.display();
-    this.showEye();
+    this.showEyeSlowly();
   }
 
-  showEye() {
+  showEyeSlowly() {
     if (bottleDrunken) {
       this.opacity += 1 / 10;
+      this.opacity = constrain(this.opacity, 0, 200);
     }
   }
 
