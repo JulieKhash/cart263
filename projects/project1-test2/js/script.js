@@ -18,7 +18,9 @@ let bloodBottleImg;
 let bloodBottle;
 
 let state = `main`;
+let started = false;
 let mainScene = true;
+let bottleScene = false;
 
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
@@ -33,7 +35,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
 
-  bloodBottleImg = new BloodBottle(bloodBottleImg);
+  bloodBottle = new BloodBottle(bloodBottleImg);
   forestBW = new ForestBackground(forestBgBWImg);
   forestColor = new ForestBackground(forestBgColImg);
   titleMain = new Title();
@@ -43,22 +45,36 @@ function setup() {
 function draw() {
   background(0);
 
-  if ((state = `main`)) {
+  if (state === `main`) {
     forestBWScene();
-    titleMain.update();
-    prologue.update();
+  } else if (state === `wineBottle`) {
+    bloodBottleScene();
   }
 }
 
 function forestBWScene() {
   if (mainScene) {
     forestBW.update();
+    titleMain.update();
+    prologue.update();
   }
 }
 
-function bloodBottleScene() {}
+function bloodBottleScene() {
+  if (bottleScene) {
+    bloodBottle.update();
+  }
+}
 
 function mouseWheel() {
   titleMain.mouseWheel(event);
   prologue.mouseWheel(event);
+}
+
+function keyPressed() {
+  if (keyCode === 13 && state === `main`) {
+    mainScene = false;
+    bottleScene = true;
+    state = `wineBottle`;
+  }
 }

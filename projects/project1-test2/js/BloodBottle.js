@@ -1,5 +1,5 @@
 class BloodBottle {
-  constructor() {
+  constructor(imageBottle) {
     this.x = width / 2;
     this.y = height / 2;
 
