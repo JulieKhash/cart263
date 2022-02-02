@@ -57,7 +57,7 @@ let speakingMirrorVisible = false; // not visible
 let butterFlyImg;
 
 // game states
-let state = `fireplaceScene`;
+let state = `main`;
 
 function preload() {
   libraryBWImg = loadImage(`assets/images/libraryBW.png`);
@@ -126,8 +126,9 @@ function libraryRoomColor() {
 // }
 function mousePressed() {
   // speakingMirror.mousePressed();
-  mirrorSmall.mousePressed();
   libraryRoomCol.mousePressed();
+  mirrorSmall.mousePressed();
+  wineGlass.mousePressed();
 }
 
 function keyPressed() {

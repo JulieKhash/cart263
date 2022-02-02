@@ -33,13 +33,9 @@ class LibraryRoom {
   }
 
   mousePressed() {
-    if (
-      this.checkOverlapBackground(mouseX, mouseY) &&
-      !smallMirrorVisible &&
-      speakingMirrorVisible
-    ) {
-      smallMirrorVisible = true;
-      //speakingMirrorVisible = false;
+    if (!smallMirrorVisible && speakingMirrorVisible) {
+      smallMirrorVisible = true; // visible
+      speakingMirrorVisible = false;
     }
   }
 }
