@@ -23,6 +23,8 @@ let userProfile = {
   mood2: "HIDDEN",
 };
 
+let promptText = `Enter your name here`;
+
 let countryData;
 let bodyPartData;
 let descriptionData;
@@ -63,7 +65,7 @@ function setup() {
 }
 
 function generateUserProfile() {
-  userProfile.name = prompt(`Enter your name here`);
+  userProfile.name = prompt(promptText);
   let country = random(countryData.countries);
   userProfile.homeLand = country;
   let bodyPart = random(bodyPartData.bodyParts);
@@ -84,6 +86,8 @@ function generateUserProfile() {
   userProfile.mood1 = mood1;
   let mood2 = random(moodData.moods);
   userProfile.mood2 = mood2;
+
+  localStorage.setItem(`past-life-profile-data`, JSON.stringify(userProfile));
 }
 /**
 Description of draw()
@@ -91,18 +95,9 @@ Description of draw()
 function draw() {
   background(0);
 
-  // title
-  // push();
-  // textAlign(CENTER, CENTER);
-  // textStyle(BOLD);
-  // textStyle(ITALIC);
-  // textFont(`Georgia`);
-  // textSize(60);
-  // fill(255);
-  // text("Past Life Generator", width / 2, 100);
-  // pop();
   textGenerator();
   titleText();
+  restartText();
 }
 
 function textGenerator() {
@@ -130,5 +125,16 @@ function titleText() {
   textSize(60);
   fill(255);
   text("Past Life Generator", width / 2, 100);
+  pop();
+}
+function restartText() {
+  push();
+  textAlign(CENTER, CENTER);
+  // textStyle(BOLD);
+  //textStyle(ITALIC);
+  textFont(`Georgia`);
+  textSize(20);
+  fill(180);
+  text(`Press "c" to change your past`, width / 2, height - 300);
   pop();
 }
