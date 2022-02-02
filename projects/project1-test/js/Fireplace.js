@@ -2,6 +2,8 @@ class Fireplace {
   constructor(imageFireplace) {
     this.x = width / 2;
     this.y = height / 2;
+    this.sizeW = 2500;
+    this.sizeH = 1400;
 
     this.imageFireplace = imageFireplace;
   }
@@ -12,7 +14,7 @@ class Fireplace {
 
   display() {
     push();
-    image(this.imageFireplace, this.x, this.y);
+    image(this.imageFireplace, this.x, this.y, this.sizeW, this.sizeH);
     pop();
   }
 }

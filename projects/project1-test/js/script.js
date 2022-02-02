@@ -59,7 +59,7 @@ let state = `fireplaceScene`;
 function preload() {
   libraryBWImg = loadImage(`assets/images/libraryBW.png`);
   libraryColorImg = loadImage(`assets/images/libraryColored.png`);
-  firepaceImg = loadImage(`assets/images/fireplace.jpg`);
+  firepaceImg = loadImage(`assets/images/fireplace2.jpg`);
 
   mirrorSmallImg = loadImage(`assets/images/smallmirror200.png`);
   flowerDropsImg = loadImage(`assets/images/flowerdrops.gif`);
