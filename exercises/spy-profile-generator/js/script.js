@@ -19,7 +19,8 @@ let userProfile = {
   description3: "HIDDEN",
   object: "HIDDEN",
   food: "HIDDEN",
-  mood: "HIDDEN",
+  mood1: "HIDDEN",
+  mood2: "HIDDEN",
 };
 
 let countryData;
@@ -79,16 +80,20 @@ function generateUserProfile() {
   userProfile.object = object;
   let food = random(foodData.pizzaToppings);
   userProfile.food = food;
-  let mood = random(moodData.moods);
-  userProfile.mood = mood;
+  let mood1 = random(moodData.moods);
+  userProfile.mood1 = mood1;
+  let mood2 = random(moodData.moods);
+  userProfile.mood2 = mood2;
 }
 /**
 Description of draw()
 */
 function draw() {
   background(0);
-  let profile = `${userProfile.name}, in your past life you were born in ${userProfile.homeLand}
-You had a charming ${userProfile.bodyPart}. You were very ${userProfile.description1}, ${userProfile.description2}, ${userProfile.description3}.`;
+  let profile = `${userProfile.name}, in your past life you were born in ${userProfile.homeLand}.
+You had a charming ${userProfile.bodyPart}. You were very ${userProfile.description1}, ${userProfile.description2} and ${userProfile.description3}.
+You were obsessed with ${userProfile.object} and loved ${userProfile.food}. You were, however,
+${userProfile.mood1} dealing with ${userProfile.mood2} people.`;
 
   push();
   textAlign(LEFT, TOP);
