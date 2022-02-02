@@ -28,7 +28,26 @@ let moodData;
 /**
 Description of preload
 */
-function preload() {}
+function preload() {
+  countryData = loadJSON(
+    "https://raw.githubusercontent.com/dariusk/corpora/master/data/geography/countries.json"
+  );
+  bodyPartData = loadJSON(
+    "https://raw.githubusercontent.com/dariusk/corpora/master/data/humans/bodyParts.json"
+  );
+  descriptionData = loadJSON(
+    "https://raw.githubusercontent.com/dariusk/corpora/master/data/humans/descriptions.json"
+  );
+  objectData = loadJSON(
+    "https://raw.githubusercontent.com/dariusk/corpora/master/data/objects/objects.json"
+  );
+  foodData = loadJSON(
+    "https://raw.githubusercontent.com/dariusk/corpora/master/data/foods/pizzaToppings.json"
+  );
+  moodData = loadJSON(
+    "https://raw.githubusercontent.com/dariusk/corpora/master/data/humans/moods.json"
+  );
+}
 
 /**
 Description of setup
