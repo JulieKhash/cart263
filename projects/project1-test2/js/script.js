@@ -27,6 +27,9 @@ let forestColor;
 let bloodBottleImg;
 let bloodBottle;
 
+let eyeImg;
+let eye;
+
 let state = `main`;
 let started = false;
 let mainScene = true;
@@ -36,6 +39,7 @@ function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
   forestBgColImg = loadImage("assets/images/forestcol.png");
   bloodBottleImg = loadImage("assets/images/bloodbottlesm.png");
+  eyeImg = loadImage("assets/images/eye.gif");
 
   breathingSFX = loadSound("assets/sounds/breathingeye.wav");
 
@@ -93,6 +97,6 @@ function keyPressed() {
     mainScene = false;
     bottleScene = true;
     state = `wineBottle`;
-    bloodBottle.repeatVoice();
+    //  bloodBottle.repeatVoice();
   }
 }

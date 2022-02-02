@@ -13,10 +13,30 @@ class BloodBottle {
 
   // repeats the voice every 2 seconds
   repeatVoice() {
-    setInterval(this.voiceInstruction, 2000);
+    setInterval(this.voiceInstruction, 20000);
   }
+
   voiceInstruction() {
-    responsiveVoice.speak(`You must drink it`, VOICE_NAME, VOICE_PARAMS);
+    responsiveVoice.speak(
+      `  Blood I was to find was a necessity as well.
+      I awoke the next evening with a hunger I had never felt.You must drink it`,
+      VOICE_NAME,
+      VOICE_PARAMS
+    );
+  }
+
+  // check if the mouse touches the bottle
+  checkOverlapBottle(x, y) {
+    if (
+      x > this.x - this.imageBottle.width / 2 &&
+      x < this.x + this.imageBottle.width / 2 &&
+      y > this.y - this.imageBottle.height / 2 &&
+      y < this.y + this.imageBottle.height / 2
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   display() {
@@ -27,6 +47,11 @@ class BloodBottle {
   }
 
   mousePressed() {
+    if (this.checkOverlapBottle(mouseX, mouseY)) {
+      breathingSFX.loop();
+      // image(eyeImg, this.x, this.y);
+      // state = `main`;
+    }
     //breathingSFX.loop();
   }
 }
