@@ -2,10 +2,11 @@
 Past Life Generator
 Julie Khashimova
 
-Data is from corpora
+The data is from Corpora https://github.com/dariusk/corpora
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+In this simple randomizion program, the user can play around the idea of their past lives.
+and have some fun. They may change the description if they don't like it 
+
 */
 
 "use strict";
@@ -24,6 +25,8 @@ let userProfile = {
 };
 
 let promptText = `Enter your name here`;
+let gameName = `Past Life Generator`;
+let removeText = `Press "c" to change your past`;
 
 let countryData;
 let bodyPartData;
@@ -32,9 +35,7 @@ let objectData;
 let foodData;
 let moodData;
 
-/**
-Description of preload
-*/
+// load json data from the internet
 function preload() {
   countryData = loadJSON(
     "https://raw.githubusercontent.com/dariusk/corpora/master/data/geography/countries.json"
@@ -56,13 +57,11 @@ function preload() {
   );
 }
 
-/**
-Description of setup
-*/
+// set up canvas, obtain data from local storage
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  // generateUserProfile();
 
+  // check if the data was stored in the local browser, show it if so
   let data = JSON.parse(localStorage.getItem(`past-life-profile-data`));
   if (data !== null) {
     userProfile.name = data.name;
@@ -75,12 +74,10 @@ function setup() {
     userProfile.food = data.food;
     userProfile.mood1 = data.mood1;
     userProfile.mood2 = data.mood2;
-    // } else {
-    //   generateUserProfile();
-    // }
   }
 }
 
+// generates a user profile, assigns changeable data
 function generateUserProfile() {
   userProfile.name = prompt(promptText);
   let country = random(countryData.countries);
@@ -103,12 +100,11 @@ function generateUserProfile() {
   userProfile.mood1 = mood1;
   let mood2 = random(moodData.moods);
   userProfile.mood2 = mood2;
-
+  // stores the generated data in the user's local browser
   localStorage.setItem(`past-life-profile-data`, JSON.stringify(userProfile));
 }
-/**
-Description of draw()
-*/
+
+// calls text based functions
 function draw() {
   background(0);
 
@@ -117,6 +113,7 @@ function draw() {
   restartText();
 }
 
+// generates descriptive text inside the given text template
 function textGenerator() {
   let profile = `${userProfile.name}, in your past life you were born in ${userProfile.homeLand}.
 You had a charming ${userProfile.bodyPart}. You were very ${userProfile.description1}, ${userProfile.description2} and ${userProfile.description3}.
@@ -133,6 +130,7 @@ ${userProfile.mood1} dealing with ${userProfile.mood2} people.`;
   pop();
 }
 
+// program's title
 function titleText() {
   push();
   textAlign(CENTER, CENTER);
@@ -141,21 +139,22 @@ function titleText() {
   textFont(`Georgia`);
   textSize(60);
   fill(255);
-  text("Past Life Generator", width / 2, 200);
-  pop();
-}
-function restartText() {
-  push();
-  textAlign(CENTER, CENTER);
-  // textStyle(BOLD);
-  //textStyle(ITALIC);
-  textFont(`Georgia`);
-  textSize(20);
-  fill(180);
-  text(`Press "c" to change your past`, width / 2, height - 300);
+  text(gameName, width / 2, 200);
   pop();
 }
 
+// call-for-action text
+function restartText() {
+  push();
+  textAlign(CENTER, CENTER);
+  textFont(`Georgia`);
+  textSize(20);
+  fill(180);
+  text(removeText, width / 2, height - 300);
+  pop();
+}
+
+// by pressing a "c" key the user removes the existing data and assigns a new one
 function keyPressed() {
   if (key === `c`) {
     localStorage.removeItem(`past-life-profile-data`);
