@@ -2,6 +2,8 @@
 Past Life Generator
 Julie Khashimova
 
+Data is from corpora
+
 This is a template. You must fill in the title,
 author, and this description to match your project!
 */
@@ -54,9 +56,24 @@ Description of setup
 */
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  userProfile.name = prompt(`Enter your name here`);
+  generateUserProfile();
 }
 
+function generateUserProfile() {
+  userProfile.name = prompt(`Enter your name here`);
+  let country = random(countryData.countries);
+  userProfile.homeLand = country;
+  let bodyPart = random(bodyPartData.bodyParts);
+  userProfile.bodyPart = bodyPart;
+  let description = random(descriptionData.descriptions);
+  userProfile.description = description;
+  let object = random(objectData.objects);
+  userProfile.object = object;
+  let food = random(foodData.pizzaToppings);
+  userProfile.food = food;
+  let mood = random(moodData.moods);
+  userProfile.mood = mood;
+}
 /**
 Description of draw()
 */
@@ -71,5 +88,7 @@ function draw() {
   textSize(30);
   fill(0, 100, 255);
   text(profile, 100, 100);
+  text(userProfile.homeLand, 200, 200);
+  text(userProfile.bodyPart, 300, 300);
   pop();
 }
