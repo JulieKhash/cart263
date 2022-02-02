@@ -1,5 +1,12 @@
 "use strict";
 
+// responsive voice parameters
+const VOICE_NAME = `UK English Male`;
+const VOICE_PARAMS = {
+  pitch: 0.3,
+  rate: 0.8,
+};
+
 // Fonts
 let titleFont;
 let scriptFont;
@@ -7,6 +14,9 @@ let scriptFont;
 // Titles/ texts
 let titleMain;
 let prologue;
+
+// sounds
+let breathingSFX;
 
 // forest background
 let forestBgBWImg;
@@ -26,6 +36,8 @@ function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
   forestBgColImg = loadImage("assets/images/forestcol.png");
   bloodBottleImg = loadImage("assets/images/bloodbottlesm.png");
+
+  breathingSFX = loadSound("assets/sounds/breathingeye.wav");
 
   titleFont = loadFont("assets/fonts/BOERT.ttf");
   scriptFont = loadFont("assets/fonts/BaroqueScript.ttf");
@@ -70,6 +82,10 @@ function bloodBottleScene() {
 function mouseWheel() {
   titleMain.mouseWheel(event);
   prologue.mouseWheel(event);
+}
+
+function mousePressed() {
+  bloodBottle.mousePressed();
 }
 
 function keyPressed() {

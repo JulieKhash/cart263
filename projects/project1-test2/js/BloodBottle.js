@@ -8,6 +8,11 @@ class BloodBottle {
 
   update() {
     this.display();
+    this.voiceInstruction();
+  }
+
+  voiceInstruction() {
+    responsiveVoice.speak(`You must drink it`, VOICE_NAME, VOICE_PARAMS);
   }
 
   display() {
@@ -15,5 +20,9 @@ class BloodBottle {
     tint(random(200, 255), 170);
     image(this.imageBottle, this.x, this.y);
     pop();
+  }
+
+  mousePressed() {
+    //breathingSFX.loop();
   }
 }
