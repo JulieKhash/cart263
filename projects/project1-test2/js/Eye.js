@@ -4,6 +4,8 @@ class Eye {
     this.y = height / 2;
     this.opacity = 0;
 
+    this.fadeRate = 10;
+
     this.imageEye = imageEye;
   }
 
@@ -14,7 +16,7 @@ class Eye {
 
   showEye() {
     if (bottleDrunken) {
-      this.opacity += 10;
+      this.opacity += 1 / 10;
     }
   }
 
