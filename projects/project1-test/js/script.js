@@ -24,6 +24,7 @@ let wineGlassImg;
 let wineGlass;
 
 let waterDropSFX;
+let waterdropSound = false;
 
 let mirrorFrameImg;
 let mirrorFrame = {
@@ -60,13 +61,14 @@ let butterFlyImg;
 
 // game states
 let state = `main`;
+let libraryColorScene = false;
 
 function preload() {
   libraryBWImg = loadImage(`assets/images/libraryBW.png`);
   libraryColorImg = loadImage(`assets/images/libraryColored.png`);
   fireplaceImg = loadImage(`assets/images/fireplace3.jpg`);
   fireplaceFireImg = loadImage(`assets/images/fire.gif`);
-  wineGlassImg = loadImage(`assets/images/wineglass6.png`);
+  wineGlassImg = loadImage(`assets/images/butter.png`);
 
   mirrorSmallImg = loadImage(`assets/images/smallmirror200.png`);
   flowerDropsImg = loadImage(`assets/images/flowerdrops.gif`);
@@ -116,10 +118,13 @@ function libraryRoomBnW() {
   prologue.update();
 }
 
+// display library when its true
 function libraryRoomColor() {
-  libraryRoomCol.update();
-  mirrorSmall.update();
-  speakingMirror.update();
+  if (libraryColorScene) {
+    libraryRoomCol.update();
+    mirrorSmall.update();
+    speakingMirror.update();
+  }
 }
 
 // function mousePressed() {
@@ -132,12 +137,16 @@ function mousePressed() {
   //  libraryRoomCol.mousePressed();
   speakingMirror.mousePressed();
   mirrorSmall.mousePressed();
-  // wineGlass.mousePressed();
+  wineGlass.mousePressed();
 }
 
 function keyPressed() {
   if (keyCode === 13 && state === `main`) {
+    libraryColorScene = true;
     state = `libraryRoomColor`;
+  } else if (keyCode === 13 && state === `libraryRoomColor`) {
+    libraryColorScene = truefalse;
+    state = `fireplaceScene`;
   }
 }
 

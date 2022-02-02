@@ -8,7 +8,6 @@ class SpeakingMirror {
     this.frameOpacity = 200; // opacity of the mirror frame
     this.image = imageFrame;
     this.imageReflection = imageReflection;
-    this.visible = false; // default false
   }
 
   update() {
@@ -44,8 +43,13 @@ class SpeakingMirror {
     }
   }
 
+  // play sounds only if the big mirror is visible, the state is library and if mouse is on a mirror
   mousePressed() {
-    if (speakingMirrorVisible && this.checkOverlapReflection(mouseX, mouseY)) {
+    if (
+      speakingMirrorVisible &&
+      libraryColorScene &&
+      this.checkOverlapReflection(mouseX, mouseY)
+    ) {
       waterDropSFX.play();
     }
   }
