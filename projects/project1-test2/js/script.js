@@ -62,6 +62,7 @@ function forestBWScene() {
 
 function bloodBottleScene() {
   if (bottleScene) {
+    forestBW.update();
     bloodBottle.update();
   }
 }

@@ -12,6 +12,7 @@ class BloodBottle {
 
   display() {
     push();
+    tint(random(200, 255), 170);
     image(this.imageBottle, this.x, this.y);
     pop();
   }
