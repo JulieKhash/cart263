@@ -136,6 +136,8 @@ function forestBWScene() {
 
 function bloodBottleScene() {
   if (bottleScene) {
+    bloodBottle.playVoice();
+    // bloodBottle.voiceInstruction();
     forestBW.update();
     bloodBottle.update();
     eye.update();
@@ -170,11 +172,6 @@ function mouseWheel() {
 function mousePressed() {
   if (bottleScene) {
     bloodBottle.mousePressed();
-    if (!breathingSFX.isPlaying()) {
-      breathingSFX.play();
-    }
-    // if (breathingSFX.isPlaying()) {
-    //   breathingSFX.play();
   }
 }
 
@@ -183,6 +180,7 @@ function keyPressed() {
     mainScene = false;
     bottleScene = true;
     state = `wineBottle`;
+    // bloodBottle.playVoice();
     //  bloodBottle.repeatVoice();
   }
 }

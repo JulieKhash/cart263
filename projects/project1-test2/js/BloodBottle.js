@@ -15,12 +15,26 @@ class BloodBottle {
   }
 
   // repeats the voice every 2 seconds
-  repeatVoice() {
-    setInterval(this.voiceInstruction, 2000);
+  playVoice() {
+    setTimeout(this.voiceInstruction1, 1000);
+    setInterval(this.voiceInstruction2, 5000);
+    // setInterval(this.voiceInstruction, 2000);
   }
 
-  voiceInstruction() {
-    responsiveVoice.speak(`You must drink it`, VOICE_NAME, VOICE_PARAMS);
+  voiceInstruction1() {
+    if (!responsiveVoice.isPlaying()) {
+      responsiveVoice.speak(
+        `Don't be afraid. I'm going to give you the choice you never had. You must drink it`,
+        VOICE_NAME,
+        VOICE_PARAMS
+      );
+    }
+  }
+
+  voiceInstruction2() {
+    if (!responsiveVoice.isPlaying()) {
+      responsiveVoice.speak(`You must drink it`, VOICE_NAME, VOICE_PARAMS);
+    }
   }
 
   // make the bottle slowly disappear if it's drunken
@@ -58,6 +72,5 @@ class BloodBottle {
         breathingSFX.play();
       }
     }
-    //breathingSFX.loop();
   }
 }
