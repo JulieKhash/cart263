@@ -34,6 +34,8 @@ let eclipseImg;
 let eclipse;
 let branchFrameImg;
 let branchFrame;
+let blueBirdImg;
+let blueBird;
 
 // eye
 let eyeImg;
@@ -53,7 +55,7 @@ let circleImg;
 
 let lightcursorImg;
 
-let state = `flowerBird`;
+let state = `lunarEclipse`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
@@ -65,6 +67,7 @@ function preload() {
   eyeImg = loadImage("assets/images/eye.gif");
   eclipseImg = loadImage("assets/images/eclipse.gif");
   branchFrameImg = loadImage("assets/images/lunartree.png");
+  blueBirdImg = loadImage("assets/images/bluebird600.png");
   circleImg = loadImage("assets/images/circle2.png");
 
   bloomingFlowerImg = loadImage("assets/images/flowers.gif");
@@ -87,6 +90,7 @@ function setup() {
 
   hummingBird = new HummingBird(hummingBirdImg, bloodSplashImg);
   bloomingFlower = new BloomingFLower(bloomingFlowerImg, blackFrameImg);
+  blueBird = new BlueBird(blueBirdImg);
   eclipse = new Eclipse(branchFrameImg, eclipseImg, circleImg);
   eye = new Eye(eyeImg);
   bloodBottle = new BloodBottle(bloodBottleImg);
