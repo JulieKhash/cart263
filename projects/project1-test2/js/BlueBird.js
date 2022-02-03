@@ -14,6 +14,7 @@ class BlueBird {
 
   display() {
     push();
+    tint(255, random(200, 250));
     image(this.imageBlueBird, this.x, this.y, this.w, this.h);
     pop();
   }

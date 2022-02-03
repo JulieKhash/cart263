@@ -50,12 +50,16 @@ let hummingBird;
 let blackFrameImg;
 let blackFrame;
 
+// statue
+let statueImg;
+let statue;
+
 // test
 let circleImg;
 
 let lightcursorImg;
 
-let state = `lunarEclipse`;
+let state = `statueBoy`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
@@ -69,11 +73,12 @@ function preload() {
   branchFrameImg = loadImage("assets/images/lunartree.png");
   blueBirdImg = loadImage("assets/images/bluebird600.png");
   circleImg = loadImage("assets/images/circle2.png");
-
   bloomingFlowerImg = loadImage("assets/images/flowers.gif");
   bloodSplashImg = loadImage("assets/images/bloodSplash2.png");
   hummingBirdImg = loadImage("assets/images/hummingbird.png");
   blackFrameImg = loadImage("assets/images/blackframe.png");
+
+  statueImg = loadImage("assets/images/statueboy2.png");
 
   lightcursorImg = loadImage(`assets/images/light70.png`);
 
@@ -88,6 +93,7 @@ function setup() {
   noCursor();
   imageMode(CENTER);
 
+  statue = new Statue(statueImg);
   hummingBird = new HummingBird(hummingBirdImg, bloodSplashImg);
   bloomingFlower = new BloomingFLower(bloomingFlowerImg, blackFrameImg);
   blueBird = new BlueBird(blueBirdImg);
@@ -111,9 +117,11 @@ function draw() {
     eclipseScene();
   } else if (state === `flowerBird`) {
     bloomingFlowerScene();
-  }
+  } else if (state === `statueBoy`) {
+    statueScene();
 
-  mouseCursor();
+    mouseCursor();
+  }
 }
 
 function forestBWScene() {
@@ -141,6 +149,11 @@ function bloomingFlowerScene() {
   // forestColor.update();
   bloomingFlower.update();
   hummingBird.update();
+}
+
+function statueScene() {
+  forestColor.update();
+  statue.update();
 }
 
 function mouseCursor() {

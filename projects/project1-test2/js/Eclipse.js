@@ -21,16 +21,16 @@ class Eclipse {
 
   display() {
     // lunar eclipse
-    push();
-    // tint(255, 255);
-    image(this.imageEclipse, this.x, this.y - 150, this.moonW, this.moonH);
-    pop();
+    // push();
+    // // tint(255, 255);
+    // image(this.imageEclipse, this.x, this.y - 150, this.moonW, this.moonH);
+    // pop();
 
     // lunar eclipse
-    // push();
-    // tint(255, 120);
-    // image(this.imageGlass, this.x, this.y - 150);
-    // pop();
+    push();
+    //  tint(255, 120);
+    image(this.imageGlass, this.x, this.y - 150);
+    pop();
 
     // branch frame
     push();
