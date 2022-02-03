@@ -123,7 +123,6 @@ function draw() {
   } else if (state === `lunarEclipse`) {
     eclipseScene();
   } else if (state === `flowerBird`) {
-    // bottleScene = false;
     bloomingFlowerScene();
   } else if (state === `statueBoy`) {
     statueScene();
@@ -142,8 +141,6 @@ function forestBWScene() {
 
 function bloodBottleScene() {
   if (bottleScene) {
-    //bloodBottle.playVoice();
-    // bloodBottle.voiceInstruction();
     forestBW.update();
     bloodBottle.update();
     eye.update();
@@ -191,16 +188,5 @@ function keyPressed() {
     mainScene = false;
     bottleScene = true;
     state = `wineBottle`;
-    // voiceBottleScene = true;
-    // statesForSound();
-    // voiceBottleScene = true;
-    // bloodBottle.playVoice();
-    //  bloodBottle.repeatVoice();
   }
 }
-
-// function statesForSound() {
-//   if (voiceBottleScene && state === `wineBottle`) {
-//     bloodBottle.playVoice();
-//   }
-// }

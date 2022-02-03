@@ -11,18 +11,23 @@ class BloodBottle {
   update() {
     this.display();
     this.bottleIsDrunken();
-    // this.playVoice();
-    // this.playVoice();
-    // this.voiceInstruction1();
-    // }
+  }
+
+  // after 5 secs enable the user's trigger for action
+  triggerAction() {
+    setTimeout(this.makeTrue, 8000);
+  }
+
+  makeTrue() {
+    bottleDrunken = true;
   }
 
   // repeats the voice every 2 seconds
-  playVoice() {
-    setTimeout(this.voiceInstruction1, 1000);
-    setInterval(this.voiceInstruction1, 5000);
-    //  setInterval(this.voiceInstruction2, 5000);
-  }
+  // playVoice() {
+  //   setTimeout(this.voiceInstruction1, 1000);
+  //   setInterval(this.voiceInstruction1, 5000);
+  //  setInterval(this.voiceInstruction2, 5000);
+  // }
 
   // let the voice to speak out
   voiceInstruction1() {
@@ -71,7 +76,8 @@ class BloodBottle {
 
   mousePressed() {
     if (this.checkOverlapBottle(mouseX, mouseY)) {
-      bottleDrunken = true;
+      // bottleDrunken = true;
+      this.triggerAction();
       if (!breathingSFX.isPlaying()) {
         breathingSFX.play();
       }
