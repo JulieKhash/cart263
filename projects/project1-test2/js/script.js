@@ -53,6 +53,7 @@ let blackFrame;
 // statue
 let statueImg;
 let statue;
+let brokenGlassImg;
 
 // test
 let circleImg;
@@ -78,7 +79,8 @@ function preload() {
   hummingBirdImg = loadImage("assets/images/hummingbird.png");
   blackFrameImg = loadImage("assets/images/blackframe.png");
 
-  statueImg = loadImage("assets/images/statueboy2.png");
+  statueImg = loadImage("assets/images/statueboy3.png");
+  brokenGlassImg = loadImage("assets/images/brokenglass.png");
 
   lightcursorImg = loadImage(`assets/images/light70.png`);
 
@@ -93,7 +95,7 @@ function setup() {
   noCursor();
   imageMode(CENTER);
 
-  statue = new Statue(statueImg);
+  statue = new Statue(statueImg, brokenGlassImg);
   hummingBird = new HummingBird(hummingBirdImg, bloodSplashImg);
   bloomingFlower = new BloomingFLower(bloomingFlowerImg, blackFrameImg);
   blueBird = new BlueBird(blueBirdImg);
