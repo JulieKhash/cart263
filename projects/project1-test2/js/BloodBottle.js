@@ -11,7 +11,7 @@ class BloodBottle {
   update() {
     this.display();
     this.bottleIsDrunken();
-    // this.voiceInstruction();
+    this.voiceInstruction();
   }
 
   // repeats the voice every 2 seconds

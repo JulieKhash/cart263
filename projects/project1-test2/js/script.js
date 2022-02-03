@@ -92,7 +92,9 @@ function mouseWheel() {
 }
 
 function mousePressed() {
-  bloodBottle.mousePressed();
+  if (bottleScene) {
+    bloodBottle.mousePressed();
+  }
 }
 
 function keyPressed() {
