@@ -38,7 +38,7 @@ let branchFrame;
 let eyeImg;
 let eye;
 
-let state = `main`;
+let state = `lunarEclipse`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
@@ -49,7 +49,7 @@ function preload() {
   bloodBottleImg = loadImage("assets/images/bloodbottlesm.png");
   eyeImg = loadImage("assets/images/eye.gif");
   eclipseImg = loadImage("assets/images/eclipse.gif");
-  branchFrameImg = loadImage("assets/images/branchframe.png");
+  branchFrameImg = loadImage("assets/images/tree2.png");
 
   breathingSFX = loadSound("assets/sounds/breathingeye.wav");
 
@@ -61,6 +61,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
 
+  eclipse = new Eclipse(branchFrameImg, eclipseImg);
   eye = new Eye(eyeImg);
   bloodBottle = new BloodBottle(bloodBottleImg);
   forestBW = new ForestBackground(forestBgBWImg);
@@ -76,6 +77,8 @@ function draw() {
     forestBWScene();
   } else if (state === `wineBottle`) {
     bloodBottleScene();
+  } else if (state === `lunarEclipse`) {
+    eclipseScene();
   }
 }
 
@@ -93,6 +96,10 @@ function bloodBottleScene() {
     bloodBottle.update();
     eye.update();
   }
+}
+
+function eclipseScene() {
+  eclipse.update();
 }
 
 function mouseWheel() {
