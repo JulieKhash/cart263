@@ -43,6 +43,8 @@ let eye;
 let bloomingFlowerImg;
 let bloomingFlower;
 let bloodSplashImg;
+let hummingBirdImg;
+let hummingBird;
 
 // test
 let circleImg;
@@ -62,6 +64,7 @@ function preload() {
   // circleImg = loadImage("assets/images/circle.png");
   bloomingFlowerImg = loadImage("assets/images/flowers.gif");
   bloodSplashImg = loadImage("assets/images/bloodSplash2.png");
+  hummingBirdImg = loadImage("assets/images/hummingbird.png");
 
   breathingSFX = loadSound("assets/sounds/breathingeye.wav");
 
@@ -73,6 +76,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
 
+  hummingBird = new HummingBird(hummingBirdImg);
   bloomingFlower = new BloomingFLower(bloomingFlowerImg, bloodSplashImg);
   eclipse = new Eclipse(branchFrameImg, eclipseImg);
   eye = new Eye(eyeImg);
@@ -118,8 +122,9 @@ function eclipseScene() {
 }
 
 function bloomingFlowerScene() {
-  forestBW.update();
+  forestColor.update();
   bloomingFlower.update();
+  hummingBird.update();
 }
 
 function mouseWheel() {
