@@ -42,6 +42,7 @@ let eye;
 // blooming flower
 let bloomingFlowerImg;
 let bloomingFlower;
+let bloodSplashImg;
 
 // test
 let circleImg;
@@ -60,6 +61,7 @@ function preload() {
   branchFrameImg = loadImage("assets/images/lunartree.png");
   // circleImg = loadImage("assets/images/circle.png");
   bloomingFlowerImg = loadImage("assets/images/flowers.gif");
+  bloodSplashImg = loadImage("assets/images/bloodSplash2.png");
 
   breathingSFX = loadSound("assets/sounds/breathingeye.wav");
 
@@ -71,7 +73,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
 
-  bloomingFlower = BloomingFLower(bloomingFlowerImg);
+  bloomingFlower = new BloomingFLower(bloomingFlowerImg, bloodSplashImg);
   eclipse = new Eclipse(branchFrameImg, eclipseImg);
   eye = new Eye(eyeImg);
   bloodBottle = new BloodBottle(bloodBottleImg);
@@ -116,6 +118,7 @@ function eclipseScene() {
 }
 
 function bloomingFlowerScene() {
+  forestBW.update();
   bloomingFlower.update();
 }
 
