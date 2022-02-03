@@ -76,8 +76,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
 
-  hummingBird = new HummingBird(hummingBirdImg);
-  bloomingFlower = new BloomingFLower(bloomingFlowerImg, bloodSplashImg);
+  hummingBird = new HummingBird(hummingBirdImg, bloodSplashImg);
+  bloomingFlower = new BloomingFLower(bloomingFlowerImg);
   eclipse = new Eclipse(branchFrameImg, eclipseImg);
   eye = new Eye(eyeImg);
   bloodBottle = new BloodBottle(bloodBottleImg);
