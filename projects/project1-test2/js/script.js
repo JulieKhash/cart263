@@ -35,10 +35,18 @@ let eclipse;
 let branchFrameImg;
 let branchFrame;
 
+// eye
 let eyeImg;
 let eye;
 
-let state = `lunarEclipse`;
+// blooming flower
+let bloomingFlowerImg;
+let bloomingFlower;
+
+// test
+let circleImg;
+
+let state = `flowerBird`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
@@ -49,7 +57,9 @@ function preload() {
   bloodBottleImg = loadImage("assets/images/bloodbottlesm.png");
   eyeImg = loadImage("assets/images/eye.gif");
   eclipseImg = loadImage("assets/images/eclipse.gif");
-  branchFrameImg = loadImage("assets/images/tree2.png");
+  branchFrameImg = loadImage("assets/images/lunartree.png");
+  // circleImg = loadImage("assets/images/circle.png");
+  bloomingFlowerImg = loadImage("assets/images/flowers.gif");
 
   breathingSFX = loadSound("assets/sounds/breathingeye.wav");
 
@@ -61,6 +71,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
 
+  bloomingFlower = BloomingFLower(bloomingFlowerImg);
   eclipse = new Eclipse(branchFrameImg, eclipseImg);
   eye = new Eye(eyeImg);
   bloodBottle = new BloodBottle(bloodBottleImg);
@@ -79,6 +90,8 @@ function draw() {
     bloodBottleScene();
   } else if (state === `lunarEclipse`) {
     eclipseScene();
+  } else if (state === `flowerBird`) {
+    bloomingFlowerScene();
   }
 }
 
@@ -100,6 +113,10 @@ function bloodBottleScene() {
 
 function eclipseScene() {
   eclipse.update();
+}
+
+function bloomingFlowerScene() {
+  bloomingFlower.update();
 }
 
 function mouseWheel() {

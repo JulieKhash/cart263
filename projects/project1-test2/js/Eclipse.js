@@ -8,8 +8,8 @@ class Eclipse {
 
     this.imageBranchFrame = imageBranchFrame;
 
-    this.moonW = 1000;
-    this.moonH = 562;
+    this.moonW = 900;
+    this.moonH = 506;
     this.imageEclipse = imageEclipse;
   }
 
@@ -20,12 +20,13 @@ class Eclipse {
   display() {
     // lunar eclipse
     push();
-    image(this.imageEclipse, this.x, this.y - 100, this.moonW, this.moonH);
+    tint(255, 255);
+    image(this.imageEclipse, this.x, this.y - 150);
     pop();
 
     // branch frame
     push();
-    tint(random(210, 255), 255);
+    tint(255, 255);
     image(this.imageBranchFrame, this.x, this.y, this.branchW, this.branchWH);
     pop();
   }
