@@ -60,7 +60,9 @@ let circleImg;
 
 let lightcursorImg;
 
-let state = `flowerBird`;
+let voiceBottleScene = false;
+
+let state = `main`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
@@ -118,6 +120,7 @@ function draw() {
   } else if (state === `lunarEclipse`) {
     eclipseScene();
   } else if (state === `flowerBird`) {
+    // bottleScene = false;
     bloomingFlowerScene();
   } else if (state === `statueBoy`) {
     statueScene();
@@ -180,7 +183,16 @@ function keyPressed() {
     mainScene = false;
     bottleScene = true;
     state = `wineBottle`;
+    // voiceBottleScene = true;
+    // statesForSound();
+    // voiceBottleScene = true;
     // bloodBottle.playVoice();
     //  bloodBottle.repeatVoice();
   }
 }
+
+// function statesForSound() {
+//   if (voiceBottleScene && state === `wineBottle`) {
+//     bloodBottle.playVoice();
+//   }
+// }

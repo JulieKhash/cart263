@@ -11,16 +11,20 @@ class BloodBottle {
   update() {
     this.display();
     this.bottleIsDrunken();
-    this.playVoice();
-    //  this.voiceInstruction();
+    // this.playVoice();
+    // this.playVoice();
+    // this.voiceInstruction1();
+    // }
   }
 
   // repeats the voice every 2 seconds
   playVoice() {
     setTimeout(this.voiceInstruction1, 1000);
-    setInterval(this.voiceInstruction2, 5000);
+    setInterval(this.voiceInstruction1, 5000);
+    //  setInterval(this.voiceInstruction2, 5000);
   }
 
+  // let the voice to speak out
   voiceInstruction1() {
     if (!responsiveVoice.isPlaying()) {
       responsiveVoice.speak(
@@ -71,6 +75,8 @@ class BloodBottle {
       if (!breathingSFX.isPlaying()) {
         breathingSFX.play();
       }
+      this.voiceInstruction2();
     }
+    this.voiceInstruction1();
   }
 }

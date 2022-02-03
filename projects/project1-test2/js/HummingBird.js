@@ -10,8 +10,8 @@ class HummingBird {
 
     this.SplashX = width / 2 - 200;
     this.SplashY = height / 2 - 100;
-    this.SplashW = 900;
-    this.SplashH = 600;
+    this.SplashW = 1020;
+    this.SplashH = 700;
     this.imageSplash = imageSplash;
   }
 
