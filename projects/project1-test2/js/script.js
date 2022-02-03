@@ -134,6 +134,7 @@ function bloodBottleScene() {
 
 function eclipseScene() {
   eclipse.update();
+  blueBird.update();
 }
 
 function bloomingFlowerScene() {
