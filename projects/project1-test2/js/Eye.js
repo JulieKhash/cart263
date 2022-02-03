@@ -23,7 +23,7 @@ class Eye {
     if (this.opacity >= 150) {
       state = `flowerBird`;
       bottleScene = false;
-      voiceBottleScene = false;
+      flowerBirdScene = true;
     }
   }
 

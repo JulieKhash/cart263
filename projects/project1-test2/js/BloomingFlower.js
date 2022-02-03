@@ -37,4 +37,9 @@ class BloomingFLower {
     // image(this.imageSplash, this.x - 100, this.y, this.SplashW, this.SplashH);
     // pop();
   }
+  mousePressed() {
+    if (!birdChirpSFX.isPlaying()) {
+      birdChirpSFX.loop();
+    }
+  }
 }

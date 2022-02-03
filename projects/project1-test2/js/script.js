@@ -15,9 +15,6 @@ let scriptFont;
 let titleMain;
 let prologue;
 
-// sounds
-let breathingSFX;
-
 // forest background
 let forestBgBWImg;
 let forestBgColImg;
@@ -60,12 +57,17 @@ let circleImg;
 
 let lightcursorImg;
 
-let voiceBottleScene = false;
+// sounds
+let breathingSFX;
+let birdChirpSFX;
+
+// let voiceBottleScene = false;
 
 let state = `main`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
+let flowerBirdScene = false;
 
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
@@ -87,6 +89,7 @@ function preload() {
   lightcursorImg = loadImage(`assets/images/light70.png`);
 
   breathingSFX = loadSound("assets/sounds/breathingeye.wav");
+  birdChirpSFX = loadSound("assets/sounds/birdchirp.mp3");
 
   titleFont = loadFont("assets/fonts/BOERT.ttf");
   scriptFont = loadFont("assets/fonts/BaroqueScript.ttf");
@@ -153,9 +156,11 @@ function eclipseScene() {
 }
 
 function bloomingFlowerScene() {
-  // forestColor.update();
-  bloomingFlower.update();
-  hummingBird.update();
+  if (flowerBirdScene) {
+    // forestColor.update();
+    bloomingFlower.update();
+    hummingBird.update();
+  }
 }
 
 function statueScene() {
@@ -175,6 +180,9 @@ function mouseWheel() {
 function mousePressed() {
   if (bottleScene) {
     bloodBottle.mousePressed();
+  }
+  if (flowerBirdScene) {
+    bloomingFlower.mousePressed();
   }
 }
 
