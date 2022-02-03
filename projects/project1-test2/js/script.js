@@ -24,9 +24,16 @@ let forestBgColImg;
 let forestBW;
 let forestColor;
 
+// bottle
 let bloodBottleImg;
 let bloodBottle;
 let bottleDrunken = false;
+
+// eclipse
+let eclipseImg;
+let eclipse;
+let branchFrameImg;
+let branchFrame;
 
 let eyeImg;
 let eye;
@@ -41,6 +48,8 @@ function preload() {
   forestBgColImg = loadImage("assets/images/forestcol.png");
   bloodBottleImg = loadImage("assets/images/bloodbottlesm.png");
   eyeImg = loadImage("assets/images/eye.gif");
+  eclipseImg = loadImage("assets/images/eclipse.gif");
+  branchFrameImg = loadImage("assets/images/branchframe.png");
 
   breathingSFX = loadSound("assets/sounds/breathingeye.wav");
 

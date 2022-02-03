@@ -16,16 +16,11 @@ class BloodBottle {
 
   // repeats the voice every 2 seconds
   repeatVoice() {
-    setInterval(this.voiceInstruction, 20000);
+    setInterval(this.voiceInstruction, 2000);
   }
 
   voiceInstruction() {
-    responsiveVoice.speak(
-      `  Blood I was to find was a necessity as well.
-      I awoke the next evening with a hunger I had never felt.You must drink it`,
-      VOICE_NAME,
-      VOICE_PARAMS
-    );
+    responsiveVoice.speak(`You must drink it`, VOICE_NAME, VOICE_PARAMS);
   }
 
   // make the bottle slowly disappear if it's drunken
