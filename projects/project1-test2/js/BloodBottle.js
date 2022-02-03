@@ -11,14 +11,14 @@ class BloodBottle {
   update() {
     this.display();
     this.bottleIsDrunken();
-    this.voiceInstruction();
+    this.playVoice();
+    //  this.voiceInstruction();
   }
 
   // repeats the voice every 2 seconds
   playVoice() {
     setTimeout(this.voiceInstruction1, 1000);
     setInterval(this.voiceInstruction2, 5000);
-    // setInterval(this.voiceInstruction, 2000);
   }
 
   voiceInstruction1() {

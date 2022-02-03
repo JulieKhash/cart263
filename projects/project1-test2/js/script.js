@@ -60,7 +60,7 @@ let circleImg;
 
 let lightcursorImg;
 
-let state = `main`;
+let state = `flowerBird`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
@@ -75,7 +75,7 @@ function preload() {
   blueBirdImg = loadImage("assets/images/bluebird600.png");
   circleImg = loadImage("assets/images/circle2.png");
   bloomingFlowerImg = loadImage("assets/images/flowers.gif");
-  bloodSplashImg = loadImage("assets/images/bloodSplash2.png");
+  bloodSplashImg = loadImage("assets/images/bloodSplash3.png");
   hummingBirdImg = loadImage("assets/images/hummingbird.png");
   blackFrameImg = loadImage("assets/images/blackframe.png");
 
@@ -136,7 +136,7 @@ function forestBWScene() {
 
 function bloodBottleScene() {
   if (bottleScene) {
-    bloodBottle.playVoice();
+    //bloodBottle.playVoice();
     // bloodBottle.voiceInstruction();
     forestBW.update();
     bloodBottle.update();

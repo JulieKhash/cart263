@@ -8,8 +8,8 @@ class HummingBird {
 
     this.imageBird = imageBird;
 
-    this.SplashX = width / 2 - 100;
-    this.SplashY = height / 2;
+    this.SplashX = width / 2 - 200;
+    this.SplashY = height / 2 - 100;
     this.SplashW = 900;
     this.SplashH = 600;
     this.imageSplash = imageSplash;
@@ -44,7 +44,7 @@ class HummingBird {
     pop();
 
     push();
-    tint(255, random(40, 80));
+    tint(200, random(80, 120));
     image(
       this.imageSplash,
       this.SplashX,

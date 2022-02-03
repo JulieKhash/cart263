@@ -16,6 +16,13 @@ class Eye {
     this.display();
     this.showEyeSlowly();
     this.increaseEyeSlowly();
+    this.changeState();
+  }
+
+  changeState() {
+    if (this.opacity >= 150) {
+      state = `flowerBird`;
+    }
   }
 
   increaseEyeSlowly() {
