@@ -45,9 +45,13 @@ let bloomingFlower;
 let bloodSplashImg;
 let hummingBirdImg;
 let hummingBird;
+let blackFrameImg;
+let blackFrame;
 
 // test
 let circleImg;
+
+let lightcursorImg;
 
 let state = `flowerBird`;
 let started = false;
@@ -61,10 +65,14 @@ function preload() {
   eyeImg = loadImage("assets/images/eye.gif");
   eclipseImg = loadImage("assets/images/eclipse.gif");
   branchFrameImg = loadImage("assets/images/lunartree.png");
-  // circleImg = loadImage("assets/images/circle.png");
+  circleImg = loadImage("assets/images/circle2.png");
+
   bloomingFlowerImg = loadImage("assets/images/flowers.gif");
   bloodSplashImg = loadImage("assets/images/bloodSplash2.png");
   hummingBirdImg = loadImage("assets/images/hummingbird.png");
+  blackFrameImg = loadImage("assets/images/blackframe.png");
+
+  lightcursorImg = loadImage(`assets/images/light70.png`);
 
   breathingSFX = loadSound("assets/sounds/breathingeye.wav");
 
@@ -74,11 +82,12 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  noCursor();
   imageMode(CENTER);
 
   hummingBird = new HummingBird(hummingBirdImg, bloodSplashImg);
-  bloomingFlower = new BloomingFLower(bloomingFlowerImg);
-  eclipse = new Eclipse(branchFrameImg, eclipseImg);
+  bloomingFlower = new BloomingFLower(bloomingFlowerImg, blackFrameImg);
+  eclipse = new Eclipse(branchFrameImg, eclipseImg, circleImg);
   eye = new Eye(eyeImg);
   bloodBottle = new BloodBottle(bloodBottleImg);
   forestBW = new ForestBackground(forestBgBWImg);
@@ -99,6 +108,8 @@ function draw() {
   } else if (state === `flowerBird`) {
     bloomingFlowerScene();
   }
+
+  mouseCursor();
 }
 
 function forestBWScene() {
@@ -122,9 +133,13 @@ function eclipseScene() {
 }
 
 function bloomingFlowerScene() {
-  forestColor.update();
+  // forestColor.update();
   bloomingFlower.update();
   hummingBird.update();
+}
+
+function mouseCursor() {
+  image(lightcursorImg, mouseX, mouseY);
 }
 
 function mouseWheel() {

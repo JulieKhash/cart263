@@ -39,7 +39,7 @@ class HummingBird {
 
   display() {
     push();
-    tint(255, random(100, 160));
+    tint(255, random(140, 200));
     image(this.imageBird, this.x, this.y);
     pop();
 
