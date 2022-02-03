@@ -60,7 +60,7 @@ let circleImg;
 
 let lightcursorImg;
 
-let state = `statueBoy`;
+let state = `main`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
@@ -92,7 +92,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  noCursor();
+  //noCursor();
   imageMode(CENTER);
 
   statue = new Statue(statueImg, brokenGlassImg);
@@ -170,6 +170,11 @@ function mouseWheel() {
 function mousePressed() {
   if (bottleScene) {
     bloodBottle.mousePressed();
+    if (!breathingSFX.isPlaying()) {
+      breathingSFX.play();
+    }
+    // if (breathingSFX.isPlaying()) {
+    //   breathingSFX.play();
   }
 }
 
