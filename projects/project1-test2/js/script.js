@@ -60,6 +60,8 @@ let brokenGlassImg;
 
 // test
 let circleImg;
+let circleMoving = false;
+let circleStill = true;
 
 let lightcursorImg;
 
@@ -112,7 +114,7 @@ function setup() {
   hummingBird = new HummingBird(hummingBirdImg, hummingBirdImg, bloodSplashImg);
   bloomingFlower = new BloomingFLower(bloomingFlowerImg, blackFrameImg);
   blueBird = new BlueBird(blueBirdImg, blueBirdImg);
-  eclipse = new Eclipse(branchFrameImg, eclipseImg, circleImg);
+  eclipse = new Eclipse(branchFrameImg, circleImg, circleImg);
   eye = new Eye(eyeImg);
   bloodBottle = new BloodBottle(bloodBottleImg, bloodBottleImg);
   forestBW = new ForestBackground(forestBgBWImg);
