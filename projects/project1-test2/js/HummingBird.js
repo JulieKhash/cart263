@@ -37,7 +37,8 @@ class HummingBird {
   changeState() {
     if (this.checkOverlapBird(mouseX, mouseY)) {
       state = `lunarEclipse`;
-      birdChirpSFX.stop();
+      // birdChirpSFX.stop();
+      flowerBirdScene = false;
       eclipseNightScene = true;
     }
   }
@@ -57,7 +58,7 @@ class HummingBird {
   // }
   checkOverlapBird(x, y) {
     let d = dist(x, y, this.x, this.y);
-    if (d < this.w / 2 && this.h / 2) {
+    if (d < this.w / 5 && this.h / 5) {
       return true;
     } else {
       return false;
