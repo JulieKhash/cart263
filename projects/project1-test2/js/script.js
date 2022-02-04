@@ -35,6 +35,8 @@ let branchFrameImg;
 let branchFrame;
 let blueBirdImg;
 let blueBird;
+let blueBirdVisible = false;
+let blueBirdMutedVisible = true;
 
 // eye
 let eyeImg;
@@ -80,7 +82,7 @@ function preload() {
   eyeImg = loadImage("assets/images/eye.gif");
   eclipseImg = loadImage("assets/images/eclipse.gif");
   branchFrameImg = loadImage("assets/images/lunartree.png");
-  blueBirdImg = loadImage("assets/images/bluebird600.png");
+  blueBirdImg = loadImage("assets/images/redbird600.png");
   circleImg = loadImage("assets/images/circle2.png");
   bloomingFlowerImg = loadImage("assets/images/flowers.gif");
   bloodSplashImg = loadImage("assets/images/bloodSplash3.png");
@@ -107,7 +109,7 @@ function setup() {
   statue = new Statue(statueImg, brokenGlassImg);
   hummingBird = new HummingBird(hummingBirdImg, hummingBirdImg, bloodSplashImg);
   bloomingFlower = new BloomingFLower(bloomingFlowerImg, blackFrameImg);
-  blueBird = new BlueBird(blueBirdImg);
+  blueBird = new BlueBird(blueBirdImg, blueBirdImg);
   eclipse = new Eclipse(branchFrameImg, eclipseImg, circleImg);
   eye = new Eye(eyeImg);
   bloodBottle = new BloodBottle(bloodBottleImg, bloodBottleImg);
@@ -185,6 +187,7 @@ function mousePressed() {
     bloomingFlower.mousePressed();
     hummingBird.mousePressed();
   }
+  blueBird.mousePressed();
 }
 
 function keyPressed() {

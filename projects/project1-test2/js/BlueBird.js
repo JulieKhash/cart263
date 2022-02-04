@@ -1,21 +1,42 @@
 class BlueBird {
-  constructor(imageBlueBird) {
+  constructor(imageBlueBird, imageMutedBlueBird) {
     this.x = width / 2 + 300;
     this.y = height / 2 - 200;
     this.w = 137;
     this.h = 400;
 
     this.imageBlueBird = imageBlueBird;
+    this.imageMutedBlueBird = imageMutedBlueBird;
   }
 
   update() {
     this.display();
   }
 
+  // after 5 secs enable the user's trigger for action
+  triggerAction() {
+    setTimeout(this.makeVisible, 8000);
+  }
+
+  makeVisible() {
+    blueBirdVisible = true;
+    blueBirdMutedVisible = false;
+  }
+
   display() {
-    push();
-    tint(255, random(200, 250));
-    image(this.imageBlueBird, this.x, this.y, this.w, this.h);
-    pop();
+    if (blueBirdMutedVisible) {
+      push();
+      tint(110, 250);
+      image(this.imageBlueBird, this.x, this.y, this.w, this.h);
+      pop();
+    } else if (blueBirdVisible) {
+      push();
+      tint(255, random(190, 250));
+      image(this.imageBlueBird, this.x, this.y, this.w, this.h);
+      pop();
+    }
+  }
+  mousePressed() {
+    this.triggerAction();
   }
 }

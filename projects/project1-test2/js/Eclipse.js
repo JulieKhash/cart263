@@ -33,6 +33,7 @@ class Eclipse {
     this.angle += 0.002;
     translate(this.x, this.y - 150);
     rotate(this.angle);
+    tint(150);
     image(this.imageGlass, 0, 0);
     pop();
 
