@@ -20,7 +20,7 @@ class Eclipse {
   }
 
   showSlowly() {
-    this.opacity += 10;
+    this.opacity += 5;
   }
 
   display() {
@@ -48,7 +48,6 @@ class Eclipse {
 
   mousePressed() {
     // makes the stained glass move
-    // stainedGlassActive = true;
     circleMoving = true;
     circleStill = false;
     // plays the bell sound
