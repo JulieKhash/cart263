@@ -5,17 +5,14 @@ class BloodBottle {
 
     this.opacity = 170;
 
-    // this.imageBottleVisible = false;
     this.imageBottle = imageBottle;
 
-    // this.imageMutedBottleVisible = true;
     this.imageMutedBottle = imageMutedBottle;
   }
 
   update() {
     this.display();
     this.bottleIsDrunken();
-    // this.triggerAction();
   }
 
   // after 5 secs enable the user's trigger for action
@@ -24,7 +21,6 @@ class BloodBottle {
   }
 
   makeVisible() {
-    //bottleDrunken = true;
     imageMutedBottleVisible = false;
     imageBottleVisible = true;
   }
@@ -68,11 +64,9 @@ class BloodBottle {
   }
 
   display() {
-    // this.triggerAction();
-
     if (imageMutedBottleVisible) {
       push();
-      tint(130, this.opacity);
+      tint(120, this.opacity);
       image(this.imageMutedBottle, this.x, this.y);
       pop();
     } else if (imageBottleVisible) {
@@ -84,19 +78,15 @@ class BloodBottle {
   }
 
   mousePressed() {
-    // this.triggerAction();
     this.triggerAction();
     if (this.checkOverlapBottle(mouseX, mouseY) && imageBottleVisible) {
-      // bottleDrunken = true;
+      bottleDrunken = true;
       if (!breathingSFX.isPlaying()) {
         breathingSFX.play();
+        breathingSFX.volume(0.5);
       }
       this.voiceInstruction2();
     }
     this.voiceInstruction1();
-  }
-
-  alertFunc() {
-    alert("Hello!");
   }
 }

@@ -40,6 +40,7 @@ class BloomingFLower {
   mousePressed() {
     if (!birdChirpSFX.isPlaying()) {
       birdChirpSFX.loop();
+      birdChirpSFX.volume(0.5);
     }
   }
 }

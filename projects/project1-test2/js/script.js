@@ -46,6 +46,8 @@ let bloomingFlower;
 let bloodSplashImg;
 let hummingBirdImg;
 let hummingBird;
+let humBirdMovingVisible = false;
+let humBirdMutedVisible = true;
 let blackFrameImg;
 let blackFrame;
 
@@ -103,7 +105,7 @@ function setup() {
   imageMode(CENTER);
 
   statue = new Statue(statueImg, brokenGlassImg);
-  hummingBird = new HummingBird(hummingBirdImg, bloodSplashImg);
+  hummingBird = new HummingBird(hummingBirdImg, hummingBirdImg, bloodSplashImg);
   bloomingFlower = new BloomingFLower(bloomingFlowerImg, blackFrameImg);
   blueBird = new BlueBird(blueBirdImg);
   eclipse = new Eclipse(branchFrameImg, eclipseImg, circleImg);
@@ -181,6 +183,7 @@ function mousePressed() {
   }
   if (flowerBirdScene) {
     bloomingFlower.mousePressed();
+    hummingBird.mousePressed();
   }
 }
 

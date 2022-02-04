@@ -1,5 +1,5 @@
 class HummingBird {
-  constructor(imageBird, imageSplash) {
+  constructor(imageBird, imageMutedBird, imageSplash) {
     this.x = width / 2 + 250;
     this.y = height / 2 - 50;
     this.vx = 0;
@@ -7,6 +7,7 @@ class HummingBird {
     this.speed = 2;
 
     this.imageBird = imageBird;
+    this.imageMutedBird = imageMutedBird;
 
     this.SplashX = width / 2 - 200;
     this.SplashY = height / 2 - 100;
@@ -20,9 +21,18 @@ class HummingBird {
     this.display();
   }
 
-  // a default move of the insects, gives a flaoting impression
+  // after 5 secs enable the user's trigger for action
+  triggerAction() {
+    setTimeout(this.makeVisible, 7000);
+  }
+
+  makeVisible() {
+    humBirdMovingVisible = true;
+    humBirdMutedVisible = false;
+  }
+
   move() {
-    // check if we need to change their moving direction
+    // check if we need to change the moving direction
     let r = random(0, 1);
     if (r < 0.8) {
       this.vx = random(-this.speed, this.speed);
@@ -38,11 +48,19 @@ class HummingBird {
   }
 
   display() {
-    push();
-    tint(255, random(140, 200));
-    image(this.imageBird, this.x, this.y);
-    pop();
+    if (humBirdMutedVisible) {
+      push();
+      tint(50, 250);
+      image(this.imageMutedBird, this.x, this.y);
+      pop();
+    } else if (humBirdMovingVisible) {
+      push();
+      tint(255, random(140, 200));
+      image(this.imageBird, this.x, this.y);
+      pop();
+    }
 
+    // show blood splash
     push();
     tint(200, random(80, 120));
     image(
@@ -53,5 +71,9 @@ class HummingBird {
       this.SplashH
     );
     pop();
+  }
+
+  mousePressed() {
+    this.triggerAction();
   }
 }
