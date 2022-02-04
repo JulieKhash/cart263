@@ -15,12 +15,34 @@ class BlueBird {
 
   // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeVisible, 8000);
+    setTimeout(this.makeVisible, 3000);
   }
 
   makeVisible() {
     blueBirdVisible = true;
     blueBirdMutedVisible = false;
+  }
+
+  changeState() {
+    if (this.checkOverlapBird(mouseX, mouseY)) {
+      state = `statueBoy`;
+      churchBellSFX.stop();
+      eclipseNightScene = false;
+    }
+  }
+
+  // check if the mouse touches the bird
+  checkOverlapBird(x, y) {
+    if (
+      x > this.x - this.imageBlueBird.width / 2 &&
+      x < this.x + this.imageBlueBird.width / 2 &&
+      y > this.y - this.imageBlueBird.height / 2 &&
+      y < this.y + this.imageBlueBird.height / 2
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   display() {
@@ -38,5 +60,8 @@ class BlueBird {
   }
   mousePressed() {
     this.triggerAction();
+    if (blueBirdVisible) {
+    }
+    this.changeState();
   }
 }

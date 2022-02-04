@@ -62,7 +62,6 @@ let brokenGlassImg;
 let circleImg;
 let circleMoving = false;
 let circleStill = true;
-let stainedGlassActive = false;
 
 let lightcursorImg;
 
@@ -73,12 +72,12 @@ let churchBellSFX;
 
 // let voiceBottleScene = false;
 
-let state = `main`;
+let state = `lunarEclipse`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
 let flowerBirdScene = false;
-let eclipseNightScene = false;
+let eclipseNightScene = true;
 
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
@@ -112,7 +111,7 @@ function setup() {
   //noCursor();
   imageMode(CENTER);
 
-  statue = new Statue(statueImg, brokenGlassImg);
+  statue = new Statue(statueImg);
   hummingBird = new HummingBird(hummingBirdImg, hummingBirdImg, bloodSplashImg);
   bloomingFlower = new BloomingFLower(bloomingFlowerImg, blackFrameImg);
   blueBird = new BlueBird(blueBirdImg, blueBirdImg);
@@ -191,7 +190,7 @@ function mousePressed() {
   } else if (flowerBirdScene) {
     bloomingFlower.mousePressed();
     hummingBird.mousePressed();
-  } else if (eclipseNightScene && !stainedGlassActive) {
+  } else if (eclipseNightScene) {
     eclipse.mousePressed();
     blueBird.mousePressed();
   }
