@@ -72,11 +72,12 @@ let churchBellSFX;
 
 // let voiceBottleScene = false;
 
-let state = `lunarEclipse`;
+let state = `main`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
 let flowerBirdScene = false;
+let eclipseNightScene = false;
 
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
@@ -191,8 +192,10 @@ function mousePressed() {
     bloomingFlower.mousePressed();
     hummingBird.mousePressed();
   }
-  eclipse.mousePressed();
-  blueBird.mousePressed();
+  if (eclipseNightScene) {
+    eclipse.mousePressed();
+    blueBird.mousePressed();
+  }
 }
 
 function keyPressed() {

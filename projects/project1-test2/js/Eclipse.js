@@ -5,7 +5,6 @@ class Eclipse {
 
     this.branchW = 1300;
     this.branchWH = 1300;
-
     this.imageBranchFrame = imageBranchFrame;
 
     this.angle = 0;
@@ -40,8 +39,10 @@ class Eclipse {
   }
 
   mousePressed() {
+    // makes the stained glass move
     circleMoving = true;
     circleStill = false;
+    // plays the bell sound
     if (!churchBellSFX.isPlaying()) {
       churchBellSFX.loop();
       churchBellSFX.volume(0.001); // i think it's not working

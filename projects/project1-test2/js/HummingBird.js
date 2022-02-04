@@ -17,6 +17,7 @@ class HummingBird {
   }
 
   update() {
+    //  this.changeState();
     this.move();
     this.display();
   }
@@ -29,6 +30,27 @@ class HummingBird {
   makeVisible() {
     humBirdMovingVisible = true;
     humBirdMutedVisible = false;
+  }
+
+  changeState() {
+    if (checkOverlapBird(mouseX, mouseY)) {
+      state = `lunarEclipse`;
+      eclipseNightScene = true;
+    }
+  }
+
+  // check if the mouse touches the bird
+  checkOverlapBird(x, y) {
+    if (
+      x > this.x - this.imageBird.width / 2 &&
+      x < this.x + this.imageBird.width / 2 &&
+      y > this.y - this.imageBird.height / 2 &&
+      y < this.y + this.imageBird.height / 2
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   move() {
@@ -75,5 +97,8 @@ class HummingBird {
 
   mousePressed() {
     this.triggerAction();
+    if (humBirdMovingVisible) {
+      this.changeState();
+    }
   }
 }
