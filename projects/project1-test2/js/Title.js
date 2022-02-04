@@ -4,7 +4,7 @@ class Title {
     this.y = height / 2;
     this.sizeSmall = 15; // scroll down text
     this.sizeBig = 50; // main title
-    this.titleText = `The Lestat Vampire`;
+    this.titleText = `The Vampire Lestat`;
     this.scrollText = `scroll down`;
     // this.colorR = random(170, 210);
     this.colorG = 0;

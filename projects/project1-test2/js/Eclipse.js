@@ -3,6 +3,8 @@ class Eclipse {
     this.x = width / 2;
     this.y = height / 2;
 
+    this.opacity = 0;
+
     this.branchW = 1300;
     this.branchWH = 1300;
     this.imageBranchFrame = imageBranchFrame;
@@ -14,13 +16,18 @@ class Eclipse {
 
   update() {
     this.display();
+    this.showSlowly();
+  }
+
+  showSlowly() {
+    this.opacity += 10;
   }
 
   display() {
     if (circleStill) {
       push();
       translate(this.x, this.y - 150);
-      tint(100);
+      tint(100, this.opacity);
       image(this.imageStillGlass, 0, 0);
       pop();
     } else if (circleMoving) {
@@ -34,6 +41,7 @@ class Eclipse {
     }
     // tree
     push();
+    // tint(255, this.opacity);
     image(this.imageBranchFrame, this.x, this.y, this.branchW, this.branchWH);
     pop();
   }

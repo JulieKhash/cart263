@@ -53,9 +53,11 @@ let humBirdMutedVisible = true;
 let blackFrameImg;
 let blackFrame;
 
-// statue
+// statue -the last scene
 let statueImg;
 let statue;
+let redSparkImg;
+
 let brokenGlassImg;
 
 // test
@@ -72,16 +74,16 @@ let churchBellSFX;
 
 // let voiceBottleScene = false;
 
-let state = `lunarEclipse`;
+let state = `main`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
 let flowerBirdScene = false;
-let eclipseNightScene = true;
+let eclipseNightScene = false;
 
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
-  forestBgColImg = loadImage("assets/images/forestcol.png");
+  forestBgColImg = loadImage("assets/images/lake.png");
   bloodBottleImg = loadImage("assets/images/bloodbottlesm.png");
   eyeImg = loadImage("assets/images/eye.gif");
   eclipseImg = loadImage("assets/images/eclipse.gif");
@@ -93,7 +95,8 @@ function preload() {
   hummingBirdImg = loadImage("assets/images/hummingbird.png");
   blackFrameImg = loadImage("assets/images/blackframe.png");
 
-  statueImg = loadImage("assets/images/statueboy3.png");
+  statueImg = loadImage("assets/images/facespirit2.png");
+  redSparkImg = loadImage("assets/images/redspark.png");
   brokenGlassImg = loadImage("assets/images/brokenglass.png");
 
   lightcursorImg = loadImage(`assets/images/light70.png`);
@@ -111,7 +114,7 @@ function setup() {
   //noCursor();
   imageMode(CENTER);
 
-  statue = new Statue(statueImg);
+  statue = new Statue(statueImg, redSparkImg);
   hummingBird = new HummingBird(hummingBirdImg, hummingBirdImg, bloodSplashImg);
   bloomingFlower = new BloomingFLower(bloomingFlowerImg, blackFrameImg);
   blueBird = new BlueBird(blueBirdImg, blueBirdImg);
@@ -137,9 +140,8 @@ function draw() {
     bloomingFlowerScene();
   } else if (state === `statueBoy`) {
     statueScene();
-
-    mouseCursor();
   }
+  mouseCursor();
 }
 
 function forestBWScene() {
@@ -159,8 +161,10 @@ function bloodBottleScene() {
 }
 
 function eclipseScene() {
-  eclipse.update();
-  blueBird.update();
+  if (eclipseNightScene) {
+    eclipse.update();
+    blueBird.update();
+  }
 }
 
 function bloomingFlowerScene() {
