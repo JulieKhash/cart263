@@ -23,7 +23,7 @@ class HummingBird {
 
   // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeVisible, 7000);
+    setTimeout(this.makeVisible, 8000);
   }
 
   makeVisible() {

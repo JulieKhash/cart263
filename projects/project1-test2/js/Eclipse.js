@@ -12,6 +12,7 @@ class Eclipse {
     this.moonH = 506;
     this.imageEclipse = imageEclipse;
 
+    this.angle = 0;
     this.imageGlass = imageGlass;
   }
 
@@ -29,12 +30,14 @@ class Eclipse {
     // lunar eclipse
     push();
     //  tint(255, 120);
-    image(this.imageGlass, this.x, this.y - 150);
+    this.angle += 0.002;
+    translate(this.x, this.y - 150);
+    rotate(this.angle);
+    image(this.imageGlass, 0, 0);
     pop();
 
-    // branch frame
+    // tree
     push();
-    // tint(255, 255);
     image(this.imageBranchFrame, this.x, this.y, this.branchW, this.branchWH);
     pop();
   }

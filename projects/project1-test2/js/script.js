@@ -67,7 +67,7 @@ let birdChirpSFX;
 
 // let voiceBottleScene = false;
 
-let state = `main`;
+let state = `lunarEclipse`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
