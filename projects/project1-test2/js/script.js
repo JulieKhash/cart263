@@ -25,6 +25,7 @@ let forestColor;
 let bloodBottleImg;
 let bloodBottle;
 let bottleDrunken = false;
+let imageBottleVisible = false;
 
 // eclipse
 let eclipseImg;
@@ -154,7 +155,6 @@ function eclipseScene() {
 
 function bloomingFlowerScene() {
   if (flowerBirdScene) {
-    // forestColor.update();
     bloomingFlower.update();
     hummingBird.update();
   }

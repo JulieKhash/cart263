@@ -5,29 +5,30 @@ class BloodBottle {
 
     this.opacity = 170;
 
+    // this.imageBottleVisible = false;
     this.imageBottle = imageBottle;
+
+    // this.imageMutedBottleVisible = true;
+    // this.imageMutedBottle = imageMutedBottle;
   }
 
   update() {
     this.display();
     this.bottleIsDrunken();
+    // this.triggerAction();
   }
 
   // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeTrue, 8000);
+    setTimeout(this.makeVisible, 2000);
+    // setTimeout(this.alertFunc, 3000);
   }
 
-  makeTrue() {
-    bottleDrunken = true;
+  makeVisible() {
+    //bottleDrunken = true;
+    // this.imageBottleVisible = true;
+    imageBottleVisible = true;
   }
-
-  // repeats the voice every 2 seconds
-  // playVoice() {
-  //   setTimeout(this.voiceInstruction1, 1000);
-  //   setInterval(this.voiceInstruction1, 5000);
-  //  setInterval(this.voiceInstruction2, 5000);
-  // }
 
   // let the voice to speak out
   voiceInstruction1() {
@@ -68,21 +69,29 @@ class BloodBottle {
   }
 
   display() {
-    push();
-    tint(random(200, 255), this.opacity);
-    image(this.imageBottle, this.x, this.y);
-    pop();
+    this.triggerAction();
+
+    if (imageBottleVisible) {
+      push();
+      tint(random(200, 255), this.opacity);
+      image(this.imageBottle, this.x, this.y);
+      pop();
+    }
   }
 
   mousePressed() {
+    // this.triggerAction();
     if (this.checkOverlapBottle(mouseX, mouseY)) {
       // bottleDrunken = true;
-      this.triggerAction();
       if (!breathingSFX.isPlaying()) {
         breathingSFX.play();
       }
       this.voiceInstruction2();
     }
     this.voiceInstruction1();
+  }
+
+  alertFunc() {
+    alert("Hello!");
   }
 }
