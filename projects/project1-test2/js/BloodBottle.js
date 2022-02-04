@@ -1,5 +1,5 @@
 class BloodBottle {
-  constructor(imageBottle) {
+  constructor(imageBottle, imageMutedBottle) {
     this.x = width / 2;
     this.y = height / 2;
 
@@ -9,7 +9,7 @@ class BloodBottle {
     this.imageBottle = imageBottle;
 
     // this.imageMutedBottleVisible = true;
-    // this.imageMutedBottle = imageMutedBottle;
+    this.imageMutedBottle = imageMutedBottle;
   }
 
   update() {
@@ -20,13 +20,12 @@ class BloodBottle {
 
   // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeVisible, 2000);
-    // setTimeout(this.alertFunc, 3000);
+    setTimeout(this.makeVisible, 7000);
   }
 
   makeVisible() {
     //bottleDrunken = true;
-    // this.imageBottleVisible = true;
+    imageMutedBottleVisible = false;
     imageBottleVisible = true;
   }
 
@@ -69,11 +68,16 @@ class BloodBottle {
   }
 
   display() {
-    this.triggerAction();
+    // this.triggerAction();
 
-    if (imageBottleVisible) {
+    if (imageMutedBottleVisible) {
       push();
-      tint(random(200, 255), this.opacity);
+      tint(130, this.opacity);
+      image(this.imageMutedBottle, this.x, this.y);
+      pop();
+    } else if (imageBottleVisible) {
+      push();
+      tint(random(200, 250), this.opacity);
       image(this.imageBottle, this.x, this.y);
       pop();
     }
@@ -81,7 +85,8 @@ class BloodBottle {
 
   mousePressed() {
     // this.triggerAction();
-    if (this.checkOverlapBottle(mouseX, mouseY)) {
+    this.triggerAction();
+    if (this.checkOverlapBottle(mouseX, mouseY) && imageBottleVisible) {
       // bottleDrunken = true;
       if (!breathingSFX.isPlaying()) {
         breathingSFX.play();

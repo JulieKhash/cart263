@@ -26,6 +26,7 @@ let bloodBottleImg;
 let bloodBottle;
 let bottleDrunken = false;
 let imageBottleVisible = false;
+let imageMutedBottleVisible = true;
 
 // eclipse
 let eclipseImg;
@@ -107,7 +108,7 @@ function setup() {
   blueBird = new BlueBird(blueBirdImg);
   eclipse = new Eclipse(branchFrameImg, eclipseImg, circleImg);
   eye = new Eye(eyeImg);
-  bloodBottle = new BloodBottle(bloodBottleImg);
+  bloodBottle = new BloodBottle(bloodBottleImg, bloodBottleImg);
   forestBW = new ForestBackground(forestBgBWImg);
   forestColor = new ForestBackground(forestBgColImg);
   titleMain = new Title();
