@@ -4,6 +4,8 @@ class HummingBird {
     this.y = height / 2 - 50;
     this.vx = 0;
     this.vy = 0;
+    this.w = 396;
+    this.h = 445;
     this.speed = 2;
 
     this.imageBird = imageBird;
@@ -24,7 +26,7 @@ class HummingBird {
 
   // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeVisible, 8000);
+    setTimeout(this.makeVisible, 10000);
   }
 
   makeVisible() {
@@ -33,20 +35,29 @@ class HummingBird {
   }
 
   changeState() {
-    if (checkOverlapBird(mouseX, mouseY)) {
+    if (this.checkOverlapBird(mouseX, mouseY)) {
       state = `lunarEclipse`;
+      birdChirpSFX.stop();
       eclipseNightScene = true;
     }
   }
 
   // check if the mouse touches the bird
+  // checkOverlapBird(x, y) {
+  //   if (
+  //     x > this.x - this.imageBird.width / 2 &&
+  //     x < this.x + this.imageBird.width / 2 &&
+  //     y > this.y - this.imageBird.height / 2 &&
+  //     y < this.y + this.imageBird.height / 2
+  //   ) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
   checkOverlapBird(x, y) {
-    if (
-      x > this.x - this.imageBird.width / 2 &&
-      x < this.x + this.imageBird.width / 2 &&
-      y > this.y - this.imageBird.height / 2 &&
-      y < this.y + this.imageBird.height / 2
-    ) {
+    let d = dist(x, y, this.x, this.y);
+    if (d < this.w / 2 && this.h / 2) {
       return true;
     } else {
       return false;
@@ -73,12 +84,12 @@ class HummingBird {
     if (humBirdMutedVisible) {
       push();
       tint(50, 250);
-      image(this.imageMutedBird, this.x, this.y);
+      image(this.imageMutedBird, this.x, this.y, this.w, this.h);
       pop();
     } else if (humBirdMovingVisible) {
       push();
       tint(255, random(140, 200));
-      image(this.imageBird, this.x, this.y);
+      image(this.imageBird, this.x, this.y, this.w, this.h);
       pop();
     }
 
