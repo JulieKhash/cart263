@@ -40,6 +40,7 @@ class Eclipse {
 
   mousePressed() {
     // makes the stained glass move
+    stainedGlassActive = true;
     circleMoving = true;
     circleStill = false;
     // plays the bell sound

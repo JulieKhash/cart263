@@ -62,6 +62,7 @@ let brokenGlassImg;
 let circleImg;
 let circleMoving = false;
 let circleStill = true;
+let stainedGlassActive = false;
 
 let lightcursorImg;
 
@@ -187,12 +188,10 @@ function mouseWheel() {
 function mousePressed() {
   if (bottleScene) {
     bloodBottle.mousePressed();
-  }
-  if (flowerBirdScene) {
+  } else if (flowerBirdScene) {
     bloomingFlower.mousePressed();
     hummingBird.mousePressed();
-  }
-  if (eclipseNightScene) {
+  } else if (eclipseNightScene && !stainedGlassActive) {
     eclipse.mousePressed();
     blueBird.mousePressed();
   }

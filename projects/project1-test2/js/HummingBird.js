@@ -26,7 +26,7 @@ class HummingBird {
 
   // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeVisible, 10000);
+    setTimeout(this.makeVisible, 3000);
   }
 
   makeVisible() {
@@ -37,7 +37,7 @@ class HummingBird {
   changeState() {
     if (this.checkOverlapBird(mouseX, mouseY)) {
       state = `lunarEclipse`;
-      // birdChirpSFX.stop();
+      birdChirpSFX.stop();
       flowerBirdScene = false;
       eclipseNightScene = true;
     }
