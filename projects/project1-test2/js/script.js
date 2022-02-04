@@ -66,6 +66,7 @@ let lightcursorImg;
 // sounds
 let breathingSFX;
 let birdChirpSFX;
+let churchBellSFX;
 
 // let voiceBottleScene = false;
 
@@ -96,6 +97,7 @@ function preload() {
 
   breathingSFX = loadSound("assets/sounds/breathingeye.wav");
   birdChirpSFX = loadSound("assets/sounds/birdchirp.mp3");
+  churchBellSFX = loadSound("assets/sounds/bellrings.mp3");
 
   titleFont = loadFont("assets/fonts/BOERT.ttf");
   scriptFont = loadFont("assets/fonts/BaroqueScript.ttf");
@@ -187,6 +189,7 @@ function mousePressed() {
     bloomingFlower.mousePressed();
     hummingBird.mousePressed();
   }
+  eclipse.mousePressed();
   blueBird.mousePressed();
 }
 

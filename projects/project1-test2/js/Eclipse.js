@@ -42,4 +42,11 @@ class Eclipse {
     image(this.imageBranchFrame, this.x, this.y, this.branchW, this.branchWH);
     pop();
   }
+
+  mousePressed() {
+    if (!churchBellSFX.isPlaying()) {
+      churchBellSFX.loop();
+      churchBellSFX.volume(0.001);
+    }
+  }
 }
