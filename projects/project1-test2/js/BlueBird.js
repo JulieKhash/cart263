@@ -59,10 +59,11 @@ class BlueBird {
       pop();
     }
   }
+
   mousePressed() {
     this.triggerAction();
     if (blueBirdVisible) {
+      this.changeState();
     }
-    this.changeState();
   }
 }
