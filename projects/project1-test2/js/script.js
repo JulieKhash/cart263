@@ -77,7 +77,7 @@ let churchBellSFX;
 
 let state = `main`;
 let started = false;
-let mainScene = false;
+let mainScene = true;
 let bottleScene = false;
 let flowerBirdScene = false;
 let eclipseNightScene = false;
@@ -178,7 +178,7 @@ function bloomingFlowerScene() {
 
 function statueScene() {
   forestColor.update();
-  redSpark.update();
+  //redSpark.update();
   statue.update();
 }
 
