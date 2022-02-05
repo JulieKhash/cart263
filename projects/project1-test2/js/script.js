@@ -118,7 +118,7 @@ function setup() {
   redSpark = new RedSpark(redSparkImg);
   statue = new Statue(statueImg);
   hummingBird = new HummingBird(hummingBirdImg, hummingBirdImg, bloodSplashImg);
-  bloomingFlower = new BloomingFLower(bloomingFlowerImg, blackFrameImg);
+  bloomingFlower = new FlowerBloom(bloomingFlowerImg, blackFrameImg);
   blueBird = new BlueBird(blueBirdImg, blueBirdImg);
   eclipse = new Eclipse(branchFrameImg, circleImg, circleImg);
   eye = new Eye(eyeImg);

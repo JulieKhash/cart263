@@ -1,4 +1,4 @@
-class BloomingFLower {
+class FlowerBloom {
   constructor(imageBloom, imageBlackFrame) {
     this.x = width / 2;
     this.y = height / 2;
