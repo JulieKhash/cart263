@@ -34,8 +34,8 @@ class FlowerBloom {
 
   mousePressed() {
     if (!birdChirpSFX.isPlaying()) {
+      birdChirpSFX.setVolume(0.5);
       birdChirpSFX.loop();
-      birdChirpSFX.volume(0.5);
     }
   }
 }

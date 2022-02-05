@@ -82,8 +82,8 @@ class BloodBottle {
     if (this.checkOverlapBottle(mouseX, mouseY) && imageBottleVisible) {
       bottleDrunken = true;
       if (!breathingSFX.isPlaying()) {
+        breathingSFX.setVolume(0.8);
         breathingSFX.play();
-        breathingSFX.volume(0.5);
       }
       this.voiceInstruction2();
     }

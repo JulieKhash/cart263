@@ -60,8 +60,8 @@ class Statue {
   mousePressed() {
     // plays the bell sound
     if (!mysteriousSFX.isPlaying()) {
+      mysteriousSFX.setVolume(0.5);
       mysteriousSFX.loop();
-      mysteriousSFX.volume(0.001); // i think it's not working
     }
   }
 }
