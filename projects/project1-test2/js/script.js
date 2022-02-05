@@ -75,7 +75,7 @@ let churchBellSFX;
 
 // let voiceBottleScene = false;
 
-let state = `main`;
+let state = `statueBoy`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
