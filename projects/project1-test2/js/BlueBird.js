@@ -28,6 +28,7 @@ class BlueBird {
       state = `statueBoy`;
       churchBellSFX.stop();
       eclipseNightScene = false;
+      encounterScene = true;
     }
   }
 

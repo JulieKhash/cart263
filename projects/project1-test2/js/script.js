@@ -78,13 +78,13 @@ let mysteriousSFX;
 
 // let voiceBottleScene = false;
 
-let state = `statueBoy`;
+let state = `main`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
 let flowerBirdScene = false;
 let eclipseNightScene = false;
-let encounterScene = true;
+let encounterScene = false;
 
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
@@ -104,7 +104,7 @@ function preload() {
   redSparkImg = loadImage("assets/images/redspark1500.png");
   redSParkMutedImg = loadImage("assets/images/redsparkBW1.png");
 
-  lightcursorImg = loadImage(`assets/images/light70.png`);
+  lightcursorImg = loadImage(`assets/images/redlight70.png`);
 
   breathingSFX = loadSound("assets/sounds/breathingeye.wav");
   birdChirpSFX = loadSound("assets/sounds/birdchirp.mp3");
@@ -117,7 +117,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  //noCursor();
+  noCursor();
   imageMode(CENTER);
 
   redSpark = new RedSpark(redSparkImg);

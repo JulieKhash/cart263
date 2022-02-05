@@ -52,7 +52,7 @@ class Eclipse {
     circleStill = false;
     // plays the bell sound
     if (!churchBellSFX.isPlaying()) {
-      churchBellSFX.setVolume(0.05); // i think it's not working
+      churchBellSFX.setVolume(0.5); // i think it's not working
       churchBellSFX.loop();
     }
   }
