@@ -57,6 +57,7 @@ let blackFrame;
 let statueImg;
 let statue;
 let redSparkImg;
+let redSpark;
 
 let brokenGlassImg;
 
@@ -76,7 +77,7 @@ let churchBellSFX;
 
 let state = `main`;
 let started = false;
-let mainScene = true;
+let mainScene = false;
 let bottleScene = false;
 let flowerBirdScene = false;
 let eclipseNightScene = false;
@@ -96,7 +97,7 @@ function preload() {
   blackFrameImg = loadImage("assets/images/blackframe.png");
 
   statueImg = loadImage("assets/images/facespirit2.png");
-  redSparkImg = loadImage("assets/images/redspark.png");
+  redSparkImg = loadImage("assets/images/redspark1500.png");
   brokenGlassImg = loadImage("assets/images/brokenglass.png");
 
   lightcursorImg = loadImage(`assets/images/light70.png`);
@@ -114,7 +115,8 @@ function setup() {
   //noCursor();
   imageMode(CENTER);
 
-  statue = new Statue(statueImg, redSparkImg);
+  redSpark = new RedSpark(redSparkImg);
+  statue = new Statue(statueImg);
   hummingBird = new HummingBird(hummingBirdImg, hummingBirdImg, bloodSplashImg);
   bloomingFlower = new BloomingFLower(bloomingFlowerImg, blackFrameImg);
   blueBird = new BlueBird(blueBirdImg, blueBirdImg);
@@ -176,6 +178,7 @@ function bloomingFlowerScene() {
 
 function statueScene() {
   forestColor.update();
+  redSpark.update();
   statue.update();
 }
 

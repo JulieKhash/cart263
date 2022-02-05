@@ -1,5 +1,5 @@
 class Statue {
-  constructor(imageStatue, imageRedSpark) {
+  constructor(imageStatue) {
     this.x = width / 2;
     this.y = height / 2;
     this.vx = 0;
@@ -13,7 +13,7 @@ class Statue {
     this.opacity = 0;
 
     this.imageStatue = imageStatue;
-    this.imageRedSpark = imageRedSpark;
+    // this.imageRedSpark = imageRedSpark;
 
     // this.imageBrokenGlass = imageBrokenGlass;
   }
@@ -30,22 +30,20 @@ class Statue {
       this.vx = random(-this.speed, this.speed);
       this.vy = random(-this.speed, this.speed);
     }
-
     // move position with velocity
     this.x += this.vx;
     this.y += this.vy;
-
     // constrain to the canvas
     this.x = constrain(this.x, 0, width);
     this.y = constrain(this.y, 0, height);
   }
 
   display() {
-    push();
-    // this.opacity += 1;
-    // tint(255, this.opacity);
-    image(this.imageRedSpark, this.x, this.y - 50, 900, 900);
-    pop();
+    // push();
+    // // this.opacity += 1;
+    // // tint(255, this.opacity);
+    // image(this.imageRedSpark, this.x, this.y - 50, 900, 900);
+    // pop();
 
     push();
     this.opacity += 1;
