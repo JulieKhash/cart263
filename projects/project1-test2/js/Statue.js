@@ -1,5 +1,5 @@
 class Statue {
-  constructor(imageStatue, imageRedSpark) {
+  constructor(imageStatue, imageRedSpark, imageRedSparkBW) {
     this.x = width / 2;
     this.y = height / 2;
     this.vx = 0;
@@ -15,6 +15,7 @@ class Statue {
     this.imageStatue = imageStatue;
 
     this.imageRedSpark = imageRedSpark;
+    this.imageRedSparkBW = imageRedSparkBW;
     this.size = 300;
 
     // this.imageBrokenGlass = imageBrokenGlass;
@@ -23,6 +24,16 @@ class Statue {
   update() {
     this.move();
     this.display();
+  }
+
+  triggerAction() {
+    setTimeout(this.makeVisible, 5000);
+  }
+
+  makeVisible() {
+    redSparkMuted = false;
+    redSparkActive = true;
+    encounterVisible = true;
   }
 
   move() {
@@ -41,23 +52,37 @@ class Statue {
   }
 
   display() {
-    push();
-    // this.opacity += 1;
-    // tint(255, this.opacity);
-    this.size += 1;
-    this.size = constrain(this.size, 300, 1000);
-    image(this.imageRedSpark, this.x + 25, this.y - 50, this.size, this.size);
-    pop();
-
-    push();
-    this.opacity += 1;
-    this.opacity = constrain(this.opacity, 0, 200);
-    tint(255, this.opacity);
-    image(this.imageStatue, this.x, this.y, this.w / 2, this.h / 2);
-    pop();
+    if (redSparkMuted) {
+      push();
+      // this.size += 1;
+      // this.size = constrain(this.size, 300, 1000);
+      image(
+        this.imageRedSparkBW,
+        this.x + 25,
+        this.y - 50,
+        this.size,
+        this.size
+      );
+      pop();
+    } else if (redSparkActive) {
+      push();
+      this.size += 1;
+      this.size = constrain(this.size, 300, 1000);
+      image(this.imageRedSpark, this.x + 25, this.y - 50, this.size, this.size);
+      pop();
+    }
+    if (encounterVisible) {
+      push();
+      this.opacity += 1;
+      this.opacity = constrain(this.opacity, 0, 200);
+      tint(255, this.opacity);
+      image(this.imageStatue, this.x, this.y, this.w / 2, this.h / 2);
+      pop();
+    }
   }
 
   mousePressed() {
+    this.triggerAction();
     // plays the bell sound
     if (!mysteriousSFX.isPlaying()) {
       mysteriousSFX.setVolume(0.5);

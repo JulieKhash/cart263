@@ -56,10 +56,12 @@ let blackFrame;
 // statue -the last scene
 let statueImg;
 let statue;
+let encounterVisible = false;
 let redSparkImg;
 let redSpark;
-
-let brokenGlassImg;
+let redSParkMutedImg;
+let redSparkActive = false;
+let redSparkMuted = true;
 
 // test
 let circleImg;
@@ -100,7 +102,7 @@ function preload() {
 
   statueImg = loadImage("assets/images/facespirit2.png");
   redSparkImg = loadImage("assets/images/redspark1500.png");
-  brokenGlassImg = loadImage("assets/images/brokenglass.png");
+  redSParkMutedImg = loadImage("assets/images/redsparkBW1.png");
 
   lightcursorImg = loadImage(`assets/images/light70.png`);
 
@@ -119,7 +121,7 @@ function setup() {
   imageMode(CENTER);
 
   redSpark = new RedSpark(redSparkImg);
-  statue = new Statue(statueImg, redSparkImg);
+  statue = new Statue(statueImg, redSparkImg, redSParkMutedImg);
   hummingBird = new HummingBird(hummingBirdImg, hummingBirdImg, bloodSplashImg);
   bloomingFlower = new FlowerBloom(bloomingFlowerImg, blackFrameImg);
   blueBird = new BlueBird(blueBirdImg, blueBirdImg);
