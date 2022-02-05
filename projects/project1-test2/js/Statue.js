@@ -56,4 +56,12 @@ class Statue {
     image(this.imageStatue, this.x, this.y, this.w / 2, this.h / 2);
     pop();
   }
+
+  mousePressed() {
+    // plays the bell sound
+    if (!mysteriousSFX.isPlaying()) {
+      mysteriousSFX.loop();
+      mysteriousSFX.volume(0.001); // i think it's not working
+    }
+  }
 }

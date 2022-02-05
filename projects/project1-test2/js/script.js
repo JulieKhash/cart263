@@ -72,6 +72,7 @@ let lightcursorImg;
 let breathingSFX;
 let birdChirpSFX;
 let churchBellSFX;
+let mysteriousSFX;
 
 // let voiceBottleScene = false;
 
@@ -81,6 +82,7 @@ let mainScene = true;
 let bottleScene = false;
 let flowerBirdScene = false;
 let eclipseNightScene = false;
+let encounterScene = true;
 
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
@@ -105,6 +107,7 @@ function preload() {
   breathingSFX = loadSound("assets/sounds/breathingeye.wav");
   birdChirpSFX = loadSound("assets/sounds/birdchirp.mp3");
   churchBellSFX = loadSound("assets/sounds/bellrings.mp3");
+  mysteriousSFX = loadSound("assets/sounds/kasatki.mp3");
 
   titleFont = loadFont("assets/fonts/BOERT.ttf");
   scriptFont = loadFont("assets/fonts/BaroqueScript.ttf");
@@ -200,6 +203,8 @@ function mousePressed() {
   } else if (eclipseNightScene) {
     eclipse.mousePressed();
     blueBird.mousePressed();
+  } else if (encounterScene) {
+    statue.mousePressed();
   }
 }
 
