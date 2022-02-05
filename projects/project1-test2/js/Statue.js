@@ -1,5 +1,5 @@
 class Statue {
-  constructor(imageStatue) {
+  constructor(imageStatue, imageRedSpark) {
     this.x = width / 2;
     this.y = height / 2;
     this.vx = 0;
@@ -13,7 +13,9 @@ class Statue {
     this.opacity = 0;
 
     this.imageStatue = imageStatue;
-    // this.imageRedSpark = imageRedSpark;
+
+    this.imageRedSpark = imageRedSpark;
+    this.size = 300;
 
     // this.imageBrokenGlass = imageBrokenGlass;
   }
@@ -39,11 +41,13 @@ class Statue {
   }
 
   display() {
-    // push();
-    // // this.opacity += 1;
-    // // tint(255, this.opacity);
-    // image(this.imageRedSpark, this.x, this.y - 50, 900, 900);
-    // pop();
+    push();
+    // this.opacity += 1;
+    // tint(255, this.opacity);
+    this.size += 1;
+    this.size = constrain(this.size, 300, 1000);
+    image(this.imageRedSpark, this.x + 25, this.y - 50, this.size, this.size);
+    pop();
 
     push();
     this.opacity += 1;
@@ -51,10 +55,5 @@ class Statue {
     tint(255, this.opacity);
     image(this.imageStatue, this.x, this.y, this.w / 2, this.h / 2);
     pop();
-
-    // push();
-    // // tint(255, 100);
-    // image(this.imageBrokenGlass, this.x, this.y, 1200, 1200);
-    // pop();
   }
 }

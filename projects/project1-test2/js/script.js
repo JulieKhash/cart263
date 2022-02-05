@@ -116,7 +116,7 @@ function setup() {
   imageMode(CENTER);
 
   redSpark = new RedSpark(redSparkImg);
-  statue = new Statue(statueImg);
+  statue = new Statue(statueImg, redSparkImg);
   hummingBird = new HummingBird(hummingBirdImg, hummingBirdImg, bloodSplashImg);
   bloomingFlower = new FlowerBloom(bloomingFlowerImg, blackFrameImg);
   blueBird = new BlueBird(blueBirdImg, blueBirdImg);
@@ -178,7 +178,7 @@ function bloomingFlowerScene() {
 
 function statueScene() {
   forestColor.update();
-  //redSpark.update();
+  // redSpark.update();
   statue.update();
 }
 
