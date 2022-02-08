@@ -68,3 +68,11 @@ function draw() {
     cleaned();
   }
 }
+
+function running() {
+  // check if there predictions to be made
+  if (predictions.length > 0) {
+    let hand = predictions[0]; // there's only one hand cuz it detecs only one hand
+    showCleaningCloth();
+  }
+}
