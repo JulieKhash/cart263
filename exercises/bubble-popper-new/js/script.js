@@ -48,6 +48,12 @@ function setup() {
   handpose = ml5.handpose(video, { flipHorizontal: true }, function () {
     state = `running`;
   });
+
+  // listen to prediction events from handpose and store the results in the predictions
+  //array when they occur
+  handpose.on(`predict`, function (results) {
+    predictions = results;
+  });
 }
 
 /**
