@@ -11,7 +11,7 @@ let cleaningClothImg;
 let inkImg;
 let inkspots = []; //an empty array to store the inkspots
 
-let inkspots; // ink spots we will be cleaning :)
+let inkspot; // ink spot we will be cleaning :)
 let inkspotsCleaned = false; // initially not cleaned
 
 let cleaningCloth = {
@@ -39,6 +39,10 @@ Description of setup
 */
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
+  // start a webcam and hide the resulting html element
+  video = createCapture(VIDEO);
+  video.hide();
 }
 
 /**
