@@ -43,6 +43,11 @@ function setup() {
   // start a webcam and hide the resulting html element
   video = createCapture(VIDEO);
   video.hide();
+
+  // start a Handpose model and switch the state into `running`
+  handpose = ml5.handpose(video, { flipHorizontal: true }, function () {
+    state = `running`;
+  });
 }
 
 /**
