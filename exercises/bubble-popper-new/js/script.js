@@ -59,4 +59,12 @@ function setup() {
 /**
 Description of draw()
 */
-function draw() {}
+function draw() {
+  if (state === `loading`) {
+    loading();
+  } else if (state === `running`) {
+    running();
+  } else if (state === `cleaned`) {
+    cleaned();
+  }
+}
