@@ -7,20 +7,24 @@ author, and this description to match your project!
 */
 
 "use strict";
-let cleaningClothImg;
-let inkImg;
-let inkspots = []; //an empty array to store the inkspots
+let handLowImg;
+let handMidImg;
+let handHighImg;
+let handimages = []; // to store an hand images
 
 let inkspot; // ink spot we will be cleaning :)
 let inkspotsCleaned = false; // initially not cleaned
 
+let starImg;
+let star;
+
 let cleaningCloth = {
   x: undefined,
   y: undefined,
-  size: 400,
+  size: 200,
 };
 
-let state = `loading`; // current state of the program while loading
+let state = `running`; // current state of the program while loading
 let video; // user's webcam
 let modelName = `Handpose`; //the name of our model
 let handpose; // handpose object
@@ -30,15 +34,17 @@ let predictions = []; // the current set of predictions made by handpose
 Description of preload
 */
 function preload() {
-  cleaningClothImg = loadImage("assets/images/cloth.png");
-  inkImg = loadImage("assets/images/spot.png");
+  for (let i = 0; i < 2; i++) {
+    handImages[i] = loadImage(`assets/images/hand${i}.png`);
+  }
 }
 
 /**
 Description of setup
 */
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(800, 800);
+  background(0);
 
   // start a webcam and hide the resulting html element
   video = createCapture(VIDEO);
@@ -60,6 +66,7 @@ function setup() {
 Description of draw()
 */
 function draw() {
+  // background(0, 50, 100);
   if (state === `loading`) {
     loading();
   } else if (state === `running`) {
@@ -73,6 +80,21 @@ function running() {
   // check if there predictions to be made
   if (predictions.length > 0) {
     let hand = predictions[0]; // there's only one hand cuz it detecs only one hand
-    showCleaningCloth();
+    showCleaningCloth(hand);
   }
+}
+
+function showCleaningCloth(hand) {
+  let index = hand.annotations.indexFinger[3];
+  let indexX = index[0];
+  let indexY = index[1];
+  push();
+  image(
+    cleaningClothImg,
+    indexX,
+    indexY,
+    cleaningCloth.size,
+    cleaningCloth.size
+  );
+  pop();
 }
