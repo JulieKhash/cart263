@@ -18,8 +18,8 @@ let lightImg;
 let handImg;
 let handImages = []; // to store an hand images
 let handParameters = {
-  w: 210,
-  h: 250,
+  w: 315,
+  h: 375,
 };
 
 // varibles for ml5 handpose model
@@ -51,7 +51,7 @@ function preload() {
 
 // set up a webcam, handpose, creates synth
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(900, 700);
 
   // start a webcam and hide the resulting html element
   video = createCapture(VIDEO);
@@ -111,10 +111,10 @@ function specialEffects() {
   // maps the background color according to the y coorcdinate of the user's hand on the canvas
   bgColor = map(middleFingerTip[1], height / 2, 0, 0, 255);
   // maps the frequency according to to the y coorcdinate of the user's hand on the canvas
-  let newFreq = map(middleFingerTip[1], height, 0, 0, 880);
+  let newFreq = map(middleFingerTip[1], height, 0, 0, 770);
   theramin.freq(newFreq);
-  // maps the frequency according to to the x coorcdinate of the user's hand on the canvas
-  let newAmp = map(middleFingerTip[0], width, 0, 0, 0.4);
+  // maps the amplitude according to to the x coorcdinate of the user's hand on the canvas
+  let newAmp = map(middleFingerTip[0], width, 0, 0, 0.3);
   theramin.amp(newAmp);
 
   // console.log(hand);
