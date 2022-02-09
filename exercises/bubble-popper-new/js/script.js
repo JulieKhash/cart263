@@ -16,7 +16,7 @@ let handParameters = {
 };
 let middleFingerTip;
 
-let oscillator;
+let theramin;
 
 let state = `running`; // current state of the program while loading
 let video; // user's webcam
@@ -42,11 +42,9 @@ function setup() {
   background(0);
 
   userStartAudio();
-  oscillator = new p5.Oscillator(`sine`); // create a sine wave
+  theramin = new p5.Oscillator(`sine`); // create a sine wave
 
-  oscillator.start();
-
-  // oscillator.start();
+  theramin.start();
 
   // start a webcam and hide the resulting html element
   video = createCapture(VIDEO);
@@ -91,11 +89,15 @@ function running() {
       handParameters.w,
       handParameters.h
     );
-    // showHands(hand);
-    let newFreq = map(middleFingerTip[1], height, 0, 0, 440);
-    oscillator.freq(newFreq);
+
+    let newFreq = map(middleFingerTip[1], height, 0, 0, 880);
+    theramin.freq(newFreq);
+
+    let newAmp = map(middleFingerTip[0], width, 0, 0, 0.5);
+    theramin.amp(newAmp);
+
     console.log(hand);
-    // oscillator.start();
+    // theramin.start();
   }
 }
 
