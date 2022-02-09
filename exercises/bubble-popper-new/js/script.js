@@ -2,8 +2,9 @@
 Alien communication - Ex4
 Julie Khashimova
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+An interactive program that displays an image of a glitching hand based on a hand tracking system.
+The program responds to the position of user's hand by chanhing the pitch of the frequency
+and canvas color
 */
 
 "use strict";
@@ -85,6 +86,7 @@ function draw() {
   }
 }
 
+// displays the webcam, if there's the hand is identified runs the program
 function running() {
   // check if there predictions to be made
   if (predictions.length > 0) {
@@ -95,7 +97,7 @@ function running() {
     imageState = random(handImages);
     image(
       imageState,
-      middleFingerTip[0], //
+      middleFingerTip[0],
       middleFingerTip[1],
       handParameters.h,
       handParameters.w
@@ -104,7 +106,7 @@ function running() {
   }
 }
 
-// produces an effect based on hand tracking
+// produces special effects based on hand tracking
 function specialEffects() {
   // maps the background color according to the y coorcdinate of the user's hand on the canvas
   bgColor = map(middleFingerTip[1], height / 2, 0, 0, 255);
