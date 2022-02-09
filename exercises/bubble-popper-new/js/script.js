@@ -2,8 +2,8 @@
 Alien communication - Ex4
 Julie Khashimova
 
-An interactive program that displays an image of a glitching hand based on a hand tracking system.
-The program responds to the position of user's hand by chanhing the pitch of the frequency
+An interactive program that displays the image of a glitching hand based on a hand tracking system.
+The program responds to the position of user's hand by changing the pitch of the frequency
 and canvas color
 */
 
