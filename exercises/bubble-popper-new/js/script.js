@@ -14,6 +14,7 @@ let handParameters = {
   w: 200,
   h: 160,
 };
+let middleFingerTip;
 
 let oscillator;
 
@@ -81,8 +82,7 @@ function running() {
     let hand = predictions[0]; // there's only one hand cuz it detecs only one hand
     let middleFinger = hand.annotations.middleFinger;
 
-    let middleFingerTip = middleFinger[3];
-    // let middleFingerBase = middleFinger[0]
+    middleFingerTip = middleFinger[3];
 
     image(
       handImages[0],
@@ -92,6 +92,8 @@ function running() {
       handParameters.h
     );
     // showHands(hand);
+    let newFreq = map(middleFingerTip[1], height, 0, 0, 440);
+    oscillator.freq(newFreq);
     console.log(hand);
     // oscillator.start();
   }
