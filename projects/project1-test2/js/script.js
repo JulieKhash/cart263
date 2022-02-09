@@ -78,11 +78,11 @@ let mysteriousSFX;
 
 // let voiceBottleScene = false;
 
-let state = `main`;
+let state = `flowerBird`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
-let flowerBirdScene = false;
+let flowerBirdScene = true;
 let eclipseNightScene = false;
 let encounterScene = false;
 

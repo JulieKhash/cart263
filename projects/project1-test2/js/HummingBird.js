@@ -26,7 +26,7 @@ class HummingBird {
 
   // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeVisible, 1000);
+    setTimeout(this.makeVisible, 20000);
   }
 
   makeVisible() {
@@ -40,6 +40,30 @@ class HummingBird {
       birdChirpSFX.stop();
       flowerBirdScene = false;
       eclipseNightScene = true;
+    }
+  }
+
+  voiceInstruction() {
+    if (!responsiveVoice.isPlaying()) {
+      responsiveVoice.speak(
+        `Pleasant dreams, what beauty by my side? A rose in bloom, a shrinking violet?
+  I don't want to die! But Death we are and have always been. But I'm young! Death is no respecter of age!
+It can come any time, any place. Just as this flesh is pink now...
+...so it will turn gray and wrinkle with age
+Let me live! I don't care!`,
+        VOICE_NAME,
+        VOICE_PARAMS
+      );
+    }
+  }
+
+  voiceInstruction2() {
+    if (!responsiveVoice.isPlaying()) {
+      responsiveVoice.speak(
+        `Let me live! I don't care!`,
+        VOICE_NAME,
+        VOICE_PARAMS
+      );
     }
   }
 
@@ -112,5 +136,7 @@ class HummingBird {
     if (humBirdMovingVisible) {
       this.changeState();
     }
+    this.voiceInstruction();
+    this.voiceInstruction2();
   }
 }

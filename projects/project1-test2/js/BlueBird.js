@@ -15,7 +15,7 @@ class BlueBird {
 
   // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeVisible, 3000);
+    setTimeout(this.makeVisible, 30000);
   }
 
   makeVisible() {

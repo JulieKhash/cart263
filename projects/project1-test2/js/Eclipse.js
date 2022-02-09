@@ -19,6 +19,19 @@ class Eclipse {
     this.showSlowly();
   }
 
+  // let the voice to speak out
+  voiceInstruction() {
+    if (!responsiveVoice.isPlaying()) {
+      responsiveVoice.speak(
+        `The monk whose soul with Heaven doth commune and spends his days in pious contemplation
+finds he will meet his Maker all too soon.
+For all his prayers gets no remuneration. Your body's dying. Pay no attention. It happens to us all`,
+        VOICE_NAME,
+        VOICE_PARAMS
+      );
+    }
+  }
+
   showSlowly() {
     this.opacity += 5;
   }
@@ -55,5 +68,6 @@ class Eclipse {
       churchBellSFX.setVolume(0.5); // i think it's not working
       churchBellSFX.loop();
     }
+    this.voiceInstruction();
   }
 }
