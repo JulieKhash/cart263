@@ -1,5 +1,5 @@
 class Statue {
-  constructor(imageStatue, imageRedSpark, imageRedSparkBW) {
+  constructor(imageStatue, imageRedSpark, imageRedSparkBW, lightImg, birdsImg) {
     this.x = width / 2;
     this.y = height / 2;
     this.vx = 0;
@@ -18,6 +18,8 @@ class Statue {
     this.imageRedSparkBW = imageRedSparkBW;
     this.size = 300;
 
+    this.lightImg = lightImg;
+    this.birdsImg = birdsImg;
     // this.imageBrokenGlass = imageBrokenGlass;
   }
 
@@ -34,6 +36,25 @@ class Statue {
     redSparkMuted = false;
     redSparkActive = true;
     encounterVisible = true;
+  }
+
+  voiceInstruction() {
+    if (!responsiveVoice.isPlaying()) {
+      responsiveVoice.speak(
+        `Don't you see?  I'm not the spirit of any age.
+        I am the oldest living vampire in the world.
+The one who made you should have told you this.
+The one who left the Old World for the New...
+He knew nothing. Nor did he care.
+Have you said your good-byes to the light?
+If I leave you here you'll die.
+Or you can be young always, my friend
+as we are now. But you must tell me
+will you come or no?`,
+        VOICE_NAME,
+        VOICE_PARAMS
+      );
+    }
   }
 
   move() {
@@ -79,6 +100,18 @@ class Statue {
       image(this.imageStatue, this.x, this.y, this.w / 2, this.h / 2);
       pop();
     }
+
+    push();
+    this.opacity += 0.1;
+    this.opacity = constrain(this.opacity, 0, 50);
+    tint(255, this.opacity);
+    image(this.lightImg, width / 2, height / 2, 800, 1200);
+    pop();
+
+    push();
+    tint(255, 50);
+    image(this.birdsImg, width / 2, height / 2, 700, 400);
+    pop();
   }
 
   mousePressed() {
@@ -88,5 +121,6 @@ class Statue {
       mysteriousSFX.setVolume(0.5);
       mysteriousSFX.loop();
     }
+    this.voiceInstruction();
   }
 }

@@ -63,6 +63,9 @@ let redSParkMutedImg;
 let redSparkActive = false;
 let redSparkMuted = true;
 
+let lightingImg;
+let birdsImg;
+
 // test
 let circleImg;
 let circleMoving = false;
@@ -78,13 +81,13 @@ let mysteriousSFX;
 
 // let voiceBottleScene = false;
 
-let state = `flowerBird`;
+let state = `statueBoy`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
-let flowerBirdScene = true;
+let flowerBirdScene = false;
 let eclipseNightScene = false;
-let encounterScene = false;
+let encounterScene = true;
 
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
@@ -104,6 +107,9 @@ function preload() {
   redSparkImg = loadImage("assets/images/redspark1500.png");
   redSParkMutedImg = loadImage("assets/images/redsparkBW1.png");
 
+  lightingImg = loadImage("assets/images/lighting.gif");
+  birdsImg = loadImage("assets/images/8.gif");
+
   lightcursorImg = loadImage(`assets/images/redlight70.png`);
 
   breathingSFX = loadSound("assets/sounds/breathingeye.wav");
@@ -121,7 +127,13 @@ function setup() {
   imageMode(CENTER);
 
   redSpark = new RedSpark(redSparkImg);
-  statue = new Statue(statueImg, redSparkImg, redSParkMutedImg);
+  statue = new Statue(
+    statueImg,
+    redSparkImg,
+    redSParkMutedImg,
+    lightingImg,
+    birdsImg
+  );
   hummingBird = new HummingBird(hummingBirdImg, hummingBirdImg, bloodSplashImg);
   bloomingFlower = new FlowerBloom(bloomingFlowerImg, blackFrameImg);
   blueBird = new BlueBird(blueBirdImg, blueBirdImg);
