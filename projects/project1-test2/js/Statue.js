@@ -1,5 +1,6 @@
-class Statue {
+class Statue extends Voice {
   constructor(imageStatue, imageRedSpark, imageRedSparkBW, voice1, voice2) {
+    super();
     this.x = width / 2;
     this.y = height / 2;
     this.vx = 0;
@@ -51,16 +52,23 @@ class Statue {
     encounterVisible = true;
   }
 
+  // voiceInstruction1() {
+  //   if (!responsiveVoice.isPlaying()) {
+  //     responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
+  //   }
+  // }
+  //
+  // voiceInstruction2() {
+  //   if (!responsiveVoice.isPlaying()) {
+  //     responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
+  //   }
+  // }
   voiceInstruction1() {
-    if (!responsiveVoice.isPlaying()) {
-      responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
-    }
+    super.voiceInstruction1();
   }
 
   voiceInstruction2() {
-    if (!responsiveVoice.isPlaying()) {
-      responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
-    }
+    super.voiceInstruction2();
   }
 
   move() {

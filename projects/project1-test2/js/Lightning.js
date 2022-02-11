@@ -1,5 +1,6 @@
-class Lightning {
-  constructor(imageLightning, imageInkFrame, voice) {
+class Lightning extends Voice {
+  constructor(imageLightning, imageInkFrame, voice1) {
+    super();
     this.x = width / 2;
     this.y = height / 2;
 
@@ -7,7 +8,7 @@ class Lightning {
     this.imageLightning = imageLightning;
     this.imageInkFrame = imageInkFrame;
 
-    this.voice = voice;
+    this.voice1 = voice1;
 
     this.text = `Don't worry.
     Soon, you'll be sleeping as soundly as you've ever slept.
@@ -18,10 +19,13 @@ class Lightning {
     this.display();
   }
 
-  voiceInstruction() {
-    if (!responsiveVoice.isPlaying()) {
-      responsiveVoice.speak(this.voice, VOICE_NAME, VOICE_PARAMS);
-    }
+  // voiceInstruction() {
+  //   if (!responsiveVoice.isPlaying()) {
+  //     responsiveVoice.speak(this.voice, VOICE_NAME, VOICE_PARAMS);
+  //   }
+  // }
+  voiceInstruction1() {
+    super.voiceInstruction1();
   }
 
   display() {
@@ -53,6 +57,6 @@ class Lightning {
       heartbeatSFX.setVolume(0.5);
       heartbeatSFX.loop();
     }
-    this.voiceInstruction();
+    this.voiceInstruction1();
   }
 }
