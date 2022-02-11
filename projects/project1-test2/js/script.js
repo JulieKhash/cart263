@@ -83,6 +83,7 @@ let redSparkMuted = true;
 // last scene
 let redLightningImg;
 let redLightning;
+let inkFrameImg;
 
 let birdsImg;
 
@@ -129,7 +130,7 @@ function preload() {
   redSParkMutedImg = loadImage("assets/images/redsparkBW1.png");
 
   redLightningImg = loadImage("assets/images/lighting.gif");
-  birdsImg = loadImage("assets/images/8.gif");
+  inkFrameImg = loadImage("assets/images/inkframe.png");
 
   lightcursorImg = loadImage(`assets/images/redlight70.png`);
 
@@ -156,17 +157,17 @@ function setup() {
 }
 
 // set up annyang
-function setUpAnnyang() {
-  // checks if the annyang available on a given browser
-  if (annyang) {
-    // create a voice command to listen to what the user says
-    let commands = {
-      "*answer": userResponse,
-    };
-    annyang.addCommands(commands);
-    annyang.start();
-  }
-}
+// function setUpAnnyang() {
+//   // checks if the annyang available on a given browser
+//   if (annyang) {
+//     // create a voice command to listen to what the user says
+//     let commands = {
+//       "*answer": userResponse,
+//     };
+//     annyang.addCommands(commands);
+//     annyang.start();
+//   }
+// }
 
 // function userResponse(answer) {
 //   currentResponse =
@@ -181,7 +182,7 @@ function setUpAnnyang() {
 // }
 
 function setUPObjects() {
-  redLightning = new Lightning(redLightningImg, encounterText3);
+  redLightning = new Lightning(redLightningImg, inkFrameImg);
   redSpark = new RedSpark(redSparkImg);
   statue = new Statue(
     statueImg,
@@ -314,7 +315,7 @@ function mousePressed() {
   } else if (encounterScene) {
     statue.mousePressed();
   }
-  redLightning.mousePressed();
+  // redLightning.mousePressed();
 }
 
 function keyPressed() {
