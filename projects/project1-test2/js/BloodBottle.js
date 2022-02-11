@@ -1,13 +1,14 @@
 class BloodBottle {
-  constructor(imageBottle, imageMutedBottle) {
+  constructor(imageBottle, imageMutedBottle, voice) {
     this.x = width / 2;
     this.y = height / 2;
 
     this.opacity = 170;
 
     this.imageBottle = imageBottle;
-
     this.imageMutedBottle = imageMutedBottle;
+
+    this.voice = voice;
   }
 
   update() {

@@ -5,7 +5,7 @@ class Prologue {
     this.TextSize = 25;
     this.spacing = 50; // line spacing
 
-    this.prologueText = `I awoke the next evening with a hunger I had never felt.,
+    this.prologueText = `I awoke the next evening with a hunger I had never felt.
     Blood I was to find was a necessity as well.
     What if I could give it back to you?
     Pluck out the pain and give you another life?
