@@ -1,5 +1,6 @@
-class Eclipse {
+class Eclipse extends Voice {
   constructor(imageBranchFrame, imageGlass, imageStillGlass, voice1, voice2) {
+    super();
     this.x = width / 2;
     this.y = height / 2;
 
@@ -22,29 +23,23 @@ class Eclipse {
     this.showSlowly();
   }
 
-  // let the voice to speak out
-  //   voiceInstruction() {
-  //     if (!responsiveVoice.isPlaying()) {
-  //       responsiveVoice.speak(
-  //         `The monk whose soul with Heaven doth commune and spends his days in pious contemplation
-  // finds he will meet his Maker all too soon.
-  // For all his prayers gets no remuneration. Your body's dying. Pay no attention. It happens to us all`,
-  //         VOICE_NAME,
-  //         VOICE_PARAMS
-  //       );
-  //     }
+  // voiceInstruction1() {
+  //   if (!responsiveVoice.isPlaying()) {
+  //     responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
   //   }
-
+  // }
+  //
+  // voiceInstruction2() {
+  //   if (!responsiveVoice.isPlaying()) {
+  //     responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
+  //   }
+  // }
   voiceInstruction1() {
-    if (!responsiveVoice.isPlaying()) {
-      responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
-    }
+    super.voiceInstruction1();
   }
 
   voiceInstruction2() {
-    if (!responsiveVoice.isPlaying()) {
-      responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
-    }
+    super.voiceInstruction2();
   }
 
   showSlowly() {
