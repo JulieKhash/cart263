@@ -1,5 +1,5 @@
 class Eclipse {
-  constructor(imageBranchFrame, imageGlass, imageStillGlass) {
+  constructor(imageBranchFrame, imageGlass, imageStillGlass, voice1, voice2) {
     this.x = width / 2;
     this.y = height / 2;
 
@@ -12,6 +12,9 @@ class Eclipse {
     this.angle = 0;
     this.imageGlass = imageGlass;
     this.imageStillGlass = imageStillGlass;
+
+    this.voice1 = voice1;
+    this.voice2 = voice2;
   }
 
   update() {
@@ -20,15 +23,27 @@ class Eclipse {
   }
 
   // let the voice to speak out
-  voiceInstruction() {
+  //   voiceInstruction() {
+  //     if (!responsiveVoice.isPlaying()) {
+  //       responsiveVoice.speak(
+  //         `The monk whose soul with Heaven doth commune and spends his days in pious contemplation
+  // finds he will meet his Maker all too soon.
+  // For all his prayers gets no remuneration. Your body's dying. Pay no attention. It happens to us all`,
+  //         VOICE_NAME,
+  //         VOICE_PARAMS
+  //       );
+  //     }
+  //   }
+
+  voiceInstruction1() {
     if (!responsiveVoice.isPlaying()) {
-      responsiveVoice.speak(
-        `The monk whose soul with Heaven doth commune and spends his days in pious contemplation
-finds he will meet his Maker all too soon.
-For all his prayers gets no remuneration. Your body's dying. Pay no attention. It happens to us all`,
-        VOICE_NAME,
-        VOICE_PARAMS
-      );
+      responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
+    }
+  }
+
+  voiceInstruction2() {
+    if (!responsiveVoice.isPlaying()) {
+      responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
     }
   }
 
@@ -68,6 +83,10 @@ For all his prayers gets no remuneration. Your body's dying. Pay no attention. I
       churchBellSFX.setVolume(0.5); // i think it's not working
       churchBellSFX.loop();
     }
-    this.voiceInstruction();
+    if (blueBirdVisible) {
+      this.voiceInstruction2();
+    } else {
+      this.voiceInstruction1();
+    }
   }
 }

@@ -7,15 +7,23 @@ class BlueBird {
 
     this.imageBlueBird = imageBlueBird;
     this.imageMutedBlueBird = imageMutedBlueBird;
+
+    // this.voice = voice;
   }
 
   update() {
     this.display();
   }
 
+  // voiceInstruction() {
+  //   if (!responsiveVoice.isPlaying()) {
+  //     responsiveVoice.speak(this.voice, VOICE_NAME, VOICE_PARAMS);
+  //   }
+  // }
+
   // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeVisible, 30000);
+    setTimeout(this.makeVisible, 20000);
   }
 
   makeVisible() {

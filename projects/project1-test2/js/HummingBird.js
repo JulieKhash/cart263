@@ -46,19 +46,6 @@ class HummingBird {
     }
   }
 
-  //   voiceInstruction() {
-  //     if (!responsiveVoice.isPlaying()) {
-  //       responsiveVoice.speak(
-  //         `Pleasant dreams, what beauty by my side? A rose in bloom, a shrinking violet?
-  //   I don't want to die! But Death we are and have always been. But I'm young! Death is no respecter of age!
-  // It can come any time, any place. Just as this flesh is pink now...
-  // ...so it will turn gray and wrinkle with age
-  // Let me live! I don't care!`,
-  //         VOICE_NAME,
-  //         VOICE_PARAMS
-  //       );
-  //     }
-  //   }
   voiceInstruction() {
     if (!responsiveVoice.isPlaying()) {
       responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
@@ -71,19 +58,6 @@ class HummingBird {
     }
   }
 
-  // check if the mouse touches the bird
-  // checkOverlapBird(x, y) {
-  //   if (
-  //     x > this.x - this.imageBird.width / 2 &&
-  //     x < this.x + this.imageBird.width / 2 &&
-  //     y > this.y - this.imageBird.height / 2 &&
-  //     y < this.y + this.imageBird.height / 2
-  //   ) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
   checkOverlapBird(x, y) {
     let d = dist(x, y, this.x, this.y);
     if (d < this.w / 5 && this.h / 5) {
@@ -141,7 +115,6 @@ class HummingBird {
       this.changeState();
       this.voiceInstruction2();
     } else {
-      // this.voiceInstruction2();
       this.voiceInstruction();
     }
   }

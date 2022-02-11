@@ -22,6 +22,8 @@ let bloodBottleText1;
 let bloodBottleText2;
 let flowerBloomText1;
 let flowerBloomText2;
+let eclipseChurchText1;
+let eclipseChurchText2;
 
 // let currentLineIndex = 0;
 
@@ -92,12 +94,12 @@ let mysteriousSFX;
 // let voiceBottleScene = false;
 
 // program states
-let state = `flowerBird`;
+let state = `lunarEclipse`;
 let started = false;
-let mainScene = true;
+let mainScene = false;
 let bottleScene = false;
-let flowerBirdScene = true;
-let eclipseNightScene = false;
+let flowerBirdScene = false;
+let eclipseNightScene = true;
 let encounterScene = false;
 
 function preload() {
@@ -141,8 +143,6 @@ function setup() {
 
   getTextandScript();
 
-  // titleText = programScript.title;
-
   redSpark = new RedSpark(redSparkImg);
   statue = new Statue(
     statueImg,
@@ -160,13 +160,18 @@ function setup() {
   );
   bloomingFlower = new FlowerBloom(bloomingFlowerImg, blackFrameImg);
   blueBird = new BlueBird(blueBirdImg, blueBirdImg);
-  eclipse = new Eclipse(branchFrameImg, circleImg, circleImg);
+  eclipse = new Eclipse(
+    branchFrameImg,
+    circleImg,
+    circleImg,
+    eclipseChurchText1,
+    eclipseChurchText2
+  );
   eye = new Eye(eyeImg);
   bloodBottle = new BloodBottle(
     bloodBottleImg,
     bloodBottleImg,
-    bloodBottleText1,
-    bloodBottleText2
+    bloodBottleText1
   );
   forestBW = new ForestBackground(forestBgBWImg);
   forestColor = new ForestBackground(forestBgColImg);
@@ -199,6 +204,8 @@ function getTextandScript() {
   bloodBottleText2 = programScript.scenes[0].scene1[1];
   flowerBloomText1 = programScript.scenes[0].scene2[0];
   flowerBloomText2 = programScript.scenes[0].scene2[1];
+  eclipseChurchText1 = programScript.scenes[0].scene3[0];
+  eclipseChurchText2 = programScript.scenes[0].scene3[1];
 }
 
 function forestBWScene() {
