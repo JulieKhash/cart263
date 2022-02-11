@@ -129,6 +129,7 @@ class Statue {
     if (encounterVisible) {
       this.voiceInstruction2();
       this.voiceInstruction3();
+      prompt("Will you come or no?");
     } else {
       this.voiceInstruction1();
     }

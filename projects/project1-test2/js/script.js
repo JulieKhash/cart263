@@ -99,15 +99,16 @@ let breathingSFX;
 let birdChirpSFX;
 let churchBellSFX;
 let mysteriousSFX;
+let heartbeatSFX;
 
 // program states
-let state = `lightningRed`;
+let state = `statueBoy`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
 let flowerBirdScene = false;
 let eclipseNightScene = false;
-let encounterScene = false;
+let encounterScene = true;
 
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
@@ -136,6 +137,7 @@ function preload() {
   birdChirpSFX = loadSound("assets/sounds/birdchirp.mp3");
   churchBellSFX = loadSound("assets/sounds/bellrings.mp3");
   mysteriousSFX = loadSound("assets/sounds/kasatki.mp3");
+  heartbeatSFX = loadSound("assets/sounds/heartbeat.mp3");
 
   titleFont = loadFont("assets/fonts/BOERT.ttf");
   scriptFont = loadFont("assets/fonts/BaroqueScript.ttf");
@@ -153,31 +155,6 @@ function setup() {
   getTextandScript();
   setUPObjects();
 }
-
-// set up annyang
-// function setUpAnnyang() {
-//   // checks if the annyang available on a given browser
-//   if (annyang) {
-//     // create a voice command to listen to what the user says
-//     let commands = {
-//       "*answer": userResponse,
-//     };
-//     annyang.addCommands(commands);
-//     annyang.start();
-//   }
-// }
-
-// function userResponse(answer) {
-//   currentResponse =
-// }
-//
-// function isCorrect() {
-//   if (currentResponse === userResponse) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
 
 function setUPObjects() {
   redLightning = new Lightning(redLightningImg, inkFrameImg, encounterText3);
@@ -233,8 +210,8 @@ function draw() {
     statueScene();
   } else if (state === `lightningRed`) {
     lightningRed();
-    mouseCursor();
   }
+  mouseCursor();
 }
 
 function getTextandScript() {
@@ -311,7 +288,7 @@ function mousePressed() {
   } else if (encounterScene) {
     statue.mousePressed();
   }
-  redLightning.mousePressed();
+  // redLightning.mousePressed();
 }
 
 function keyPressed() {

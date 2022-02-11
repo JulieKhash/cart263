@@ -49,6 +49,10 @@ class Lightning {
   }
 
   mousePressed() {
+    if (!heartbeatSFX.isPlaying()) {
+      heartbeatSFX.setVolume(0.5);
+      heartbeatSFX.loop();
+    }
     this.voiceInstruction();
   }
 }
