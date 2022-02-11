@@ -1,12 +1,5 @@
 class Statue {
-  constructor(
-    imageStatue,
-    imageRedSpark,
-    imageRedSparkBW,
-    voice1,
-    voice2,
-    voice3
-  ) {
+  constructor(imageStatue, imageRedSpark, imageRedSparkBW, voice1, voice2) {
     this.x = width / 2;
     this.y = height / 2;
     this.vx = 0;
@@ -27,12 +20,21 @@ class Statue {
 
     this.voice1 = voice1;
     this.voice2 = voice2;
-    this.voice3 = voice3;
   }
 
   update() {
     this.move();
     this.display();
+  }
+
+  userPromptBox() {
+    currentResponse = prompt("Will you come or no?");
+  }
+
+  checkUserAnswer() {
+    if (currentResponse === userResponse) {
+      alert("Hellooo!");
+    }
   }
 
   triggerAction() {
@@ -56,11 +58,11 @@ class Statue {
       responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
     }
   }
-  voiceInstruction3() {
-    if (!responsiveVoice.isPlaying()) {
-      responsiveVoice.speak(this.voice3, VOICE_NAME, VOICE_PARAMS);
-    }
-  }
+  // voiceInstruction3() {
+  //   if (!responsiveVoice.isPlaying()) {
+  //     responsiveVoice.speak(this.voice3, VOICE_NAME, VOICE_PARAMS);
+  //   }
+  // }
 
   move() {
     // check if we need to change the moving direction
@@ -105,18 +107,6 @@ class Statue {
       image(this.imageStatue, this.x, this.y, this.w / 2, this.h / 2);
       pop();
     }
-
-    // push();
-    // this.opacity += 0.1;
-    // this.opacity = constrain(this.opacity, 0, 50);
-    // tint(255, this.opacity);
-    // image(this.lightImg, width / 2, height / 2, 800, 1200);
-    // pop();
-    //
-    // push();
-    // tint(255, 50);
-    // image(this.birdsImg, width / 2, height / 2, 700, 400);
-    // pop();
   }
 
   mousePressed() {
@@ -128,8 +118,10 @@ class Statue {
     }
     if (encounterVisible) {
       this.voiceInstruction2();
-      this.voiceInstruction3();
-      prompt("Will you come or no?");
+      // this.voiceInstruction3();
+      this.userPromptBox();
+      this.checkUserAnswer();
+      // prompt("Will you come or no?");
     } else {
       this.voiceInstruction1();
     }

@@ -28,7 +28,8 @@ let encounterText1;
 let encounterText2;
 let encounterText3;
 
-// annyang related
+// web API related
+let userPrompt;
 const userResponse = `yes`;
 let currentResponse = ``;
 
@@ -150,10 +151,10 @@ function setup() {
   noCursor();
   imageMode(CENTER);
 
-  //setUpAnnyang();
-
   getTextandScript();
   setUPObjects();
+
+  // userPrompt = prompt("Will you come or no?");
 }
 
 function setUPObjects() {
@@ -164,8 +165,7 @@ function setUPObjects() {
     redSparkImg,
     redSParkMutedImg,
     encounterText1,
-    encounterText2,
-    encounterText3
+    encounterText2
   );
   hummingBird = new HummingBird(
     hummingBirdImg,
