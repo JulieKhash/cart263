@@ -29,7 +29,7 @@ class HummingBird extends Voice {
 
   // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeVisible, 20000);
+    setTimeout(this.makeVisible, 23000);
   }
 
   makeVisible() {
@@ -53,18 +53,6 @@ class HummingBird extends Voice {
       eclipseNightScene = true;
     }
   }
-
-  // voiceInstruction() {
-  //   if (!responsiveVoice.isPlaying()) {
-  //     responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
-  //   }
-  // }
-  //
-  // voiceInstruction2() {
-  //   if (!responsiveVoice.isPlaying()) {
-  //     responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
-  //   }
-  // }
 
   checkOverlapBird(x, y) {
     let d = dist(x, y, this.x, this.y);

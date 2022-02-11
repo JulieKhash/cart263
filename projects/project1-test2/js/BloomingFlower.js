@@ -16,26 +16,6 @@ class BloomingFLower {
     this.showSlowly();
   }
 
-  // let the voice to speak out
-  // voiceInstruction() {
-  //   if (!responsiveVoice.isPlaying()) {
-  //     responsiveVoice.speak(
-  //       `What beauty by my side? A rose in bloom, a shrinking violet?
-  // Perhaps she has a mind to be my bride. Perhaps my lesson has not ended yet!
-  // I don't want to die! But Death we are and have always been.
-  // But I'm young!`,
-  //       VOICE_NAME,
-  //       VOICE_PARAMS
-  //     );
-  //   }
-  // }
-
-  // voiceInstruction2() {
-  //   if (!responsiveVoice.isPlaying()) {
-  //     responsiveVoice.speak(`You must drink it`, VOICE_NAME, VOICE_PARAMS);
-  //   }
-  // }
-
   showSlowly() {
     this.opacity += 1;
   }
@@ -57,6 +37,5 @@ class BloomingFLower {
       birdChirpSFX.loop();
       birdChirpSFX.volume(0.5);
     }
-    // this.voiceInstruction();
   }
 }

@@ -52,17 +52,6 @@ class Statue extends Voice {
     encounterVisible = true;
   }
 
-  // voiceInstruction1() {
-  //   if (!responsiveVoice.isPlaying()) {
-  //     responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
-  //   }
-  // }
-  //
-  // voiceInstruction2() {
-  //   if (!responsiveVoice.isPlaying()) {
-  //     responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
-  //   }
-  // }
   voiceInstruction1() {
     super.voiceInstruction1();
   }
@@ -89,8 +78,6 @@ class Statue extends Voice {
   display() {
     if (redSparkMuted) {
       push();
-      // this.size += 1;
-      // this.size = constrain(this.size, 300, 1000);
       image(
         this.imageRedSparkBW,
         this.x + 25,

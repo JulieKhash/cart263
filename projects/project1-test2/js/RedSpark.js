@@ -22,8 +22,6 @@ class RedSpark extends Statue {
 
   display() {
     push();
-    // this.opacity -= 1;
-    // tint(50, 200);
     this.size += 1;
     this.size = constrain(this.size, 300, 1000);
     image(this.imageRedSpark, this.x, this.y, this.size, this.size);

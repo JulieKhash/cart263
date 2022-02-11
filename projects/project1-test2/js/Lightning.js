@@ -19,11 +19,6 @@ class Lightning extends Voice {
     this.display();
   }
 
-  // voiceInstruction() {
-  //   if (!responsiveVoice.isPlaying()) {
-  //     responsiveVoice.speak(this.voice, VOICE_NAME, VOICE_PARAMS);
-  //   }
-  // }
   voiceInstruction1() {
     super.voiceInstruction1();
   }

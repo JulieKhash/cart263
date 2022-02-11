@@ -18,7 +18,7 @@ class BloodBottle extends Voice {
     this.bottleIsDrunken();
   }
 
-  // after 5 secs enable the user's trigger for action
+  // triggers a user to the action after a specified time
   triggerAction() {
     setTimeout(this.makeVisible, 7000);
   }
@@ -28,18 +28,6 @@ class BloodBottle extends Voice {
     imageBottleVisible = true;
   }
 
-  // let the voice to speak out
-  // voiceInstruction1() {
-  //   if (!responsiveVoice.isPlaying()) {
-  //     responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
-  //   }
-  // }
-  //
-  // voiceInstruction2() {
-  //   if (!responsiveVoice.isPlaying()) {
-  //     responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
-  //   }
-  // }
   voiceInstruction1() {
     super.voiceInstruction1();
   }

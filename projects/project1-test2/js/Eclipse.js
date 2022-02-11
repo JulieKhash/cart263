@@ -23,17 +23,6 @@ class Eclipse extends Voice {
     this.showSlowly();
   }
 
-  // voiceInstruction1() {
-  //   if (!responsiveVoice.isPlaying()) {
-  //     responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
-  //   }
-  // }
-  //
-  // voiceInstruction2() {
-  //   if (!responsiveVoice.isPlaying()) {
-  //     responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
-  //   }
-  // }
   voiceInstruction1() {
     super.voiceInstruction1();
   }
@@ -64,7 +53,6 @@ class Eclipse extends Voice {
     }
     // tree
     push();
-    // tint(255, this.opacity);
     image(this.imageBranchFrame, this.x, this.y, this.branchW, this.branchWH);
     pop();
   }

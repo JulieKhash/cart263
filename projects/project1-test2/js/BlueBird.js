@@ -15,12 +15,6 @@ class BlueBird {
     this.display();
   }
 
-  // voiceInstruction() {
-  //   if (!responsiveVoice.isPlaying()) {
-  //     responsiveVoice.speak(this.voice, VOICE_NAME, VOICE_PARAMS);
-  //   }
-  // }
-
   // after 5 secs enable the user's trigger for action
   triggerAction() {
     setTimeout(this.makeVisible, 20000);
