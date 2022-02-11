@@ -28,9 +28,10 @@ let encounterText1;
 let encounterText2;
 let encounterText3;
 
+// vampiric voice
 let vampVoice;
 
-// web API related
+// web related
 const userPrompt = `Will you come or no?`;
 const userResponse = `yes`;
 let currentResponse = ``;
@@ -49,7 +50,7 @@ let imageBottleVisible = false;
 let imageMutedBottleVisible = true;
 
 // eclipse
-let eclipseImg;
+// let eclipseImg;
 let eclipse;
 let branchFrameImg;
 let branchFrame;
@@ -88,8 +89,6 @@ let redLightningImg;
 let redLightning;
 let inkFrameImg;
 
-let birdsImg;
-
 // test
 let circleImg;
 let circleMoving = false;
@@ -114,12 +113,12 @@ let eclipseNightScene = false;
 let encounterScene = false;
 let heartbeatScene = false;
 
+// loads images, sounds, fotns and data files
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
   forestBgColImg = loadImage("assets/images/lake.png");
   bloodBottleImg = loadImage("assets/images/bloodbottlesm.png");
   eyeImg = loadImage("assets/images/eye.gif");
-  eclipseImg = loadImage("assets/images/eclipse.gif");
   branchFrameImg = loadImage("assets/images/lunartree.png");
   blueBirdImg = loadImage("assets/images/redbird600.png");
   circleImg = loadImage("assets/images/circle2.png");

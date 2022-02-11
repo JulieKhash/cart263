@@ -5,11 +5,11 @@ class Prologue {
     this.TextSize = 25;
     this.spacing = 50; // line spacing
 
-    this.prologueText = `Life has no meaning anymore . . . does it?
+    this.prologueText = `Life has no meaning anymore . . . does it ?
     The wine has no taste. The food sickens you.
-    There seems no reason for any of it
-    What if I could give it back to you?
-    Pluck out the pain and give you another life?
+    There seems no reason for any of it.
+    What if I could give it back to you ?
+    Pluck out the pain and give you another life ?
    . . . One you could never imagine . . .
 
                                    Enter`;
