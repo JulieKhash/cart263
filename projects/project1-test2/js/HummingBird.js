@@ -1,5 +1,6 @@
-class HummingBird {
+class HummingBird extends Voice {
   constructor(imageBird, imageMutedBird, imageSplash, voice1, voice2) {
+    super();
     this.x = width / 2 + 250;
     this.y = height / 2 - 50;
     this.vx = 0;
@@ -22,7 +23,6 @@ class HummingBird {
   }
 
   update() {
-    //  this.changeState();
     this.move();
     this.display();
   }
@@ -37,6 +37,14 @@ class HummingBird {
     humBirdMutedVisible = false;
   }
 
+  voiceInstruction1() {
+    super.voiceInstruction1();
+  }
+
+  voiceInstruction2() {
+    super.voiceInstruction2();
+  }
+
   changeState() {
     if (this.checkOverlapBird(mouseX, mouseY)) {
       state = `lunarEclipse`;
@@ -46,17 +54,17 @@ class HummingBird {
     }
   }
 
-  voiceInstruction() {
-    if (!responsiveVoice.isPlaying()) {
-      responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
-    }
-  }
-
-  voiceInstruction2() {
-    if (!responsiveVoice.isPlaying()) {
-      responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
-    }
-  }
+  // voiceInstruction() {
+  //   if (!responsiveVoice.isPlaying()) {
+  //     responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
+  //   }
+  // }
+  //
+  // voiceInstruction2() {
+  //   if (!responsiveVoice.isPlaying()) {
+  //     responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
+  //   }
+  // }
 
   checkOverlapBird(x, y) {
     let d = dist(x, y, this.x, this.y);
@@ -115,7 +123,7 @@ class HummingBird {
       this.changeState();
       this.voiceInstruction2();
     } else {
-      this.voiceInstruction();
+      this.voiceInstruction1();
     }
   }
 }
