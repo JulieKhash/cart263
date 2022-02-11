@@ -28,6 +28,8 @@ let encounterText1;
 let encounterText2;
 let encounterText3;
 
+let vampVoice;
+
 // web API related
 const userPrompt = `Will you come or no?`;
 const userResponse = `yes`;
@@ -103,13 +105,13 @@ let mysteriousSFX;
 let heartbeatSFX;
 
 // program states
-let state = `statueBoy`;
-let started = false;
+let state = `main`;
+// let started = false;
 let mainScene = true;
 let bottleScene = false;
 let flowerBirdScene = false;
 let eclipseNightScene = false;
-let encounterScene = true;
+let encounterScene = false;
 let heartbeatScene = false;
 
 function preload() {
@@ -154,11 +156,11 @@ function setup() {
 
   getTextandScript();
   setUPObjects();
-
-  // userPrompt = prompt("Will you come or no?");
 }
 
 function setUPObjects() {
+  vampVoice = new Voice();
+
   redLightning = new Lightning(redLightningImg, inkFrameImg, encounterText3);
   redSpark = new RedSpark(redSparkImg);
   statue = new Statue(

@@ -36,6 +36,8 @@ class Statue {
       state = `lightningRed`;
       heartbeatScene = true;
       encounterScene = false;
+    } else {
+      this.voiceInstruction2();
     }
   }
 
@@ -108,17 +110,15 @@ class Statue {
 
   mousePressed() {
     this.triggerAction();
-    // plays the bell sound
+    // plays the mysterious sound
     if (!mysteriousSFX.isPlaying()) {
-      mysteriousSFX.setVolume(0.5);
+      mysteriousSFX.setVolume(0.4);
       mysteriousSFX.loop();
     }
     if (encounterVisible) {
       this.voiceInstruction2();
-      // this.voiceInstruction3();
       this.userPromptBox();
       this.checkUserAnswer();
-      // prompt("Will you come or no?");
     } else {
       this.voiceInstruction1();
     }

@@ -1,5 +1,6 @@
-class BloodBottle {
-  constructor(imageBottle, imageMutedBottle, voice, voice2) {
+class BloodBottle extends Voice {
+  constructor(imageBottle, imageMutedBottle, voice1, voice2) {
+    super();
     this.x = width / 2;
     this.y = height / 2;
 
@@ -8,7 +9,7 @@ class BloodBottle {
     this.imageBottle = imageBottle;
     this.imageMutedBottle = imageMutedBottle;
 
-    this.voice1 = voice;
+    this.voice1 = voice1;
     this.voice2 = voice2;
   }
 
@@ -28,16 +29,23 @@ class BloodBottle {
   }
 
   // let the voice to speak out
+  // voiceInstruction1() {
+  //   if (!responsiveVoice.isPlaying()) {
+  //     responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
+  //   }
+  // }
+  //
+  // voiceInstruction2() {
+  //   if (!responsiveVoice.isPlaying()) {
+  //     responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
+  //   }
+  // }
   voiceInstruction1() {
-    if (!responsiveVoice.isPlaying()) {
-      responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
-    }
+    super.voiceInstruction1();
   }
 
   voiceInstruction2() {
-    if (!responsiveVoice.isPlaying()) {
-      responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
-    }
+    super.voiceInstruction2();
   }
 
   // make the bottle slowly disappear if it's drunken
