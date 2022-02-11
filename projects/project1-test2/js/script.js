@@ -26,6 +26,7 @@ let eclipseChurchText1;
 let eclipseChurchText2;
 let encounterText1;
 let encounterText2;
+let encounterText3;
 
 // let currentLineIndex = 0;
 
@@ -153,7 +154,8 @@ function setup() {
     lightingImg,
     birdsImg,
     encounterText1,
-    encounterText2
+    encounterText2,
+    encounterText3
   );
   hummingBird = new HummingBird(
     hummingBirdImg,
@@ -212,6 +214,7 @@ function getTextandScript() {
   eclipseChurchText2 = programScript.scenes[0].scene3[1];
   encounterText1 = programScript.scenes[0].scene4[0];
   encounterText2 = programScript.scenes[0].scene4[1];
+  encounterText3 = programScript.scenes[0].scene4[2];
 }
 
 function forestBWScene() {

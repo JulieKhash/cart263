@@ -6,7 +6,8 @@ class Statue {
     lightImg,
     birdsImg,
     voice1,
-    voice2
+    voice2,
+    voice3
   ) {
     this.x = width / 2;
     this.y = height / 2;
@@ -31,6 +32,7 @@ class Statue {
     // this.imageBrokenGlass = imageBrokenGlass;
     this.voice1 = voice1;
     this.voice2 = voice2;
+    this.voice3 = voice3;
   }
 
   update() {
@@ -57,6 +59,11 @@ class Statue {
   voiceInstruction2() {
     if (!responsiveVoice.isPlaying()) {
       responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
+    }
+  }
+  voiceInstruction3() {
+    if (!responsiveVoice.isPlaying()) {
+      responsiveVoice.speak(this.voice3, VOICE_NAME, VOICE_PARAMS);
     }
   }
 
@@ -126,6 +133,7 @@ class Statue {
     }
     if (encounterVisible) {
       this.voiceInstruction2();
+      this.voiceInstruction3();
     } else {
       this.voiceInstruction1();
     }
