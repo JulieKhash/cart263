@@ -17,6 +17,8 @@ let prologue;
 
 // json related;
 let programScript;
+let titleText;
+let prologueText;
 
 // forest background
 let forestBgBWImg;
@@ -84,13 +86,13 @@ let mysteriousSFX;
 
 // let voiceBottleScene = false;
 
-let state = `statueBoy`;
+let state = `main`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
 let flowerBirdScene = false;
 let eclipseNightScene = false;
-let encounterScene = true;
+let encounterScene = false;
 
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
@@ -131,6 +133,10 @@ function setup() {
   noCursor();
   imageMode(CENTER);
 
+  getTextandScript();
+
+  // titleText = programScript.title;
+
   redSpark = new RedSpark(redSparkImg);
   statue = new Statue(
     statueImg,
@@ -147,12 +153,14 @@ function setup() {
   bloodBottle = new BloodBottle(bloodBottleImg, bloodBottleImg);
   forestBW = new ForestBackground(forestBgBWImg);
   forestColor = new ForestBackground(forestBgColImg);
-  titleMain = new Title();
+  titleMain = new Title(titleText);
   prologue = new Prologue();
 }
 
 function draw() {
   background(0);
+
+  // titleText = programScript.title;
 
   if (state === `main`) {
     forestBWScene();
@@ -166,6 +174,10 @@ function draw() {
     statueScene();
   }
   mouseCursor();
+}
+
+function getTextandScript() {
+  titleText = programScript.title;
 }
 
 function forestBWScene() {

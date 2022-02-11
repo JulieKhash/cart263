@@ -1,10 +1,11 @@
 class Title {
-  constructor() {
+  constructor(titleText) {
     this.x = width / 2;
     this.y = height / 2;
     this.sizeSmall = 15; // scroll down text
     this.sizeBig = 50; // main title
-    this.titleText = `The Vampire Lestat`;
+    // this.titleText = `The Vampire Lestat`;
+    this.titleText = titleText;
     this.scrollText = `scroll down`;
     // this.colorR = random(170, 210);
     this.colorG = 0;
