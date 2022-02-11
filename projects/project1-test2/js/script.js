@@ -15,6 +15,9 @@ let scriptFont;
 let titleMain;
 let prologue;
 
+// json related;
+let programScript;
+
 // forest background
 let forestBgBWImg;
 let forestBgColImg;
@@ -119,6 +122,8 @@ function preload() {
 
   titleFont = loadFont("assets/fonts/BOERT.ttf");
   scriptFont = loadFont("assets/fonts/BaroqueScript.ttf");
+
+  programScript = loadJSON("assets/data/VoiceScript.json");
 }
 
 function setup() {
