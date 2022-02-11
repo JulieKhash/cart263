@@ -28,7 +28,9 @@ let encounterText1;
 let encounterText2;
 let encounterText3;
 
-// let currentLineIndex = 0;
+// annyang related
+let userResponse = `yes`;
+let anything = ``;
 
 // forest background
 let forestBgBWImg;
@@ -144,8 +146,26 @@ function setup() {
   noCursor();
   imageMode(CENTER);
 
-  getTextandScript();
+  setUpAnnyang();
 
+  getTextandScript();
+  setUPObjects();
+}
+
+// set up annyang
+function setUpAnnyang() {
+  if (annyang) {
+    let commands = {
+      "*answer": userResponse,
+    };
+    annyang.addCommands(commands);
+    annyang.start();
+  }
+}
+
+function userResponse() {}
+
+function setUPObjects() {
   redSpark = new RedSpark(redSparkImg);
   statue = new Statue(
     statueImg,
