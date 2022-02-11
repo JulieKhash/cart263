@@ -3,8 +3,6 @@ class Statue {
     imageStatue,
     imageRedSpark,
     imageRedSparkBW,
-    lightImg,
-    birdsImg,
     voice1,
     voice2,
     voice3
@@ -27,9 +25,6 @@ class Statue {
     this.imageRedSparkBW = imageRedSparkBW;
     this.size = 300;
 
-    this.lightImg = lightImg;
-    this.birdsImg = birdsImg;
-    // this.imageBrokenGlass = imageBrokenGlass;
     this.voice1 = voice1;
     this.voice2 = voice2;
     this.voice3 = voice3;

@@ -29,8 +29,8 @@ let encounterText2;
 let encounterText3;
 
 // annyang related
-let userResponse = `yes`;
-let anything = ``;
+const userResponse = `yes`;
+let currentResponse = ``;
 
 // forest background
 let forestBgBWImg;
@@ -70,7 +70,7 @@ let humBirdMutedVisible = true;
 let blackFrameImg;
 let blackFrame;
 
-// statue -the last scene
+// statue scene
 let statueImg;
 let statue;
 let encounterVisible = false;
@@ -80,7 +80,10 @@ let redSParkMutedImg;
 let redSparkActive = false;
 let redSparkMuted = true;
 
-let lightingImg;
+// last scene
+let redLightningImg;
+let redLightning;
+
 let birdsImg;
 
 // test
@@ -99,13 +102,13 @@ let mysteriousSFX;
 // let voiceBottleScene = false;
 
 // program states
-let state = `statueBoy`;
+let state = `lightningRed`;
 let started = false;
-let mainScene = false;
+let mainScene = true;
 let bottleScene = false;
 let flowerBirdScene = false;
 let eclipseNightScene = false;
-let encounterScene = true;
+let encounterScene = false;
 
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
@@ -125,7 +128,7 @@ function preload() {
   redSparkImg = loadImage("assets/images/redspark1500.png");
   redSParkMutedImg = loadImage("assets/images/redsparkBW1.png");
 
-  lightingImg = loadImage("assets/images/lighting.gif");
+  redLightningImg = loadImage("assets/images/lighting.gif");
   birdsImg = loadImage("assets/images/8.gif");
 
   lightcursorImg = loadImage(`assets/images/redlight70.png`);
@@ -146,7 +149,7 @@ function setup() {
   noCursor();
   imageMode(CENTER);
 
-  setUpAnnyang();
+  //setUpAnnyang();
 
   getTextandScript();
   setUPObjects();
@@ -154,7 +157,9 @@ function setup() {
 
 // set up annyang
 function setUpAnnyang() {
+  // checks if the annyang available on a given browser
   if (annyang) {
+    // create a voice command to listen to what the user says
     let commands = {
       "*answer": userResponse,
     };
@@ -163,16 +168,25 @@ function setUpAnnyang() {
   }
 }
 
-function userResponse() {}
+// function userResponse(answer) {
+//   currentResponse =
+// }
+//
+// function isCorrect() {
+//   if (currentResponse === userResponse) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
 function setUPObjects() {
+  redLightning = new Lightning(redLightningImg, encounterText3);
   redSpark = new RedSpark(redSparkImg);
   statue = new Statue(
     statueImg,
     redSparkImg,
     redSParkMutedImg,
-    lightingImg,
-    birdsImg,
     encounterText1,
     encounterText2,
     encounterText3
@@ -220,8 +234,10 @@ function draw() {
     bloomingFlowerScene();
   } else if (state === `statueBoy`) {
     statueScene();
+  } else if (state === `lightningRed`) {
+    lightningRed();
+    mouseCursor();
   }
-  mouseCursor();
 }
 
 function getTextandScript() {
@@ -273,6 +289,10 @@ function statueScene() {
   statue.update();
 }
 
+function lightningRed() {
+  redLightning.update();
+}
+
 function mouseCursor() {
   image(lightcursorImg, mouseX, mouseY);
 }
@@ -294,6 +314,7 @@ function mousePressed() {
   } else if (encounterScene) {
     statue.mousePressed();
   }
+  redLightning.mousePressed();
 }
 
 function keyPressed() {
