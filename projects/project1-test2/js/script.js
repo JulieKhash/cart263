@@ -24,6 +24,8 @@ let flowerBloomText1;
 let flowerBloomText2;
 let eclipseChurchText1;
 let eclipseChurchText2;
+let encounterText1;
+let encounterText2;
 
 // let currentLineIndex = 0;
 
@@ -94,13 +96,13 @@ let mysteriousSFX;
 // let voiceBottleScene = false;
 
 // program states
-let state = `lunarEclipse`;
+let state = `statueBoy`;
 let started = false;
 let mainScene = false;
 let bottleScene = false;
 let flowerBirdScene = false;
-let eclipseNightScene = true;
-let encounterScene = false;
+let eclipseNightScene = false;
+let encounterScene = true;
 
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
@@ -149,7 +151,9 @@ function setup() {
     redSparkImg,
     redSParkMutedImg,
     lightingImg,
-    birdsImg
+    birdsImg,
+    encounterText1,
+    encounterText2
   );
   hummingBird = new HummingBird(
     hummingBirdImg,
@@ -206,6 +210,8 @@ function getTextandScript() {
   flowerBloomText2 = programScript.scenes[0].scene2[1];
   eclipseChurchText1 = programScript.scenes[0].scene3[0];
   eclipseChurchText2 = programScript.scenes[0].scene3[1];
+  encounterText1 = programScript.scenes[0].scene4[0];
+  encounterText2 = programScript.scenes[0].scene4[1];
 }
 
 function forestBWScene() {
