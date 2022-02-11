@@ -100,8 +100,6 @@ let birdChirpSFX;
 let churchBellSFX;
 let mysteriousSFX;
 
-// let voiceBottleScene = false;
-
 // program states
 let state = `lightningRed`;
 let started = false;
@@ -182,7 +180,7 @@ function setup() {
 // }
 
 function setUPObjects() {
-  redLightning = new Lightning(redLightningImg, inkFrameImg);
+  redLightning = new Lightning(redLightningImg, inkFrameImg, encounterText3);
   redSpark = new RedSpark(redSparkImg);
   statue = new Statue(
     statueImg,
@@ -222,8 +220,6 @@ function setUPObjects() {
 
 function draw() {
   background(0);
-
-  // titleText = programScript.title;
 
   if (state === `main`) {
     forestBWScene();
@@ -315,7 +311,7 @@ function mousePressed() {
   } else if (encounterScene) {
     statue.mousePressed();
   }
-  // redLightning.mousePressed();
+  redLightning.mousePressed();
 }
 
 function keyPressed() {

@@ -1,5 +1,5 @@
 class Lightning {
-  constructor(imageLightning, imageInkFrame) {
+  constructor(imageLightning, imageInkFrame, voice) {
     this.x = width / 2;
     this.y = height / 2;
 
@@ -7,7 +7,7 @@ class Lightning {
     this.imageLightning = imageLightning;
     this.imageInkFrame = imageInkFrame;
 
-    // this.voice = voice;
+    this.voice = voice;
 
     this.text = `Don't worry.
     Soon, you'll be sleeping as soundly as you've ever slept.
@@ -25,7 +25,6 @@ class Lightning {
   }
 
   display() {
-    background(random(0, 5));
     push();
     this.opacity += 0.05;
     this.opacity = constrain(this.opacity, 0, 150);
@@ -34,9 +33,6 @@ class Lightning {
     pop();
 
     push();
-    // this.opacity += 0.05;
-    // this.opacity = constrain(this.opacity, 0, 150);
-    // tint(255, this.opacity);
     image(this.imageInkFrame, this.x, this.y, 1000, 1333);
     pop();
 
@@ -52,7 +48,7 @@ class Lightning {
     pop();
   }
 
-  // mousePressed() {
-  //   this.voiceInstruction();
-  // }
+  mousePressed() {
+    this.voiceInstruction();
+  }
 }
