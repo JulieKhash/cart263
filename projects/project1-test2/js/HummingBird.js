@@ -1,5 +1,5 @@
 class HummingBird {
-  constructor(imageBird, imageMutedBird, imageSplash) {
+  constructor(imageBird, imageMutedBird, imageSplash, voice1, voice2) {
     this.x = width / 2 + 250;
     this.y = height / 2 - 50;
     this.vx = 0;
@@ -16,6 +16,9 @@ class HummingBird {
     this.SplashW = 1020;
     this.SplashH = 700;
     this.imageSplash = imageSplash;
+
+    this.voice1 = voice1;
+    this.voice2 = voice2;
   }
 
   update() {
@@ -43,27 +46,28 @@ class HummingBird {
     }
   }
 
+  //   voiceInstruction() {
+  //     if (!responsiveVoice.isPlaying()) {
+  //       responsiveVoice.speak(
+  //         `Pleasant dreams, what beauty by my side? A rose in bloom, a shrinking violet?
+  //   I don't want to die! But Death we are and have always been. But I'm young! Death is no respecter of age!
+  // It can come any time, any place. Just as this flesh is pink now...
+  // ...so it will turn gray and wrinkle with age
+  // Let me live! I don't care!`,
+  //         VOICE_NAME,
+  //         VOICE_PARAMS
+  //       );
+  //     }
+  //   }
   voiceInstruction() {
     if (!responsiveVoice.isPlaying()) {
-      responsiveVoice.speak(
-        `Pleasant dreams, what beauty by my side? A rose in bloom, a shrinking violet?
-  I don't want to die! But Death we are and have always been. But I'm young! Death is no respecter of age!
-It can come any time, any place. Just as this flesh is pink now...
-...so it will turn gray and wrinkle with age
-Let me live! I don't care!`,
-        VOICE_NAME,
-        VOICE_PARAMS
-      );
+      responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
     }
   }
 
   voiceInstruction2() {
     if (!responsiveVoice.isPlaying()) {
-      responsiveVoice.speak(
-        `Let me live! I don't care!`,
-        VOICE_NAME,
-        VOICE_PARAMS
-      );
+      responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
     }
   }
 
@@ -135,8 +139,10 @@ Let me live! I don't care!`,
     this.triggerAction();
     if (humBirdMovingVisible) {
       this.changeState();
+      this.voiceInstruction2();
+    } else {
+      // this.voiceInstruction2();
+      this.voiceInstruction();
     }
-    this.voiceInstruction();
-    this.voiceInstruction2();
   }
 }

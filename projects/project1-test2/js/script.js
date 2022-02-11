@@ -15,11 +15,15 @@ let scriptFont;
 let titleMain;
 let prologue;
 
-// json related;
+// json related, voice script, texts
 let programScript;
 let titleText;
 let bloodBottleText1;
 let bloodBottleText2;
+let flowerBloomText1;
+let flowerBloomText2;
+
+// let currentLineIndex = 0;
 
 // forest background
 let forestBgBWImg;
@@ -87,11 +91,12 @@ let mysteriousSFX;
 
 // let voiceBottleScene = false;
 
-let state = `main`;
+// program states
+let state = `flowerBird`;
 let started = false;
 let mainScene = true;
 let bottleScene = false;
-let flowerBirdScene = false;
+let flowerBirdScene = true;
 let eclipseNightScene = false;
 let encounterScene = false;
 
@@ -146,7 +151,13 @@ function setup() {
     lightingImg,
     birdsImg
   );
-  hummingBird = new HummingBird(hummingBirdImg, hummingBirdImg, bloodSplashImg);
+  hummingBird = new HummingBird(
+    hummingBirdImg,
+    hummingBirdImg,
+    bloodSplashImg,
+    flowerBloomText1,
+    flowerBloomText2
+  );
   bloomingFlower = new FlowerBloom(bloomingFlowerImg, blackFrameImg);
   blueBird = new BlueBird(blueBirdImg, blueBirdImg);
   eclipse = new Eclipse(branchFrameImg, circleImg, circleImg);
@@ -186,6 +197,8 @@ function getTextandScript() {
   titleText = programScript.title;
   bloodBottleText1 = programScript.scenes[0].scene1[0];
   bloodBottleText2 = programScript.scenes[0].scene1[1];
+  flowerBloomText1 = programScript.scenes[0].scene2[0];
+  flowerBloomText2 = programScript.scenes[0].scene2[1];
 }
 
 function forestBWScene() {
