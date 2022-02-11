@@ -28,12 +28,14 @@ class Statue {
   }
 
   userPromptBox() {
-    currentResponse = prompt("Will you come or no?");
+    currentResponse = prompt(userPrompt);
   }
 
   checkUserAnswer() {
     if (currentResponse === userResponse) {
-      alert("Hellooo!");
+      state = `lightningRed`;
+      heartbeatScene = true;
+      encounterScene = false;
     }
   }
 
@@ -58,11 +60,6 @@ class Statue {
       responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
     }
   }
-  // voiceInstruction3() {
-  //   if (!responsiveVoice.isPlaying()) {
-  //     responsiveVoice.speak(this.voice3, VOICE_NAME, VOICE_PARAMS);
-  //   }
-  // }
 
   move() {
     // check if we need to change the moving direction

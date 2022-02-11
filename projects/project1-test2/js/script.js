@@ -29,7 +29,7 @@ let encounterText2;
 let encounterText3;
 
 // web API related
-let userPrompt;
+const userPrompt = `Will you come or no?`;
 const userResponse = `yes`;
 let currentResponse = ``;
 
@@ -110,6 +110,7 @@ let bottleScene = false;
 let flowerBirdScene = false;
 let eclipseNightScene = false;
 let encounterScene = true;
+let heartbeatScene = false;
 
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
@@ -287,8 +288,9 @@ function mousePressed() {
     blueBird.mousePressed();
   } else if (encounterScene) {
     statue.mousePressed();
+  } else if (heartbeatScene) {
+    redLightning.mousePressed();
   }
-  // redLightning.mousePressed();
 }
 
 function keyPressed() {
