@@ -1,5 +1,5 @@
 class BloodBottle {
-  constructor(imageBottle, imageMutedBottle, voice) {
+  constructor(imageBottle, imageMutedBottle, voice, voice2) {
     this.x = width / 2;
     this.y = height / 2;
 
@@ -8,7 +8,8 @@ class BloodBottle {
     this.imageBottle = imageBottle;
     this.imageMutedBottle = imageMutedBottle;
 
-    this.voice = voice;
+    this.voice1 = voice;
+    this.voice2 = voice2;
   }
 
   update() {
@@ -29,17 +30,13 @@ class BloodBottle {
   // let the voice to speak out
   voiceInstruction1() {
     if (!responsiveVoice.isPlaying()) {
-      responsiveVoice.speak(
-        `Don't be afraid. I'm going to give you the choice you never had. You must drink it`,
-        VOICE_NAME,
-        VOICE_PARAMS
-      );
+      responsiveVoice.speak(this.voice1, VOICE_NAME, VOICE_PARAMS);
     }
   }
 
   voiceInstruction2() {
     if (!responsiveVoice.isPlaying()) {
-      responsiveVoice.speak(`You must drink it`, VOICE_NAME, VOICE_PARAMS);
+      responsiveVoice.speak(this.voice2, VOICE_NAME, VOICE_PARAMS);
     }
   }
 

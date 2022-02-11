@@ -18,7 +18,8 @@ let prologue;
 // json related;
 let programScript;
 let titleText;
-let bloodBottleText;
+let bloodBottleText1;
+let bloodBottleText2;
 
 // forest background
 let forestBgBWImg;
@@ -153,7 +154,8 @@ function setup() {
   bloodBottle = new BloodBottle(
     bloodBottleImg,
     bloodBottleImg,
-    bloodBottleText
+    bloodBottleText1,
+    bloodBottleText2
   );
   forestBW = new ForestBackground(forestBgBWImg);
   forestColor = new ForestBackground(forestBgColImg);
@@ -182,7 +184,8 @@ function draw() {
 
 function getTextandScript() {
   titleText = programScript.title;
-  bloodBottleText = programScript.scenes[0].scene1;
+  bloodBottleText1 = programScript.scenes[0].scene1[0];
+  bloodBottleText2 = programScript.scenes[0].scene1[1];
 }
 
 function forestBWScene() {
