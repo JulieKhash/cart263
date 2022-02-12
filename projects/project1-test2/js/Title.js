@@ -6,7 +6,6 @@ class Title {
     this.sizeBig = 50; // main title
     this.titleText = titleText;
     this.scrollText = `scroll down`;
-    // this.colorR = random(170, 210);
     this.colorG = 0;
     this.colorB = 10;
     this.opacity = 255; // for lestat/scroll down

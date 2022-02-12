@@ -5,6 +5,7 @@ const VOICE_NAME = `UK English Male`;
 const VOICE_PARAMS = {
   pitch: 0.3,
   rate: 0.8,
+  volume: 0.8,
 };
 
 // Fonts
@@ -50,7 +51,6 @@ let imageBottleVisible = false;
 let imageMutedBottleVisible = true;
 
 // eclipse
-// let eclipseImg;
 let eclipse;
 let branchFrameImg;
 let branchFrame;
@@ -104,11 +104,11 @@ let mysteriousSFX;
 let heartbeatSFX;
 
 // program states
-let state = `main`;
+let state = `flowerBird`;
 // let started = false;
 let mainScene = true;
 let bottleScene = false;
-let flowerBirdScene = false;
+let flowerBirdScene = true;
 let eclipseNightScene = false;
 let encounterScene = false;
 let heartbeatScene = false;
@@ -124,7 +124,7 @@ function preload() {
   circleImg = loadImage("assets/images/circle2.png");
   bloomingFlowerImg = loadImage("assets/images/flowers.gif");
   bloodSplashImg = loadImage("assets/images/bloodSplash3.png");
-  hummingBirdImg = loadImage("assets/images/hummingbird.png");
+  hummingBirdImg = loadImage("assets/images/dragon.png");
   blackFrameImg = loadImage("assets/images/blackframe.png");
 
   statueImg = loadImage("assets/images/facespirit2.png");

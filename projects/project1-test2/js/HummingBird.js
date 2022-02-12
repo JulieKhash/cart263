@@ -1,12 +1,12 @@
 class HummingBird extends Voice {
   constructor(imageBird, imageMutedBird, imageSplash, voice1, voice2) {
     super();
-    this.x = width / 2 + 250;
-    this.y = height / 2 - 50;
+    this.x = width / 2 + 500;
+    this.y = height / 2 + 300;
     this.vx = 0;
     this.vy = 0;
-    this.w = 396;
-    this.h = 445;
+    this.w = 87;
+    this.h = 250;
     this.speed = 2;
 
     this.imageBird = imageBird;
@@ -23,13 +23,13 @@ class HummingBird extends Voice {
   }
 
   update() {
-    this.move();
+    // this.move();
     this.display();
   }
 
   // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeVisible, 23000);
+    setTimeout(this.makeVisible, 3000);
   }
 
   makeVisible() {

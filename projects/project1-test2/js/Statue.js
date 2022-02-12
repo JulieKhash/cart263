@@ -112,7 +112,6 @@ class Statue extends Voice {
     }
     if (encounterVisible) {
       this.voiceInstruction2();
-    } else if (this.opacity >= 100) {
       this.userPromptBox();
       this.checkUserAnswer();
     } else {
