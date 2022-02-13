@@ -93,9 +93,9 @@ class Statue extends Voice {
       image(this.imageRedSpark, this.x + 25, this.y - 50, this.size, this.size);
       pop();
     }
+    push();
     if (encounterVisible) {
-      push();
-      this.opacity += 1;
+      this.opacity += 1.5;
       this.opacity = constrain(this.opacity, 0, 240);
       tint(255, this.opacity);
       image(this.imageStatue, this.x, this.y, this.w, this.h);

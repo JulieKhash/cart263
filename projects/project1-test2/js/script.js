@@ -5,7 +5,7 @@ const VOICE_NAME = `UK English Male`;
 const VOICE_PARAMS = {
   pitch: 0.3,
   rate: 0.8,
-  volume: 0.8,
+  volume: 0.9,
 };
 
 // Fonts
@@ -104,13 +104,13 @@ let mysteriousSFX;
 let heartbeatSFX;
 
 // program states
-let state = `statueBoy`;
+let state = `flowerBird`;
 // let started = false;
 let mainScene = true;
 let bottleScene = false;
-let flowerBirdScene = false;
+let flowerBirdScene = true;
 let eclipseNightScene = false;
-let encounterScene = true;
+let encounterScene = false;
 let heartbeatScene = false;
 
 // loads images, sounds, fotns and data files
@@ -124,7 +124,7 @@ function preload() {
   circleImg = loadImage("assets/images/circle2.png");
   bloomingFlowerImg = loadImage("assets/images/flowers.gif");
   bloodSplashImg = loadImage("assets/images/bloodSplash3.png");
-  hummingBirdImg = loadImage("assets/images/dragon.png");
+  hummingBirdImg = loadImage("assets/images/dragon87.png");
   blackFrameImg = loadImage("assets/images/blackframe.png");
 
   statueImg = loadImage("assets/images/spirit7.png");

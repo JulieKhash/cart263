@@ -5,8 +5,8 @@ class HummingBird extends Voice {
     this.y = height / 2 + 300;
     this.vx = 0;
     this.vy = 0;
-    this.w = 87;
-    this.h = 250;
+    // this.w = 87;
+    // this.h = 250;
     this.speed = 2;
 
     this.imageBird = imageBird;
@@ -29,7 +29,7 @@ class HummingBird extends Voice {
 
   // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeVisible, 3000);
+    setTimeout(this.makeVisible, 2000);
   }
 
   makeVisible() {
@@ -46,7 +46,7 @@ class HummingBird extends Voice {
   }
 
   changeState() {
-    if (this.checkOverlapBird(mouseX, mouseY)) {
+    if (this.checkOverlapDragonfly(mouseX, mouseY)) {
       state = `lunarEclipse`;
       birdChirpSFX.stop();
       flowerBirdScene = false;
@@ -54,41 +54,30 @@ class HummingBird extends Voice {
     }
   }
 
-  checkOverlapBird(x, y) {
-    let d = dist(x, y, this.x, this.y);
-    if (d < this.w / 5 && this.h / 5) {
+  // check if the mouse touches the bottle
+  checkOverlapDragonfly(x, y) {
+    if (
+      x > this.x - this.imageBird.width / 2 &&
+      x < this.x + this.imageBird.width / 2 &&
+      y > this.y - this.imageBird.height / 2 &&
+      y < this.y + this.imageBird.height / 2
+    ) {
       return true;
     } else {
       return false;
     }
   }
 
-  move() {
-    // check if we need to change the moving direction
-    let r = random(0, 1);
-    if (r < 0.8) {
-      this.vx = random(-this.speed, this.speed);
-      this.vy = random(-this.speed, this.speed);
-    }
-    // move position with velocity
-    this.x += this.vx;
-    this.y += this.vy;
-
-    // constrain to the canvas
-    this.x = constrain(this.x, 0, width);
-    this.y = constrain(this.y, 0, height);
-  }
-
   display() {
     if (humBirdMutedVisible) {
       push();
       tint(50, 250);
-      image(this.imageMutedBird, this.x, this.y, this.w, this.h);
+      image(this.imageMutedBird, this.x, this.y);
       pop();
     } else if (humBirdMovingVisible) {
       push();
       tint(255, random(140, 200));
-      image(this.imageBird, this.x, this.y, this.w, this.h);
+      image(this.imageBird, this.x, this.y);
       pop();
     }
 
