@@ -1,7 +1,7 @@
 class HummingBird extends Voice {
   constructor(imageBird, imageMutedBird, imageSplash, voice1, voice2) {
     super();
-    this.x = width / 2 + 500;
+    this.x = width / 2 + 480;
     this.y = height / 2 + 300;
     this.vx = 0;
     this.vy = 0;

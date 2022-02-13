@@ -116,7 +116,7 @@ let heartbeatScene = false;
 // loads images, sounds, fotns and data files
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
-  forestBgColImg = loadImage("assets/images/darklake.png");
+  forestBgColImg = loadImage("assets/images/lake.png");
   bloodBottleImg = loadImage("assets/images/bloodbottlesm.png");
   eyeImg = loadImage("assets/images/eye.gif");
   branchFrameImg = loadImage("assets/images/lunartree.png");
@@ -124,7 +124,7 @@ function preload() {
   circleImg = loadImage("assets/images/circle2.png");
   bloomingFlowerImg = loadImage("assets/images/flowers.gif");
   bloodSplashImg = loadImage("assets/images/bloodSplash3.png");
-  hummingBirdImg = loadImage("assets/images/dragon87.png");
+  hummingBirdImg = loadImage("assets/images/dragon400.png");
   blackFrameImg = loadImage("assets/images/blackframe.png");
 
   statueImg = loadImage("assets/images/spirit10.png");
@@ -260,7 +260,7 @@ function bloomingFlowerScene() {
 }
 
 function statueScene() {
-  // forestColor.update();
+  forestColor.update();
   statue.update();
 }
 
