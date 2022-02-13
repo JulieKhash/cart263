@@ -104,11 +104,11 @@ let mysteriousSFX;
 let heartbeatSFX;
 
 // program states
-let state = `flowerBird`;
+let state = `main`;
 // let started = false;
 let mainScene = true;
 let bottleScene = false;
-let flowerBirdScene = true;
+let flowerBirdScene = false;
 let eclipseNightScene = false;
 let encounterScene = false;
 let heartbeatScene = false;
@@ -116,7 +116,7 @@ let heartbeatScene = false;
 // loads images, sounds, fotns and data files
 function preload() {
   forestBgBWImg = loadImage("assets/images/forestbw.png");
-  forestBgColImg = loadImage("assets/images/lake.png");
+  forestBgColImg = loadImage("assets/images/darklake.png");
   bloodBottleImg = loadImage("assets/images/bloodbottlesm.png");
   eyeImg = loadImage("assets/images/eye.gif");
   branchFrameImg = loadImage("assets/images/lunartree.png");
@@ -127,7 +127,7 @@ function preload() {
   hummingBirdImg = loadImage("assets/images/dragon87.png");
   blackFrameImg = loadImage("assets/images/blackframe.png");
 
-  statueImg = loadImage("assets/images/spirit7.png");
+  statueImg = loadImage("assets/images/spirit10.png");
   redSparkImg = loadImage("assets/images/redspark1500.png");
   redSParkMutedImg = loadImage("assets/images/redsparkBW1.png");
 
@@ -260,8 +260,7 @@ function bloomingFlowerScene() {
 }
 
 function statueScene() {
-  forestColor.update();
-  // redSpark.update();
+  // forestColor.update();
   statue.update();
 }
 

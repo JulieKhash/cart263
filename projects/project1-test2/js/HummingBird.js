@@ -23,13 +23,12 @@ class HummingBird extends Voice {
   }
 
   update() {
-    // this.move();
     this.display();
   }
 
   // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeVisible, 2000);
+    setTimeout(this.makeVisible, 22000);
   }
 
   makeVisible() {
