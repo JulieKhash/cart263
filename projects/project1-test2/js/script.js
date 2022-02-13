@@ -104,13 +104,13 @@ let mysteriousSFX;
 let heartbeatSFX;
 
 // program states
-let state = `flowerBird`;
+let state = `statueBoy`;
 // let started = false;
 let mainScene = true;
 let bottleScene = false;
-let flowerBirdScene = true;
+let flowerBirdScene = false;
 let eclipseNightScene = false;
-let encounterScene = false;
+let encounterScene = true;
 let heartbeatScene = false;
 
 // loads images, sounds, fotns and data files
@@ -127,7 +127,7 @@ function preload() {
   hummingBirdImg = loadImage("assets/images/dragon.png");
   blackFrameImg = loadImage("assets/images/blackframe.png");
 
-  statueImg = loadImage("assets/images/facespirit2.png");
+  statueImg = loadImage("assets/images/spirit7.png");
   redSparkImg = loadImage("assets/images/redspark1500.png");
   redSParkMutedImg = loadImage("assets/images/redsparkBW1.png");
 

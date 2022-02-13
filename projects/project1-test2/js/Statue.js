@@ -6,8 +6,8 @@ class Statue extends Voice {
     this.vx = 0;
     this.vy = 0;
 
-    this.w = 925;
-    this.h = 1200;
+    this.w = 1000;
+    this.h = 1333;
 
     this.speed = 0.8;
 
@@ -89,16 +89,16 @@ class Statue extends Voice {
     } else if (redSparkActive) {
       push();
       this.size += 1;
-      this.size = constrain(this.size, 300, 1000);
+      this.size = constrain(this.size, 300, 500);
       image(this.imageRedSpark, this.x + 25, this.y - 50, this.size, this.size);
       pop();
     }
     if (encounterVisible) {
       push();
       this.opacity += 1;
-      this.opacity = constrain(this.opacity, 0, 200);
+      this.opacity = constrain(this.opacity, 0, 240);
       tint(255, this.opacity);
-      image(this.imageStatue, this.x, this.y, this.w / 2, this.h / 2);
+      image(this.imageStatue, this.x, this.y, this.w, this.h);
       pop();
     }
   }
