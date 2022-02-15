@@ -20,7 +20,7 @@ class Lightning extends Voice {
   }
 
   voiceInstruction1() {
-    super.voiceInstruction();
+    super.voiceInstruction1();
   }
 
   display() {
