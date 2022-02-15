@@ -43,13 +43,11 @@ class Encounter extends Voice {
   }
 
   triggerAction() {
-    setTimeout(this.makeVisible, 5000);
-  }
-
-  makeVisible() {
-    redSparkMuted = false;
-    redSparkActive = true;
-    encounterVisible = true;
+    setTimeout(function () {
+      redSparkMuted = false;
+      redSparkActive = true;
+      encounterVisible = true;
+    }, 5000);
   }
 
   voiceInstruction1() {

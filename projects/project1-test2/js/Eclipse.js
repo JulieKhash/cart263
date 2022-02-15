@@ -51,7 +51,7 @@ class Eclipse extends Voice {
       image(this.imageGlass, 0, 0);
       pop();
     }
-    // tree
+    // night tree image
     push();
     image(this.imageBranchFrame, this.x, this.y, this.branchW, this.branchWH);
     pop();

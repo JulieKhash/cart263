@@ -1,5 +1,5 @@
 class HummingBird extends Voice {
-  constructor(imageBird, imageMutedBird, imageSplash, voice1, voice2) {
+  constructor(imageBird, imageMutedBird, voice1, voice2) {
     super();
     this.x = width / 2 + 480;
     this.y = height / 2 + 300;
@@ -12,11 +12,11 @@ class HummingBird extends Voice {
     this.imageBird = imageBird;
     this.imageMutedBird = imageMutedBird;
 
-    this.SplashX = width / 2 - 200;
-    this.SplashY = height / 2 - 100;
-    this.SplashW = 1020;
-    this.SplashH = 700;
-    this.imageSplash = imageSplash;
+    // this.SplashX = width / 2 - 200;
+    // this.SplashY = height / 2 - 100;
+    // this.SplashW = 1020;
+    // this.SplashH = 700;
+    // this.imageSplash = imageSplash;
 
     this.voice1 = voice1;
     this.voice2 = voice2;
@@ -28,13 +28,16 @@ class HummingBird extends Voice {
 
   // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeVisible, 22000);
+    setTimeout(function () {
+      humBirdMovingVisible = true;
+      humBirdMutedVisible = false;
+    }, 22000);
   }
 
-  makeVisible() {
-    humBirdMovingVisible = true;
-    humBirdMutedVisible = false;
-  }
+  // makeVisible() {
+  //   humBirdMovingVisible = true;
+  //   humBirdMutedVisible = false;
+  // }
 
   voiceInstruction1() {
     super.voiceInstruction1();
@@ -81,16 +84,16 @@ class HummingBird extends Voice {
     }
 
     // show blood splash
-    push();
-    tint(200, random(80, 120));
-    image(
-      this.imageSplash,
-      this.SplashX,
-      this.SplashY,
-      this.SplashW,
-      this.SplashH
-    );
-    pop();
+    // push();
+    // tint(200, random(80, 120));
+    // image(
+    //   this.imageSplash,
+    //   this.SplashX,
+    //   this.SplashY,
+    //   this.SplashW,
+    //   this.SplashH
+    // );
+    // pop();
   }
 
   mousePressed() {

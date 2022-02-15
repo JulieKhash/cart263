@@ -19,12 +19,10 @@ class BloodBottle extends Voice {
 
   // triggers a user to the action after a specified time
   triggerAction() {
-    setTimeout(this.makeVisible, 7000);
-  }
-
-  makeVisible() {
-    imageMutedBottleVisible = false;
-    imageBottleVisible = true;
+    setTimeout(function () {
+      imageMutedBottleVisible = false;
+      imageBottleVisible = true;
+    }, 7000);
   }
 
   voiceInstruction1() {

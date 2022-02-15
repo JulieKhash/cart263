@@ -5,8 +5,6 @@ class DragonFly extends Voice {
     this.y = height / 2 + 300;
     this.vx = 0;
     this.vy = 0;
-    // this.w = 87;
-    // this.h = 250;
     this.speed = 2;
 
     this.imageBird = imageBird;
@@ -26,14 +24,11 @@ class DragonFly extends Voice {
     this.display();
   }
 
-  // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeVisible, 22000);
-  }
-
-  makeVisible() {
-    humBirdMovingVisible = true;
-    humBirdMutedVisible = false;
+    setTimeout(function () {
+      humBirdMovingVisible = true;
+      humBirdMutedVisible = false;
+    }, 22000);
   }
 
   voiceInstruction1() {

@@ -104,13 +104,13 @@ let mysteriousSFX;
 let heartbeatSFX;
 
 // program states
-let state = `statueBoy`;
+let state = `flowerBird`;
 // let started = false;
 let mainScene = true;
 let bottleScene = false;
-let flowerBirdScene = false;
+let flowerBirdScene = true;
 let eclipseNightScene = false;
-let encounterScene = true;
+let encounterScene = false;
 let heartbeatScene = false;
 
 // loads images, sounds, fotns and data files
@@ -172,7 +172,6 @@ function setUPObjects() {
   hummingBird = new HummingBird(
     hummingBirdImg,
     hummingBirdImg,
-    bloodSplashImg,
     flowerBloomText1,
     flowerBloomText2
   );

@@ -17,12 +17,10 @@ class BlueBird {
 
   // after 5 secs enable the user's trigger for action
   triggerAction() {
-    setTimeout(this.makeVisible, 20000);
-  }
-
-  makeVisible() {
-    blueBirdVisible = true;
-    blueBirdMutedVisible = false;
+    setTimeout(function () {
+      blueBirdVisible = true;
+      blueBirdMutedVisible = false;
+    }, 20000);
   }
 
   changeState() {
