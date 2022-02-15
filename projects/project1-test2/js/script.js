@@ -78,6 +78,7 @@ let blackFrame;
 let statueImg;
 let statue;
 let encounterVisible = false;
+let encounterFade = 0;
 let redSparkImg;
 let redSpark;
 let redSParkMutedImg;

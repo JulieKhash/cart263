@@ -111,7 +111,7 @@ class Statue extends Voice {
       mysteriousSFX.loop();
     }
     if (encounterVisible) {
-      // this.voiceInstruction2();
+      this.voiceInstruction2();
       this.userPromptBox();
       this.checkUserAnswer();
     } else {

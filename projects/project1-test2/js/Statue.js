@@ -53,11 +53,11 @@ class Statue extends Voice {
   }
 
   voiceInstruction1() {
-    super.voiceInstruction();
+    super.voiceInstruction1();
   }
 
   voiceInstruction2() {
-    super.voiceInstruction();
+    super.voiceInstruction2();
   }
 
   move() {
@@ -95,9 +95,9 @@ class Statue extends Voice {
     }
     push();
     if (encounterVisible) {
-      this.opacity += 1.5;
-      this.opacity = constrain(this.opacity, 0, 240);
-      tint(255, this.opacity);
+      encounterFade += 1.5;
+      encounterFade = constrain(encounterFade, 0, 240);
+      tint(255, encounterFade);
       image(this.imageStatue, this.x, this.y, this.w, this.h);
       pop();
     }
@@ -110,7 +110,7 @@ class Statue extends Voice {
       mysteriousSFX.setVolume(0.4);
       mysteriousSFX.loop();
     }
-    if (encounterVisible) {
+    if (encounterVisible && encounterFade === 240) {
       this.voiceInstruction2();
       this.userPromptBox();
       this.checkUserAnswer();

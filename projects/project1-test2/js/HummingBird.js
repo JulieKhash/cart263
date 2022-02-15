@@ -37,11 +37,11 @@ class HummingBird extends Voice {
   }
 
   voiceInstruction1() {
-    super.voiceInstruction();
+    super.voiceInstruction1();
   }
 
   voiceInstruction2() {
-    super.voiceInstruction();
+    super.voiceInstruction2();
   }
 
   changeState() {
