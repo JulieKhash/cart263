@@ -19,8 +19,8 @@ class Lightning extends Voice {
     this.display();
   }
 
-  voiceInstruction1() {
-    super.voiceInstruction1();
+  voiceUtteranceLong() {
+    super.utteranceLong();
   }
 
   display() {
@@ -52,6 +52,6 @@ class Lightning extends Voice {
       heartbeatSFX.setVolume(0.5);
       heartbeatSFX.loop();
     }
-    this.voiceInstruction1();
+    this.voiceUtteranceLong();
   }
 }

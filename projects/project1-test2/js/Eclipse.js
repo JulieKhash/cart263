@@ -23,12 +23,12 @@ class Eclipse extends Voice {
     this.showSlowly();
   }
 
-  voiceInstruction1() {
-    super.voiceInstruction1();
+  voiceUtteranceLong() {
+    super.utteranceLong();
   }
 
-  voiceInstruction2() {
-    super.voiceInstruction2();
+  voiceUtteranceShort() {
+    super.utteranceShort();
   }
 
   showSlowly() {
@@ -67,9 +67,9 @@ class Eclipse extends Voice {
       churchBellSFX.loop();
     }
     if (redBirdVisible) {
-      this.voiceInstruction2();
+      this.voiceUtteranceShort();
     } else {
-      this.voiceInstruction1();
+      this.voiceUtteranceLong();
     }
   }
 }

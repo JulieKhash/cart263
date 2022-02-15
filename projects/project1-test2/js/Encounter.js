@@ -28,12 +28,12 @@ class Encounter extends Voice {
     this.display();
   }
 
-  voiceInstruction1() {
-    super.voiceInstruction1();
+  voiceUtteranceLong() {
+    super.utteranceLong();
   }
 
-  voiceInstruction2() {
-    super.voiceInstruction2();
+  voiceUtteranceShort() {
+    super.utteranceShort();
   }
 
   userPromptBox() {
@@ -46,7 +46,7 @@ class Encounter extends Voice {
       heartbeatScene = true;
       encounterScene = false;
     } else {
-      this.voiceInstruction2();
+      this.voiceUtteranceShort();
     }
   }
 
@@ -110,11 +110,11 @@ class Encounter extends Voice {
       mysteriousSFX.loop();
     }
     if (encounterVisible && encounterFade >= 240) {
-      this.voiceInstruction2();
+      this.voiceUtteranceShort();
       this.userPromptBox();
       this.checkUserAnswer();
     } else {
-      this.voiceInstruction1();
+      this.voiceUtteranceLong();
     }
   }
 }

@@ -31,13 +31,13 @@ class BloodBottle extends Voice {
   }
 
   // speaks longer text
-  voiceInstruction1() {
-    super.voiceInstruction1();
+  voiceUtteranceLong() {
+    super.utteranceLong();
   }
 
   // speaks short text
-  voiceInstruction2() {
-    super.voiceInstruction2();
+  voiceUtteranceShort() {
+    super.utteranceShort();
   }
 
   // make the bottle slowly disappear slowly if it's drunken
@@ -85,8 +85,8 @@ class BloodBottle extends Voice {
         breathingSFX.setVolume(0.8);
         breathingSFX.play();
       }
-      this.voiceInstruction2();
+      this.voiceUtteranceShort();
     }
-    this.voiceInstruction1();
+    this.voiceUtteranceLong();
   }
 }

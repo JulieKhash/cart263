@@ -36,13 +36,13 @@ class DragonFly extends Voice {
   }
 
   // speaks longer text
-  voiceInstruction1() {
-    super.voiceInstruction1();
+  voiceUtteranceLong() {
+    super.utteranceLong();
   }
 
   // repeats the short lines
-  voiceInstruction2() {
-    super.voiceInstruction2();
+  voiceUtteranceShort() {
+    super.utteranceShort();
   }
 
   // changes the state if the user clicks on a dragonfly, stops the sfx
@@ -101,9 +101,9 @@ class DragonFly extends Voice {
     this.triggerPrompt();
     if (dragonflyMovingVisible) {
       this.changeState();
-      this.voiceInstruction2();
+      this.voiceUtteranceShort();
     } else {
-      this.voiceInstruction1();
+      this.voiceUtteranceLong();
     }
   }
 }

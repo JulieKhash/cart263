@@ -1,3 +1,11 @@
+/**
+Title of Project
+Julie Khashimova
+
+This is a template. You must fill in the title,
+author, and this description to match your project!
+*/
+
 "use strict";
 
 // responsive voice parameters
@@ -215,6 +223,7 @@ function draw() {
   mouseCursor();
 }
 
+// prepares the text from json, applies to the specific variable
 function getTextandScript() {
   titleText = programScript.title;
   bloodBottleText1 = programScript.scenes[0].scene1[0];
