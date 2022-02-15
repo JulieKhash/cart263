@@ -79,7 +79,6 @@ let encounter;
 let encounterVisible = false;
 let encounterFade = 0; // encounter visibility
 let redSparkImg;
-let redSpark;
 let redSParkMutedImg;
 let redSparkActive = false;
 let redSparkMuted = true;
@@ -162,7 +161,6 @@ function setUPObjects() {
   vampVoice = new Voice();
 
   heartbeat = new Lightning(heartbeatImg, inkFrameImg, encounterText3);
-  redSpark = new RedSpark(redSparkImg);
   encounter = new Encounter(
     encounterImg,
     redSparkImg,
