@@ -10,7 +10,6 @@ class Statue extends Voice {
     this.h = 1333;
 
     this.speed = 0.8;
-
     this.opacity = 0;
 
     this.imageStatue = imageStatue;
@@ -104,7 +103,7 @@ class Statue extends Voice {
   }
 
   mousePressed() {
-    this.triggerAction();
+    // this.triggerAction();
     // plays the mysterious sound
     if (!mysteriousSFX.isPlaying()) {
       mysteriousSFX.setVolume(0.4);

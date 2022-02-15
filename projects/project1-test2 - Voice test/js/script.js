@@ -104,13 +104,13 @@ let mysteriousSFX;
 let heartbeatSFX;
 
 // program states
-let state = `main`;
+let state = `statueBoy`;
 // let started = false;
 let mainScene = true;
 let bottleScene = false;
 let flowerBirdScene = false;
 let eclipseNightScene = false;
-let encounterScene = false;
+let encounterScene = true;
 let heartbeatScene = false;
 
 // loads images, sounds, fotns and data files

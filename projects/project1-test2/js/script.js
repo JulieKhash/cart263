@@ -78,7 +78,7 @@ let blackFrame;
 let statueImg;
 let statue;
 let encounterVisible = false;
-let encounterFade = 0;
+let encounterFade = 0; // encounter visibility
 let redSparkImg;
 let redSpark;
 let redSParkMutedImg;
