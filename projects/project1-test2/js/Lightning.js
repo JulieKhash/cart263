@@ -8,11 +8,11 @@ class Lightning extends Voice {
     this.imageLightning = imageLightning;
     this.imageInkFrame = imageInkFrame;
 
-    this.voice1 = voice1;
-
     this.text = `Don't worry.
     Soon, you'll be sleeping as soundly as you've ever slept.
     And when you awake l'll be waiting for you and so will all the world.`;
+
+    this.voice1 = voice1;
   }
 
   update() {

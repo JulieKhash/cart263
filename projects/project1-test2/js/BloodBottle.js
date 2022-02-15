@@ -1,3 +1,4 @@
+// a class for the drinking glass, extends Voice (responsive voice)
 class BloodBottle extends Voice {
   constructor(imageBottle, imageMutedBottle, voice1, voice2) {
     super();
@@ -5,6 +6,8 @@ class BloodBottle extends Voice {
     this.y = height / 2;
     this.fadeAMount = 170;
     this.fadeRate = 1 / 5;
+
+    this.delayTime = 5000;
 
     this.imageBottle = imageBottle;
     this.imageMutedBottle = imageMutedBottle;
@@ -18,12 +21,12 @@ class BloodBottle extends Voice {
     this.bottleIsDrunken();
   }
 
-  // triggers a user to the action after a specified time
+  // triggers user to the action after a specified time
   triggerPrompt() {
     setTimeout(function () {
       imageMutedBottleVisible = false;
       imageBottleVisible = true;
-    }, 7000);
+    }, this.delayTime);
   }
 
   voiceInstruction1() {
@@ -34,7 +37,7 @@ class BloodBottle extends Voice {
     super.voiceInstruction2();
   }
 
-  // make the bottle slowly disappear if it's drunken
+  // make the bottle slowly disappear slowly if it's drunken
   bottleIsDrunken() {
     if (bottleDrunken) {
       this.fadeAMount -= this.fadeRate;
@@ -55,6 +58,7 @@ class BloodBottle extends Voice {
     }
   }
 
+  // displays the muted bottle, then makes it glitter
   display() {
     if (imageMutedBottleVisible) {
       push();
@@ -69,6 +73,7 @@ class BloodBottle extends Voice {
     }
   }
 
+  // enables prompt to drink the glass, plays the sound effect, plays a resp voice when the mouse is clciked
   mousePressed() {
     this.triggerPrompt();
     if (this.checkOverlapBottle(mouseX, mouseY) && imageBottleVisible) {

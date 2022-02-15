@@ -17,9 +17,9 @@ class Prologue {
     this.RectW = 1000;
     this.RectH = 500;
 
-    this.opacity = 0;
-    this.minOpacity = 0;
-    this.MaxOpacity = 200; // semi-transparent bg
+    this.fadeAMount = 0;
+    this.minFadeAMount = 0;
+    this.maxFadeAMount = 200; // semi-transparent bg
     this.fadeRate = 10;
   }
 
@@ -31,7 +31,7 @@ class Prologue {
     //rect background
     push();
     noStroke();
-    fill(0, this.opacity);
+    fill(0, this.fadeAMount);
     rectMode(CENTER);
     rect(this.x, this.y, this.RectW, this.RectH);
     pop();
@@ -41,13 +41,17 @@ class Prologue {
     textSize(this.TextSize);
     textFont(scriptFont);
     textLeading(this.spacing); //line spacing
-    fill(random(170, 210), 0, 0, this.opacity);
+    fill(random(170, 210), 0, 0, this.fadeAMount);
     text(this.prologueText, this.x, this.y);
     pop();
   }
 
   mouseWheel(event) {
-    this.opacity += event.delta / this.fadeRate;
-    this.opacity = constrain(this.opacity, this.minOpacity, this.MaxOpacity); // constrains opacity up to 200
+    this.fadeAMount += event.delta / this.fadeRate;
+    this.fadeAMount = constrain(
+      this.fadeAMount,
+      this.minFadeAMount,
+      this.maxFadeAMount
+    ); // constrains opacity up to 200
   }
 }

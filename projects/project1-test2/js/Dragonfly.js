@@ -7,6 +7,8 @@ class DragonFly extends Voice {
     this.vy = 0;
     this.speed = 2;
 
+    this.timeDelay = 24000;
+
     this.imageBird = imageBird;
     this.imageMutedBird = imageMutedBird;
 
@@ -20,25 +22,30 @@ class DragonFly extends Voice {
     this.voice2 = voice2;
   }
 
+  // updates the dragonfly
   update() {
     this.display();
   }
 
+  // triggers user to the action after a specified time
   triggerPrompt() {
     setTimeout(function () {
       dragonflyMovingVisible = true;
       dragonflyMutedVisible = false;
-    }, 24000);
+    }, this.timeDelay);
   }
 
+  // speaks longer text
   voiceInstruction1() {
     super.voiceInstruction1();
   }
 
+  // repeats the short lines
   voiceInstruction2() {
     super.voiceInstruction2();
   }
 
+  // changes the state if the user clicks on a dragonfly, stops the sfx
   changeState() {
     if (this.checkOverlapDragonfly(mouseX, mouseY)) {
       state = `lunarEclipse`;
@@ -62,6 +69,7 @@ class DragonFly extends Voice {
     }
   }
 
+  // shows the muted dragonfly, then makes it glitter
   display() {
     if (dragonflyMutedVisible) {
       push();
@@ -88,6 +96,7 @@ class DragonFly extends Voice {
     pop();
   }
 
+  // enables user prompt, state change, and the speakign voice
   mousePressed() {
     this.triggerPrompt();
     if (dragonflyMovingVisible) {

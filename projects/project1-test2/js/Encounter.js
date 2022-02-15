@@ -5,9 +5,10 @@ class Encounter extends Voice {
     this.y = height / 2;
     this.vx = 0;
     this.vy = 0;
-
     this.w = 1000;
     this.h = 1333;
+
+    this.delayTime = 5000;
 
     this.speed = 0.8;
     this.encounterFadeRate = 1.5;
@@ -46,7 +47,7 @@ class Encounter extends Voice {
       redSparkMuted = false;
       redSparkActive = true;
       encounterVisible = true;
-    }, 5000);
+    }, this.delayTime);
   }
 
   voiceInstruction1() {

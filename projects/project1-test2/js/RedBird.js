@@ -5,6 +5,7 @@ class RedBird {
     this.y = height / 2 - 200; // y coordination
     this.w = 137; // width
     this.h = 400; // height
+    this.delayTime = 20000;
 
     this.imageRedBird = imageRedBird; // glittering bird
     this.imageMutedRedBird = imageMutedRedBird; // still bird
@@ -20,7 +21,7 @@ class RedBird {
     setTimeout(function () {
       redBirdVisible = true;
       redBirdMutedVisible = false;
-    }, 20000);
+    }, this.delayTime);
   }
 
   // changes the scene, stops the sound effect

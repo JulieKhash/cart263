@@ -6,8 +6,8 @@ class Eye {
     this.h = 281;
     this.size = 10;
 
-    this.opacity = 0;
-    this.fadeRate = 8;
+    this.fadeAMount = 0;
+    this.fadeRate = 1 / 8;
 
     this.imageEye = imageEye;
   }
@@ -20,7 +20,7 @@ class Eye {
   }
 
   changeState() {
-    if (this.opacity >= 150) {
+    if (this.fadeAMount >= 150) {
       state = `flowerDragonFly`;
       bottleScene = false;
       flowerDragonFlyScene = true;
@@ -36,14 +36,14 @@ class Eye {
 
   showEyeSlowly() {
     if (bottleDrunken) {
-      this.opacity += 1 / 8;
-      this.opacity = constrain(this.opacity, 0, 200);
+      this.fadeAMount += this.fadeRate;
+      this.fadeAMount = constrain(this.fadeAMount, 0, 200);
     }
   }
 
   display() {
     push();
-    tint(255, this.opacity);
+    tint(255, this.fadeAMount);
     image(this.imageEye, this.x, this.y, this.w, this.h);
     pop();
   }
