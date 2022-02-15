@@ -27,7 +27,7 @@ class BlueBird {
 
   changeState() {
     if (this.checkOverlapBird(mouseX, mouseY)) {
-      state = `statueBoy`;
+      state = `encounterSpirit`;
       churchBellSFX.stop();
       eclipseNightScene = false;
       encounterScene = true;

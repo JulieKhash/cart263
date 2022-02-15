@@ -3,7 +3,6 @@ class BloodBottle extends Voice {
     super();
     this.x = width / 2;
     this.y = height / 2;
-
     this.opacity = 170;
 
     this.imageBottle = imageBottle;

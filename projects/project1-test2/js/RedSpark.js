@@ -1,4 +1,4 @@
-class RedSpark extends Statue {
+class RedSpark extends Encounter {
   constructor(imageRedSpark) {
     super();
     this.x = width / 2;

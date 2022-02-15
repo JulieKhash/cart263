@@ -1,4 +1,4 @@
-class HummingBird extends Voice {
+class DragonFly extends Voice {
   constructor(imageBird, imageMutedBird, imageSplash, voice1, voice2) {
     super();
     this.x = width / 2 + 480;
@@ -48,7 +48,7 @@ class HummingBird extends Voice {
     if (this.checkOverlapDragonfly(mouseX, mouseY)) {
       state = `lunarEclipse`;
       birdChirpSFX.stop();
-      flowerBirdScene = false;
+      flowerDragonFlyScene = false;
       eclipseNightScene = true;
     }
   }

@@ -1,5 +1,5 @@
-class Statue extends Voice {
-  constructor(imageStatue, imageRedSpark, imageRedSparkBW, voice1, voice2) {
+class Encounter extends Voice {
+  constructor(imageEncounter, imageRedSpark, imageRedSparkBW, voice1, voice2) {
     super();
     this.x = width / 2;
     this.y = height / 2;
@@ -13,7 +13,7 @@ class Statue extends Voice {
 
     this.opacity = 0;
 
-    this.imageStatue = imageStatue;
+    this.imageEncounter = imageEncounter;
 
     this.imageRedSpark = imageRedSpark;
     this.imageRedSparkBW = imageRedSparkBW;
@@ -34,7 +34,7 @@ class Statue extends Voice {
 
   checkUserAnswer() {
     if (currentResponse === userResponse) {
-      state = `lightningRed`;
+      state = `lightningHeartbeat`;
       heartbeatScene = true;
       encounterScene = false;
     } else {
@@ -98,7 +98,7 @@ class Statue extends Voice {
       encounterFade += 1.5;
       encounterFade = constrain(encounterFade, 0, 240);
       tint(255, encounterFade);
-      image(this.imageStatue, this.x, this.y, this.w, this.h);
+      image(this.imageEncounter, this.x, this.y, this.w, this.h);
       pop();
     }
   }

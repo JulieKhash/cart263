@@ -7,6 +7,8 @@ const VOICE_PARAMS = {
   rate: 0.8,
   volume: 0.9,
 };
+// vampiric voice
+let vampVoice;
 
 // Fonts
 let titleFont;
@@ -28,9 +30,6 @@ let eclipseChurchText2;
 let encounterText1;
 let encounterText2;
 let encounterText3;
-
-// vampiric voice
-let vampVoice;
 
 // web related
 const userPrompt = `Will you come or no?`;
@@ -67,16 +66,16 @@ let eye;
 let bloomingFlowerImg;
 let bloomingFlower;
 let bloodSplashImg;
-let hummingBirdImg;
-let hummingBird;
+let dragonFlyImg;
+let dragonFly;
 let humBirdMovingVisible = false;
 let humBirdMutedVisible = true;
 let blackFrameImg;
 let blackFrame;
 
-// statue scene
-let statueImg;
-let statue;
+// encounter scene
+let encounterImg;
+let encounter;
 let encounterVisible = false;
 let encounterFade = 0; // encounter visibility
 let redSparkImg;
@@ -86,8 +85,8 @@ let redSparkActive = false;
 let redSparkMuted = true;
 
 // last scene
-let redLightningImg;
-let redLightning;
+let heartbeatImg;
+let heartbeat;
 let inkFrameImg;
 
 // test
@@ -95,6 +94,7 @@ let circleImg;
 let circleMoving = false;
 let circleStill = true;
 
+// mosue cursor
 let lightcursorImg;
 
 // sounds
@@ -109,13 +109,14 @@ let state = `main`;
 // let started = false;
 let mainScene = true;
 let bottleScene = false;
-let flowerBirdScene = false;
+let flowerDragonFlyScene = false;
 let eclipseNightScene = false;
 let encounterScene = false;
 let heartbeatScene = false;
 
 // loads images, sounds, fotns and data files
 function preload() {
+  // visuals
   forestBgBWImg = loadImage("assets/images/forestbw.png");
   forestBgColImg = loadImage("assets/images/lake.png");
   bloodBottleImg = loadImage("assets/images/bloodbottlesm.png");
@@ -125,30 +126,28 @@ function preload() {
   circleImg = loadImage("assets/images/circle2.png");
   bloomingFlowerImg = loadImage("assets/images/flowers.gif");
   bloodSplashImg = loadImage("assets/images/bloodSplash3.png");
-  hummingBirdImg = loadImage("assets/images/dragon400.png");
+  dragonFlyImg = loadImage("assets/images/dragon400.png");
   blackFrameImg = loadImage("assets/images/blackframe.png");
-
-  statueImg = loadImage("assets/images/spirit10.png");
+  encounterImg = loadImage("assets/images/spirit10.png");
   redSparkImg = loadImage("assets/images/redspark1500.png");
   redSParkMutedImg = loadImage("assets/images/redsparkBW1.png");
-
-  redLightningImg = loadImage("assets/images/lighting.gif");
+  heartbeatImg = loadImage("assets/images/lighting.gif");
   inkFrameImg = loadImage("assets/images/inkframe.png");
-
   lightcursorImg = loadImage(`assets/images/redlight70.png`);
-
+  //sounds
   breathingSFX = loadSound("assets/sounds/breathingeye.wav");
   birdChirpSFX = loadSound("assets/sounds/birdchirp.mp3");
   churchBellSFX = loadSound("assets/sounds/bellrings.mp3");
   mysteriousSFX = loadSound("assets/sounds/kasatki.mp3");
   heartbeatSFX = loadSound("assets/sounds/heartbeat.mp3");
-
+  //fonts
   titleFont = loadFont("assets/fonts/BOERT.ttf");
   scriptFont = loadFont("assets/fonts/BaroqueScript.ttf");
-
+  //json
   programScript = loadJSON("assets/data/VoiceScript.json");
 }
 
+// general set up
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noCursor();
@@ -158,21 +157,22 @@ function setup() {
   setUPObjects();
 }
 
+// prepare program objects
 function setUPObjects() {
   vampVoice = new Voice();
 
-  redLightning = new Lightning(redLightningImg, inkFrameImg, encounterText3);
+  heartbeat = new Lightning(heartbeatImg, inkFrameImg, encounterText3);
   redSpark = new RedSpark(redSparkImg);
-  statue = new Statue(
-    statueImg,
+  encounter = new Encounter(
+    encounterImg,
     redSparkImg,
     redSParkMutedImg,
     encounterText1,
     encounterText2
   );
-  hummingBird = new HummingBird(
-    hummingBirdImg,
-    hummingBirdImg,
+  dragonFly = new DragonFly(
+    dragonFlyImg,
+    dragonFlyImg,
     bloodSplashImg,
     flowerBloomText1,
     flowerBloomText2
@@ -203,16 +203,16 @@ function draw() {
 
   if (state === `main`) {
     forestBWScene();
-  } else if (state === `wineBottle`) {
+  } else if (state === `drinkingGlass`) {
     bloodBottleScene();
+  } else if (state === `flowerDragonFly`) {
+    bloomingFlowerScene();
   } else if (state === `lunarEclipse`) {
     eclipseScene();
-  } else if (state === `flowerBird`) {
-    bloomingFlowerScene();
-  } else if (state === `statueBoy`) {
-    statueScene();
-  } else if (state === `lightningRed`) {
-    lightningRed();
+  } else if (state === `encounterSpirit`) {
+    encounterSpiritScene();
+  } else if (state === `lightningHeartbeat`) {
+    lightningHeartbeat();
   }
   mouseCursor();
 }
@@ -254,19 +254,23 @@ function eclipseScene() {
 }
 
 function bloomingFlowerScene() {
-  if (flowerBirdScene) {
+  if (flowerDragonFlyScene) {
     bloomingFlower.update();
-    hummingBird.update();
+    dragonFly.update();
   }
 }
 
-function statueScene() {
-  forestColor.update();
-  statue.update();
+function encounterSpiritScene() {
+  if (encounterScene) {
+    forestColor.update();
+    encounter.update();
+  }
 }
 
-function lightningRed() {
-  redLightning.update();
+function lightningHeartbeat() {
+  if (heartbeatScene) {
+    heartbeat.update();
+  }
 }
 
 function mouseCursor() {
@@ -281,16 +285,16 @@ function mouseWheel() {
 function mousePressed() {
   if (bottleScene) {
     bloodBottle.mousePressed();
-  } else if (flowerBirdScene) {
+  } else if (flowerDragonFlyScene) {
     bloomingFlower.mousePressed();
-    hummingBird.mousePressed();
+    dragonFly.mousePressed();
   } else if (eclipseNightScene) {
     eclipse.mousePressed();
     blueBird.mousePressed();
   } else if (encounterScene) {
-    statue.mousePressed();
+    encounter.mousePressed();
   } else if (heartbeatScene) {
-    redLightning.mousePressed();
+    heartbeat.mousePressed();
   }
 }
 
@@ -298,6 +302,6 @@ function keyPressed() {
   if (keyCode === 13 && state === `main`) {
     mainScene = false;
     bottleScene = true;
-    state = `wineBottle`;
+    state = `drinkingGlass`;
   }
 }
