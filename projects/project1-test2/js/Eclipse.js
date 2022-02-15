@@ -24,11 +24,11 @@ class Eclipse extends Voice {
   }
 
   voiceInstruction1() {
-    super.voiceInstruction1();
+    super.voiceInstruction();
   }
 
   voiceInstruction2() {
-    super.voiceInstruction2();
+    super.voiceInstruction();
   }
 
   showSlowly() {

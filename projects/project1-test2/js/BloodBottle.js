@@ -29,11 +29,11 @@ class BloodBottle extends Voice {
   }
 
   voiceInstruction1() {
-    super.voiceInstruction1();
+    super.voiceInstruction();
   }
 
   voiceInstruction2() {
-    super.voiceInstruction2();
+    super.voiceInstruction();
   }
 
   // make the bottle slowly disappear if it's drunken
