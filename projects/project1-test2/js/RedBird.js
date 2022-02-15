@@ -1,26 +1,29 @@
+// a class for the red bird on the tree
 class RedBird {
   constructor(imageRedBird, imageMutedRedBird) {
-    this.x = width / 2 + 300;
-    this.y = height / 2 - 200;
-    this.w = 137;
-    this.h = 400;
+    this.x = width / 2 + 300; // x coordination
+    this.y = height / 2 - 200; // y coordination
+    this.w = 137; // width
+    this.h = 400; // height
 
-    this.imageRedBird = imageRedBird;
-    this.imageMutedRedBird = imageMutedRedBird;
+    this.imageRedBird = imageRedBird; // glittering bird
+    this.imageMutedRedBird = imageMutedRedBird; // still bird
   }
 
+  // updates the bird
   update() {
     this.display();
   }
 
-  // after 5 secs enable the user's trigger for action
-  triggerAction() {
+  // triggers user to the prompt after a specified time
+  triggerPrompt() {
     setTimeout(function () {
       redBirdVisible = true;
       redBirdMutedVisible = false;
     }, 20000);
   }
 
+  // changes the scene, stops the sound effect
   changeState() {
     if (this.checkOverlapBird(mouseX, mouseY)) {
       state = `encounterSpirit`;
@@ -44,6 +47,7 @@ class RedBird {
     }
   }
 
+  // displays the red bird on the tree, appears still, then glitters
   display() {
     if (redBirdMutedVisible) {
       push();
@@ -58,8 +62,9 @@ class RedBird {
     }
   }
 
+  // calls the user prompt and enables state change when mouse is pressed
   mousePressed() {
-    this.triggerAction();
+    this.triggerPrompt();
     if (redBirdVisible) {
       this.changeState();
     }

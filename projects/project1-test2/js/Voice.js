@@ -1,3 +1,4 @@
+// a super class for the responsiveVoice
 class Voice {
   constructor() {
     this.voice1;

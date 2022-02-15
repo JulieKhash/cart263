@@ -3,7 +3,8 @@ class BloodBottle extends Voice {
     super();
     this.x = width / 2;
     this.y = height / 2;
-    this.opacity = 170;
+    this.fadeAMount = 170;
+    this.fadeRate = 1 / 5;
 
     this.imageBottle = imageBottle;
     this.imageMutedBottle = imageMutedBottle;
@@ -18,7 +19,7 @@ class BloodBottle extends Voice {
   }
 
   // triggers a user to the action after a specified time
-  triggerAction() {
+  triggerPrompt() {
     setTimeout(function () {
       imageMutedBottleVisible = false;
       imageBottleVisible = true;
@@ -36,7 +37,7 @@ class BloodBottle extends Voice {
   // make the bottle slowly disappear if it's drunken
   bottleIsDrunken() {
     if (bottleDrunken) {
-      this.opacity -= 1 / 5;
+      this.fadeAMount -= this.fadeRate;
     }
   }
 
@@ -57,19 +58,19 @@ class BloodBottle extends Voice {
   display() {
     if (imageMutedBottleVisible) {
       push();
-      tint(120, this.opacity);
+      tint(120, this.fadeAMount);
       image(this.imageMutedBottle, this.x, this.y);
       pop();
     } else if (imageBottleVisible) {
       push();
-      tint(random(200, 250), this.opacity);
+      tint(random(200, 250), this.fadeAMount);
       image(this.imageBottle, this.x, this.y);
       pop();
     }
   }
 
   mousePressed() {
-    this.triggerAction();
+    this.triggerPrompt();
     if (this.checkOverlapBottle(mouseX, mouseY) && imageBottleVisible) {
       bottleDrunken = true;
       if (!breathingSFX.isPlaying()) {

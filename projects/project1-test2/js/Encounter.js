@@ -10,15 +10,14 @@ class Encounter extends Voice {
     this.h = 1333;
 
     this.speed = 0.8;
-
-    this.opacity = 0;
-
+    this.encounterFadeRate = 1.5;
     this.imageEncounter = imageEncounter;
 
     this.imageRedSpark = imageRedSpark;
     this.imageRedSparkBW = imageRedSparkBW;
     this.size = 300;
 
+    // voice parameters
     this.voice1 = voice1;
     this.voice2 = voice2;
   }
@@ -42,7 +41,7 @@ class Encounter extends Voice {
     }
   }
 
-  triggerAction() {
+  triggerPrompt() {
     setTimeout(function () {
       redSparkMuted = false;
       redSparkActive = true;
@@ -58,6 +57,7 @@ class Encounter extends Voice {
     super.voiceInstruction2();
   }
 
+  // adds the floating movement to the encounter
   move() {
     // check if we need to change the moving direction
     let r = random(0, 1);
@@ -93,7 +93,7 @@ class Encounter extends Voice {
     }
     push();
     if (encounterVisible) {
-      encounterFade += 1.5;
+      encounterFade += this.encounterFadeRate;
       encounterFade = constrain(encounterFade, 0, 240);
       tint(255, encounterFade);
       image(this.imageEncounter, this.x, this.y, this.w, this.h);
@@ -102,13 +102,13 @@ class Encounter extends Voice {
   }
 
   mousePressed() {
-    this.triggerAction();
+    this.triggerPrompt();
     // plays the mysterious sound
     if (!mysteriousSFX.isPlaying()) {
       mysteriousSFX.setVolume(0.4);
       mysteriousSFX.loop();
     }
-    if (encounterVisible && encounterFade === 240) {
+    if (encounterVisible && encounterFade >= 240) {
       this.voiceInstruction2();
       this.userPromptBox();
       this.checkUserAnswer();

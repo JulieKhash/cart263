@@ -1,3 +1,4 @@
+// a class for the title
 class Title {
   constructor(titleText) {
     this.x = width / 2;
@@ -12,10 +13,12 @@ class Title {
     this.fadeRate = 5;
   }
 
+  // updates the texts
   update() {
     this.display();
   }
 
+  // shows the scroll down text
   display() {
     push();
     textAlign(CENTER, CENTER);
@@ -25,6 +28,7 @@ class Title {
     text(this.scrollText, this.x, this.y + 100);
     pop();
 
+    // shows the title text
     push();
     textAlign(CENTER, CENTER);
     textSize(this.sizeBig);
@@ -34,6 +38,7 @@ class Title {
     pop();
   }
 
+  // mouse scroll wheel for the manual fade effect between title/prologue texts
   mouseWheel(event) {
     this.opacity -= event.delta / this.fadeRate;
   }

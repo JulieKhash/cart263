@@ -5,7 +5,7 @@ class BloomingFLower {
     this.w = 1450;
     this.h = 1080;
 
-    this.opacity = 0;
+    this.fadeAMount = 0;
 
     this.imageBloom = imageBloom;
     this.imageBlackFrame = imageBlackFrame;
@@ -17,17 +17,17 @@ class BloomingFLower {
   }
 
   showSlowly() {
-    this.opacity += 1;
+    this.fadeAMount++;
   }
 
   display() {
     push();
-    tint(255, this.opacity);
+    tint(255, this.fadeAMount);
     image(this.imageBloom, this.x, this.y, this.w - 300, this.h - 300);
     pop();
 
     push();
-    tint(255, this.opacity);
+    tint(255, this.fadeAMount);
     image(this.imageBlackFrame, this.x, this.y, this.w + 200, this.h + 200);
     pop();
   }

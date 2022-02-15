@@ -24,11 +24,11 @@ class DragonFly extends Voice {
     this.display();
   }
 
-  triggerAction() {
+  triggerPrompt() {
     setTimeout(function () {
-      humBirdMovingVisible = true;
-      humBirdMutedVisible = false;
-    }, 22000);
+      dragonflyMovingVisible = true;
+      dragonflyMutedVisible = false;
+    }, 24000);
   }
 
   voiceInstruction1() {
@@ -63,12 +63,12 @@ class DragonFly extends Voice {
   }
 
   display() {
-    if (humBirdMutedVisible) {
+    if (dragonflyMutedVisible) {
       push();
       tint(50, 250);
       image(this.imageMutedBird, this.x, this.y);
       pop();
-    } else if (humBirdMovingVisible) {
+    } else if (dragonflyMovingVisible) {
       push();
       tint(255, random(140, 200));
       image(this.imageBird, this.x, this.y);
@@ -89,8 +89,8 @@ class DragonFly extends Voice {
   }
 
   mousePressed() {
-    this.triggerAction();
-    if (humBirdMovingVisible) {
+    this.triggerPrompt();
+    if (dragonflyMovingVisible) {
       this.changeState();
       this.voiceInstruction2();
     } else {

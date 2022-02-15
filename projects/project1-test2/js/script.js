@@ -31,7 +31,7 @@ let encounterText1;
 let encounterText2;
 let encounterText3;
 
-// web related
+// texbox prompt related
 const userPrompt = `Will you come or no?`;
 const userResponse = `yes`;
 let currentResponse = ``;
@@ -68,8 +68,8 @@ let bloomingFlower;
 let bloodSplashImg;
 let dragonFlyImg;
 let dragonFly;
-let humBirdMovingVisible = false;
-let humBirdMutedVisible = true;
+let dragonflyMovingVisible = false;
+let dragonflyMutedVisible = true;
 let blackFrameImg;
 let blackFrame;
 
@@ -105,12 +105,12 @@ let mysteriousSFX;
 let heartbeatSFX;
 
 // program states
-let state = `lunarEclipse`;
+let state = `flowerDragonFly`;
 // let started = false;
 let mainScene = true;
 let bottleScene = false;
-let flowerDragonFlyScene = false;
-let eclipseNightScene = true;
+let flowerDragonFlyScene = true;
+let eclipseNightScene = false;
 let encounterScene = false;
 let heartbeatScene = false;
 
