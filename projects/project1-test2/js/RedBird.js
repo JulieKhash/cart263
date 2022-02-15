@@ -1,14 +1,12 @@
-class BlueBird {
-  constructor(imageBlueBird, imageMutedBlueBird) {
+class RedBird {
+  constructor(imageRedBird, imageMutedRedBird) {
     this.x = width / 2 + 300;
     this.y = height / 2 - 200;
     this.w = 137;
     this.h = 400;
 
-    this.imageBlueBird = imageBlueBird;
-    this.imageMutedBlueBird = imageMutedBlueBird;
-
-    // this.voice = voice;
+    this.imageRedBird = imageRedBird;
+    this.imageMutedRedBird = imageMutedRedBird;
   }
 
   update() {
@@ -18,8 +16,8 @@ class BlueBird {
   // after 5 secs enable the user's trigger for action
   triggerAction() {
     setTimeout(function () {
-      blueBirdVisible = true;
-      blueBirdMutedVisible = false;
+      redBirdVisible = true;
+      redBirdMutedVisible = false;
     }, 20000);
   }
 
@@ -35,10 +33,10 @@ class BlueBird {
   // check if the mouse touches the bird
   checkOverlapBird(x, y) {
     if (
-      x > this.x - this.imageBlueBird.width / 2 &&
-      x < this.x + this.imageBlueBird.width / 2 &&
-      y > this.y - this.imageBlueBird.height / 2 &&
-      y < this.y + this.imageBlueBird.height / 2
+      x < this.x + this.imageRedBird.width / 2 &&
+      x > this.x - this.imageRedBird.width / 2 &&
+      y > this.y - this.imageRedBird.height / 2 &&
+      y < this.y + this.imageRedBird.height / 2
     ) {
       return true;
     } else {
@@ -47,22 +45,22 @@ class BlueBird {
   }
 
   display() {
-    if (blueBirdMutedVisible) {
+    if (redBirdMutedVisible) {
       push();
       tint(110, 250);
-      image(this.imageBlueBird, this.x, this.y, this.w, this.h);
+      image(this.imageRedBird, this.x, this.y, this.w, this.h);
       pop();
-    } else if (blueBirdVisible) {
+    } else if (redBirdVisible) {
       push();
       tint(255, random(190, 250));
-      image(this.imageBlueBird, this.x, this.y, this.w, this.h);
+      image(this.imageRedBird, this.x, this.y, this.w, this.h);
       pop();
     }
   }
 
   mousePressed() {
     this.triggerAction();
-    if (blueBirdVisible) {
+    if (redBirdVisible) {
       this.changeState();
     }
   }

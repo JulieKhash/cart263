@@ -53,10 +53,10 @@ let imageMutedBottleVisible = true;
 let eclipse;
 let branchFrameImg;
 let branchFrame;
-let blueBirdImg;
-let blueBird;
-let blueBirdVisible = false;
-let blueBirdMutedVisible = true;
+let redBirdImg;
+let redBird;
+let redBirdVisible = false;
+let redBirdMutedVisible = true;
 
 // eye
 let eyeImg;
@@ -105,12 +105,12 @@ let mysteriousSFX;
 let heartbeatSFX;
 
 // program states
-let state = `main`;
+let state = `lunarEclipse`;
 // let started = false;
 let mainScene = true;
 let bottleScene = false;
 let flowerDragonFlyScene = false;
-let eclipseNightScene = false;
+let eclipseNightScene = true;
 let encounterScene = false;
 let heartbeatScene = false;
 
@@ -122,7 +122,7 @@ function preload() {
   bloodBottleImg = loadImage("assets/images/bloodbottlesm.png");
   eyeImg = loadImage("assets/images/eye.gif");
   branchFrameImg = loadImage("assets/images/lunartree.png");
-  blueBirdImg = loadImage("assets/images/redbird600.png");
+  redBirdImg = loadImage("assets/images/redbird600.png");
   circleImg = loadImage("assets/images/circle2.png");
   bloomingFlowerImg = loadImage("assets/images/flowers.gif");
   bloodSplashImg = loadImage("assets/images/bloodSplash3.png");
@@ -178,7 +178,7 @@ function setUPObjects() {
     flowerBloomText2
   );
   bloomingFlower = new FlowerBloom(bloomingFlowerImg, blackFrameImg);
-  blueBird = new BlueBird(blueBirdImg, blueBirdImg);
+  redBird = new RedBird(redBirdImg, redBirdImg);
   eclipse = new Eclipse(
     branchFrameImg,
     circleImg,
@@ -249,7 +249,7 @@ function bloodBottleScene() {
 function eclipseScene() {
   if (eclipseNightScene) {
     eclipse.update();
-    blueBird.update();
+    redBird.update();
   }
 }
 
@@ -290,7 +290,7 @@ function mousePressed() {
     dragonFly.mousePressed();
   } else if (eclipseNightScene) {
     eclipse.mousePressed();
-    blueBird.mousePressed();
+    redBird.mousePressed();
   } else if (encounterScene) {
     encounter.mousePressed();
   } else if (heartbeatScene) {

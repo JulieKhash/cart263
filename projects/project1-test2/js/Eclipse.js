@@ -66,7 +66,7 @@ class Eclipse extends Voice {
       churchBellSFX.setVolume(0.5); // i think it's not working
       churchBellSFX.loop();
     }
-    if (blueBirdVisible) {
+    if (redBirdVisible) {
       this.voiceInstruction2();
     } else {
       this.voiceInstruction1();
