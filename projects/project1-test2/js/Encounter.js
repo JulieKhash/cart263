@@ -28,6 +28,14 @@ class Encounter extends Voice {
     this.display();
   }
 
+  voiceInstruction1() {
+    super.voiceInstruction1();
+  }
+
+  voiceInstruction2() {
+    super.voiceInstruction2();
+  }
+
   userPromptBox() {
     currentResponse = prompt(userPrompt);
   }
@@ -48,14 +56,6 @@ class Encounter extends Voice {
       redSparkActive = true;
       encounterVisible = true;
     }, this.delayTime);
-  }
-
-  voiceInstruction1() {
-    super.voiceInstruction1();
-  }
-
-  voiceInstruction2() {
-    super.voiceInstruction2();
   }
 
   // adds the floating movement to the encounter

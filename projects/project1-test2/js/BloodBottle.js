@@ -16,6 +16,7 @@ class BloodBottle extends Voice {
     this.voice2 = voice2;
   }
 
+  // updates the bottle
   update() {
     this.display();
     this.bottleIsDrunken();
@@ -29,10 +30,12 @@ class BloodBottle extends Voice {
     }, this.delayTime);
   }
 
+  // speaks longer text
   voiceInstruction1() {
     super.voiceInstruction1();
   }
 
+  // speaks short text
   voiceInstruction2() {
     super.voiceInstruction2();
   }
@@ -58,7 +61,7 @@ class BloodBottle extends Voice {
     }
   }
 
-  // displays the muted bottle, then makes it glitter
+  // displays a muted bottle, then makes it glitter
   display() {
     if (imageMutedBottleVisible) {
       push();

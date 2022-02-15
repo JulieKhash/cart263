@@ -104,11 +104,11 @@ let mysteriousSFX;
 let heartbeatSFX;
 
 // program states
-let state = `flowerDragonFly`;
+let state = `main`;
 // let started = false;
 let mainScene = true;
 let bottleScene = false;
-let flowerDragonFlyScene = true;
+let flowerDragonFlyScene = false;
 let eclipseNightScene = false;
 let encounterScene = false;
 let heartbeatScene = false;
@@ -133,16 +133,16 @@ function preload() {
   heartbeatImg = loadImage("assets/images/lighting.gif");
   inkFrameImg = loadImage("assets/images/inkframe.png");
   lightcursorImg = loadImage(`assets/images/redlight70.png`);
-  //sounds
+  // sounds
   breathingSFX = loadSound("assets/sounds/breathingeye.wav");
   birdChirpSFX = loadSound("assets/sounds/birdchirp.mp3");
   churchBellSFX = loadSound("assets/sounds/bellrings.mp3");
   mysteriousSFX = loadSound("assets/sounds/kasatki.mp3");
   heartbeatSFX = loadSound("assets/sounds/heartbeat.mp3");
-  //fonts
+  // fonts
   titleFont = loadFont("assets/fonts/BOERT.ttf");
   scriptFont = loadFont("assets/fonts/BaroqueScript.ttf");
-  //json
+  // json
   programScript = loadJSON("assets/data/VoiceScript.json");
 }
 
@@ -228,6 +228,7 @@ function getTextandScript() {
   encounterText3 = programScript.scenes[0].scene4[2];
 }
 
+// shows the main scene
 function forestBWScene() {
   if (mainScene) {
     forestBW.update();
@@ -236,6 +237,7 @@ function forestBWScene() {
   }
 }
 
+// shows the drinking bottle scene
 function bloodBottleScene() {
   if (bottleScene) {
     forestBW.update();
@@ -244,6 +246,7 @@ function bloodBottleScene() {
   }
 }
 
+// shows the night scene with the rotating stained glass
 function eclipseScene() {
   if (eclipseNightScene) {
     eclipse.update();
@@ -251,6 +254,7 @@ function eclipseScene() {
   }
 }
 
+// shows the blooming flowers scene with the dragonfly
 function bloomingFlowerScene() {
   if (flowerDragonFlyScene) {
     bloomingFlower.update();
@@ -258,6 +262,7 @@ function bloomingFlowerScene() {
   }
 }
 
+// shows the sprit encounter scene
 function encounterSpiritScene() {
   if (encounterScene) {
     forestColor.update();
@@ -265,21 +270,25 @@ function encounterSpiritScene() {
   }
 }
 
+// shows the "final" heartbeat/lightning scene
 function lightningHeartbeat() {
   if (heartbeatScene) {
     heartbeat.update();
   }
 }
 
+// user's cursor shows the red spark
 function mouseCursor() {
   image(lightcursorImg, mouseX, mouseY);
 }
 
+// mouse scroll that controls the display of title/prologue texts
 function mouseWheel() {
   titleMain.mouseWheel(event);
   prologue.mouseWheel(event);
 }
 
+// mouse click enables users to trigger sounds, speaking voice and state changes
 function mousePressed() {
   if (bottleScene) {
     bloodBottle.mousePressed();
@@ -296,6 +305,7 @@ function mousePressed() {
   }
 }
 
+// press ENTER to move to the next scene - drinking glass
 function keyPressed() {
   if (keyCode === 13 && state === `main`) {
     mainScene = false;
