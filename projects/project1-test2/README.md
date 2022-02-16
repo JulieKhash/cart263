@@ -14,4 +14,4 @@ I tried to simplify the interaction as much as possible so that the user doesn't
 
 NOTE: The only hurdle for the program is the speech recognition technology, which may occasionally break between sentences and sound like English language teacher. Despite several attempts to solve this cryptic bug, it still remains a mystery. Hopefully, will find a solution in the future.
 
-Other than that, I wish you a wonderful experience of becoming a vampire haha!
+Other than that, I wish you a wonderful experience of initiating yourself into a vampire haha!
