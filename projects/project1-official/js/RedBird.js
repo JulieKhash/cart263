@@ -9,7 +9,7 @@ class RedBird {
     this.y = height / 2 - 200; // y coordination
     this.w = 137; // width
     this.h = 400; // height
-    this.delayTime = 20000; // time when the hint appears
+    this.delayTime = 21000; // time when the hint appears
 
     this.imageRedBird = imageRedBird; // glittering bird
     this.imageMutedRedBird = imageMutedRedBird; // still bird

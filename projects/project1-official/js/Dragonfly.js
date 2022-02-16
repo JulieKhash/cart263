@@ -13,7 +13,7 @@ class DragonFly extends Voice {
     this.vx = 0; // velocity x
     this.vy = 0; // // velocity y
 
-    this.timeDelay = 24000; // time when the hint appears
+    this.timeDelay = 25000; // time when the hint appears
 
     this.imageBird = imageBird;
     this.imageMutedBird = imageMutedBird;
