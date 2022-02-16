@@ -2,8 +2,9 @@
 Project 1 - The Vampire Lestat
 Julie Khashimova
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+You are between the life and death
+Experience yourself as Lestat de Lioncourt and delve into a philosophical journey about
+what it means to be and become a vampire. Happy initiations!
 */
 
 "use strict";
