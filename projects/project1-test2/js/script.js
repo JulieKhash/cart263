@@ -3,7 +3,7 @@ Project 1 - The Vampire Lestat
 Julie Khashimova
 
 You are between life and death
-Experience yourself as Lestat de Lioncourt and delve into a philosophical journey about
+Experience yourself as Lestat de Lioncourt and delve into a philosophical journey of
 what it means to be and become a vampire. Happy initiations!
 */
 
