@@ -1,4 +1,4 @@
-// "Eclipse", because the idea of a rotating stained glass window came from an eclipse
+// "Eclipse", because the idea of a rotating stained glass window came from an actual eclipse
 // extends Voice (responsive voice) class
 // appears muted, activates the scene when user clicks with their mouse
 

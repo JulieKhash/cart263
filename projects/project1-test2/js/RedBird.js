@@ -9,7 +9,7 @@ class RedBird {
     this.y = height / 2 - 200; // y coordination
     this.w = 137; // width
     this.h = 400; // height
-    this.delayTime = 20000;
+    this.delayTime = 20000; // time when the hint appears
 
     this.imageRedBird = imageRedBird; // glittering bird
     this.imageMutedRedBird = imageMutedRedBird; // still bird
@@ -38,7 +38,7 @@ class RedBird {
     }
   }
 
-  // check if the mouse touches the bird
+  // checks if the mouse touches the bird
   checkOverlapBird(x, y) {
     if (
       x < this.x + this.imageRedBird.width / 2 &&
@@ -67,7 +67,7 @@ class RedBird {
     }
   }
 
-  // calls the user prompt and enables state change when mouse is pressed
+  // enables object hint and state change when mouse is pressed
   mousePressed() {
     this.triggerPrompt();
     if (redBirdVisible) {

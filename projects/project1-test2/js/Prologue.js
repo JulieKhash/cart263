@@ -4,11 +4,13 @@
 
 class Prologue {
   constructor() {
+    // center position
     this.x = width / 2;
     this.y = height / 2;
     this.TextSize = 25;
     this.spacing = 50; // line spacing
 
+    // prologue text
     this.prologueText = `Life has no meaning anymore . . . does it ?
     The wine has no taste. The food sickens you.
     There seems no reason for any of it.
@@ -18,15 +20,16 @@ class Prologue {
 
                                    Enter`;
 
-    this.RectW = 1000;
-    this.RectH = 500;
+    this.RectW = 1000; // rect width
+    this.RectH = 500; // rect height
 
-    this.fadeAMount = 0;
+    this.fadeAMount = 0; // intial fade value
     this.minFadeAMount = 0;
     this.maxFadeAMount = 200; // semi-transparent bg
-    this.fadeRate = 10;
+    this.fadeRate = 10; // fade rate value
   }
 
+  // updates the prologue
   update() {
     this.display();
   }
@@ -40,6 +43,7 @@ class Prologue {
     rect(this.x, this.y, this.RectW, this.RectH);
     pop();
 
+    // displays a prologue text in red
     push();
     textAlign(CENTER, CENTER);
     textSize(this.TextSize);
@@ -50,6 +54,7 @@ class Prologue {
     pop();
   }
 
+  // mouse scroll event controls the fade in/out effect for both text/bg
   mouseWheel(event) {
     this.fadeAMount += event.delta / this.fadeRate;
     this.fadeAMount = constrain(

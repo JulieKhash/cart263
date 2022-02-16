@@ -5,10 +5,10 @@ class FlowerBloom {
   constructor(imageBloom, imageBlackFrame) {
     this.x = width / 2;
     this.y = height / 2;
-    this.w = 1450;
-    this.h = 1080;
+    this.w = 1450; // width
+    this.h = 1080; // height
 
-    this.fadeAMount = 0;
+    this.fadeAMount = 0; // initial fade value
 
     this.imageBloom = imageBloom;
     this.imageBlackFrame = imageBlackFrame;

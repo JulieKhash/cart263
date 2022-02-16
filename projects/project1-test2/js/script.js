@@ -1,5 +1,5 @@
 /**
-Title of Project
+Project 1 - The Vampire Lestat
 Julie Khashimova
 
 This is a template. You must fill in the title,
@@ -160,7 +160,7 @@ function setup() {
   noCursor();
   imageMode(CENTER);
 
-  getTextandScript();
+  getScript();
   setUPObjects();
 }
 
@@ -204,6 +204,7 @@ function setUPObjects() {
   prologue = new Prologue();
 }
 
+// calls the states of the program
 function draw() {
   background(0);
 
@@ -224,7 +225,7 @@ function draw() {
 }
 
 // prepares the text from json, applies to the specific variable
-function getTextandScript() {
+function getScript() {
   titleText = programScript.title;
   bloodBottleText1 = programScript.scenes[0].scene1[0];
   bloodBottleText2 = programScript.scenes[0].scene1[1];
@@ -314,7 +315,7 @@ function mousePressed() {
   }
 }
 
-// press ENTER to move to the next scene - drinking glass
+// press ENTER to move to the next scene -> drinking glass
 function keyPressed() {
   if (keyCode === 13 && state === `main`) {
     mainScene = false;

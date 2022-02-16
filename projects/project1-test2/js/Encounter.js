@@ -8,17 +8,19 @@
 class Encounter extends Voice {
   constructor(imageEncounter, imageRedSpark, imageRedSparkBW, voice1, voice2) {
     super();
+    // center position
     this.x = width / 2;
     this.y = height / 2;
-    this.vx = 0;
-    this.vy = 0;
-    this.w = 1000;
-    this.h = 1333;
+    this.vx = 0; // x velocity
+    this.vy = 0; // y velocity
+    this.w = 1000; // width
+    this.h = 1333; //height
 
-    this.delayTime = 5000;
+    this.delayTime = 5000; // time when the hint appears
 
-    this.speed = 0.8;
+    this.speed = 0.8; // speed of the movement
     this.encounterFadeRate = 1.5;
+    this.encounterFadeMax = 240;
     this.imageEncounter = imageEncounter;
 
     this.imageRedSpark = imageRedSpark;
@@ -30,33 +32,39 @@ class Encounter extends Voice {
     this.voice2 = voice2;
   }
 
+  // updates the encounter and its behaivour
   update() {
     this.move();
     this.display();
   }
 
+  // speaks a longer speech
   voiceUtteranceLong() {
     super.utteranceLong();
   }
 
+  // repeats a shorter speech
   voiceUtteranceShort() {
     super.utteranceShort();
   }
 
+  // displays a dialog box
   userPromptBox() {
     currentResponse = prompt(userPrompt);
   }
 
+  // checks if user agrees ('yes'), if so changes the state
   checkUserAnswer() {
     if (currentResponse === userResponse) {
       state = `lightningHeartbeat`;
       heartbeatScene = true;
       encounterScene = false;
     } else {
-      this.voiceUtteranceShort();
+      this.voiceUtteranceShort(); // speaks a shorter speach
     }
   }
 
+  // makes the encounter appear after the specified time
   triggerPrompt() {
     setTimeout(function () {
       redSparkMuted = false;
@@ -67,20 +75,21 @@ class Encounter extends Voice {
 
   // adds the floating movement to the encounter
   move() {
-    // check if we need to change the moving direction
+    // checks if we need to change the moving direction
     let r = random(0, 1);
     if (r < 0.1) {
       this.vx = random(-this.speed, this.speed);
       this.vy = random(-this.speed, this.speed);
     }
-    // move position with velocity
+    // moves position with velocity
     this.x += this.vx;
     this.y += this.vy;
-    // constrain to the canvas
+    // constrains to the canvas
     this.x = constrain(this.x, 0, width);
     this.y = constrain(this.y, 0, height);
   }
 
+  // renders a muted spark, then a fully visible spark, moves in accordance with the visible encounter
   display() {
     if (redSparkMuted) {
       push();
@@ -99,6 +108,7 @@ class Encounter extends Voice {
       image(this.imageRedSpark, this.x + 25, this.y - 50, this.size, this.size);
       pop();
     }
+    // slowly shows the encounter
     push();
     if (encounterVisible) {
       encounterFade += this.encounterFadeRate;
@@ -109,6 +119,7 @@ class Encounter extends Voice {
     }
   }
 
+  // makes the light and encounter appear when mouse is clicked
   mousePressed() {
     this.triggerPrompt();
     // plays the mysterious sound
@@ -116,7 +127,8 @@ class Encounter extends Voice {
       mysteriousSFX.setVolume(0.4);
       mysteriousSFX.loop();
     }
-    if (encounterVisible && encounterFade >= 240) {
+    // shows the dialog box when the the encounter reaches the given visibility value
+    if (encounterVisible && encounterFade >= this.encounterFadeMax) {
       this.voiceUtteranceShort();
       this.userPromptBox();
       this.checkUserAnswer();
