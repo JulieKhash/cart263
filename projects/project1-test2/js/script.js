@@ -12,7 +12,7 @@ what it means to be and become a vampire. Happy initiations!
 // responsive voice parameters
 const VOICE_NAME = `UK English Male`;
 const VOICE_PARAMS = {
-  pitch: 0.3,
+  pitch: 0.03,
   rate: 0.8,
   volume: 0.9,
 };
