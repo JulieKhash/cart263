@@ -1,3 +1,10 @@
+// Encounter
+// extends Voice (responsive voice) class
+// appears slowly when the user clicks with their mouse, adds on the sound effect
+// the text box appears when it reaches the full visibility
+// changes the state if the user agrees (types "Yes"),
+// user "must" agree with the spirit encounter becuase there's no way back
+
 class Encounter extends Voice {
   constructor(imageEncounter, imageRedSpark, imageRedSparkBW, voice1, voice2) {
     super();

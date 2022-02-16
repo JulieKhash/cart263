@@ -1,3 +1,7 @@
+// Prologue
+// adds the prologue text to scroll-down event
+// serves as an intro or "invite" to the experience
+
 class Prologue {
   constructor() {
     this.x = width / 2;

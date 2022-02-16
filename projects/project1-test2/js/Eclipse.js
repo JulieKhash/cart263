@@ -1,16 +1,22 @@
+// "Eclipse", because the idea of a rotating stained glass window came from an eclipse
+// extends Voice (responsive voice) class
+// appears muted, activates the scene when user clicks with their mouse
+
 class Eclipse extends Voice {
   constructor(imageBranchFrame, imageGlass, imageStillGlass, voice1, voice2) {
     super();
     this.x = width / 2;
     this.y = height / 2;
 
-    this.opacity = 0;
+    this.fadeAmount = 0; // intial fade value
+    this.fadeRate = 5; // fade in rate
 
     this.branchW = 1300;
     this.branchWH = 1300;
     this.imageBranchFrame = imageBranchFrame;
 
-    this.angle = 0;
+    this.angle = 0; // rotational angle
+    this.rotationRate = 0.002; // rotation rate value
     this.imageGlass = imageGlass;
     this.imageStillGlass = imageStillGlass;
 
@@ -18,34 +24,39 @@ class Eclipse extends Voice {
     this.voice2 = voice2;
   }
 
+  // updates the stained glass and tree
   update() {
     this.display();
     this.showSlowly();
   }
 
+  // speaks longer lines
   voiceUtteranceLong() {
     super.utteranceLong();
   }
 
+  // repeats shorted lines
   voiceUtteranceShort() {
     super.utteranceShort();
   }
 
+  // fade in
   showSlowly() {
-    this.opacity += 5;
+    this.fadeAmount += this.fadeRate;
   }
 
+  // shows a still stained glass window, then brightens and slowly slowly
   display() {
     if (circleStill) {
       push();
       translate(this.x, this.y - 150);
-      tint(100, this.opacity);
+      tint(100, this.fadeAmount);
       image(this.imageStillGlass, 0, 0);
       pop();
     } else if (circleMoving) {
       push();
-      this.angle += 0.002;
-      translate(this.x, this.y - 150);
+      this.angle += this.rotationRate;
+      translate(this.x, this.y - 150); // off-center to the left
       rotate(this.angle);
       tint(255);
       image(this.imageGlass, 0, 0);
@@ -58,18 +69,19 @@ class Eclipse extends Voice {
   }
 
   mousePressed() {
-    // makes the stained glass move
+    // activates the stained glass window
     circleMoving = true;
     circleStill = false;
-    // plays the bell sound
+    // plays sound of a church bell sound
     if (!churchBellSFX.isPlaying()) {
-      churchBellSFX.setVolume(0.5); // i think it's not working
+      churchBellSFX.setVolume(0.5);
       churchBellSFX.loop();
     }
+    // when the bird gleams, repeats a short speech (by clicking)
     if (redBirdVisible) {
       this.voiceUtteranceShort();
     } else {
-      this.voiceUtteranceLong();
+      this.voiceUtteranceLong(); // plays longer speech until bird gleams
     }
   }
 }

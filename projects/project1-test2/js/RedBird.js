@@ -1,4 +1,8 @@
-// a class for the red bird on the tree
+// RedBird
+// adds a bird perched on a tree branch, appears muted, then glitters
+// giving the user "hint" effect
+// serves as portal to another scene
+
 class RedBird {
   constructor(imageRedBird, imageMutedRedBird) {
     this.x = width / 2 + 300; // x coordination

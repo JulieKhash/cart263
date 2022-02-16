@@ -1,17 +1,24 @@
+// DragonFly
+// extends Voice (responsive voice) class
+// the dragonfly that glitters after certain time and adds the "hint" effect
+// that makes the user click on it.
+// changes the state through the dragonfly
+
 class DragonFly extends Voice {
   constructor(imageBird, imageMutedBird, imageSplash, voice1, voice2) {
     super();
-    this.x = width / 2 + 480;
-    this.y = height / 2 + 300;
-    this.vx = 0;
-    this.vy = 0;
-    this.speed = 2;
+    // positions on the right side corner of the frame
+    this.x = width / 2 + 480; // x-coord
+    this.y = height / 2 + 300; // y-coord
+    this.vx = 0; // velocity x
+    this.vy = 0; // // velocity y
 
-    this.timeDelay = 24000;
+    this.timeDelay = 24000; // time when the hint appears
 
     this.imageBird = imageBird;
     this.imageMutedBird = imageMutedBird;
 
+    // positions and size parameters for the red splash
     this.SplashX = width / 2 - 200;
     this.SplashY = height / 2 - 100;
     this.SplashW = 1020;
@@ -27,7 +34,7 @@ class DragonFly extends Voice {
     this.display();
   }
 
-  // triggers user to the action after a specified time
+  // gives a hint after the specified time
   triggerPrompt() {
     setTimeout(function () {
       dragonflyMovingVisible = true;
@@ -40,7 +47,7 @@ class DragonFly extends Voice {
     super.utteranceLong();
   }
 
-  // repeats the short lines
+  // repeats a short line
   voiceUtteranceShort() {
     super.utteranceShort();
   }
@@ -55,7 +62,7 @@ class DragonFly extends Voice {
     }
   }
 
-  // check if the mouse touches the bottle
+  // checks if the mouse touches the bottle
   checkOverlapDragonfly(x, y) {
     if (
       x > this.x - this.imageBird.width / 2 &&
@@ -83,7 +90,7 @@ class DragonFly extends Voice {
       pop();
     }
 
-    // show blood splash
+    // shows a glittering blood splash
     push();
     tint(200, random(80, 120));
     image(
@@ -96,7 +103,7 @@ class DragonFly extends Voice {
     pop();
   }
 
-  // enables user prompt, state change, and the speakign voice
+  // enables a hint, state change, and the speaking voice
   mousePressed() {
     this.triggerPrompt();
     if (dragonflyMovingVisible) {

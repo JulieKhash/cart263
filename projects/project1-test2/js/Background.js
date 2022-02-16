@@ -1,5 +1,7 @@
-// a class for the background image (shows a forest)
-class ForestBackground {
+// Background
+// shows the background image of the haunted forest
+
+class Background {
   constructor(imageForest) {
     this.x = width / 2; // x-coor
     this.y = height / 2; // y-cord

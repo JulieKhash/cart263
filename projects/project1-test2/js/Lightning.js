@@ -1,3 +1,8 @@
+// Lightning
+// extends Voice (responsive voice) class
+// shows the animation of the lightning, synchronously accompanied by heartbeat sounds
+// shows the text
+
 class Lightning extends Voice {
   constructor(imageLightning, imageInkFrame, voice1) {
     super();

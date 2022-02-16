@@ -198,8 +198,8 @@ function setUPObjects() {
     bloodBottleImg,
     bloodBottleText1
   );
-  forestBW = new ForestBackground(forestBgBWImg);
-  forestColor = new ForestBackground(forestBgColImg);
+  forestBW = new Background(forestBgBWImg);
+  forestColor = new Background(forestBgColImg);
   titleMain = new Title(titleText);
   prologue = new Prologue();
 }

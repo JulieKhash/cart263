@@ -1,4 +1,6 @@
-// a class for the title
+// Title
+// adds glittering texts for the main page, applies "gothic" like fonts
+
 class Title {
   constructor(titleText) {
     this.x = width / 2;
@@ -18,7 +20,7 @@ class Title {
     this.display();
   }
 
-  // shows the scroll down text
+  // shows the `scroll down` text
   display() {
     push();
     textAlign(CENTER, CENTER);
@@ -38,7 +40,7 @@ class Title {
     pop();
   }
 
-  // mouse scroll wheel for the manual fade effect between title/prologue texts
+  // scroll event for the manual fade effect between title/prologue texts
   mouseWheel(event) {
     this.opacity -= event.delta / this.fadeRate;
   }

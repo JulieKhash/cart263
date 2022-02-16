@@ -1,3 +1,6 @@
+// FlowerBloom
+// slowly displays the animation of the flowers inside the frame
+
 class FlowerBloom {
   constructor(imageBloom, imageBlackFrame) {
     this.x = width / 2;
@@ -17,7 +20,7 @@ class FlowerBloom {
     this.showSlowly();
   }
 
-  // fade in
+  // fade in effect
   showSlowly() {
     this.fadeAMount++;
   }
