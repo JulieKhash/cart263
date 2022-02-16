@@ -6,7 +6,7 @@
 
 The user can experience themselves as Lestat de Lioncourt and dive into a mystical and philosophical narrative of what it means to be and become a vampire.
 
-The thoughtful synthesis of various media such as images, gifs, specific sounds, script, and a whispers, allowed for an almost realistic representation of the world from the vampire's point of view. I carefully designed the individual objects of the scenes and the overall theme to keep the aesthetics coherent.
+The thoughtful synthesis of various media such as images, gifs, specific sounds, script, and whispers, allowed for an almost realistic representation of the world from the vampire's point of view. I carefully designed the individual objects of the scenes and the overall theme to keep the aesthetics coherent.
 
 Because of the appeal of the poetic language, I appropriated the text for the voice from the film script "Interview with the Vampire". The movie also served as the initial inspiration for the project, but I decided to concentrate on one character and his individual journey.
 
