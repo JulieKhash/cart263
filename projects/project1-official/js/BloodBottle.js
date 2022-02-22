@@ -11,7 +11,7 @@ class BloodBottle extends Voice {
     this.fadeAMount = 170; // intial fade value
     this.fadeRate = 1 / 5; // fade rate
 
-    this.delayTime = 5500; // time when the hint appears
+    this.delayTime = 6000; // time when the hint appears
 
     this.imageBottle = imageBottle;
     this.imageMutedBottle = imageMutedBottle;
