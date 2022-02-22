@@ -59,8 +59,8 @@ class Encounter extends Voice {
       state = `lightningHeartbeat`;
       heartbeatScene = true;
       encounterScene = false;
-    } else {
-      this.voiceUtteranceShort(); // speaks a shorter speach
+      // } else {
+      //   this.voiceUtteranceShort(); // speaks a shorter speach
     }
   }
 
