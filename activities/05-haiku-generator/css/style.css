@@ -1,6 +1,10 @@
-/*********************************************
+#haiku {
+  font-family: Arial, sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+}
 
-Here is a description of any special CSS used.
-By default that's nothing.
-
-**********************************************/
+body {
+  text-align: center;
+  background-color: #fdf5e6;
+}
