@@ -102,6 +102,21 @@ function setClickSymbol(element) {
   element.innerText = clickSymbol;
 }
 
+// replaces the character with the red symbols
+function replaceMouseover(event) {
+  setSymbol(event.target);
+  event.target.style.color = "red";
+  // leaves the tracing of dark-green color after 0.5 secs
+  setTimeout(function () {
+    event.target.style.color = `#00394d`;
+  }, 500);
+}
+
+// sets the character of the element to a randomly chosen symbol
+function setSymbol(element) {
+  element.innerText = random(symbols);
+}
+
 // helper function that returns a random element from an array
 function random(array) {
   return array[Math.floor(Math.random() * array.length)];
