@@ -2,8 +2,10 @@
 Exercise 5 - Haiku Generator New
 Julie Khashimova
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+A simple webpage with interactive text. Mouse over enables th sound and
+change of the character into corner symbols. Leaves symbol trace after 0.5 secs
+Mouse click adds a circle symbols
+
 */
 
 "use strict";
