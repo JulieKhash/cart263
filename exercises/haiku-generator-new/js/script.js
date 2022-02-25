@@ -77,3 +77,16 @@ function setup() {
     let span = document.createElement(`span`);
     // add the characters
     span.innerHTML = wordChars[i];
+    // call "replaceMouseover" on mouse over
+    span.addEventListener(`mouseover`, replaceMouseover);
+    // play a sound on mouse over
+    span.addEventListener(`mouseover`, function () {
+      //  plays the sound when the mouse is over the letter
+      soundfx.play();
+    });
+    // call "replaceClick" on mouse click
+    span.addEventListener(`click`, replaceClick);
+    // insert the span into the "main-text"
+    text.appendChild(span);
+  }
+}
