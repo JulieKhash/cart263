@@ -63,6 +63,8 @@ const textLine = `  One impulse art thou conscious of, at best;
 const soundfx = new Audio(`assets/sounds/sfx.mp3`); // load sound file
 soundfx.volume = 0.3; // set up the volume
 
+setup();
+
 function setup() {
   // gets the text element where we'll put our text content into
   let text = document.getElementById(`main-text`);
