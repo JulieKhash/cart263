@@ -111,7 +111,7 @@ function setClickSymbol(element) {
 function replaceMouseover(event) {
   setSymbol(event.target);
   event.target.style.color = "red";
-  // leaves the tracing of dark-green color after 0.5 secs
+  // leaves a dark green trail after 0.5 sec.
   setTimeout(function () {
     event.target.style.color = `#00394d`;
   }, 500);
