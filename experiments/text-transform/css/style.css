@@ -1,0 +1,18 @@
+p {
+  color: #1e81b0;
+  font-size: 50px;
+  text-align: center;
+  font-family: Helvetica;
+  font-weight: bold;
+}
+
+span {
+  color: lightblue;
+}
+
+.rotator,
+.skewer,
+.mover {
+  display: inline-block; /*requared to play with transform*/
+  position: relative;
+}
