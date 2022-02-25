@@ -1,6 +1,23 @@
-/*********************************************
+body {
+  background-color: black;
+  overflow: hidden; /* Hide scrollbars */
+}
 
-Here is a description of any special CSS used.
-By default that's nothing.
+span {
+  color: #0099cc;
+  line-height: 0;
+  word-spacing: 0px;
+}
 
-**********************************************/
+span:hover {
+  font-size: 35px;
+}
+
+#main-text {
+  margin-left: 50px;
+  padding: 150px;
+  /* width: 1000px; */
+  font-family: "Orbitron";
+  font-size: 25px;
+  /* text-align: center; */
+}
