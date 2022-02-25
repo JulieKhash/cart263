@@ -13,6 +13,11 @@ span:hover {
   font-size: 35px;
 }
 
+.character {
+  display: inline-block; /*required to play with transform*/
+  position: relative;
+}
+
 #main-text {
   margin-left: 50px;
   padding: 150px;

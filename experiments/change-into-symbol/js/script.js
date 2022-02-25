@@ -71,6 +71,19 @@ function setup() {
     let span = document.createElement(`span`);
     // add the characters
     span.innerHTML = wordChars[i];
+
+    // leaves the space between words
+    if (wordChars[i] === ` `) {
+      span.innerHTML = `&nbsp`;
+    }
+    // Otherwise we just add the character itself
+    else {
+      span.innerHTML = wordChars[i];
+    }
+    // add the cahracter class to the span(required for styling)
+    span.classList.add(`character`);
+    // trigger falling chars on mouse over
+    span.addEventListener("mouseover", startFalling);
     // call "replaceMouseover" on mouse over
     span.addEventListener(`mouseover`, replaceMouseover);
     // play a sound on mouse over
@@ -83,6 +96,26 @@ function setup() {
     // insert the span into the "main-text"
     text.appendChild(span);
   }
+}
+
+// begines the process of rotating the triggering element
+function startFalling(event) {
+  requestAnimationFrame(function () {
+    let vy = 5 + Math.random() * 10;
+    fall(event.target, 0, vy);
+  });
+}
+
+// moves the position using the y velocity, then sets the element's position
+// then requests another frame of animaton to do so again
+function fall(element, y, vy) {
+  // move y position
+  y += vy;
+  element.style.top = `${y}px`;
+  // do it again next frame
+  requestAnimationFrame(function () {
+    fall(element, y, vy);
+  });
 }
 
 // replaces the click with a chosen symbol
