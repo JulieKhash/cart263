@@ -66,6 +66,8 @@ soundfx.volume = 0.3; // set up the volume
 
 setup();
 
+// goes through the text, splits it into characters, and then adds each one into the webpage(appears whole)
+// adds event listeners to the individual spans to cause them change and do stuff
 function setup() {
   // gets the text element where we'll put our text content into
   let text = document.getElementById(`main-text`);
