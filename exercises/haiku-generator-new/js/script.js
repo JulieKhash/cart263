@@ -59,3 +59,6 @@ const textLine = `  One impulse art thou conscious of, at best;
   That night surrounds; but Saturn's daughter spread their
   Glister on the feathers of her bird, emblazoning its tail
   With starry gems`;
+
+const soundfx = new Audio(`assets/sounds/sfx.mp3`); // load sound file
+soundfx.volume = 0.3; // set up the volume
