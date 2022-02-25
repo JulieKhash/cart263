@@ -97,6 +97,11 @@ function replaceClick(event) {
   event.target.style.color = `#ffe6e6`;
 }
 
+// set the character of the element to a specific symbol
+function setClickSymbol(element) {
+  element.innerText = clickSymbol;
+}
+
 // helper function that returns a random element from an array
 function random(array) {
   return array[Math.floor(Math.random() * array.length)];
