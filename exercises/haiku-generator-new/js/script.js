@@ -2,9 +2,10 @@
 Exercise 5 - Haiku Generator New
 Julie Khashimova
 
-A simple webpage with interactive text. Mouse over enables the sound and
-change of the character into corner symbols. Leaves a character trace after 0.5 secs
-Mouse click adds a circle symbol
+A simple webpage with interactive text. Hovering the mouse turns on the sound,
+changing the symbol to corner symbols and makes them fall.
+Leaves a character trail after 0.5 seconds (dark green)
+
 */
 
 "use strict";
