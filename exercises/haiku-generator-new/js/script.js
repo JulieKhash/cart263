@@ -91,6 +91,12 @@ function setup() {
   }
 }
 
+// replaces the click with a chosen symbol
+function replaceClick(event) {
+  setClickSymbol(event.target);
+  event.target.style.color = `#ffe6e6`;
+}
+
 // helper function that returns a random element from an array
 function random(array) {
   return array[Math.floor(Math.random() * array.length)];
