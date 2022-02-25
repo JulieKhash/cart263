@@ -90,3 +90,8 @@ function setup() {
     text.appendChild(span);
   }
 }
+
+// helper function that returns a random element from an array
+function random(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
