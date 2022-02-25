@@ -62,3 +62,18 @@ const textLine = `  One impulse art thou conscious of, at best;
 
 const soundfx = new Audio(`assets/sounds/sfx.mp3`); // load sound file
 soundfx.volume = 0.3; // set up the volume
+
+function setup() {
+  // gets the text element where we'll put our text content into
+  let text = document.getElementById(`main-text`);
+
+  // separate the words into an array of individual characters
+  let wordChars = textLine.split(``);
+  // console.log(wordChars);
+
+  // go through every character
+  for (let i = 0; i < wordChars.length; i++) {
+    //create a new span element
+    let span = document.createElement(`span`);
+    // add the characters
+    span.innerHTML = wordChars[i];
