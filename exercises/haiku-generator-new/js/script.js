@@ -125,12 +125,6 @@ function fall(element, y, vy) {
   });
 }
 
-// replaces the click with a chosen symbol
-function replaceClick(event) {
-  setClickSymbol(event.target);
-  event.target.style.color = `#ffe6e6`;
-}
-
 // replaces the character with the red symbols
 function replaceMouseover(event) {
   setSymbol(event.target);
