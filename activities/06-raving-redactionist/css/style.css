@@ -1,6 +1,21 @@
-/*********************************************
+#secret-document {
+  font-family: Brush Script MT, cursive;
+  font-size: 40px;
+  width: 900px;
+  margin-left: 100px;
+  margin-top: 100px;
+}
 
-Here is a description of any special CSS used.
-By default that's nothing.
+/* redacted elements imposible to see and select */
+.redacted {
+  background-color: black;
+  user-select: none;
+}
 
-**********************************************/
+/* redacted elemenets visible to user */
+.revealed {
+  background: #f0ffc7;
+  opacity: 0.7;
+  color: #ff5216;
+  text-decoration: underline;
+}
