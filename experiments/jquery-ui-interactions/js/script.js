@@ -58,3 +58,10 @@ function makePrisonDraggable() {
     },
   });
 }
+
+$(`#rose`).effect({
+  effect: `shake`,
+  duration: 1500,
+  times: 14,
+  distance: 6,
+});

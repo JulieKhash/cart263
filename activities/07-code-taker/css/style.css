@@ -1,6 +1,14 @@
+#poem {
+  font-size: 25px;
+}
+
 #answer {
-  height: 2rem;
+  height: 3rem;
   margin-top: 2rem;
   font-size: 3rem;
   border: 1px solid black;
+}
+
+.found {
+  color: red;
 }
