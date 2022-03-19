@@ -1,11 +1,8 @@
-/**
-Title of Project
-Author Name
-
-This is a template. You must fill in the title,
-author, and this description to match your project!
-*/
-
 "use strict";
 
-// Code goes here
+const music = new Audio(`assets/sounds/13_RitualDjembe.wav`);
+
+$("#sample1-button").button({ classes: { "ui-button": "highlight" } });
+$(this).click(function () {
+  music.play();
+});
