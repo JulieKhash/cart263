@@ -1,0 +1,11 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
+#mixer-box {
+  background-color: grey;
+  width: 500px;
+  height: 500px;
+  border-radius: 70%;
+}

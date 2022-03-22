@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  background: #133250;
+  /* background: #133250; */
 }
 
 .container {
@@ -19,8 +19,8 @@
   background: blue;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   row-gap: 0.5em;
   column-gap: 0.5em;
 }
