@@ -6,12 +6,12 @@ html {
 
 #background {
   position: fixed;
-  width: 1000px;
+  width: 400px;
   opacity: 0;
 }
 #mixer-box {
   background-color: white;
-  position: fixedrelative;
+  position: fixed;
   opacity: 0.5;
   transform: translate(100%, 50%);
   width: 400px;
