@@ -1,11 +1,15 @@
 "use strict";
 
-let music = new Pizzicato.Sound(
-  "./assets/sounds/13_RitualDjembe.wav",
+// let music = new Pizzicato.Sound(`./assets/sounds/13_RitualDjemble.wav`);
+
+var acousticGuitar = new Pizzicato.Sound(
+  `assets/sounds/13_RitualDjemble.wav`,
   function () {
-    music.play();
+    // Sound loaded!
+    acousticGuitar.play();
   }
 );
+
 //
 // $(`.drum-button`).hover(function () {
 //   $(this).css({
