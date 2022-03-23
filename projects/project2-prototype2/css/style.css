@@ -4,19 +4,27 @@ html {
   margin: 0;
 }
 
+#background {
+  position: fixed;
+  width: 1000px;
+  opacity: 0;
+}
 #mixer-box {
-  background-color: grey;
+  background-color: white;
+  position: fixedrelative;
+  opacity: 0.5;
+  transform: translate(100%, 50%);
   width: 400px;
   height: 400px;
   border-radius: 70%;
 }
 
-.crystal-img {
-  width: 100px;
-  opacity: 0.5;
+#drop-text {
+  color: white;
+  font-size: 30px;
 }
 
-.crystal-img2 {
+.crystal-img {
   width: 100px;
-  opacity: 0.5;
+  opacity: 0.4;
 }
