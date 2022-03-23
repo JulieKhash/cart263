@@ -11,7 +11,7 @@ Makes the smoke appear and plays the sound. That's it haha
 // const numCrystals = 5;
 // for (let i = 0; i < numCrystals; i++) {
 
-// appends image elemetns into the html canvas
+// appends image elemetns to html
 $(`body`).append(
   `<img class="crystal-img" id="crystal1" src="assets/images/crystal2.png">`
 );
