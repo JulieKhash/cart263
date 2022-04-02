@@ -32,60 +32,23 @@ body {
 .images {
 }
 
+#click-icons-container {
+  position: absolute;
+  display: block;
+  padding-top: 20vh;
+}
+
 .texts {
   /* display: inline-block; */
+  position: relative;
   display: block;
   padding-left: 20px;
   color: #e3f2ff;
   width: 43px;
-  height: 30px;
+  height: 1px;
   font-size: 40px;
   cursor: pointer;
 }
-
-#text1 {
-  color: white;
-}
-
-#text2 {
-  color: white;
-}
-
-#text3 {
-  color: white;
-}
-
-#text4 {
-  color: white;
-}
-
-#text5 {
-  color: white;
-}
-
-#text6 {
-  color: white;
-}
-
-#text7 {
-  color: white;
-  /* font-size: 70px; */
-}
-
-#text8 {
-  color: white;
-  /* font-size: 70px; */
-}
-
-#text9 {
-  color: #e3f2ff;
-  /* font-weight: bold;  */
-  /* font-size: 60px; */
-}
-
-/* #moth-icon {
-  width: 50px;
-} */
 
 .scenes-text {
   position: absolute;
