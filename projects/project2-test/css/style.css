@@ -1,7 +1,42 @@
+. {
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
-  margin: 0;
-  padding: 0;
+  background-color: white;
+  margin: 0px;
+  overflow: hidden;
+}
+
+#container {
+  display: block;
+  position: absolute;
   background-color: black;
+  width: 100%;
+  height: 100%;
+  /* margin: 10px; */
+  padding: 10px;
+  /* margin-top: 70px;
+  margin-bottom: 20px; */
+  margin-left: auto;
+  margin-right: auto;
+  /* height: 50vw;
+  width: 90vw; */
+  color: white;
+  /* border: 2px solid; */
+  justify-content: center;
+  align-items: center;
+}
+
+.images {
+}
+
+.texts {
+  /* display: inline-block; */
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 #text1 {
@@ -103,7 +138,7 @@ body {
 }
 
 #moth {
-  position: fixed;
+  position: absolute;
   top: -300px;
   left: 200px;
   width: 1300px;
@@ -112,7 +147,8 @@ body {
 }
 
 #swing {
-  position: absolute;
+  position: relative;
+  padding: 20px;
   width: 15vw;
   left: 500px;
   z-index: 4;
@@ -120,7 +156,7 @@ body {
 }
 
 #smoke {
-  position: absolute;
+  position: relative;
   width: 30vw;
   left: 200px;
   z-index: 1;
