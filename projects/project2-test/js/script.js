@@ -26,26 +26,57 @@ let crystalSound3 = new Audio(`assets/sounds/steeltrap.wav`);
 $(`#image-container`).addClass(`.images`);
 
 $(`#icon1`).one(`click`, function () {
-  $(`#image-container`).append($fire);
-  // animation();
+  $(`#image-container`).append($tree);
 });
 
 $(`#icon2`).one(`click`, function () {
   $(`#image-container`).append($mothEye);
-  // animation();
 });
 
 $(`#icon3`).one(`click`, function () {
-  $(`#image-container`).append($tree);
-  // animation();
+  $(`#image-container`).append($fire);
 });
 
-// function animation() {
+$(`#icon4`).one(`click`, function () {
+  $(`#image-container`).append($walker);
+});
+
+$(`#icon5`).one(`click`, function () {
+  $(`#image-container`).append($wingedMan);
+});
+
+$(`#icon6`).one(`click`, function () {
+  $(`#image-container`).append($sun);
+});
+
+$(`#icon7`).one(`click`, function () {
+  $(`#image-container`).append($swingFigure);
+});
+
+$(`#icon8`).one(`click`, function () {
+  $(`#image-container`).append($skyBg);
+});
+
+$(`#icon9`).one(`click`, function () {
+  $(`#image-container`).append($darkPlanet);
+});
+
+$(`#icon10`).one(`click`, function () {
+  $(`#image-container`).append($smoke);
+});
+
+$(`#icon11`).one(`click`, function () {
+  $(`#image-container`).append($whiteMoth);
+});
+
+$(`#icon12`).one(`click`, function () {
+  $(`#image-container`).append($crystal);
+});
+
 $(`.icons`).one(`click`, function () {
   $(`.images`).animate({ opacity: 0.7 }, 2000);
   console.log(`cliicked`);
 });
-// }
 
 // $(`.images`).animate({ opacity: 0.7 }, 1000);
 // $(`#tree`).animate({ opacity: 0.7 }, 6000);

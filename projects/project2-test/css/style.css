@@ -25,6 +25,7 @@ body {
 }
 
 .images {
+  width: 300px;
   opacity: 0;
 }
 
