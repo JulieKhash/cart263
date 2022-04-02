@@ -10,9 +10,9 @@ body {
 }
 
 #container {
+  background-color: black;
   display: block;
   position: absolute;
-  background-color: black;
   width: 100%;
   height: 100%;
   /* margin: 10px; */
@@ -34,8 +34,11 @@ body {
 
 .texts {
   /* display: inline-block; */
-  height: 50px;
-  font-size: 20px;
+  display: block;
+  padding-left: 20px;
+  color: #e3f2ff;
+  height: 30px;
+  font-size: 40px;
   cursor: pointer;
 }
 
@@ -65,16 +68,18 @@ body {
 
 #text7 {
   color: white;
+  /* font-size: 70px; */
 }
 
 #text8 {
   color: white;
+  /* font-size: 70px; */
 }
 
 #text9 {
   color: #e3f2ff;
   /* font-weight: bold;  */
-  font-size: 60px;
+  /* font-size: 60px; */
 }
 
 /* #moth-icon {
