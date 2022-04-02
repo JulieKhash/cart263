@@ -25,6 +25,7 @@ body {
 }
 
 .images {
+  opacity: 0.5;
 }
 
 #click-icons-container {
