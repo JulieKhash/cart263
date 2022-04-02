@@ -1,7 +1,8 @@
 "use strict";
+
+let $fire = `<img class="images"id="fire"src="assets/images/fire.png">`; //3
 let $tree = `<img class="images"id="tree"src="assets/images/tree-cut.png">`; //1
 let $mothEye = `<img class="images" id="mothEye"src="assets/images/moth-face.png">`; //2
-let $fire = `<img class="images"id="fire"src="assets/images/fire.png">`; //3
 let $walker = `<img class="images"id="walker"src="assets/images/rope-walker-shadow2.png">`; //4
 let $wingedMan = `<img class="images"id="wingedMan"src="assets/images/wingman4.png">`; //5
 let $sun = `<img class="images"id="sun"src="assets/images/sun2.png">`; //6
@@ -18,21 +19,33 @@ let crystalSound2 = new Audio(`assets/sounds/glassy.wav`);
 let crystalSound3 = new Audio(`assets/sounds/steeltrap.wav`);
 
 //text (make a class that applies all effects into text stuff)
-let $scene1 = `<p class="scenes-text" id="scene-1"> I had this dream...</p>`;
+// let $scene1 = `<p class="scenes-text" id="scene-1"> I had this dream...</p>`;
+// let $scene2 = `<p class="scenes-text" id="scene-2">back on the Earth where our ancestors walked,
+//  before a curtain fell between the worlds, before we began to forget...</p>`;
 
-let $scene2 = `<p class="scenes-text" id="scene-2">back on the Earth where our ancestors walked,
- before a curtain fell between the worlds, before we began to forget...</p>`;
-
-$(`#click-icons-container`).addClass(`.images`);
+$(`#image-container`).addClass(`.images`);
 
 $(`#icon1`).one(`click`, function () {
-  $(`#container`).append($tree);
+  $(`#image-container`).append($fire);
+  // animation();
 });
 
+$(`#icon2`).one(`click`, function () {
+  $(`#image-container`).append($mothEye);
+  // animation();
+});
+
+$(`#icon3`).one(`click`, function () {
+  $(`#image-container`).append($tree);
+  // animation();
+});
+
+// function animation() {
 $(`.icons`).one(`click`, function () {
-  $(`.images`).animate({ opacity: 0.7 }, 1000);
+  $(`.images`).animate({ opacity: 0.7 }, 2000);
   console.log(`cliicked`);
 });
+// }
 
 // $(`.images`).animate({ opacity: 0.7 }, 1000);
 // $(`#tree`).animate({ opacity: 0.7 }, 6000);

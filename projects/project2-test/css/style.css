@@ -9,7 +9,7 @@ body {
   overflow: hidden;
 }
 
-#container {
+#wrapper {
   background-color: black;
   display: block;
   position: absolute;
@@ -25,13 +25,18 @@ body {
 }
 
 .images {
-  opacity: 0.5;
+  opacity: 0;
 }
 
 #click-icons-container {
   position: absolute;
   display: block;
   padding-top: 20vh;
+}
+
+#image-container {
+  display: block;
+  padding: 64px;
 }
 
 .icons {
@@ -58,10 +63,10 @@ body {
   opacity: 0;
 }
 
-#scene-1 {
+/* #scene-1 {
   top: 1100px;
   left: 400px;
-}
+} */
 
 #tree {
   position: fixed;
@@ -72,14 +77,20 @@ body {
   z-index: 1;
 }
 
-#face {
-  position: absolute;
-  /* width: 1000px; */
-  z-index: 7;
-  opacity: 0;
+#fire {
+  position: fixed;
+  width: 700px;
+  left: 500px;
 }
 
-#ghost {
+/* #face {
+  position: absolute;
+  width: 1000px;
+  z-index: 7;
+  opacity: 0;
+} */
+
+/* #ghost {
   position: absolute;
   width: 1000px;
   left: 300px;
@@ -136,4 +147,4 @@ body {
   left: 200px;
   z-index: 2;
   opacity: 0;
-}
+} */
