@@ -10,7 +10,7 @@ body {
 }
 
 #container {
-  background-color: black;
+  background-color: grey;
   display: block;
   position: absolute;
   width: 100%;
@@ -37,6 +37,7 @@ body {
   display: block;
   padding-left: 20px;
   color: #e3f2ff;
+  width: 43px;
   height: 30px;
   font-size: 40px;
   cursor: pointer;
