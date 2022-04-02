@@ -23,9 +23,20 @@ let $scene1 = `<p class="scenes-text" id="scene-1"> I had this dream...</p>`;
 let $scene2 = `<p class="scenes-text" id="scene-2">back on the Earth where our ancestors walked,
  before a curtain fell between the worlds, before we began to forget...</p>`;
 
-$(`.icons`).one(`click`, function () {
-  $(`.images`).animate({ opacity: 0.7 }, 6000);
+$(`#click-icons-container`).addClass(`.images`);
+
+$(`#icon1`).one(`click`, function () {
+  $(`#container`).append($tree);
 });
+
+$(`.icons`).one(`click`, function () {
+  $(`.images`).animate({ opacity: 0.7 }, 1000);
+  console.log(`cliicked`);
+});
+
+// $(`.images`).animate({ opacity: 0.7 }, 1000);
+// $(`#tree`).animate({ opacity: 0.7 }, 6000);
+// console.log(`cliicked`);
 
 // $(`#text1`).one(`click`, function () {
 //   $(`body`).append($tree);
