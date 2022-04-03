@@ -37,8 +37,8 @@ body {
   bottom: 10px;
   left: 10px;
   right: 10px;
-  border: 5px solid red;
-  /* background-color: #38a97c; */
+  /* border: 1px solid #bc0909; */
+  border: 1px solid grey;
 
   padding: 64px;
 }
@@ -100,24 +100,30 @@ body {
   width: 40vw;
   max-width: 40vw;
   min-width: 500px;
-  z-index: 3;
+  z-index: 6;
 }
 
 #wingedMan {
   position: fixed;
   top: 300px;
-  left: 500px;
-  width: 30vw;
+  left: 700px;
+  width: 90vw;
   max-width: 40vw;
   min-width: 500px;
-  z-index: 2;
+  z-index: 10;
 }
 
 #sun {
+  position: fixed;
+  left: 700px;
+  width: 25vw;
+  max-width: 30vw;
+  min-width: 200px;
+  z-index: 9;
 }
 
 #swingFigure {
-  position: absolute;
+  position: fixed;
   left: 600px;
   width: 300px;
   z-index: 3;
@@ -125,21 +131,35 @@ body {
 
 #skyBg {
   position: fixed;
-  width: 1700px;
+  top: 20px;
+  width: 95vw;
   z-index: 1;
 }
 
 #darkPlanet {
+  position: fixed;
+  left: 300px;
+  width: 14vw;
+  max-width: 16vw;
+  min-width: 200px;
+  z-index: 9;
 }
 
 #smoke {
+  position: fixed;
+  width: 30vw;
+  z-index: 3;
 }
 
 #whiteMoth {
+  position: fixed;
+  left: 600px;
+  width: 300px;
+  z-index: 3;
 }
 
 #crystal {
-  position: absolute;
-  width: 1300px;
+  position: fixed;
+  width: 90vw;
   z-index: 2;
 }
