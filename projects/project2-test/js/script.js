@@ -1,7 +1,10 @@
 "use strict";
 
-let $images = $(`.images`);
-let $icons = $(`.icons`);
+let $images;
+let $icons;
+
+const opacityMin = 0;
+const opacityMax = 0.9;
 
 let $tree = `<img class="images"id="tree"src="assets/images/tree-cut.png">`; //1
 let $mothEye = `<img class="images" id="mothEye"src="assets/images/moth-face.png">`; //2
@@ -22,25 +25,29 @@ let crystalSound = new Audio(`assets/sounds/crystalcave.wav`);
 let crystalSound2 = new Audio(`assets/sounds/glassy.wav`);
 let crystalSound3 = new Audio(`assets/sounds/steeltrap.wav`);
 
-// $(`#image-container`).addClass(`.images`);
 $images = $(`.images`);
 $icons = $(`.icons`);
 
-$icons.on(`click`, function () {
-  $(`#image-container`).addClass(`.images`);
-  animationHandler();
-});
-// setTimeout(conceal, 3000);
-
-$icons.on(`click`, function () {
-  $(this).addClass(`active`);
-  // $(this).removeClass(`disabled`);
-});
-
-// iconHandler();
 imageAppend();
+
+// $(`#image-container`).addClass(`.images20`);
+
+$icons.on(`click`, function () {
+  animationHandler();
+  setTimeout(() => $(`#image-container`).removeClass(`.images`), 2000);
+});
+
+$icons.on(`click`, iconHandler);
+
+function iconHandler(event) {
+  $(this).addClass(`active`);
+  // setTimeout(() => $(this).removeClass(`disabled`), 1000);
+}
+
+// imageAppend();
 // animationHandler();
 function imageAppend() {
+  // animationHandler();
   $(`#icon1`).one(`click`, function () {
     $(`#image-container`).append($tree);
   });
@@ -94,16 +101,14 @@ function imageAppend() {
 function animationHandler() {
   reveal();
   conceal();
+
+  // $(`#image-container`).removeClass(`.images`);
 }
 
 function reveal() {
-  $(`.images`).animate({ opacity: 0.7 }, 3000);
+  $(`.images`).animate({ opacity: opacityMax }, 3000);
 }
 
 function conceal() {
-  $(`.images`).animate({ opacity: 0 }, 3000);
+  $(`.images`).animate({ opacity: opacityMin }, 3000);
 }
-
-// $(`#icon13`).one(`click`, function () {
-//   $(`#image-container`).append($flame);
-// });
