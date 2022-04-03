@@ -19,81 +19,80 @@ let crystalSound = new Audio(`assets/sounds/crystalcave.wav`);
 let crystalSound2 = new Audio(`assets/sounds/glassy.wav`);
 let crystalSound3 = new Audio(`assets/sounds/steeltrap.wav`);
 
-//text (make a class that applies all effects into text stuff)
-// let $scene1 = `<p class="scenes-text" id="scene-1"> I had this dream...</p>`;
-// let $scene2 = `<p class="scenes-text" id="scene-2">back on the Earth where our ancestors walked,
-//  before a curtain fell between the worlds, before we began to forget...</p>`;
-
 $(`#image-container`).addClass(`.images`);
 let $images = $(`.images`);
 
-// $images.each(fadeout);
-//
-// function hideImg() {
-//   setTimeout(() => $(`#image-container`).removeClass(`.images`), 2000);
-// }
+$(`.icons`).on(`click`, function () {
+  animationHandler();
+});
+// setTimeout(conceal, 3000);
 
-function fadeout() {
-  setTimeout(() => $(`#tree`).animate({ opacity: 0 }, 2000));
+// iconHandler();
+imageAppend();
+function imageAppend() {
+  $(`#icon1`).one(`click`, function () {
+    $(`#image-container`).append($tree);
+  });
+
+  $(`#icon2`).one(`click`, function () {
+    $(`#image-container`).append($mothEye);
+  });
+
+  $(`#icon3`).one(`click`, function () {
+    $(`#image-container`).append($fire);
+  });
+
+  $(`#icon4`).one(`click`, function () {
+    $(`#image-container`).append($walker);
+  });
+
+  $(`#icon5`).one(`click`, function () {
+    $(`#image-container`).append($wingedMan);
+  });
+
+  $(`#icon6`).one(`click`, function () {
+    $(`#image-container`).append($sun);
+    // $(`$sun`).effect(`pulsate`);
+  });
+
+  $(`#icon7`).one(`click`, function () {
+    $(`#image-container`).append($swingFigure);
+  });
+
+  $(`#icon8`).one(`click`, function () {
+    $(`#image-container`).append($skyBg);
+  });
+
+  $(`#icon9`).one(`click`, function () {
+    $(`#image-container`).append($darkPlanet);
+  });
+
+  $(`#icon10`).one(`click`, function () {
+    $(`#image-container`).append($smoke);
+  });
+
+  $(`#icon11`).one(`click`, function () {
+    $(`#image-container`).append($whiteMoth);
+  });
+
+  $(`#icon12`).one(`click`, function () {
+    $(`#image-container`).append($crystal);
+  });
 }
 
-$(`#icon1`).one(`click`, function () {
-  $(`#image-container`).append($tree);
-});
+function animationHandler() {
+  reveal();
+  conceal();
+}
 
-$(`#icon2`).one(`click`, function () {
-  $(`#image-container`).append($mothEye);
-});
+function reveal() {
+  $(`.images`).animate({ opacity: 0.7 }, 3000);
+}
 
-$(`#icon3`).one(`click`, function () {
-  $(`#image-container`).append($fire);
-});
-
-$(`#icon4`).one(`click`, function () {
-  $(`#image-container`).append($walker);
-});
-
-$(`#icon5`).one(`click`, function () {
-  $(`#image-container`).append($wingedMan);
-});
-
-$(`#icon6`).one(`click`, function () {
-  $(`#image-container`).append($sun);
-  $(`$sun`).effect(`pulsate`);
-});
-
-$(`#icon7`).one(`click`, function () {
-  $(`#image-container`).append($swingFigure);
-});
-
-$(`#icon8`).one(`click`, function () {
-  $(`#image-container`).append($skyBg);
-});
-
-$(`#icon9`).one(`click`, function () {
-  $(`#image-container`).append($darkPlanet);
-});
-
-$(`#icon10`).one(`click`, function () {
-  $(`#image-container`).append($smoke);
-});
-
-$(`#icon11`).one(`click`, function () {
-  $(`#image-container`).append($whiteMoth);
-});
-
-$(`#icon12`).one(`click`, function () {
-  $(`#image-container`).append($crystal);
-});
+function conceal() {
+  $(`.images`).animate({ opacity: 0 }, 3000);
+}
 
 // $(`#icon13`).one(`click`, function () {
 //   $(`#image-container`).append($flame);
 // });
-
-// click handler
-$(`.icons`).on(`click`, function () {
-  $(`.images`).animate({ opacity: 0.8 }, 3000);
-  setTimeout(() => $(`.images`).animate({ opacity: 0 }, 3000));
-  // $(`.images`).each(fadeout);
-  console.log(`cliicked`);
-});
