@@ -31,12 +31,6 @@ body {
   /* transform: translate(0%, 50%); */
 }
 
-.active {
-}
-
-.disabled {
-}
-
 #image-container {
   position: absolute;
   top: 10px;
@@ -61,10 +55,16 @@ body {
 }
 
 .icons:hover {
-  /* color: red; */
-  /* color: #e3f2ff; */
   color: #e6f7fb;
   font-weight: bold;
+}
+
+.active {
+  color: red;
+}
+
+.disabled {
+  color: yellow;
 }
 
 #tree {

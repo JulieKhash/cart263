@@ -1,5 +1,8 @@
 "use strict";
 
+let $images = $(`.images`);
+let $icons = $(`.icons`);
+
 let $tree = `<img class="images"id="tree"src="assets/images/tree-cut.png">`; //1
 let $mothEye = `<img class="images" id="mothEye"src="assets/images/moth-face.png">`; //2
 let $fire = `<img class="images"id="fire"src="assets/images/fire5.png">`; //3
@@ -19,16 +22,24 @@ let crystalSound = new Audio(`assets/sounds/crystalcave.wav`);
 let crystalSound2 = new Audio(`assets/sounds/glassy.wav`);
 let crystalSound3 = new Audio(`assets/sounds/steeltrap.wav`);
 
-$(`#image-container`).addClass(`.images`);
-let $images = $(`.images`);
+// $(`#image-container`).addClass(`.images`);
+$images = $(`.images`);
+$icons = $(`.icons`);
 
-$(`.icons`).on(`click`, function () {
+$icons.on(`click`, function () {
+  $(`#image-container`).addClass(`.images`);
   animationHandler();
 });
 // setTimeout(conceal, 3000);
 
+$icons.on(`click`, function () {
+  $(this).addClass(`active`);
+  // $(this).removeClass(`disabled`);
+});
+
 // iconHandler();
 imageAppend();
+// animationHandler();
 function imageAppend() {
   $(`#icon1`).one(`click`, function () {
     $(`#image-container`).append($tree);
