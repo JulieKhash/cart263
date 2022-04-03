@@ -34,7 +34,7 @@ imageAppend();
 
 $icons.on(`click`, function () {
   animationHandler();
-  setTimeout(() => $(`#image-container`).removeClass(`.images`), 2000);
+  // setTimeout(() => $(`#image-container`).removeClass(`.images`), 2000);
 });
 
 $icons.on(`click`, iconHandler);
@@ -107,8 +107,19 @@ function animationHandler() {
 
 function reveal() {
   $(`.images`).animate({ opacity: opacityMax }, 3000);
+  random(`#tree`);
 }
 
 function conceal() {
   $(`.images`).animate({ opacity: opacityMin }, 3000);
+}
+
+// a helper function to put images on a random postion on canvas
+function random(element) {
+  // return array[Math.floor(Math.random() * array.length)];
+
+  let w = window.innerWidth;
+  let h = window.innerHeight;
+  let leftPos = Math.floor(Math.random() * w + 0.1);
+  $(element).css({ left: leftPos });
 }

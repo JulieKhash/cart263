@@ -59,8 +59,10 @@ body {
   font-weight: bold;
 }
 
-.active {
-  color: red;
+.active,
+.active:hover {
+  color: #007a99;
+  /* color: #99ebff; */
 }
 
 .disabled {
