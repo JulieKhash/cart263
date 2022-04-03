@@ -4,7 +4,7 @@ let $images;
 let $icons;
 
 const opacityMin = 0;
-const opacityMax = 0.9;
+const opacityMax = 0.6;
 
 let $tree = `<img class="images"id="tree"src="assets/images/tree-cut.png">`; //1
 let $mothEye = `<img class="images" id="mothEye"src="assets/images/moth-face.png">`; //2
@@ -30,18 +30,12 @@ $icons = $(`.icons`);
 
 imageAppend();
 
-// $(`#image-container`).addClass(`.images20`);
-
-$icons.on(`click`, function () {
-  animationHandler();
-  // setTimeout(() => $(`#image-container`).removeClass(`.images`), 2000);
-});
-
+$icons.on(`click`, animationHandler);
 $icons.on(`click`, iconHandler);
 
 function iconHandler(event) {
   $(this).addClass(`active`);
-  // setTimeout(() => $(this).removeClass(`disabled`), 1000);
+  setTimeout(() => $(this).removeClass(`active`, 2000), 5000);
 }
 
 // imageAppend();
@@ -101,13 +95,11 @@ function imageAppend() {
 function animationHandler() {
   reveal();
   conceal();
-
-  // $(`#image-container`).removeClass(`.images`);
 }
 
 function reveal() {
   $(`.images`).animate({ opacity: opacityMax }, 3000);
-  random(`#tree`);
+  // random(`#tree`);
 }
 
 function conceal() {
@@ -116,10 +108,8 @@ function conceal() {
 
 // a helper function to put images on a random postion on canvas
 function random(element) {
-  // return array[Math.floor(Math.random() * array.length)];
-
   let w = window.innerWidth;
   let h = window.innerHeight;
-  let leftPos = Math.floor(Math.random() * w + 0.1);
+  let leftPos = Math.floor(Math.random() * w * 1);
   $(element).css({ left: leftPos });
 }
