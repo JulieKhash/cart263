@@ -48,19 +48,19 @@ let sounds = {
 
 handleAnimation();
 function handleAnimation() {
-  $(`.icons`).on(`click`, function () {
+  $(`.icons`).on(`mouseover`, function () {
     let clickedIcon = $(this).attr(`image`);
-    sounds[clickedIcon].play();
     // sounds[`#tree`].play();
-    $(clickedIcon).animate({ opacity: 1 }, 2000, function (event) {
+    $(clickedIcon).animate({ opacity: 0.7 }, 2000, function (event) {
       $(clickedIcon).animate({ opacity: 0 }, 2000);
     });
+    sounds[clickedIcon].play();
   });
 }
 
-$icons.on(`click`, function () {
-  random($images);
-});
+// $icons.on(`click`, function () {
+//   random($images);
+// });
 // $(`#icon1`).on(`click`, function () {
 //   sound1.play();
 //   sound1.volume = 0.3;
@@ -83,9 +83,9 @@ function iconHandler(event) {
 }
 
 // a helper function to put images on a random postion on canvas
-function random(element) {
-  let w = window.innerWidth;
-  let h = window.innerHeight;
-  let leftPos = Math.floor(Math.random() * w * 1);
-  $(element).css({ left: leftPos });
-}
+// function random(element) {
+//   let w = window.innerWidth;
+//   let h = window.innerHeight;
+//   let leftPos = Math.floor(Math.random() * w * 1);
+//   $(element).css({ left: leftPos });
+// }
