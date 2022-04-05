@@ -3,9 +3,6 @@
 let $images = $(`.images`);
 let $icons = $(`.icons`);
 
-const opacityMin = 0;
-const opacityMax = 0.6;
-
 // let $tree = $(
 //   `<img class="images 1 "id="tree"src="assets/images/tree-cut.png">`
 // ); //1
@@ -24,10 +21,10 @@ const opacityMax = 0.6;
 // let $crystal = `<img class="images"id="crystal"src="assets/images/ghost.png">`; //12
 // let $flame = `<img class="images"id="flame"src="assets/images/fire4.png">`; //13
 
-// sound
-let pustotaSound = new Audio(`assets/sounds/pustota.mp3`);
-let crystalSound2 = new Audio(`assets/sounds/glassy.wav`);
-let crystalSound3 = new Audio(`assets/sounds/steeltrap.wav`);
+// load sounds
+// let sound1 = new Audio(`assets/sounds/digital-eagle.wav`);
+// let sound2 = new Audio(`assets/sounds/malfunction.wav`);
+// let sound3 = new Audio(`assets/sounds/solar-sad.wav`);
 
 // $(`#icon1`).on(`click`, function () {
 //   $tree.animate({ opacity: 1 }, 2000, function (event) {
@@ -41,29 +38,54 @@ let crystalSound3 = new Audio(`assets/sounds/steeltrap.wav`);
 //   });
 // });
 
-$(`.icons`).on(`click`, function () {
-  let clickedImage = $(this).attr(`image`);
-  $(clickedImage).animate({ opacity: 1 }, 2000, function (event) {
-    $(clickedImage).animate({ opacity: 0 }, 2000);
+let sounds = {
+  "#tree": new Audio(`assets/sounds/digital-eagle.wav`),
+  "#mothEye": new Audio(`assets/sounds/malfunction.wav`),
+  "#fire": new Audio(`assets/sounds/solar-sad.wav`),
+};
+
+// you could also do lil sounds[`#tree`]
+
+handleAnimation();
+function handleAnimation() {
+  $(`.icons`).on(`click`, function () {
+    let clickedIcon = $(this).attr(`image`);
+    sounds[clickedIcon].play();
+    // sounds[`#tree`].play();
+    $(clickedIcon).animate({ opacity: 1 }, 2000, function (event) {
+      $(clickedIcon).animate({ opacity: 0 }, 2000);
+    });
   });
-});
-
-// $images = $(`.images`);
-// $icons = $(`.icons`);
-
-$icons.on(`click`, iconHandler);
-
-function iconHandler(event) {
-  $(this).addClass(`active`);
-  setTimeout(() => $(this).removeClass(`active`, 2000), 5000);
 }
 
+$icons.on(`click`, function () {
+  random($images);
+});
+// $(`#icon1`).on(`click`, function () {
+//   sound1.play();
+//   sound1.volume = 0.3;
+// });
+//
+// $(`#icon2`).on(`click`, function () {
+//   sound2.play();
+//   sound2.volume = 0.3;
+// });
+//
+// $(`#icon3`).on(`click`, function () {
+//   sound3.play();
+//   sound2.volume = 0.3;
+// });
 
+$icons.on(`click`, iconHandler);
+function iconHandler(event) {
+  $(this).addClass(`active`);
+  setTimeout(() => $(this).removeClass(`active`, 2000), 2000);
+}
 
 // a helper function to put images on a random postion on canvas
-// function random(element) {
-//   let w = window.innerWidth;
-//   let h = window.innerHeight;
-//   let leftPos = Math.floor(Math.random() * w * 1);
-//   $(element).css({ left: leftPos });
-// }
+function random(element) {
+  let w = window.innerWidth;
+  let h = window.innerHeight;
+  let leftPos = Math.floor(Math.random() * w * 1);
+  $(element).css({ left: leftPos });
+}
