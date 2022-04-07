@@ -3,6 +3,13 @@
 let $images = $(`.images`);
 let $icons = $(`.icons`);
 
+let myInterval;
+
+// let numMoth = 10;
+// for (let i = 0; i < numMoth; i++) {
+//  `<img class="images"id="whiteMoth"src="assets/images/mothwhite.png">`;
+// }
+
 // let $tree = $(
 //   `<img class="images 1 "id="tree"src="assets/images/tree-cut.png">`
 // ); //1
@@ -26,18 +33,6 @@ let $icons = $(`.icons`);
 // let sound2 = new Audio(`assets/sounds/malfunction.wav`);
 // let sound3 = new Audio(`assets/sounds/solar-sad.wav`);
 
-// $(`#icon1`).on(`click`, function () {
-//   $tree.animate({ opacity: 1 }, 2000, function (event) {
-//     $tree.animate({ opacity: 0 }, 2000);
-//   });
-// });
-//
-// $(`#icon2`).on(`click`, function () {
-//   $mothEye.animate({ opacity: 1 }, 2000, function (event) {
-//     $mothEye.animate({ opacity: 0 }, 2000);
-//   });
-// });
-
 let sounds = {
   // "#tree": new Audio(`assets/sounds/digital-eagle.wav`),
   // "#mothEye": new Audio(`assets/sounds/malfunction.wav`),
@@ -58,7 +53,13 @@ let sounds = {
 
 // you could also do lil sounds[`#tree`]
 
-handleAnimation();
+$icons.on(`click`, iconHandler);
+function iconHandler(event) {
+  $(this).addClass(`active`);
+  setTimeout(() => $(this).removeClass(`active`, 2000), 2000);
+}
+
+// handleAnimation();
 function handleAnimation() {
   $(`.icons`).on(`mouseover`, function () {
     let clickedIcon = $(this).attr(`image`);
@@ -73,16 +74,42 @@ function handleAnimation() {
   });
 }
 
-$icons.on(`click`, iconHandler);
-function iconHandler(event) {
-  $(this).addClass(`active`);
-  setTimeout(() => $(this).removeClass(`active`, 2000), 2000);
+function handleAnimationClick() {
+  $(`.icons`).on(`click`, function () {
+    let clickedIcon = $(this).attr(`image`);
+    $(clickedIcon).animate({ opacity: 0.7 }, 2000);
+    $(clickedIcon).animate({ opacity: 0 }, 2000);
+    // sounds[clickedIcon].play();
+  });
 }
 
-// a helper function to put images on a random postion on canvas
-function random(element) {
-  let w = window.innerWidth;
-  let h = window.innerHeight;
-  let leftPos = Math.floor(Math.random() * w * 1);
-  $(element).css({ left: leftPos });
+// $(`.icons`).on(`click`, function () {
+//   setInterval(() => handleAnimationClick(), 1000);
+disableAutomation();
+function disableAutomation() {
+  $(`.icons`).on(`click`, function () {
+    let clickedIcon = $(this).attr(`image`);
+    clearInterval(myInterval);
+  });
 }
+
+$(`.icons`).on(`click`, function () {
+  let clickedIcon = $(this).attr(`image`);
+  myInterval = setInterval(() => sounds[clickedIcon].play(), 1000);
+});
+
+// a helper function to put images on a random postion on canvas
+// function random(element) {
+//   let w = window.innerWidth;
+//   let h = window.innerHeight;
+//   let leftPos = Math.floor(Math.random() * w * 1);
+//   $(element).css({ left: leftPos });
+// }
+
+// click handler
+// $(`.icons`).on(`click`, function () {
+//   $(`.images`).animate({ opacity: 0.8 }, 3000);
+//   setTimeout(() => $(`.images`).animate({ opacity: 0 }, 3000));
+//   // $(`.images`).each(fadeout);
+//   console.log(`cliicked`);
+// });
