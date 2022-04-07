@@ -39,9 +39,21 @@ let $icons = $(`.icons`);
 // });
 
 let sounds = {
-  "#tree": new Audio(`assets/sounds/digital-eagle.wav`),
-  "#mothEye": new Audio(`assets/sounds/malfunction.wav`),
-  "#fire": new Audio(`assets/sounds/solar-sad.wav`),
+  // "#tree": new Audio(`assets/sounds/digital-eagle.wav`),
+  // "#mothEye": new Audio(`assets/sounds/malfunction.wav`),
+  // "#fire": new Audio(`assets/sounds/solar-sad.wav`),
+  "#tree": new Audio(`assets/sounds/insect3.mp3`),
+  "#mothEye": new Audio(`assets/sounds/high-pitch1.mp3`),
+  "#fire": new Audio(`assets/sounds/high-pitch2.mp3`),
+  "#walker": new Audio(`assets/sounds/high-pitch3.mp3`),
+  "#wingedMan": new Audio(`assets/sounds/gregorian1.mp3`),
+  "#sun": new Audio(`assets/sounds/high-pitch8.mp3`),
+  "#swingFigure": new Audio(`assets/sounds/high-pitch11.mp3`),
+  "#skyBg": new Audio(`assets/sounds/gregorian3.mp3`),
+  "#darkPlanet": new Audio(`assets/sounds/insect2.mp3`),
+  "#smoke": new Audio(`assets/sounds/high-pitch5.mp3`),
+  "#whiteMoth": new Audio(`assets/sounds/insect1.mp3`),
+  "#crystal": new Audio(`assets/sounds/gregorian2.mp3`),
 };
 
 // you could also do lil sounds[`#tree`]
@@ -55,26 +67,11 @@ function handleAnimation() {
       $(clickedIcon).animate({ opacity: 0 }, 2000);
     });
     sounds[clickedIcon].play();
+    // random(clickedIcon);
+    // sounds[clickedIcon].volume = 0.1;
+    // sounds[`#tree`].volume = 0;
   });
 }
-
-// $icons.on(`click`, function () {
-//   random($images);
-// });
-// $(`#icon1`).on(`click`, function () {
-//   sound1.play();
-//   sound1.volume = 0.3;
-// });
-//
-// $(`#icon2`).on(`click`, function () {
-//   sound2.play();
-//   sound2.volume = 0.3;
-// });
-//
-// $(`#icon3`).on(`click`, function () {
-//   sound3.play();
-//   sound2.volume = 0.3;
-// });
 
 $icons.on(`click`, iconHandler);
 function iconHandler(event) {
@@ -83,9 +80,9 @@ function iconHandler(event) {
 }
 
 // a helper function to put images on a random postion on canvas
-// function random(element) {
-//   let w = window.innerWidth;
-//   let h = window.innerHeight;
-//   let leftPos = Math.floor(Math.random() * w * 1);
-//   $(element).css({ left: leftPos });
-// }
+function random(element) {
+  let w = window.innerWidth;
+  let h = window.innerHeight;
+  let leftPos = Math.floor(Math.random() * w * 1);
+  $(element).css({ left: leftPos });
+}
