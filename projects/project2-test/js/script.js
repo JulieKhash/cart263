@@ -4,6 +4,7 @@ let $images = $(`.images`);
 let $icons = $(`.icons`);
 
 let myInterval;
+let mySetTimeout;
 
 // let numMoth = 10;
 // for (let i = 0; i < numMoth; i++) {
@@ -53,10 +54,19 @@ let sounds = {
 
 // you could also do lil sounds[`#tree`]
 
+$icons.on(`mouseover`, iconHandler1);
+
+function iconHandler1(event) {
+  $(this).addClass(`over`);
+  setTimeout(() => $(this).removeClass(`over`, 2000), 2000);
+}
+
 $icons.on(`click`, iconHandler);
 function iconHandler(event) {
-  $(this).addClass(`active`);
-  setTimeout(() => $(this).removeClass(`active`, 2000), 2000);
+  // $(this).addClass(`active`);
+  // toggles between on/off button
+  $(this).toggleClass(`active`);
+  // setTimeout(() => $(this).removeClass(`active`, 2000), 2000);
 }
 
 // handleAnimation();
@@ -83,19 +93,21 @@ function handleAnimationClick() {
   });
 }
 
-// $(`.icons`).on(`click`, function () {
-//   setInterval(() => handleAnimationClick(), 1000);
-disableAutomation();
-function disableAutomation() {
-  $(`.icons`).on(`click`, function () {
-    let clickedIcon = $(this).attr(`image`);
-    clearInterval(myInterval);
-  });
-}
+// disableAutomation();
+// function disableAutomation() {
+//   $(`.icons`).on(`click`, function () {
+//     let clickedIcon = $(this).attr(`image`);
+//     // clearInterval(myInterval);
+//     $(this).removeClass(`active`, 2000);
+//   });
+// }
 
 $(`.icons`).on(`click`, function () {
   let clickedIcon = $(this).attr(`image`);
-  myInterval = setInterval(() => sounds[clickedIcon].play(), 1000);
+  mySetTimeout = setTimeout(() => sounds[clickedIcon].play(), 0);
+  // myInterval = setInterval(() => handleAnimationClick(), 1000);
+  myInterval = setInterval(mySetTimeout, 1000);
+  // $(this).removeClass(`active`, 2000);
 });
 
 // a helper function to put images on a random postion on canvas
