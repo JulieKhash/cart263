@@ -54,22 +54,18 @@ let sounds = {
 
 // you could also do lil sounds[`#tree`]
 
-$icons.on(`mouseover`, iconHandler1);
-
-function iconHandler1(event) {
+$icons.on(`mouseover`, mouseOverIcon);
+function mouseOverIcon(event) {
   $(this).addClass(`over`);
   setTimeout(() => $(this).removeClass(`over`, 2000), 2000);
 }
 
-$icons.on(`click`, iconHandler);
-function iconHandler(event) {
-  // $(this).addClass(`active`);
-  // toggles between on/off button
+$icons.on(`click`, mouseClickIcon);
+function mouseClickIcon(event) {
   $(this).toggleClass(`active`);
-  // setTimeout(() => $(this).removeClass(`active`, 2000), 2000);
 }
 
-// handleAnimation();
+handleAnimation();
 function handleAnimation() {
   $(`.icons`).on(`mouseover`, function () {
     let clickedIcon = $(this).attr(`image`);
@@ -78,7 +74,6 @@ function handleAnimation() {
       $(clickedIcon).animate({ opacity: 0 }, 2000);
     });
     sounds[clickedIcon].play();
-    // random(clickedIcon);
     // sounds[clickedIcon].volume = 0.1;
     // sounds[`#tree`].volume = 0;
   });
@@ -93,22 +88,23 @@ function handleAnimationClick() {
   });
 }
 
-// disableAutomation();
-// function disableAutomation() {
-//   $(`.icons`).on(`click`, function () {
-//     let clickedIcon = $(this).attr(`image`);
-//     // clearInterval(myInterval);
-//     $(this).removeClass(`active`, 2000);
-//   });
-// }
-
 $(`.icons`).on(`click`, function () {
   let clickedIcon = $(this).attr(`image`);
-  mySetTimeout = setTimeout(() => sounds[clickedIcon].play(), 0);
+  // mySetTimeout = setTimeout(() => sounds[clickedIcon].play(), 0);
   // myInterval = setInterval(() => handleAnimationClick(), 1000);
-  myInterval = setInterval(mySetTimeout, 1000);
-  // $(this).removeClass(`active`, 2000);
+  setInterval(handleAnimationClick, 1000);
+  myInterval = setInterval(() => sounds[clickedIcon].play(), 1000);
 });
+
+function disableAutomation() {
+  $(`.icons`).on(`click`, function () {
+    let clickedIcon = $(this).attr(`image`);
+    clearInterval(myInterval);
+  });
+}
+
+$(`#sun`).addClass(`spin`);
+$(`#darkPlanet`).addClass(`spin`);
 
 // a helper function to put images on a random postion on canvas
 // function random(element) {
@@ -117,11 +113,3 @@ $(`.icons`).on(`click`, function () {
 //   let leftPos = Math.floor(Math.random() * w * 1);
 //   $(element).css({ left: leftPos });
 // }
-
-// click handler
-// $(`.icons`).on(`click`, function () {
-//   $(`.images`).animate({ opacity: 0.8 }, 3000);
-//   setTimeout(() => $(`.images`).animate({ opacity: 0 }, 3000));
-//   // $(`.images`).each(fadeout);
-//   console.log(`cliicked`);
-// });

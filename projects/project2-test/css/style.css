@@ -144,6 +144,22 @@ body {
   z-index: 9;
 }
 
+.spin {
+  animation-name: spin;
+  animation-duration: 15s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 #swingFigure {
   position: fixed;
   left: 600px;
