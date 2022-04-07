@@ -53,16 +53,17 @@ let sounds = {
 };
 
 // you could also do lil sounds[`#tree`]
+handleIcons();
 
-$icons.on(`mouseover`, mouseOverIcon);
-function mouseOverIcon(event) {
-  $(this).addClass(`over`);
-  setTimeout(() => $(this).removeClass(`over`, 2000), 2000);
-}
-
-$icons.on(`click`, mouseClickIcon);
-function mouseClickIcon(event) {
-  $(this).toggleClass(`active`);
+function handleIcons() {
+  $icons.on(`mouseover`, mouseOverIcon);
+  function mouseOverIcon(event) {
+    $(this).addClass(`over`);
+    setTimeout(() => $(this).removeClass(`over`, 2000), 2000);
+  }
+  $icons.on(`click`, function () {
+    $(this).toggleClass(`active`);
+  });
 }
 
 handleAnimation();
