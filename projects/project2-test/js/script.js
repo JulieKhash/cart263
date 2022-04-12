@@ -74,8 +74,8 @@ function handleIcons() {
 // let randomizeSun = $(`#icon6`).one(`mouseover`, () => random($(`#sun`)));
 // let randomizeTree = $(`#icon1`).one(`mouseover`, () => random($(`#tree`)));
 
-handleAnimation();
-function handleAnimation() {
+handleMouseOverAnimation();
+function handleMouseOverAnimation() {
   $(`.icons`).on(`mouseover`, function () {
     if ($(this).hasClass(`active`)) {
       return; // if so ignore the following code
@@ -95,19 +95,18 @@ function handleAnimation() {
 $(`.icons`).on(`click`, function (event) {
   let icon = this;
 
-  $(this).toggleClass(`active`);
-
-  if ($(this).hasClass(`active`)) {
+  $(icon).toggleClass(`active`);
+  if ($(icon).hasClass(`active`)) {
     let newInterval = setInterval(() => {
-      let clickedIcon = $(this).attr(`image`);
+      let clickedIcon = $(icon).attr(`image`);
       $(clickedIcon).animate({ opacity: 0.7 }, 2000, function (event) {
         $(clickedIcon).animate({ opacity: 0 }, 2000);
       });
       sounds[clickedIcon].play();
     }, 4100);
-    $(this).data(`interval`, newInterval); //sets up local storage
+    $(icon).data(`interval`, newInterval); //sets up local storage
   } else {
-    let interval = $(this).data(`interval`); // gets info for this icon
+    let interval = $(icon).data(`interval`); // gets info for this icon
     clearInterval(interval);
   }
 });
