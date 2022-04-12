@@ -3,8 +3,12 @@
 let $images = $(`.images`);
 let $icons = $(`.icons`);
 
-let myInterval;
+let Interval;
 let mySetTimeout;
+
+// let minOpacity = { opacity: 0 };
+let maxOpicity = 0.7;
+let minOpacity = 0;
 
 // let numMoth = 10;
 // for (let i = 0; i < numMoth; i++) {
@@ -35,82 +39,86 @@ let mySetTimeout;
 // let sound3 = new Audio(`assets/sounds/solar-sad.wav`);
 
 let sounds = {
-  // "#tree": new Audio(`assets/sounds/digital-eagle.wav`),
-  // "#mothEye": new Audio(`assets/sounds/malfunction.wav`),
-  // "#fire": new Audio(`assets/sounds/solar-sad.wav`),
-  "#tree": new Audio(`assets/sounds/insect3.mp3`),
-  "#mothEye": new Audio(`assets/sounds/high-pitch1.mp3`),
-  "#fire": new Audio(`assets/sounds/high-pitch2.mp3`),
-  "#walker": new Audio(`assets/sounds/high-pitch3.mp3`),
-  "#wingedMan": new Audio(`assets/sounds/gregorian1.mp3`),
-  "#sun": new Audio(`assets/sounds/high-pitch8.mp3`),
-  "#swingFigure": new Audio(`assets/sounds/high-pitch11.mp3`),
-  "#skyBg": new Audio(`assets/sounds/gregorian3.mp3`),
-  "#darkPlanet": new Audio(`assets/sounds/insect2.mp3`),
-  "#smoke": new Audio(`assets/sounds/high-pitch5.mp3`),
-  "#whiteMoth": new Audio(`assets/sounds/insect1.mp3`),
-  "#crystal": new Audio(`assets/sounds/gregorian2.mp3`),
+  "#tree": new Audio(`assets/sounds/digital-eagle.wav`),
+  "#mothEye": new Audio(`assets/sounds/malfunction.wav`),
+  "#fire": new Audio(`assets/sounds/solar-sad.wav`),
+  // "#tree": new Audio(`assets/sounds/insect3.mp3`),
+  // "#mothEye": new Audio(`assets/sounds/high-pitch1.mp3`),
+  // "#fire": new Audio(`assets/sounds/high-pitch2.mp3`),
+  // "#walker": new Audio(`assets/sounds/high-pitch3.mp3`),
+  // "#wingedMan": new Audio(`assets/sounds/gregorian1.mp3`),
+  // "#sun": new Audio(`assets/sounds/high-pitch8.mp3`),
+  // "#swingFigure": new Audio(`assets/sounds/high-pitch11.mp3`),
+  // "#skyBg": new Audio(`assets/sounds/gregorian3.mp3`),
+  // "#darkPlanet": new Audio(`assets/sounds/insect2.mp3`),
+  // "#smoke": new Audio(`assets/sounds/high-pitch5.mp3`),
+  // "#whiteMoth": new Audio(`assets/sounds/insect1.mp3`),
+  // "#crystal": new Audio(`assets/sounds/gregorian2.mp3`),
 };
 
 // you could also do lil sounds[`#tree`]
 handleIcons();
-
 function handleIcons() {
   $icons.on(`mouseover`, mouseOverIcon);
-  function mouseOverIcon(event) {
+  function mouseOverIcon() {
     $(this).addClass(`over`);
-    setTimeout(() => $(this).removeClass(`over`, 2000), 2000);
+    setTimeout(() => {
+      $(this).removeClass(`over`, 2000);
+    }, 2000);
   }
   $icons.on(`click`, function () {
-    $(this).toggleClass(`active`);
+    // $(this).toggleClass(`active`);
   });
 }
+
+// let randomizeSun = $(`#icon6`).one(`mouseover`, () => random($(`#sun`)));
+// let randomizeTree = $(`#icon1`).one(`mouseover`, () => random($(`#tree`)));
 
 handleAnimation();
 function handleAnimation() {
   $(`.icons`).on(`mouseover`, function () {
+    if ($(this).hasClass(`active`)) {
+      return; // if so ignore the following code
+    }
     let clickedIcon = $(this).attr(`image`);
-    // sounds[`#tree`].play();
     $(clickedIcon).animate({ opacity: 0.7 }, 2000, function (event) {
-      $(clickedIcon).animate({ opacity: 0 }, 2000);
+      $(clickedIcon).animate({ opacity: minOpacity }, 2000);
+      // randomizeSun;
+      // randomizeTree;
     });
     sounds[clickedIcon].play();
-    // sounds[clickedIcon].volume = 0.1;
+    sounds[clickedIcon].volume = 0.2;
     // sounds[`#tree`].volume = 0;
   });
 }
 
-function handleAnimationClick() {
-  $(`.icons`).on(`click`, function () {
-    let clickedIcon = $(this).attr(`image`);
-    $(clickedIcon).animate({ opacity: 0.7 }, 2000);
-    $(clickedIcon).animate({ opacity: 0 }, 2000);
-    // sounds[clickedIcon].play();
-  });
-}
+$(`.icons`).on(`click`, function (event) {
+  let icon = this;
 
-$(`.icons`).on(`click`, function () {
-  let clickedIcon = $(this).attr(`image`);
-  // mySetTimeout = setTimeout(() => sounds[clickedIcon].play(), 0);
-  // myInterval = setInterval(() => handleAnimationClick(), 1000);
-  setInterval(handleAnimationClick, 1000);
-  myInterval = setInterval(() => sounds[clickedIcon].play(), 1000);
+  $(this).toggleClass(`active`);
+
+  if ($(this).hasClass(`active`)) {
+    let newInterval = setInterval(() => {
+      let clickedIcon = $(this).attr(`image`);
+      $(clickedIcon).animate({ opacity: 0.7 }, 2000, function (event) {
+        $(clickedIcon).animate({ opacity: 0 }, 2000);
+      });
+      sounds[clickedIcon].play();
+    }, 4100);
+    $(this).data(`interval`, newInterval); //sets up local storage
+  } else {
+    let interval = $(this).data(`interval`); // gets info for this icon
+    clearInterval(interval);
+  }
 });
-
-function disableAutomation() {
-  $(`.icons`).on(`click`, function () {
-    let clickedIcon = $(this).attr(`image`);
-    clearInterval(myInterval);
-  });
-}
 
 $(`#sun`).addClass(`spin`);
 $(`#darkPlanet`).addClass(`spin`);
 
 // a helper function to put images on a random postion on canvas
-// function random(element) {
-//   let w = window.innerWidth;
-//   let h = window.innerHeight;
-//   let leftPos = Math.floor(Math.random() * w * 1);
-//   $(element).css({ left: leftPos });
-// }
+function random(element) {
+  let w = window.innerWidth - 300;
+  let h = window.innerHeight;
+  let leftPos = Math.floor(Math.random() * w * 1);
+  $(element).css({ left: leftPos });
+}
