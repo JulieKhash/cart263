@@ -10,17 +10,16 @@ const MIN_OPACITY = 0;
 // load sounds
 let sounds = {
   "#tree": new Audio(`assets/sounds/insect3.mp3`),
-  "#mothEye": new Audio(`assets/sounds/high-pitch1.mp3`),
+  "#ghostInverted": new Audio(`assets/sounds/male-voice3.mp3`),
   "#whiteMoth": new Audio(`assets/sounds/insect1.mp3`),
-  "#city": new Audio(`assets/sounds/high-pitch2.mp3`),
-  "#walker": new Audio(`assets/sounds/high-pitch3.mp3`),
-  "#wingedMan": new Audio(`assets/sounds/gregorian1.mp3`),
-  "#sun": new Audio(`assets/sounds/high-pitch8.mp3`),
-  "#swingFigure": new Audio(`assets/sounds/high-pitch11.mp3`),
-  // "#skyBg": new Audio(`assets/sounds/gregorian3.mp3`),
-  "#darkPlanet": new Audio(`assets/sounds/insect2.mp3`),
-  "#smoke": new Audio(`assets/sounds/high-pitch5.mp3`),
-  "#ghost": new Audio(`assets/sounds/gregorian2.mp3`),
+  "#city": new Audio(`assets/sounds/female-voice2.mp3`),
+  "#walker": new Audio(`assets/sounds/female-voice3.mp3`),
+  "#wingedMan": new Audio(`assets/sounds/male-voice1.mp3`),
+  "#sun": new Audio(`assets/sounds/female-voice6.mp3`),
+  "#swingFigure": new Audio(`assets/sounds/female-voice9.mp3`),
+  "#darkPlanet": new Audio(`assets/sounds/insect4.mp3`),
+  "#smoke": new Audio(`assets/sounds/female-voice12.mp3`),
+  "#ghost": new Audio(`assets/sounds/male-voice2.mp3`),
 };
 
 setup();
@@ -52,7 +51,6 @@ function handleMouseOverAnimation() {
     });
     sounds[clickedIcon].play();
     sounds[clickedIcon].volume = 0.5;
-    // sounds[`#tree`].volume = 0;
   });
 }
 
@@ -63,7 +61,6 @@ function handleClickAnimation() {
     $(icon).toggleClass(`active`);
     if ($(icon).hasClass(`active`)) {
       let newInterval = setInterval(() => {
-        // console.log(`RRRRRRR`);
         let clickedIcon = $(icon).attr(`image`);
 
         // randomizes the location of images with `mover` class
