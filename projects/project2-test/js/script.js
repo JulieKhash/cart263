@@ -4,7 +4,7 @@ let $images = $(`.images`);
 let $icons = $(`.icons`);
 
 // let minOpacity = { opacity: 0 };
-const MAX_OPACITY = 0.7;
+const MAX_OPACITY = 0.75;
 const MIN_OPACITY = 0;
 
 // load sounds
@@ -23,8 +23,10 @@ let sounds = {
   "#darkPlanet": new Audio(`assets/sounds/insect2.mp3`),
   "#smoke": new Audio(`assets/sounds/high-pitch5.mp3`),
   "#whiteMoth": new Audio(`assets/sounds/insect1.mp3`),
-  "#crystal": new Audio(`assets/sounds/gregorian2.mp3`),
+  "#ghost": new Audio(`assets/sounds/gregorian2.mp3`),
 };
+
+$(`#quote`).append(`In the darkest skies, we see the brightest stars...`);
 
 setup();
 
@@ -54,7 +56,7 @@ function handleMouseOverAnimation() {
       $(clickedIcon).animate({ opacity: MIN_OPACITY }, 2000);
     });
     sounds[clickedIcon].play();
-    sounds[clickedIcon].volume = 0.2;
+    sounds[clickedIcon].volume = 0.5;
     // sounds[`#tree`].volume = 0;
   });
 }
