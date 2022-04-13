@@ -9,7 +9,7 @@ const MIN_OPACITY = 0;
 const delayFX = 2000; // time in mls, reaches the max opacity then decreases
 const delayInterval = 5000;
 
-// load sounds corresponding to the specific image(id)
+// load sounds corresponding to a specific image(id)
 let sounds = {
   "#tree": new Audio(`assets/sounds/insect3.mp3`),
   "#ghostInverted": new Audio(`assets/sounds/male-voice3.mp3`),
