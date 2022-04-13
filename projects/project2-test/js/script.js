@@ -9,12 +9,10 @@ const MIN_OPACITY = 0;
 
 // load sounds
 let sounds = {
-  // "#tree": new Audio(`assets/sounds/digital-eagle.wav`),
-  // "#mothEye": new Audio(`assets/sounds/malfunction.wav`),
-  // "#fire": new Audio(`assets/sounds/solar-sad.wav`),
   "#tree": new Audio(`assets/sounds/insect3.mp3`),
   "#mothEye": new Audio(`assets/sounds/high-pitch1.mp3`),
-  "#fire": new Audio(`assets/sounds/high-pitch2.mp3`),
+  "#whiteMoth": new Audio(`assets/sounds/insect1.mp3`),
+  "#city": new Audio(`assets/sounds/high-pitch2.mp3`),
   "#walker": new Audio(`assets/sounds/high-pitch3.mp3`),
   "#wingedMan": new Audio(`assets/sounds/gregorian1.mp3`),
   "#sun": new Audio(`assets/sounds/high-pitch8.mp3`),
@@ -22,7 +20,6 @@ let sounds = {
   // "#skyBg": new Audio(`assets/sounds/gregorian3.mp3`),
   "#darkPlanet": new Audio(`assets/sounds/insect2.mp3`),
   "#smoke": new Audio(`assets/sounds/high-pitch5.mp3`),
-  "#whiteMoth": new Audio(`assets/sounds/insect1.mp3`),
   "#ghost": new Audio(`assets/sounds/gregorian2.mp3`),
 };
 
@@ -69,6 +66,7 @@ function handleClickAnimation() {
         // console.log(`RRRRRRR`);
         let clickedIcon = $(icon).attr(`image`);
 
+        // randomizes the location of images with `mover` class
         if ($(icon).hasClass(`mover`)) {
           random(clickedIcon);
         }
@@ -86,9 +84,6 @@ function handleClickAnimation() {
   });
 }
 
-// random(`#mothEye`);
-
-// $(`#mothEye`).addClass(`spin`);
 $(`#sun`).addClass(`spin`);
 $(`#darkPlanet`).addClass(`spin`);
 
@@ -100,9 +95,4 @@ function random(element) {
   let verticalPos = Math.floor(Math.random() * h * 1);
   let horizontalPos = Math.floor(Math.random() * w * 1);
   $(element).css({ left: horizontalPos, top: verticalPos });
-  // $(element).css(
-  //   `transform`,
-  //   `translate(${horizontalPos}px, ${verticalPos}px)`
-  // );
-  console.log(`randomed!!`);
 }
