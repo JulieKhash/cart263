@@ -19,14 +19,12 @@ let sounds = {
   "#wingedMan": new Audio(`assets/sounds/gregorian1.mp3`),
   "#sun": new Audio(`assets/sounds/high-pitch8.mp3`),
   "#swingFigure": new Audio(`assets/sounds/high-pitch11.mp3`),
-  "#skyBg": new Audio(`assets/sounds/gregorian3.mp3`),
+  // "#skyBg": new Audio(`assets/sounds/gregorian3.mp3`),
   "#darkPlanet": new Audio(`assets/sounds/insect2.mp3`),
   "#smoke": new Audio(`assets/sounds/high-pitch5.mp3`),
   "#whiteMoth": new Audio(`assets/sounds/insect1.mp3`),
   "#ghost": new Audio(`assets/sounds/gregorian2.mp3`),
 };
-
-$(`#quote`).append(`In the darkest skies, we see the brightest stars...`);
 
 setup();
 
