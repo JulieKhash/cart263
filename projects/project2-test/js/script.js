@@ -3,11 +3,13 @@
 let $images = $(`.images`);
 let $icons = $(`.icons`);
 
-// let minOpacity = { opacity: 0 };
 const MAX_OPACITY = 0.75;
 const MIN_OPACITY = 0;
 
-// load sounds
+const delayFX = 2000; // time in mls, reaches the max opacity then decreases
+const delayInterval = 5000;
+
+// load sounds corresponding to the specific image(id)
 let sounds = {
   "#tree": new Audio(`assets/sounds/insect3.mp3`),
   "#ghostInverted": new Audio(`assets/sounds/male-voice3.mp3`),
@@ -35,8 +37,8 @@ function handleIcons() {
   function mouseOverIcon() {
     $(this).addClass(`over`);
     setTimeout(() => {
-      $(this).removeClass(`over`, 2000);
-    }, 2000);
+      $(this).removeClass(`over`, delayFX);
+    }, delayFX);
   }
 }
 
@@ -46,8 +48,8 @@ function handleMouseOverAnimation() {
       return; // if so ignore the following code
     }
     let clickedIcon = $(this).attr(`image`);
-    $(clickedIcon).animate({ opacity: MAX_OPACITY }, 2000, function (event) {
-      $(clickedIcon).animate({ opacity: MIN_OPACITY }, 2000);
+    $(clickedIcon).animate({ opacity: MAX_OPACITY }, delayFX, function (event) {
+      $(clickedIcon).animate({ opacity: MIN_OPACITY }, delayFX);
     });
     sounds[clickedIcon].play();
     sounds[clickedIcon].volume = 0.5;
@@ -68,11 +70,14 @@ function handleClickAnimation() {
           random(clickedIcon);
         }
 
-        $(clickedIcon).animate({ opacity: 0.7 }, 2000, function (event) {
-          $(clickedIcon).animate({ opacity: 0 }, 2000);
+        $(clickedIcon).animate({ opacity: MAX_OPACITY }, delayFX, function (
+          event
+        ) {
+          $(clickedIcon).animate({ opacity: MIN_OPACITY }, delayFX);
         });
+
         sounds[clickedIcon].play();
-      }, 5000);
+      }, delayInterval);
       $(icon).data(`interval`, newInterval); //sets up local storage
     } else {
       let interval = $(icon).data(`interval`); // gets info for this icon
@@ -86,8 +91,9 @@ $(`#darkPlanet`).addClass(`spin`);
 
 // a helper function to put images on a random postion on canvas
 function random(element) {
-  let h = window.innerHeight - 300;
-  let w = window.innerWidth - 300;
+  let windowEdge = 300;
+  let h = window.innerHeight - windowEdge;
+  let w = window.innerWidth - windowEdge;
 
   let verticalPos = Math.floor(Math.random() * h * 1);
   let horizontalPos = Math.floor(Math.random() * w * 1);
