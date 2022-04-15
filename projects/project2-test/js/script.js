@@ -72,17 +72,18 @@ function handleMouseOverAnimation() {
     $(overIcon).animate({ opacity: MAX_OPACITY }, delayFX, function (event) {
       $(overIcon).animate({ opacity: MIN_OPACITY }, delayFX);
     });
-    // plays sound specific to the icon and the image
+
+    // plays the sound in sync with the image
     sounds[overIcon].play();
-    sounds[overIcon].volume = 0.5; // sets the overall sound volume
+    sounds[overIcon].volume = 0.6; // sets the overall sound volume
   });
 }
 
-// handles animation and image/sound automation with a click event
+// handles the animation and automation of the image/sound sequence with a click event
 function handleClickAnimation() {
   // add a click event listener
   $icons.on(`click`, function (event) {
-    //  `this` refers to the specific icon that was clicked on
+    //  assigns `this`, refers to the specific icon that was clicked on
     let icon = this;
     // adds/removes the class `active` for the selected icon
     $(icon).toggleClass(`active`);
@@ -100,15 +101,16 @@ function handleClickAnimation() {
         if ($(icon).hasClass(`mover`)) {
           random(clickedIcon);
         }
-        // animates the image with fade in/out rhythmically
+        // animates the image with fade in/out
         $(clickedIcon).animate({ opacity: MAX_OPACITY }, delayFX, function (
           event
         ) {
           $(clickedIcon).animate({ opacity: MIN_OPACITY }, delayFX);
         });
 
-        // loops the sound in sync with the image
+        // plays the sound in sync with the image
         sounds[clickedIcon].play();
+        sounds[clickedIcon].volume = 0.6; // sets the overall sound volume
       }, delayInterval);
 
       $(icon).data(`interval`, newInterval); //sets up local storage
@@ -125,14 +127,16 @@ function handleClickAnimation() {
 $(`#sun`).addClass(`spin`);
 $(`#darkPlanet`).addClass(`spin`);
 
-// a helper function that randomizes the image position across the screen
+// randomizes the image position across the screen
 function random(element) {
   let windowEdge = 300; // a value that helps to restrict images within a screen
   let h = window.innerHeight - windowEdge;
   let w = window.innerWidth - windowEdge;
+
   // generates a random number for positioning
   let verticalPos = Math.floor(Math.random() * h * 1);
   let horizontalPos = Math.floor(Math.random() * w * 1);
+  
   // assigns random numbers to image position
   $(element).css({ left: horizontalPos, top: verticalPos });
 }
