@@ -3,8 +3,8 @@ Julie Khashimova
 Project 2 - Into the Blue
 
 Interactive audio-visual sequencer.
-- Immerse yourself in a world where there is no meaning, no words, but only SENSATIONS,
-somewhere far and unattainable.
+  Immerse yourself in a world where no meanings and no words exist, but only SENSATIONS
+   - somewhere far and unattainable.
 
 ********************/
 "use strict";
