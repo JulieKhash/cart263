@@ -2,7 +2,7 @@
 
 Originally inspired by a boring-looking music sequencer, "Into the Blue" is an interactive multimedia program that attempts to host an image and a sound inside the same button/pad.
 
-It is heavily process-based, truthfully unplanned, as I had to figure it out along the way. ALL YOU WILL FIND IS FREEDOM OF EXPRESSION OF MOMENTARY FEELINGS AND FLEETING THOUGHTS. ALL YOU NEED IS TO CATCH THEM.
+Project's formation is heavily process-based, truthfully unplanned, as I had to figure it out along the way. ALL YOU WILL FIND IS FREEDOM OF EXPRESSION OF MOMENTARY FEELINGS AND FLEETING THOUGHTS. ALL YOU NEED IS TO CATCH THEM.
 
 I designed the audio samples and images myself. A lot of time was invested in creating the entire audio and visual composition. All the media is designed and arranged in such a way that any combination of sound and image would potentially make a suitable match. Thus, it adds playfulness and unpredictability to the interaction.
 
