@@ -2,7 +2,7 @@
 Julie Khashimova
 Project 2 - Into the Blue
 
-Interactive audio-visal sequencer.
+Interactive audio-visual sequencer.
 - Immerse yourself in a world where there is no meaning, no words, but only SENSATIONS,
 somewhere far and unattainable.
 
