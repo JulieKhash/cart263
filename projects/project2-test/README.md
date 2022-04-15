@@ -2,7 +2,7 @@
 
 -- let your mind float the distance
 
-Originally inspired by a boring-looking music sequencer, "Into the Blue" is an interactive web-based program that attempts to host an image and a sound inside the same button/pad.
+Originally inspired by a boring-looking music sequencer, "Into the Blue" is an interactive multimedia program that attempts to host an image and a sound inside the same button/pad.
 
 It is heavily process-based, truthfully unplanned, as I had to figure it out along the way. ALL YOU WILL FIND IS FREEDOM OF EXPRESSION OF MOMENTARY FEELINGS AND FLEETING THOUGHTS. ALL YOU NEED IS TO CATCH THEM.
 
