@@ -1,6 +1,6 @@
 # Project 2 - Into the Blue 
 
--- let your mind float the distance
+...let your mind float the distance
 
 Originally inspired by a boring-looking music sequencer, "Into the Blue" is an interactive multimedia program that attempts to host an image and a sound inside the same button/pad.
 
