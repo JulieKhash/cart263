@@ -1,4 +1,4 @@
-# Into the Blue - 
+# Project 2 - Into the Blue 
 
 -- let your mind float the distance
 
