@@ -1,8 +1,12 @@
-// Julie Khashimova
-// Project 2 - Into the Blue
+/********************
+Julie Khashimova
+Project 2 - Into the Blue
 
-//
+Interactive audio-visal sequencer.
+- Immerse yourself in a world where there is no meaning, no words, but only SENSATIONS,
+somewhere far and unattainable.
 
+********************/
 "use strict";
 
 // variables for jquery selection
