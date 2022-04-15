@@ -10,4 +10,4 @@ I decided to keep it simple but also complex. So I used HTML, CSS and Jquery to 
 
 Immerse yourself in a world where there is no meaning, no words, but only SENSATIONS, somewhere far and unattainable.
 
-Huge thanks to Pippin and Sharon for their technical help on this project!!! 
+Huge thanks to Pippin and Sharon for their immense technical help on this project!!! 
