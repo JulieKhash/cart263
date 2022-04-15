@@ -1,6 +1,8 @@
 // Julie Khashimova
 // Project 2 - Into the Blue
 
+//
+
 "use strict";
 
 // variables for jquery selection
@@ -136,7 +138,7 @@ function random(element) {
   // generates a random number for positioning
   let verticalPos = Math.floor(Math.random() * h * 1);
   let horizontalPos = Math.floor(Math.random() * w * 1);
-  
+
   // assigns random numbers to image position
   $(element).css({ left: horizontalPos, top: verticalPos });
 }
